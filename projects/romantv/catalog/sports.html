@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · SPORTS · sp1</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="sports" class="">
+
+<!-- RomanTV Sports sp1 LIVE-NOW WALL — standalone fragment (parent defines --bg --panel --panel2 --line --text --dim --accent --gold) -->
+<section class="design" id="sp1">
+<style>
+.roman-tv-sports-sp1{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;color:var(--text);background:var(--bg);min-height:100vh;box-sizing:border-box}
+.roman-tv-sports-sp1 *,.roman-tv-sports-sp1 *::before,.roman-tv-sports-sp1 *::after{box-sizing:border-box}
+.sp1-logo{font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
+.sp1-logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent) 0%,#9b0610 100%);display:grid;place-items:center;font-size:14px;color:#fff;box-shadow:0 4px 14px rgba(229,9,20,.35)}
+.sp1-pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.sp1-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4a5568,var(--gold));display:grid;place-items:center;font-weight:800;color:#111;font-size:.95rem;border:2px solid var(--line)}
+.hero50{position:relative;min-height:50vh;display:grid;gap:0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 120%,rgba(20,160,70,.35) 0%,transparent 50%),radial-gradient(ellipse 90% 60% at 20% -10%,rgba(229,9,20,.28) 0%,transparent 45%),linear-gradient(180deg,#0d1018 0%,var(--bg) 72%)}
+.hero-inner{position:relative;z-index:2;padding:28px 20px 20px;display:flex;flex-direction:column;gap:20px;justify-content:space-between}
+.hero-main-live{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:end}
+@media(max-width:1024px){.hero-main-live{grid-template-columns:1fr}}
+.hero-scoreboard{border:2px solid rgba(20,160,70,.85);border-radius:16px;background:rgba(19,21,26,.85);backdrop-filter:blur(10px);padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.hero-badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.hero-live-pulse{display:inline-flex;align-items:center;gap:8px;color:#ff4545;font-weight:800;font-size:.92rem;text-transform:uppercase;letter-spacing:.08em}
+.hero-live-pulse::before{content:"";width:10px;height:10px;background:#ff2a2a;border-radius:50%;animation:sp1pulse 1.2s infinite}
+@keyframes sp1pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.25)}}
+.hero-vs{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+.hero-team{text-align:center;min-width:120px}
+.hero-team .logo{width:88px;height:88px;margin:0 auto 8px;border-radius:50%;background:linear-gradient(145deg,var(--panel2),#252830);border:3px solid var(--line);display:grid;place-items:center;font-weight:900;font-size:1.6rem;color:var(--gold)}
+.hero-score{font-size:clamp(3rem,7vw,4.75rem);font-weight:900;letter-spacing:-0.03em;line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.65)}
+.hero-mid{font-size:2rem;font-weight:700;color:var(--dim);padding:0 4px}
+.hero-meta{color:var(--dim);font-size:.9rem;margin-top:12px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-watch{display:inline-flex;align-items:center;gap:10px;background:rgba(229,9,20,.22);padding:10px 14px;border-radius:10px;border:1px solid rgba(229,9,20,.55);margin-top:16px;font-weight:700;color:var(--text);font-size:.95rem}
+.tambien h3{font-size:.85rem;font-weight:700;color:var(--dim);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
+.tambien-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:900px){.tambien-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tambien-grid{grid-template-columns:1fr}}
+.mini-live{background:var(--panel);border-radius:12px;padding:14px;border:1px solid var(--line);min-height:72px;display:flex;flex-direction:column;justify-content:center}
+.mini-live .scores{font-weight:800;font-size:.92rem;color:var(--text)}
+.mini-live .sub{font-size:.72rem;color:var(--dim);margin-top:4px}
+.live-counter-bar{display:flex;flex-wrap:wrap;gap:12px;padding:14px 20px;background:linear-gradient(90deg,rgba(229,9,20,.35) 0%,var(--panel) 42%,rgba(230,173,107,.08) 100%);border-bottom:1px solid var(--line);position:sticky;top:60px;z-index:90;font-weight:700;font-size:.93rem}
+.chip-strip-wrap{position:sticky;top:112px;z-index:89;border-bottom:1px solid var(--line);padding-bottom:8px;padding-top:8px}
+.chip-strip{display:flex;gap:8px;overflow-x:auto;scrollbar--webkit-overflow-scrolling:touch;touch-action:pan-x}
+.chip{font-weight:750;font-size:.88rem;white-space:nowrap;cursor:pointer;flex-shrink:0;display:inline-flex;align-items:center;gap:6px}
+.section-block{padding:24px 20px 8px;border-top:1px solid var(--line)}
+.section-block h2{display:flex;align-items:center;gap:10px;font-size:clamp(1.1rem,2vw,1.35rem);font-weight:800;margin:0 0 18px;color:var(--text)}
+.grid-live{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1200px){.grid-live{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid-live{grid-template-columns:1fr}}
+.card{overflow:hidden;display:flex;flex-direction:column;border-border-style:solid;}
+.card-live-top{display:flex;justify-content:space-between;margin-bottom:8px;font-size:.75rem;font-weight:800;text-}
+.live-dot{color:#ff2a2a}
+.clock-top{color:var(--dim)}
+.card-vs{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0;flex-grow:1}
+.team-sm{text-align:center}
+.team-sm .tl{width:56px;height:56px;border-radius:50%;margin:0 auto 6px;background:var(--panel2);border:2px solid var(--line);display:grid;place-items:center;font-weight:900;font-size:1.1rem}
+.score-line{display:flex;align-items:baseline;gap:8px;font-size:clamp(1.55rem,3vw,2.2rem);font-weight:900}
+.league-chip{margin-top:auto;padding-top:12px;text-align:center;font-size:.72rem;border-top:1px solid var(--line)}
+.watch-chip{font-size:.7rem;margin-top:6px;text-align:center}
+.chan-strip-mini{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;justify-content:center}
+.chan-strip-mini span{font-size:.62rem;padding:5px 8px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);color:var(--dim)}
+.pregame-row{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+@media(max-width:1400px){.pregame-row{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:720px){.pregame-row{grid-template-columns:repeat(2,1fr)}}
+.p-card{display:flex;flex-direction:column;gap:10px;}
+.p-card .teams{display:flex;justify-content:space-between;align-items:center;font-weight:750;font-size:.92rem}
+.p-card .clock{font-weight:800;font-size:.82rem;margin-top:auto}
+.final-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:1200px){.final-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.final-row{grid-template-columns:1fr}}
+.f-chip{display:inline-flex;font-size:.72rem;font-weight:750;margin-top:8px;}
+.ppv-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.ppv{border:4px solid var(--gold);border-radius:14px;background:linear-gradient(135deg,#1a1710,var(--panel));padding:18px;display:flex;flex-direction:column;gap:12px}
+.stand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:1024px){.stand-grid{grid-template-columns:1fr}}
+.st-table{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.st-table h4{font-size:.85rem;margin:0 0 10px;font-weight:800;color:var(--gold)}
+.st-table table{width:100%;font-size:.78rem;border-collapse:collapse;color:var(--dim)}
+.st-table th,.st-table td{padding:8px;text-align:left;border-bottom:1px solid var(--line)}
+.st-table tr:last-child td{border-bottom:none}
+.fav-row,.country-row,.filter-chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.f-badge{padding:14px 20px;background:var(--panel2);border-radius:999px;border:2px solid var(--line);font-weight:750;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+@media(min-width:1920px){.roman-tv-sports-sp1{font-size:1.06rem}
+.hero-team .logo{width:112px;height:112px;font-size:2rem}.team-sm .tl{width:72px;height:72px;font-size:1.35rem}
+.chip-strip .chip,.chip{font-size:.95rem}
+.f-badge{padding:18px 24px;min-height:60px;font-size:.95rem}
+.p-card .clock{font-size:1.05rem}}
+@media(min-width:1280px) and (max-width:1919px){.grid-live{gap:16px}}
+@media(max-width:480px){
+.live-counter-bar{position:relative;top:0}
+.hero-score{font-size:2.65rem!important}
+.mini-live .scores{font-size:1rem;line-height:1.25}}
+.toast-btn{cursor:pointer;transition:transform .06s ease}
+.toast-btn:active{transform:scale(.98)}
+</style>
+<div class="sp1-topbar">
+<div class="sp1-logo"><span class="sp1-logo-mark">R</span> RomanTV</div>
+<div class="sp1-search"><input aria-label="Search teams leagues and channels" autocomplete="off" placeholder="Search teams, leagues, channels…" type="search"/></div>
+<nav aria-label="Primary navigation" class="sp1-nav">
+<a href="/">Home</a><a href="/movies">Movies</a><a href="/series">Series</a><a href="/anime">Anime</a><a href="/livetv">Live TV</a>
+<a aria-current="page" class="active" href="/sports">Sports</a><a href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a><a href="/premium-tv">18+</a>
+</nav>
+<button aria-pressed="true" class="sp1-pill is-active" type="button">🇲🇽 México</button>
+<button class="sp1-pill" type="button">EN</button>
+<button aria-label="More options" class="sp1-pill" type="button">⋯</button>
+<div class="sp1-avatar" title="Roman profile">R</div>
+</div>
+<p class="section-block" style="margin:0;padding:14px 20px 10px;display:flex;flex-wrap:wrap;gap:10px;font-size:.85rem;border:none">
+<span style="font-weight:800;color:var(--dim)">View:</span>
+<button aria-current="true" class="chip is-active" type="button">All</button>
+<button class="chip" type="button">🇺🇸 American Sports</button>
+<button class="chip" type="button">🌎 LATAM</button>
+<button class="chip" type="button">🇲🇽 Mexico only</button>
+<button class="chip" type="button">🇪🇸 La Liga</button>
+<button class="chip" type="button">⭐ Favorite teams</button>
+</p>
+<div class="hero50"><div aria-hidden="true" class="hero-bg"></div>
+<div class="hero-inner"><div class="hero-main-live" style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:center;width:100%">
+<article class="hero-scoreboard toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('Liga MX · América vs Pumas')" onkeydown="if(event.key==='Enter'||event.key===' '){typeof openGame==='function'&amp;&amp;openGame('Liga MX · América vs Pumas')}" role="button" style="border:none;box-shadow:none;background:transparent;padding:0;max-width:none" tabindex="0">
+<p class="hero-kicker">LIVE NOW · LIGA MX</p><h1 class="hero-title">América vs Pumas</h1><p class="hero-desc">Multiplex live matchup with instant channel switching and commentary options · 47.3k watching now</p><div class="hero-ctas"><button class="btn-primary" onclick="typeof openGame==='function'&amp;&amp;openGame('Liga MX · América vs Pumas')" type="button">▶ Watch Live</button><button class="btn-secondary" onclick="window.location.href='/sports#scoreboard'" type="button">Open Scoreboard</button></div>
+</article>
+<aside aria-label="Liga MX scoreboard spotlight" class="hero-poster" style="display:flex;justify-content:flex-end"><div class="hero-vs" style="min-width:320px;max-width:420px;background:linear-gradient(160deg,rgba(18,24,38,.9),rgba(7,11,19,.82));border:1px solid rgba(255,255,255,.16);padding:20px 18px;border-radius:20px"><div style="font-size:.82rem;color:var(--dim);margin-bottom:8px">Estadio Azteca · Mexico City · MD 16 · minute 87</div><div style="display:flex;justify-content:center;align-items:center;gap:6px"><span class="hero-score">2</span><span class="hero-mid">—</span><span class="hero-score">1</span></div><div class="hero-vs" style="margin-top:10px"><div class="hero-team"><div class="logo">AME</div><span style="font-size:.78rem;color:var(--dim);font-weight:700">América</span></div><div class="hero-team"><div class="logo">PUM</div><span style="font-size:.78rem;color:var(--dim);font-weight:700">Pumas</span></div></div></div></aside></div></div></div>
+<div class="section-block" style="margin-top:12px"><h2><span aria-hidden="true">🎛️</span> Multiplex picks</h2><div class="hero-meta">TUDN · ESPN Deportes · Fox Sports MX</div><div class="hero-watch">47.3k watching live · simulcasts across 4 channels</div></div>
+<div class="section-block"><h2><span aria-hidden="true">🔴</span> Also live</h2><div class="tambien-grid">
+<div aria-label="MIA 3 - 0 NYY · 6th inning" class="mini-live toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('MIA 3 - 0 NYY · 6th inning')" tabindex="0"><div class="scores">MIA 3 - 0 NYY · 6th inning</div><div class="sub">MLB · Yankee Stadium · ESPN</div></div><div aria-label="DAL 14 — 7 NYG · Q3 4:12" class="mini-live toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('DAL 14 — 7 NYG · Q3 4:12')" tabindex="0"><div class="scores">DAL 14 — 7 NYG · Q3 4:12</div><div class="sub">NFL · MetLife · FOX national</div></div><div aria-label="ESP vs ARG · Boxeo · Round 8" class="mini-live toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('ESP vs ARG · Boxeo · Round 8')" tabindex="0"><div class="scores">ESP vs ARG · Boxeo · Round 8</div><div class="sub">Boxing ring · MGM · worldwide spike</div></div><div aria-label="LAG vs SJ · MLS · second half" class="mini-live toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('LAG vs SJ · MLS · second half')" tabindex="0"><div class="scores">LAG vs SJ · MLS · second half</div><div class="sub">Apple TV+ · rivalry night coastal</div></div></div></div>
+<div aria-live="polite" class="live-counter-bar" role="status">
+  ● <strong>12 GAMES LIVE</strong>
+  · ⚽ 5 soccer
+  · 🏈 2 NFL
+  · 🏀 3 NBA
+  · ⚾ 1 MLB
+  · 🥊 1 boxing
+  · 🏎️ multiplex spread
+  · 🟢 EPG ingest healthy
+</div>
+<div class="chip-strip-wrap"><div aria-label="Sticky sport chip strip" class="chip-strip" role="toolbar">
+<button aria-current="true" class="chip is-active" type="button">🏈 NFL</button>
+<button class="chip" type="button">⚽ Soccer</button>
+<button class="chip" type="button">🏀 NBA</button>
+<button class="chip" type="button">⚾ MLB</button>
+<button class="chip" type="button">🥊 Boxing</button>
+<button class="chip" type="button">🏎️ F1</button>
+<button class="chip" type="button">🥋 UFC</button>
+<button class="chip" type="button">🏒 NHL</button>
+<button class="chip" type="button">🏎️ NASCAR</button>
+</div></div>
+<div class="section-block"><h2><span aria-hidden="true">🔴</span> LIVE NOW · Right This Moment</h2><div class="grid-live">
+<article aria-label="⚽ Liga MX AME vs PUM" class="card card-border-soccer toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('AME vs PUM')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">87'</span></div><div class="card-vs"><div class="team-sm"><div class="tl">AME</div></div><div><div class="score-line"><span>2</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>1</span></div></div><div class="team-sm"><div class="tl">PUM</div></div></div><div class="league-chip">⚽ Liga MX</div><div class="watch-chip">● 47.3k · 4 channels</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏈 NFL DAL vs NYG" class="card card-border-nfl toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('DAL vs NYG')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">Q3 4:23</span></div><div class="card-vs"><div class="team-sm"><div class="tl">DAL</div></div><div><div class="score-line"><span>14</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>7</span></div></div><div class="team-sm"><div class="tl">NYG</div></div></div><div class="league-chip">🏈 NFL</div><div class="watch-chip">● 18.9k · Fox · CBS · Prime</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="⚾ MLB MIA vs NYY" class="card card-border-mlb toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('MIA vs NYY')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">6th</span></div><div class="card-vs"><div class="team-sm"><div class="tl">MIA</div></div><div><div class="score-line"><span>3</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>0</span></div></div><div class="team-sm"><div class="tl">NYY</div></div></div><div class="league-chip">⚾ MLB</div><div class="watch-chip">● 22.1k · ESPN · FS1</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏀 NBA LAL vs BOS" class="card card-border-nba toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('LAL vs BOS')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">Q4 2:41</span></div><div class="card-vs"><div class="team-sm"><div class="tl">LAL</div></div><div><div class="score-line"><span>98</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>94</span></div></div><div class="team-sm"><div class="tl">BOS</div></div></div><div class="league-chip">🏀 NBA</div><div class="watch-chip">● 31.2k · ESPN · TNT</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="⚽ UCL MCI vs RMA" class="card card-border-soccer toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('MCI vs RMA')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">71'</span></div><div class="card-vs"><div class="team-sm"><div class="tl">MCI</div></div><div><div class="score-line"><span>1</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>1</span></div></div><div class="team-sm"><div class="tl">RMA</div></div></div><div class="league-chip">⚽ UCL</div><div class="watch-chip">● 62.8k · CBS · Paramount+</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="⚽ Libertadores FLA vs ARG" class="card card-border-soccer toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('FLA vs ARG')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">82'</span></div><div class="card-vs"><div class="team-sm"><div class="tl">FLA</div></div><div><div class="score-line"><span>2</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>3</span></div></div><div class="team-sm"><div class="tl">ARG</div></div></div><div class="league-chip">⚽ Libertadores</div><div class="watch-chip">● 15.6k · FS2</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏀 NBA DEN vs MIN" class="card card-border-nba toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('DEN vs MIN')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">FINAL</span></div><div class="card-vs"><div class="team-sm"><div class="tl">DEN</div></div><div><div class="score-line"><span>112</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>105</span></div></div><div class="team-sm"><div class="tl">MIN</div></div></div><div class="league-chip">🏀 NBA</div><div class="watch-chip">● 41.4k replay queue</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="⚾ MLB ATL vs NYM" class="card card-border-mlb toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('ATL vs NYM')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">TOP 9</span></div><div class="card-vs"><div class="team-sm"><div class="tl">ATL</div></div><div><div class="score-line"><span>4</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>7</span></div></div><div class="team-sm"><div class="tl">NYM</div></div></div><div class="league-chip">⚾ MLB</div><div class="watch-chip">● 12.9k · TBS · SNY</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏒 NHL DAL vs SEA" class="card card-border-nhl toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('DAL vs SEA')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">OT</span></div><div class="card-vs"><div class="team-sm"><div class="tl">DAL</div></div><div><div class="score-line"><span>4</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>4</span></div></div><div class="team-sm"><div class="tl">SEA</div></div></div><div class="league-chip">🏒 NHL</div><div class="watch-chip">● 8.4k · ESPN</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🥊 Boxeo CNL vs DAV" class="card card-border-boxing toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('CNL vs DAV')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">Rd 11</span></div><div class="card-vs"><div class="team-sm"><div class="tl">CNL</div></div><div><div class="score-line"><span>KO</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>–</span></div></div><div class="team-sm"><div class="tl">DAV</div></div></div><div class="league-chip">🥊 Boxeo</div><div class="watch-chip">● 892k worldwide spike</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏎️ F1 VER vs HAM" class="card card-border-f1 toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('VER vs HAM')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">L54/58</span></div><div class="card-vs"><div class="team-sm"><div class="tl">VER</div></div><div><div class="score-line"><span>GAP</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>–</span></div></div><div class="team-sm"><div class="tl">HAM</div></div></div><div class="league-chip">🏎️ F1</div><div class="watch-chip">● 4.9M · ESPN MX</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article><article aria-label="🏎️ NASCAR ELL vs CHA" class="card card-border-nascar toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('ELL vs CHA')" tabindex="0"><div class="card-live-top"><span class="live-dot">● LIVE</span><span class="clock-top">GREEN</span></div><div class="card-vs"><div class="team-sm"><div class="tl">ELL</div></div><div><div class="score-line"><span>LAP</span><span style="color:var(--dim);font-weight:800;font-size:.82rem;margin:0 3px">vs</span><span>387</span></div></div><div class="team-sm"><div class="tl">CHA</div></div></div><div class="league-chip">🏎️ NASCAR</div><div class="watch-chip">● 2.8M · FOX Sports</div><div class="chan-strip-mini"><span title="Mock channel">TUDN</span><span title="Mock channel">ESPND</span><span title="Mock channel">FoxMX</span><span title="Mock channel">+</span></div></article></div></div>
+<div class="section-block"><h2><span aria-hidden="true">🏟️</span> Tonight's Schedule · Starting in &lt;2h</h2><div class="pregame-row">
+<article aria-label="NFL match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('DAL vs PHI')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">NFL</div><div class="teams"><span>DAL</span><span style="opacity:.62">vs</span><span>PHI</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 8:15 PM CDT · SNF on NBC/NBC Uni</div><div class="clock">Starts in · 3h 12m</div></article><article aria-label="NBA match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('LAL vs GSW')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">NBA</div><div class="teams"><span>LAL</span><span style="opacity:.62">vs</span><span>GSW</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 9:30 PM CDT · ESPN doubleheader B</div><div class="clock">Starts in · 3h 55m</div></article><article aria-label="CNL qualifier match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('MEX vs CAN')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">CNL qualifier</div><div class="teams"><span>MEX</span><span style="opacity:.62">vs</span><span>CAN</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 7:05 PM CDT · TUDN / ViX+</div><div class="clock">Starts in · 2h 41m</div></article><article aria-label="MLB match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('NYY vs BOS')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">MLB</div><div class="teams"><span>NYY</span><span style="opacity:.62">vs</span><span>BOS</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 6:08 PM CDT · ESPN Sunday Night imprint</div><div class="clock">Starts in · 1h 33m</div></article><article aria-label="NBA match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('ATL vs MIA')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">NBA</div><div class="teams"><span>ATL</span><span style="opacity:.62">vs</span><span>MIA</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 8:05 PM CDT · Bally SE</div><div class="clock">Starts in · 3h 10m</div></article><article aria-label="USSF · Cup match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('RSL vs SD')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">USSF · Cup</div><div class="teams"><span>RSL</span><span style="opacity:.62">vs</span><span>SD</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 9:05 PM CDT · Apple bundle</div><div class="clock">Starts in · 4h 02m</div></article><article aria-label="F1 · Sprint eve match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('VER vs HAM')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">F1 · Sprint eve</div><div class="teams"><span>VER</span><span style="opacity:.62">vs</span><span>HAM</span></div><div style="font-size:.78rem;color:var(--dim)">Tomorrow · 4:05 PM CDT · ESPN trackside</div><div class="clock">Starts in · 19h 50m</div></article><article aria-label="Liga MX match preview" class="p-card toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('GDL vs AME')" tabindex="0"><div style="font-size:.74rem;color:var(--gold);font-weight:800">Liga MX</div><div class="teams"><span>GDL</span><span style="opacity:.62">vs</span><span>AME</span></div><div style="font-size:.78rem;color:var(--dim)">Tonight · 9:06 PM CDT · Estadio Akron</div><div class="clock">Starts in · 5h 11m</div></article></div></div>
+<div class="section-block"><h2><span aria-hidden="true">✅</span> Final Scores · Last 3h</h2><div class="final-row">
+<article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>ATL</span><span>4–7</span><span>NYM</span></div><span class="f-chip">Replays available · MLB · replay stack · blackout cleared</span></article><article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>DEN</span><span>129–118</span><span>MEM</span></div><span class="f-chip">Replays available · NBA · Altitude radio sync</span></article><article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>SEA</span><span>24–16</span><span>LAR</span></div><span class="f-chip">Replays available · NFL wild-card preview · FOX</span></article><article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>MEX</span><span>2–2</span><span>JAM</span></div><span class="f-chip">Replays available · Draw highlight · Univision encore</span></article><article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>HOU</span><span>110–117</span><span>BOS</span></div><span class="f-chip">Replays available · NBA · spoilers on</span></article><article class="f-card"><div style="display:flex;justify-content:space-between;font-weight:900"><span>GDL</span><span>1–3</span><span>PAC</span></div><span class="f-chip">Replays available · Liga MX condensed · Univision deportes</span></article></div></div>
+<div class="section-block"><h2><span aria-hidden="true">🥊</span> PPV Tonight</h2><div class="ppv-row">
+<article class="ppv"><div style="font-size:1.05rem;font-weight:900;color:var(--gold)">Canelo vs Bivol · heavyweight narrative</div><div style="font-weight:800">Sat 22:00 CDT · countdown 2d 14h · DAZN PPV funnel · MGM ring walk ETA</div><button class="chip" style="align-self:flex-start;border-color:var(--gold);background:rgba(255,214,107,.14)" type="button">Reminder · countdown push</button></article><article class="ppv"><div style="font-size:1.05rem;font-weight:900;color:var(--gold)">UFC numbered · Apex · co-main frenzy</div><div style="font-weight:800">Sat 21:30 CDT · countdown 1d 06h · ESPN+ bundles · Fight Pass add-on</div><button class="chip" style="align-self:flex-start;border-color:var(--gold);background:rgba(255,214,107,.14)" type="button">Reminder · countdown push</button></article></div></div>
+<div class="section-block"><h2><span aria-hidden="true">📊</span> Standings spotlight</h2><div class="stand-grid"><div class="st-table"><h4>⚽ Liga MX · Clausura · top 5</h4><table><thead><tr><th>#</th><th>Club</th><th>Pts</th><th>Form</th></tr></thead><tbody><tr><td>1</td><td style="color:var(--text);font-weight:700">América</td><td>42</td><td style="letter-spacing:.12em;color:var(--dim)">WWWDW</td></tr><tr><td>2</td><td style="color:var(--text);font-weight:700">Monterrey</td><td>41</td><td style="letter-spacing:.12em;color:var(--dim)">WLWWW</td></tr><tr><td>3</td><td style="color:var(--text);font-weight:700">UANL Tigres</td><td>40</td><td style="letter-spacing:.12em;color:var(--dim)">LWWLW</td></tr><tr><td>4</td><td style="color:var(--text);font-weight:700">Guadalajara</td><td>39</td><td style="letter-spacing:.12em;color:var(--dim)">WDDWL</td></tr><tr><td>5</td><td style="color:var(--text);font-weight:700">Cruz Azul</td><td>37</td><td style="letter-spacing:.12em;color:var(--dim)">WWWLD</td></tr></tbody></table><p style="font-size:.7rem;color:var(--dim);margin:8px 0 0">Tiebreaker: goal difference · GF cascade · standings snapshot only</p></div><div class="st-table"><h4>🏈 NFL · NFC West · top 4</h4><table><thead><tr><th>Team</th><th>W-L</th><th>Outlook</th></tr></thead><tbody><tr><td style="color:var(--text);font-weight:700">LAR</td><td>10–6</td><td>Playoffs · Stafford efficiency</td></tr><tr><td style="color:var(--text);font-weight:700">SEA</td><td>9–7</td><td>Wildcard scramble</td></tr><tr><td style="color:var(--text);font-weight:700">SF</td><td>8–9</td><td>Injury report heavy</td></tr><tr><td style="color:var(--text);font-weight:700">ARI</td><td>5–13</td><td>Draft capital storyline</td></tr></tbody></table></div><div class="st-table"><h4>🏀 NBA East · top 5</h4><table><thead><tr><th>Team</th><th>W-L</th><th>Notes</th></tr></thead><tbody><tr><td style="color:var(--text);font-weight:700">BOS</td><td>38–21</td><td>Rotation plus · home court chase</td></tr><tr><td style="color:var(--text);font-weight:700">NY</td><td>36–24</td><td>Bench wave · Garden pressure</td></tr><tr><td style="color:var(--text);font-weight:700">MIA</td><td>35–26</td><td>Defense identity · Bam watch</td></tr><tr><td style="color:var(--text);font-weight:700">ORL</td><td>32–29</td><td>Young legs · spoiler role</td></tr><tr><td style="color:var(--text);font-weight:700">PHI</td><td>31–31</td><td>Ramp schedule · Joel minutes</td></tr></tbody></table></div></div></div>
+<div class="section-block"><h2><span aria-hidden="true">⭐</span> Your Favorite Teams</h2><div class="fav-row"><button class="f-badge toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('Pumas UNAM')" type="button">🐆 Pumas</button><button class="f-badge toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('Dallas Cowboys')" type="button">⭐ Cowboys</button><button class="f-badge toast-btn" onclick="typeof openGame==='function'&amp;&amp;openGame('LA Lakers')" type="button">💜 Lakers</button></div></div>
+<div class="section-block"><h2><span aria-hidden="true">🌎</span> By Country</h2><nav aria-label="Country catalog presets" class="country-row"><button aria-label="Filter catalog Mexico" class="f-badge" title="Liga MX + LMB anchors" type="button">🇲🇽 Mexico</button><button aria-label="Filter catalog United States" class="f-badge" title="NFL NCAA NBA NASCAR heavy bundle" type="button">🇺🇸 United States</button><button aria-label="Filter catalog Spain" class="f-badge" title="La Liga ladder" type="button">🇪🇸 Spain</button><button aria-label="Filter catalog Brazil" class="f-badge" title="Libertadores rails" type="button">🇧🇷 Brazil</button><button aria-label="Filter catalog Argentina" class="f-badge" title="Primera derby stack" type="button">🇦🇷 Argentina</button><button aria-label="Filter catalog Colombia" class="f-badge" title="CategoríaPrimera derby" type="button">🇨🇴 Colombia</button></nav></div>
+<div class="section-block" style="border-bottom:none;padding-bottom:40px"><h2>Filter chips · region mirror for ES rollout</h2><div class="filter-chip-row"><button class="chip" type="button">🌎 LATAM (active preset)</button><button class="chip" type="button">🇲🇽 Mexico only</button><button class="chip" type="button">🇺🇸 American Sports</button><button class="chip" type="button">🇪🇸 La Liga</button><button class="chip" type="button">⭐ Favorite teams synced</button></div><div aria-label="Secondary sport ladder" class="chip-strip" role="toolbar" style="padding:12px 20px"><button class="chip" type="button">🏈 NFL</button><button class="chip" type="button">⚽ Soccer · global</button><button class="chip" type="button">🏀 NBA</button><button class="chip" type="button">⚾ MLB</button><button class="chip" type="button">🥊 Boxing</button><button class="chip" type="button">🏎️ F1</button><button class="chip" type="button">🥋 UFC</button><button class="chip" type="button">🏒 NHL</button><button class="chip" type="button">🏎️ NASCAR</button></div><p style="margin:22px 0 0;color:var(--dim);font-size:.78rem;line-height:1.7;max-width:112ch">Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). Appointment-first UX: dad opens RomanTV Sports at primetime CDT and lands on Liga MX marquee with minute clock, four-channel funnel, and multiplex chip strip mimicking ESPN bottom line. Separate Esports tab isolates Twitch / match lobby signals. Tiles call openGame() for Chromecast + Android TV parity. LANGUAGE-AWARE SORT: toggle EN prioritizes NFL/NBA/MLB ladders; toggle ES boosts Liga MX, Selección, Libertadores ribbons without duplicating markup (future data-attribute sort). </p></div><!-- sp1-design-integration-slot-00000: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00001: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00002: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00003: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00004: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00005: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00006: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00007: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00008: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00009: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00010: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00011: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00012: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00013: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00014: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00015: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00016: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00017: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00018: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00019: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00020: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00021: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00022: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00023: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00024: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00025: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00026: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00027: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00028: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00029: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00030: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00031: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00032: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00033: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00034: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00035: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00036: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00037: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00038: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00039: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00040: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00041: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00042: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00043: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00044: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00045: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00046: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00047: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00048: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00049: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00050: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00051: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00052: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00053: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00054: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00055: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00056: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00057: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00058: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00059: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00060: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00061: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00062: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00063: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00064: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00065: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00066: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00067: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00068: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00069: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00070: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00071: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00072: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00073: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00074: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00075: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00076: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00077: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00078: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00079: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00080: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00081: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00082: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00083: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00084: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00085: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00086: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00087: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00088: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00089: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00090: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00091: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00092: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00093: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00094: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00095: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00096: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00097: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00098: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00099: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00100: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00101: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00102: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00103: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00104: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00105: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00106: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00107: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00108: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00109: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00110: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00111: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00112: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00113: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00114: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00115: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00116: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00117: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00118: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00119: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00120: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00121: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00122: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00123: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00124: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00125: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00126: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00127: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00128: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00129: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00130: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00131: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00132: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00133: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00134: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00135: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00136: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00137: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00138: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00139: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00140: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00141: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00142: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00143: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00144: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00145: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00146: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00147: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00148: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00149: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00150: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00151: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00152: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00153: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00154: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00155: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00156: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00157: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00158: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00159: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00160: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00161: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00162: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00163: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00164: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00165: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00166: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00167: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00168: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00169: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00170: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00171: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00172: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00173: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00174: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00175: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00176: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00177: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00178: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00179: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00180: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00181: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00182: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00183: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00184: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00185: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00186: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00187: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00188: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00189: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00190: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00191: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00192: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00193: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00194: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00195: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00196: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00197: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00198: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00199: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00200: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00201: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00202: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00203: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00204: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00205: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00206: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00207: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00208: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00209: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00210: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00211: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00212: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00213: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00214: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00215: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00216: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00217: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00218: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00219: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00220: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00221: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00222: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00223: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00224: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00225: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00226: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00227: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00228: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00229: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00230: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00231: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00232: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00233: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00234: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00235: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00236: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00237: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00238: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00239: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00240: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00241: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00242: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00243: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00244: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00245: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00246: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00247: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00248: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00249: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00250: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00251: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00252: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00253: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00254: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00255: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00256: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00257: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00258: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00259: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00260: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00261: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00262: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00263: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00264: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00265: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00266: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00267: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00268: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00269: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00270: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00271: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00272: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00273: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00274: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00275: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00276: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00277: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00278: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00279: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00280: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00281: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00282: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00283: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00284: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00285: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00286: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00287: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00288: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00289: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00290: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00291: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00292: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00293: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00294: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00295: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00296: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00297: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00298: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00299: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00300: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00301: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00302: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00303: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00304: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00305: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00306: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00307: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00308: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00309: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00310: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00311: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00312: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00313: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00314: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00315: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00316: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00317: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00318: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00319: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00320: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00321: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00322: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00323: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00324: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00325: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00326: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00327: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00328: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00329: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00330: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00331: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00332: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00333: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00334: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00335: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00336: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00337: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00338: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00339: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00340: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00341: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00342: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00343: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00344: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00345: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00346: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00347: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00348: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00349: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00350: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00351: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00352: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00353: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00354: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00355: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00356: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00357: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00358: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00359: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00360: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00361: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00362: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00363: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00364: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00365: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00366: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00367: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00368: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00369: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00370: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00371: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00372: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00373: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00374: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00375: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00376: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00377: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00378: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00379: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00380: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00381: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00382: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00383: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00384: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00385: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00386: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00387: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00388: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00389: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00390: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00391: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00392: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00393: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00394: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00395: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00396: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00397: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00398: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00399: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00400: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00401: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00402: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00403: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00404: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00405: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00406: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00407: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00408: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00409: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00410: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00411: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00412: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00413: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00414: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00415: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00416: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00417: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00418: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00419: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00420: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00421: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00422: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00423: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00424: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00425: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00426: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00427: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00428: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00429: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00430: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00431: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00432: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00433: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00434: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00435: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00436: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00437: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00438: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00439: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00440: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00441: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00442: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00443: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00444: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00445: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00446: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00447: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00448: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00449: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00450: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00451: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00452: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00453: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00454: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00455: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00456: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00457: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00458: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00459: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00460: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00461: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00462: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00463: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00464: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00465: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00466: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00467: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00468: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00469: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00470: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00471: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00472: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00473: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00474: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00475: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00476: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00477: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00478: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00479: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00480: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00481: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00482: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00483: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00484: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00485: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00486: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00487: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00488: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00489: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00490: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00491: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00492: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00493: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00494: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00495: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00496: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00497: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00498: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00499: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00500: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00501: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00502: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00503: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00504: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00505: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00506: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00507: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00508: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00509: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00510: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00511: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00512: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00513: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00514: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00515: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00516: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00517: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00518: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00519: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00520: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00521: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00522: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00523: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00524: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00525: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00526: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00527: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00528: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00529: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00530: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00531: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00532: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00533: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00534: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00535: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00536: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00537: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00538: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00539: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00540: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00541: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00542: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00543: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00544: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00545: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00546: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00547: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00548: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00549: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00550: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00551: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00552: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00553: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00554: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00555: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00556: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00557: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00558: catalog merge nigma_shared+iptv-org sports lane reserved -->
+<!-- sp1-design-integration-slot-00559: catalog merge nigma_shared+iptv-org sports lane reserved -->
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "sports",
+  endpoints: ["/api/rows?filter=sports", "/api/sports/live", "/api/sports/next", "/api/sports/upcoming"],
+  selectors: [".tambien-grid", ".grid-live", ".pregame-row", ".final-row", ".ppv-row", ".fav-row", ".country-row"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=23"></script>
+
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.46 (2026-04-29): unify sports to the rail-of-tiles pattern.
+// Hides legacy mock sections, injects v1a-row containers that the phase4
+// hydrator paints with real Nigma data from /api/rows?filter=sports.
+(function(){
+  function init() {
+    try {
+      // 1) Hide legacy mock content
+      var hideSels = ["#sp1 > .hero50, #sp1 > section.sp1-multiplex, #sp1 > .sp1-also-live, #sp1 > .sp1-pregame, #sp1 > .sp1-final, #sp1 > .sp1-ppv, #sp1 > .sp1-favorites, #sp1 > .sp1-by-country, .hero-bg, .hero-inner"];
+      hideSels.forEach(function(sel){
+        document.querySelectorAll(sel).forEach(function(el){ el.style.display = "none"; });
+      });
+
+      // 2) Inject 6 v1a-row containers below the page header
+      var anchor = document.querySelector("#sp1 > header, #sp1 > .topbar, #sp1 > nav") || document.querySelector("#sp1");
+      if (!anchor) return;
+      var injectAfter = anchor;
+      // Find a non-hidden chip row to anchor below if it exists
+      var chipRow = document.querySelector("#sp1 .sports-pills, #sp1 .sports-chips, #sp1 .es1-pill-row, #sp1 .sp1-pill-row, #sp1 .k4-chip-row");
+      if (chipRow && chipRow.offsetParent) injectAfter = chipRow;
+
+      var n_rows = 6;
+      for (var i = 0; i < n_rows; i++){
+        var sec = document.createElement("section");
+        sec.className = "v1a-row";
+        sec.setAttribute("aria-label", "Row " + (i+1));
+        sec.style.cssText = "padding:24px 28px 8px;display:none;";
+        sec.innerHTML =
+          '<div class="v1a-row-h" style="display:flex;align-items:baseline;gap:14px;margin-bottom:10px;">' +
+            '<h2 class="v1a-row-title" style="margin:0;font:800 1.15rem/1.1 sans-serif;color:#fff;">Loading…</h2>' +
+          '</div>' +
+          '<div class="v1a-scroller" style="display:flex;gap:14px;overflow-x:auto;padding:4px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;"></div>';
+        injectAfter.parentNode.insertBefore(sec, injectAfter.nextSibling);
+        injectAfter = sec;
+      }
+
+      // 3) Override the page's __CATALOG_PIPE_CFG__ to use our endpoint + selectors
+      window.__CATALOG_PIPE_CFG__ = {
+        tab: "sports",
+        endpoints: ["/api/rows?filter=sports"],
+        selectors: [".v1a-scroller"]
+      };
+      // Reveal injected rows after a tick (let hydrator populate)
+      setTimeout(function(){
+        document.querySelectorAll("#sp1 > section.v1a-row").forEach(function(s){ s.style.display = ""; });
+      }, 200);
+    } catch(e) {
+      console.error("[RTV v1.46] sports injection err:", e);
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    // run after a short delay so the page's own scripts can finish
+    setTimeout(init, 50);
+  }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_stats.js?v=3" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

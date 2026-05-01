@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · LIVE TV · lt1</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="livetv" class="">
+
+<section class="design" id="lt1">
+<style>
+
+/* lt1 — RomanTV Live TV · EPG grid · parent page supplies --bg --panel --panel2 --line --text --dim --accent --gold */
+#lt1.design {
+  --lt-hero-h: clamp(200px, 30vh, 420px);
+  --lt-radius: 12px;
+  --lt-radius-lg: 16px;
+  --lt-shadow: 0 8px 32px rgba(0,0,0,.45);
+  --lt-font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--lt-font);
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+#lt1.design *, #lt1.design *::before, #lt1.design *::after { box-sizing: border-box; }
+#lt1 .visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+#lt1 .lt-wrap { max-width: 1920px; margin: 0 auto; padding: 0 24px 48px; }
+#lt1 .lt-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+#lt1 .lt-logo {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: conic-gradient(from 210deg, var(--accent), #ff6b35, var(--gold), var(--accent));
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 14px; letter-spacing: -0.02em;
+  color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+#lt1 .lt-brand-text { line-height: 1.1; }
+#lt1 .lt-brand-text strong { display: block; font-size: 15px; letter-spacing: 0.04em; }
+#lt1 .lt-brand-text span { font-size: 11px; color: var(--dim); }
+#lt1 .lt-pills { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+#lt1 .lt-pill {
+  font-size: 12px; font-weight: 700;  
+  cursor: pointer;  display: inline-flex; align-items: center; gap: 6px;
+}
+#lt1 .lt-ava {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--panel2), var(--line));
+  border: 2px solid var(--line);
+  display: grid; place-items: center; font-weight: 800; font-size: 14px; cursor: pointer;
+}
+#lt1 .lt-region-label { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin-right: 4px; }
+
+#lt1 .lt-hero { min-height: var(--lt-hero-h); padding: 20px 0 8px; }
+#lt1 .lt-hero-head {
+  display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  margin-bottom: 16px;
+}
+#lt1 .lt-hero-head h1 { font-size: clamp(22px, 3vw, 32px); margin: 0; font-weight: 800; }
+#lt1 .lt-hero-head p { margin: 0; color: var(--dim); font-size: 14px; }
+#lt1 .lt-hero .hero-title { color: var(--text); }
+#lt1 .lt-hero .btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-left: 4px solid var(--gold);
+}
+#lt1 .lt-hero .btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+}
+
+#lt1 .lt-spotlight-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+#lt1 .lt-spot {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--lt-radius-lg);
+  overflow: hidden;
+  display: grid; grid-template-columns: 120px 1fr; min-height: 140px;
+  box-shadow: var(--lt-shadow);
+  transition: transform .12s, border-color .12s;
+}
+#lt1 .lt-spot:hover { transform: translateY(-2px); border-color: var(--accent); }
+#lt1 .lt-spot-media {
+  position: relative; background: var(--panel2);
+  display: flex; align-items: center; justify-content: center; padding: 12px;
+}
+#lt1 .lt-spot-media img { max-width: 88px; max-height: 88px; object-fit: contain; border-radius: 8px; }
+#lt1 .lt-live-dot {
+  position: absolute; top: 10px; right: 10px;
+  width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(229,9,20,.35);
+  animation: lt-pulse 1.4s ease-in-out infinite;
+}
+@keyframes lt-pulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+#lt1 .lt-spot-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+#lt1 .lt-spot-kicker { font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: .06em; text-transform: uppercase; }
+#lt1 .lt-spot-title { font-size: 18px; font-weight: 800; line-height: 1.2; margin: 0; }
+#lt1 .lt-spot-meta { font-size: 12px; color: var(--dim); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+#lt1 .lt-spot-watch {
+  margin-top: auto; align-self: flex-start;
+  background: var(--accent); color: #fff; border: none; border-radius: 10px;
+  padding: 10px 18px; font-weight: 800; font-size: 13px; cursor: pointer;
+  min-height: 44px; display: inline-flex; align-items: center; gap: 8px;
+}
+#lt1 .lt-spot-watch:hover { filter: brightness(1.08); }
+
+#lt1 .lt-section-label { display: flex; align-items: center; justify-content: space-between; margin: 24px 0 12px; }
+#lt1 .lt-section-label h2 { margin: 0; font-size: 18px; font-weight: 800; }
+#lt1 .lt-section-label span { font-size: 13px; color: var(--dim); }
+
+#lt1 .lt-rail { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+#lt1 .lt-rail::-webkit-scrollbar { height: 6px; }
+
+#lt1 .lt-recent-tile {
+  flex: 0 0 200px; scroll-snap-align: start;
+   cursor: pointer; 
+   display: flex; flex-direction: column; gap: 8px;
+}
+#lt1 .lt-recent-top { display: flex; gap: 10px; align-items: center; }
+#lt1 .lt-recent-top img { width: 48px; height: 48px; object-fit: contain; border-radius: 6px; background: var(--panel2); }
+#lt1 .lt-recent-name { font-weight: 700; font-size: 13px; line-height: 1.2; }
+#lt1 .lt-recent-now { font-size: 11px; color: var(--dim); line-height: 1.35; }
+#lt1 .lt-recent-cta { margin-top: auto; font-size: 12px; font-weight: 800; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+
+#lt1 .lt-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
+#lt1 .lt-chip {
+  font-size: 12px; font-weight: 700;  
+  cursor: pointer;  display: inline-flex; align-items: center; gap: 6px;
+}
+
+#lt1 .lt-epg-shell {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--lt-radius-lg);
+  overflow: hidden; margin-top: 16px;
+}
+#lt1 .lt-epg-head { display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line); background: var(--panel2); }
+#lt1 .lt-epg-head-ch { padding: 12px 16px; font-size: 11px; font-weight: 800; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+#lt1 .lt-epg-times { display: grid; grid-template-columns: repeat(6, 1fr); border-left: 1px solid var(--line); }
+#lt1 .lt-epg-time-cell {
+  padding: 12px 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--dim);
+  border-right: 1px solid var(--line);
+}
+#lt1 .lt-epg-time-cell:last-child { border-right: none; }
+
+#lt1 .lt-epg-body { max-height: min(70vh, 980px); overflow-y: auto; }
+#lt1 .lt-epg-row { display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line); min-height: 72px; }
+#lt1 .lt-epg-row:last-child { border-bottom: none; }
+#lt1 .lt-epg-ch {
+  padding: 10px 14px; display: flex; align-items: center; gap: 12px;
+  background: linear-gradient(90deg, var(--panel2), transparent);
+  border-right: 1px solid var(--line);
+}
+#lt1 .lt-epg-ch img { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; background: var(--panel); }
+#lt1 .lt-epg-ch-info { min-width: 0; }
+#lt1 .lt-epg-ch-num { font-size: 11px; font-weight: 800; color: var(--gold); }
+#lt1 .lt-epg-ch-name { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#lt1 .lt-lock { display: inline-flex; margin-left: 6px; opacity: .85; }
+
+#lt1 .lt-epg-timeline-wrap { position: relative; padding: 8px 0; overflow-x: auto; }
+#lt1 .lt-epg-timeline {
+  position: relative; min-width: 720px; height: 56px; margin: 0 8px;
+  background: repeating-linear-gradient(90deg, transparent, transparent calc(100%/6 - 1px), var(--line) calc(100%/6 - 1px), var(--line) calc(100%/6));
+  border-radius: 8px;
+}
+#lt1 .lt-now-line {
+  position: absolute; top: -4px; bottom: -4px; left: 33.33%;
+  width: 2px; background: var(--accent);
+  box-shadow: 0 0 12px var(--accent); z-index: 5; pointer-events: none;
+}
+#lt1 .lt-now-line::before {
+  content: "NOW"; position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 800; color: var(--accent); white-space: nowrap;
+}
+
+#lt1 .lt-prog {
+  position: absolute; top: 4px; bottom: 4px;
+  border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 700;
+  cursor: pointer; overflow: hidden; border: 1px solid rgba(255,255,255,.08);
+  transition: transform .1s, box-shadow .1s; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  min-height: 44px; color: var(--text);
+}
+#lt1 .lt-prog:hover { transform: scale(1.02); box-shadow: 0 4px 16px rgba(0,0,0,.4); z-index: 4; }
+#lt1 .lt-prog small { font-weight: 600; color: rgba(255,255,255,.75); font-size: 10px; }
+
+#lt1 .lt-p1 { left: 0.5%; width: 30%; }
+#lt1 .lt-p2 { left: 32%; width: 18%; }
+#lt1 .lt-p3 { left: 52%; width: 15%; }
+#lt1 .lt-p4 { left: 69%; width: 14%; }
+#lt1 .lt-p5 { left: 85%; width: 14.2%; }
+
+#lt1 .lt-lane { margin-top: 28px; }
+#lt1 .lt-lane-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+#lt1 .lt-lane-head h3 { margin: 0; font-size: 16px; font-weight: 800; }
+#lt1 .lt-lane-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+#lt1 .lt-tile {
+   cursor: pointer; 
+  display: flex; flex-direction: column; gap: 8px; 
+}
+#lt1 .lt-tile.lt-locked { opacity: .55; position: relative; }
+#lt1 .lt-tile.lt-locked::after {
+  content: ""; position: absolute; inset: 0; 
+  pointer-events: none;
+}
+#lt1 .lt-tile-top { display: flex; align-items: center; gap: 8px; }
+#lt1 .lt-tile-top img {   object-fit: contain;   }
+#lt1 .lt-tile-name { font-weight: 800; font-size: 12px; line- }
+#lt1 .lt-tile-epg { font-size: 10px;  line- }
+#lt1 .lt-tile-next { font-size: 10px;  opacity: .9; }
+
+#lt1 .lt-ppv {
+  margin-top: 32px; padding: 20px;
+  border: 2px solid var(--gold); border-radius: var(--lt-radius-lg);
+  background: linear-gradient(135deg, rgba(255,214,107,.08), transparent);
+}
+#lt1 .lt-ppv h3 { margin: 0 0 14px; font-size: 17px; font-weight: 800; color: var(--gold); }
+#lt1 .lt-ppv-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+#lt1 .lt-ppv-card strong { display: block; font-size: 15px; margin-bottom: 8px; }
+#lt1 .lt-countdown { font-family: ui-monospace, monospace; font-size: 13px; color: var(--gold); }
+
+#lt1 .lt-footer {
+  margin-top: 40px; padding: 24px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: var(--lt-radius-lg);
+}
+#lt1 .lt-footer h4 { margin: 0 0 12px; font-size: 14px; font-weight: 800; color: var(--dim); text-transform: uppercase; letter-spacing: .06em; }
+#lt1 .lt-settings-rail { display: flex; flex-wrap: wrap; gap: 12px; }
+#lt1 .lt-set-btn {
+  padding: 12px 18px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--panel2); color: var(--text); font-weight: 700; font-size: 13px; cursor: pointer;
+  min-height: 44px;
+}
+#lt1 .lt-set-btn:hover { border-color: var(--accent); }
+
+#lt1 .lt-toast-host { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 9999; pointer-events: none; }
+#lt1 .lt-toast {
+  background: var(--panel2); border: 1px solid var(--line); color: var(--text);
+  padding: 14px 22px; border-radius: 12px; font-size: 14px; font-weight: 600;
+  box-shadow: var(--lt-shadow); max-width: min(92vw, 480px); text-align: center;
+  opacity: 0; transition: opacity .2s; pointer-events: none;
+}
+#lt1 .lt-toast.lt-show { opacity: 1; }
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  #lt1 .lt-wrap { padding: 0 28px 56px; }
+}
+
+@media (max-width: 480px) {
+  #lt1 .lt-spotlight-row { grid-template-columns: 1fr; }
+  #lt1 .lt-spot { grid-template-columns: 100px 1fr; min-height: 120px; }
+  #lt1 .lt-epg-head, #lt1 .lt-epg-row { grid-template-columns: 160px 1fr; }
+  #lt1 .lt-epg-ch { padding: 8px 10px; gap: 8px; }
+  #lt1 .lt-epg-ch img { width: 36px; height: 36px; }
+  #lt1 .lt-recent-tile { flex: 0 0 170px; }
+}
+
+@media (min-width: 1920px) {
+  #lt1 .lt-pill, #lt1 .lt-chip, #lt1 .lt-spot-watch, #lt1 .lt-set-btn {  font-size: 15px; padding-left: 22px; padding-right: 22px; }
+  #lt1 .lt-ava { width: 60px; height: 60px; font-size: 18px; }
+  #lt1 .lt-prog { min-height: 60px; font-size: 13px; }
+}
+
+body.input-dpad #lt1.design a:focus-visible,
+body.input-dpad #lt1.design button:focus-visible,
+body.input-dpad #lt1.design .lt-tile:focus-visible,
+body.input-dpad #lt1.design .lt-recent-tile:focus-visible,
+body.input-dpad #lt1.design .lt-prog:focus-visible,
+body.input-dpad #lt1.design .lt-chip:focus-visible,
+body.input-dpad #lt1.design .lt-pill:focus-visible {
+  outline: 3px solid var(--gold); outline-offset: 3px;
+}
+
+</style>
+<div class="lt-toast-host" id="lt1-toast-host"><div class="lt-toast" id="lt1-toast-el"></div></div>
+<header aria-label="RomanTV navigation" class="lt-top">
+<div class="lt-brand">
+<div aria-hidden="true" class="lt-logo">RT</div>
+<div class="lt-brand-text"><strong>ROMANTV</strong><span>LIVE · Family</span></div>
+</div>
+<div class="lt-search-wrap">
+<label class="visually-hidden" for="lt1-search">Search channel</label>
+<input aria-label="Search channel" autocomplete="off" class="lt-search" id="lt1-search" placeholder="Search channel..." type="search"/>
+</div>
+<nav aria-label="Primary" class="lt-nav">
+<a href="/">Home</a>
+<a href="/movies">Movies</a>
+<a href="/series">Series</a>
+<a href="/anime">Anime</a>
+<a aria-current="page" class="lt-active" href="/livetv">Live TV</a>
+<a href="/sports">Sports</a>
+<a href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a href="/premium-tv">18+</a>
+</nav>
+<div class="lt-pills is-active">
+<span class="lt-region-label">Region</span>
+<button class="lt-pill lt-pill-on is-active" title="American catalog" type="button">🇺🇸 American</button>
+<button class="lt-pill" title="English UI" type="button">EN</button>
+</div>
+<div aria-label="Profile R" class="lt-ava" title="Profile: Roman">R</div>
+</header>
+<div class="lt-wrap">
+<section aria-label="Hero spotlight" class="lt-hero">
+<div aria-hidden="true" class="hero-bg"></div>
+<div class="lt-hero-head">
+<div class="hero-content">
+<p class="hero-kicker">LIVE NOW · LIGA MX</p>
+<h1 class="hero-title">Liga MX build-up</h1>
+<p class="hero-desc">7,355 American channels · 164 Mexican channels · 1,360 LATAM-native streams · live now</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openChannel('TUDN')" type="button">▶ Watch Now</button>
+<button class="btn-secondary" onclick="window.location.href='/live'" type="button">Browse all channels</button>
+</div>
+</div>
+<div aria-label="Live channel collage" class="hero-poster" style="display:flex;justify-content:flex-end">
+<div style="display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:12px;max-width:360px;width:100%;padding:12px;border-radius:20px;background:linear-gradient(160deg,rgba(15,21,35,.9),rgba(7,11,19,.84));border:1px solid rgba(255,255,255,.16)">
+<div style="padding:10px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:800;text-align:center">TUDN</div>
+<div style="padding:10px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:800;text-align:center">ESPN Deportes</div>
+<div style="padding:10px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:800;text-align:center">ABC News</div>
+<div style="padding:10px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:800;text-align:center">Univision</div>
+</div>
+</div>
+</div></section>
+<div class="lt-section-label">
+<h2>Also live right now · top picks</h2>
+<span>Direct access to trending channels</span>
+</div>
+<div class="lt-spotlight-row">
+<article class="lt-spot tile tile--landscape" onclick="openChannel('Univision')" role="button" tabindex="0">
+<div class="lt-spot-media"><span aria-hidden="true" class="lt-live-dot"></span><img alt="" height="88" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="88"/></div>
+<div class="lt-spot-body"><span class="tile-meta">Top news</span><h3 class="tile-title">Noticiero Univisión · Live desk</h3><div class="hero-desc"><span>Ends 8:30 PM CDT</span><span>● LIVE 12.4k watching</span></div><button class="btn-primary" onclick="event.stopPropagation();openChannel('Univision')" type="button">▶ Watch Now</button></div>
+</article>
+<article class="lt-spot tile tile--landscape" onclick="openChannel('TUDN')" role="button" tabindex="0">
+<div class="lt-spot-media"><span aria-hidden="true" class="lt-live-dot"></span><img alt="" height="88" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="88"/></div>
+<div class="lt-spot-body"><span class="tile-meta">Top sports</span><h3 class="tile-title">TUDN · Liga MX build-up</h3><div class="hero-desc"><span>Ends 9:15 PM CDT</span><span>● LIVE 28.1k watching</span></div><button class="btn-primary" onclick="event.stopPropagation();openChannel('TUDN')" type="button">▶ Watch Now</button></div>
+</article>
+<article class="lt-spot tile tile--landscape" onclick="openChannel('Las Estrellas')" role="button" tabindex="0">
+<div class="lt-spot-media"><span aria-hidden="true" class="lt-live-dot"></span><img alt="" height="88" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="88"/></div>
+<div class="lt-spot-body"><span class="tile-meta">Top novela</span><h3 class="tile-title">Las Estrellas · La Rosa de Guadalupe</h3><div class="hero-desc"><span>Ends 9:00 PM CDT</span><span>● LIVE 41.2k watching</span></div><button class="btn-primary" onclick="event.stopPropagation();openChannel('Las Estrellas')" type="button">▶ Watch Now</button></div>
+</article>
+</div>
+<div class="lt-section-label">
+<h2>Recent channels</h2>
+<span>Continue watching · last 5 for tap-back</span>
+</div>
+<div aria-label="Recent channels" class="lt-rail"><div class="lt-recent-tile" onclick="openChannel('TUDN')" role="button" tabindex="0">
+<div class="lt-recent-top">
+<img alt="" height="48" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="48"/>
+<div class="lt-recent-name">TUDN</div>
+</div>
+<div class="lt-recent-now">Now: Contacto Deportivo · 8:00 PM</div>
+<div class="lt-recent-now">Next: Liga MX · 9:30 PM</div>
+<div class="lt-recent-cta">▶ Tap-back</div>
+</div><div class="lt-recent-tile" onclick="openChannel('Las Estrellas')" role="button" tabindex="0">
+<div class="lt-recent-top">
+<img alt="" height="48" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="48"/>
+<div class="lt-recent-name">Las Estrellas</div>
+</div>
+<div class="lt-recent-now">Now: Noticiero Estrellas · 8:00 PM</div>
+<div class="lt-recent-now">Next: Novela · 9:00 PM</div>
+<div class="lt-recent-cta">▶ Tap-back</div>
+</div><div class="lt-recent-tile" onclick="openChannel('Discovery Kids')" role="button" tabindex="0">
+<div class="lt-recent-top">
+<img alt="" height="48" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="48"/>
+<div class="lt-recent-name">Discovery Kids</div>
+</div>
+<div class="lt-recent-now">Now: Peppa Pig · 8:00 PM</div>
+<div class="lt-recent-now">Next: The Loud House · 8:45 PM</div>
+<div class="lt-recent-cta">▶ Tap-back</div>
+</div><div class="lt-recent-tile" onclick="openChannel('Univision')" role="button" tabindex="0">
+<div class="lt-recent-top">
+<img alt="" height="48" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="48"/>
+<div class="lt-recent-name">Univision</div>
+</div>
+<div class="lt-recent-now">Now: El Gordo y La Flaca · 8:00 PM</div>
+<div class="lt-recent-now">Next: Primer Impacto · 10:00 PM</div>
+<div class="lt-recent-cta">▶ Tap-back</div>
+</div><div class="lt-recent-tile" onclick="openChannel('ESPN')" role="button" tabindex="0">
+<div class="lt-recent-top">
+<img alt="" height="48" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="48"/>
+<div class="lt-recent-name">ESPN</div>
+</div>
+<div class="lt-recent-now">Now: SportsCenter LA · 8:00 PM</div>
+<div class="lt-recent-now">Next: NFL Live · 9:00 PM</div>
+<div class="lt-recent-cta">▶ Tap-back</div>
+</div></div>
+<div aria-label="Catalog filters" class="lt-filters" role="toolbar">
+<button class="lt-chip" type="button">View: All</button>
+<button class="lt-chip" type="button">🌎 LATAM</button><button class="lt-chip" type="button">🇲🇽 Mexico only</button>
+<button class="lt-chip lt-chip-on is-active" type="button">🇺🇸 American</button>
+<button class="lt-chip" type="button">🇪🇸 Spain</button>
+<button class="lt-chip" type="button">⭐ Favorites</button>
+<button class="lt-chip" type="button">🔒 Blocked</button>
+</div>
+<div class="lt-section-label">
+<h2>Live EPG grid</h2>
+<span>22 channels · timeline 12:00–2:30 · click a program for detail</span>
+</div>
+<div class="lt-epg-shell">
+<div class="lt-epg-head">
+<div class="lt-epg-head-ch">Channel</div>
+<div class="lt-epg-times">
+<div class="lt-epg-time-cell">12:00</div>
+<div class="lt-epg-time-cell">12:30</div>
+<div class="lt-epg-time-cell">1:00</div>
+<div class="lt-epg-time-cell">1:30</div>
+<div class="lt-epg-time-cell">2:00</div>
+<div class="lt-epg-time-cell">2:30</div>
+</div>
+</div>
+<div class="lt-epg-body">
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Las Estrellas')" onkeydown="if(event.key==='Enter')openChannel('Las Estrellas')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 02 · Las Estrellas</div>
+<div class="lt-epg-ch-name">Now: Noticiero Estrellas · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Las Estrellas','Noticiero Estrellas')" style="background:#1e3a5f" title="Noticiero Estrellas" type="button">Noticiero Estrellas<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Las Estrellas','La Rosa de Guadalupe')" style="background:#5f1e2e" title="La Rosa de Guadalupe" type="button">La Rosa de Guadalupe<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Las Estrellas','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Las Estrellas','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Las Estrellas','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Canal 5')" onkeydown="if(event.key==='Enter')openChannel('Canal 5')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 05 · Canal 5</div>
+<div class="lt-epg-ch-name">Now: MasterChef México · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Canal 5','MasterChef México')" style="background:#4a1e5f" title="MasterChef México" type="button">MasterChef México<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Canal 5','La CQ')" style="background:#1a4d2e" title="La CQ" type="button">La CQ<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Canal 5','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Canal 5','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Canal 5','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Azteca Uno')" onkeydown="if(event.key==='Enter')openChannel('Azteca Uno')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 07 · Azteca Uno</div>
+<div class="lt-epg-ch-name">Now: Hechos Noche · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Azteca Uno','Hechos Noche')" style="background:#5f1e2e" title="Hechos Noche" type="button">Hechos Noche<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Azteca Uno','Vencer la ausencia')" style="background:#3d2c1a" title="Vencer la ausencia" type="button">Vencer la ausencia<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Azteca Uno','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Azteca Uno','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Azteca Uno','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Gala TV')" onkeydown="if(event.key==='Enter')openChannel('Gala TV')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 12 · Gala TV</div>
+<div class="lt-epg-ch-name">Now: Cine de Gala · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Gala TV','Cine de Gala')" style="background:#3d2c1a" title="Cine de Gala" type="button">Cine de Gala<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Gala TV','Telenovelas clásicas')" style="background:#5f1e2e" title="Telenovelas clásicas" type="button">Telenovelas clásicas<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Gala TV','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Gala TV','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Gala TV','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Telehit')" onkeydown="if(event.key==='Enter')openChannel('Telehit')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 15 · Telehit</div>
+<div class="lt-epg-ch-name">Now: Telehit Music · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Telehit','Telehit Music')" style="background:#5f4a1e" title="Telehit Music" type="button">Telehit Music<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Telehit','Hits en vivo')" style="background:#1a4d2e" title="Hits en vivo" type="button">Hits en vivo<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Telehit','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Telehit','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Telehit','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Univision')" onkeydown="if(event.key==='Enter')openChannel('Univision')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 18 · Univision</div>
+<div class="lt-epg-ch-name">Now: Noticiero Univisión · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Univision','Noticiero Univisión')" style="background:#1e3a5f" title="Noticiero Univisión" type="button">Noticiero Univisión<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Univision','El Gordo y La Flaca')" style="background:#3d2c1a" title="El Gordo y La Flaca" type="button">El Gordo y La Flaca<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Univision','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Univision','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Univision','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Telemundo')" onkeydown="if(event.key==='Enter')openChannel('Telemundo')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 22 · Telemundo</div>
+<div class="lt-epg-ch-name">Now: Noticias Telemundo · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Telemundo','Noticias Telemundo')" style="background:#5f1e2e" title="Noticias Telemundo" type="button">Noticias Telemundo<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Telemundo','La Patrona')" style="background:#5f1e2e" title="La Patrona" type="button">La Patrona<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Telemundo','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Telemundo','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Telemundo','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Galavisión')" onkeydown="if(event.key==='Enter')openChannel('Galavisión')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 24 · Galavisión</div>
+<div class="lt-epg-ch-name">Now: Futbol MLS · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Galavisión','Futbol MLS')" style="background:#1a4d2e" title="Futbol MLS" type="button">Futbol MLS<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Galavisión','Variedades')" style="background:#1a4d2e" title="Variedades" type="button">Variedades<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Galavisión','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Galavisión','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Galavisión','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('TUDN')" onkeydown="if(event.key==='Enter')openChannel('TUDN')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 28 · TUDN</div>
+<div class="lt-epg-ch-name">Now: TUDN en vivo · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('TUDN','TUDN en vivo')" style="background:#1a4d2e" title="TUDN en vivo" type="button">TUDN en vivo<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('TUDN','Contacto Deportivo')" style="background:#3d2c1a" title="Contacto Deportivo" type="button">Contacto Deportivo<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('TUDN','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('TUDN','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('TUDN','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('ESPN')" onkeydown="if(event.key==='Enter')openChannel('ESPN')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 31 · ESPN</div>
+<div class="lt-epg-ch-name">Now: SportsCenter LA · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('ESPN','SportsCenter LA')" style="background:#1a4d2e" title="SportsCenter LA" type="button">SportsCenter LA<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('ESPN','NFL Live')" style="background:#5f1e2e" title="NFL Live" type="button">NFL Live<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('ESPN','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('ESPN','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('ESPN','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Fox Sports')" onkeydown="if(event.key==='Enter')openChannel('Fox Sports')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 33 · Fox Sports</div>
+<div class="lt-epg-ch-name">Now: Central Fox · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Fox Sports','Central Fox')" style="background:#1a4d2e" title="Central Fox" type="button">Central Fox<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Fox Sports','Liga MX')" style="background:#1a4d2e" title="Liga MX" type="button">Liga MX<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Fox Sports','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Fox Sports','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Fox Sports','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Win Sports')" onkeydown="if(event.key==='Enter')openChannel('Win Sports')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 36 · Win Sports</div>
+<div class="lt-epg-ch-name">Now: Win + Futbol · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Win Sports','Win + Futbol')" style="background:#1a4d2e" title="Win + Futbol" type="button">Win + Futbol<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Win Sports','Copa Colombia')" style="background:#3d2c1a" title="Copa Colombia" type="button">Copa Colombia<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Win Sports','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Win Sports','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Win Sports','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('beIN SPORTS')" onkeydown="if(event.key==='Enter')openChannel('beIN SPORTS')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 38 · beIN SPORTS</div>
+<div class="lt-epg-ch-name">Now: La Liga · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('beIN SPORTS','La Liga')" style="background:#1a4d2e" title="La Liga" type="button">La Liga<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('beIN SPORTS','Ligue 1')" style="background:#5f1e2e" title="Ligue 1" type="button">Ligue 1<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('beIN SPORTS','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('beIN SPORTS','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('beIN SPORTS','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('CNN en Español')" onkeydown="if(event.key==='Enter')openChannel('CNN en Español')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 41 · CNN en Español</div>
+<div class="lt-epg-ch-name">Now: Conclusiones · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('CNN en Español','Conclusiones')" style="background:#1e3a5f" title="Conclusiones" type="button">Conclusiones<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('CNN en Español','Panorama Mundial')" style="background:#1a4d2e" title="Panorama Mundial" type="button">Panorama Mundial<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('CNN en Español','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('CNN en Español','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('CNN en Español','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Foro TV')" onkeydown="if(event.key==='Enter')openChannel('Foro TV')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 44 · Foro TV</div>
+<div class="lt-epg-ch-name">Now: Es la Hora de Opinar · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Foro TV','Es la Hora de Opinar')" style="background:#1e3a5f" title="Es la Hora de Opinar" type="button">Es la Hora de Opinar<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Foro TV','Foro Global')" style="background:#3d2c1a" title="Foro Global" type="button">Foro Global<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Foro TV','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Foro TV','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Foro TV','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Discovery Kids')" onkeydown="if(event.key==='Enter')openChannel('Discovery Kids')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 47 · Discovery Kids</div>
+<div class="lt-epg-ch-name">Now: Peppa Pig · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Discovery Kids','Peppa Pig')" style="background:#4a1e5f" title="Peppa Pig" type="button">Peppa Pig<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Discovery Kids','The Loud House')" style="background:#5f1e2e" title="The Loud House" type="button">The Loud House<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Discovery Kids','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Discovery Kids','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Discovery Kids','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Cartoon Network LA')" onkeydown="if(event.key==='Enter')openChannel('Cartoon Network LA')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 50 · Cartoon Network LA</div>
+<div class="lt-epg-ch-name">Now: Ben 10 · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Cartoon Network LA','Ben 10')" style="background:#4a1e5f" title="Ben 10" type="button">Ben 10<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Cartoon Network LA','Hora de aventura')" style="background:#1a4d2e" title="Hora de aventura" type="button">Hora de aventura<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Cartoon Network LA','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Cartoon Network LA','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Cartoon Network LA','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Disney Channel LA')" onkeydown="if(event.key==='Enter')openChannel('Disney Channel LA')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 53 · Disney Channel LA</div>
+<div class="lt-epg-ch-name">Now: Bluey · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Disney Channel LA','Bluey')" style="background:#4a1e5f" title="Bluey" type="button">Bluey<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Disney Channel LA','Zombies')" style="background:#3d2c1a" title="Zombies" type="button">Zombies<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Disney Channel LA','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Disney Channel LA','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Disney Channel LA','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('Cinemax')" onkeydown="if(event.key==='Enter')openChannel('Cinemax')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 56 · Cinemax<span class="lt-lock" title="Parental lock">🔒</span></div>
+<div class="lt-epg-ch-name">Now: Cine Tonight · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('Cinemax','Cine Tonight')" style="background:#3d2c1a" title="Cine Tonight" type="button">Cine Tonight<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('Cinemax','Thriller Zone')" style="background:#5f1e2e" title="Thriller Zone" type="button">Thriller Zone<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('Cinemax','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('Cinemax','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('Cinemax','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('AXN')" onkeydown="if(event.key==='Enter')openChannel('AXN')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 59 · AXN<span class="lt-lock" title="Parental lock">🔒</span></div>
+<div class="lt-epg-ch-name">Now: Criminal Minds · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('AXN','Criminal Minds')" style="background:#3d2c1a" title="Criminal Minds" type="button">Criminal Minds<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('AXN','CSI')" style="background:#1a4d2e" title="CSI" type="button">CSI<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('AXN','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('AXN','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('AXN','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('FX LA')" onkeydown="if(event.key==='Enter')openChannel('FX LA')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 62 · FX LA<span class="lt-lock" title="Parental lock">🔒</span></div>
+<div class="lt-epg-ch-name">Now: American Horror Story · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('FX LA','American Horror Story')" style="background:#3d2c1a" title="American Horror Story" type="button">American Horror Story<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('FX LA','Atlanta')" style="background:#3d2c1a" title="Atlanta" type="button">Atlanta<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('FX LA','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('FX LA','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('FX LA','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+<div class="lt-epg-row">
+<div class="lt-epg-ch" onclick="openChannel('La1 (TVE)')" onkeydown="if(event.key==='Enter')openChannel('La1 (TVE)')" role="button" tabindex="0">
+<img alt="" height="44" loading="lazy" onerror="this.style.display='none'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="44"/>
+<div class="lt-epg-ch-info">
+<div class="lt-epg-ch-num">CH 65 · La1 (TVE)</div>
+<div class="lt-epg-ch-name">Now: Telediario · 8:00 PM</div>
+</div>
+</div>
+<div class="lt-epg-timeline-wrap">
+<div aria-hidden="true" class="lt-epg-timeline">
+<span class="lt-now-line"></span>
+<button class="lt-prog lt-p1" onclick="openEpgDetail('La1 (TVE)','Telediario')" style="background:#1e3a5f" title="Telediario" type="button">Telediario<small>Now · ends 8:30 PM</small></button>
+<button class="lt-prog lt-p2" onclick="openEpgDetail('La1 (TVE)','El Ministerio')" style="background:#5f1e2e" title="El Ministerio" type="button">El Ministerio<small>Next · 8:30 PM</small></button>
+<button class="lt-prog lt-p3" onclick="openEpgDetail('La1 (TVE)','Late Night')" style="background:#2a2a35" title="Late Night" type="button">Late Night<small>10:00 PM</small></button>
+<button class="lt-prog lt-p4" onclick="openEpgDetail('La1 (TVE)','Prime Cine')" style="background:#252532" title="Prime Cine" type="button">Prime Cine<small>11:30 PM</small></button>
+<button class="lt-prog lt-p5" onclick="openEpgDetail('La1 (TVE)','Overnight')" style="background:#222230" title="Overnight" type="button">Overnight<small>1:00 AM</small></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section aria-labelledby="lt-deportes-en-vivo" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-deportes-en-vivo">Deportes en vivo</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile" onclick="openChannel('ESPN')" role="button" tabindex="0" title="ESPN">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">ESPN</div>
+</div>
+<div class="lt-tile-epg">Now: SportsCenter LA · 8:00 PM</div>
+<div class="lt-tile-next">Next: NFL Live</div>
+</div><div class="lt-tile" onclick="openChannel('Fox Sports')" role="button" tabindex="0" title="Fox Sports">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Fox Sports</div>
+</div>
+<div class="lt-tile-epg">Now: Central Fox · 8:00 PM</div>
+<div class="lt-tile-next">Next: Liga MX</div>
+</div><div class="lt-tile" onclick="openChannel('TUDN')" role="button" tabindex="0" title="TUDN">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">TUDN</div>
+</div>
+<div class="lt-tile-epg">Now: TUDN en vivo · 8:00 PM</div>
+<div class="lt-tile-next">Next: Contacto Deportivo</div>
+</div><div class="lt-tile" onclick="openChannel('Win Sports')" role="button" tabindex="0" title="Win Sports">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Win Sports</div>
+</div>
+<div class="lt-tile-epg">Now: Win + Futbol · 8:00 PM</div>
+<div class="lt-tile-next">Next: Copa Colombia</div>
+</div><div class="lt-tile" onclick="openChannel('beIN SPORTS')" role="button" tabindex="0" title="beIN SPORTS">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">beIN SPORTS</div>
+</div>
+<div class="lt-tile-epg">Now: La Liga · 8:00 PM</div>
+<div class="lt-tile-next">Next: Ligue 1</div>
+</div><div class="lt-tile" onclick="openChannel('NFL Network')" role="button" tabindex="0" title="NFL Network">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">NFL Network</div>
+</div>
+<div class="lt-tile-epg">Now: GameDay · 8:00 PM</div>
+<div class="lt-tile-next">Next: Thursday Night</div>
+</div><div class="lt-tile" onclick="openChannel('MLB Network')" role="button" tabindex="0" title="MLB Network">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">MLB Network</div>
+</div>
+<div class="lt-tile-epg">Now: MLB Tonight · 8:00 PM</div>
+<div class="lt-tile-next">Next: Regular season</div>
+</div><div class="lt-tile" onclick="openChannel('F1 TV')" role="button" tabindex="0" title="F1 TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">F1 TV</div>
+</div>
+<div class="lt-tile-epg">Now: Qualifying replay · 8:00 PM</div>
+<div class="lt-tile-next">Next: Race Sunday</div>
+</div><div class="lt-tile" onclick="openChannel('Univision Deportes')" role="button" tabindex="0" title="Univision Deportes">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Univision Deportes</div>
+</div>
+<div class="lt-tile-epg">Now: Futbol en español · 8:00 PM</div>
+<div class="lt-tile-next">Next: Postgame</div>
+</div><div class="lt-tile" onclick="openChannel('ESPN 2')" role="button" tabindex="0" title="ESPN 2">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">ESPN 2</div>
+</div>
+<div class="lt-tile-epg">Now: College sports · 8:00 PM</div>
+<div class="lt-tile-next">Next: NCAA</div>
+</div><div class="lt-tile" onclick="openChannel('TUDN Xtra')" role="button" tabindex="0" title="TUDN Xtra">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">TUDN Xtra</div>
+</div>
+<div class="lt-tile-epg">Now: Extra time · 8:00 PM</div>
+<div class="lt-tile-next">Next: Analysis</div>
+</div><div class="lt-tile" onclick="openChannel('Fox Deportes')" role="button" tabindex="0" title="Fox Deportes">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Fox Deportes</div>
+</div>
+<div class="lt-tile-epg">Now: Boxeo · 8:00 PM</div>
+<div class="lt-tile-next">Next: Weigh-in</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-noticias-24-7" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-noticias-24-7">Noticias 24/7</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile" onclick="openChannel('CNN en Español')" role="button" tabindex="0" title="CNN en Español">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">CNN en Español</div>
+</div>
+<div class="lt-tile-epg">Now: Conclusiones · 8:00 PM</div>
+<div class="lt-tile-next">Next: Panorama Mundial</div>
+</div><div class="lt-tile" onclick="openChannel('Telemundo Noticias')" role="button" tabindex="0" title="Telemundo Noticias">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Telemundo Noticias</div>
+</div>
+<div class="lt-tile-epg">Now: Noticiero · 8:00 PM</div>
+<div class="lt-tile-next">Next: Enfoque</div>
+</div><div class="lt-tile" onclick="openChannel('Foro TV')" role="button" tabindex="0" title="Foro TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Foro TV</div>
+</div>
+<div class="lt-tile-epg">Now: Es la Hora de Opinar · 8:00 PM</div>
+<div class="lt-tile-next">Next: Foro Global</div>
+</div><div class="lt-tile" onclick="openChannel('Univision Noticias')" role="button" tabindex="0" title="Univision Noticias">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Univision Noticias</div>
+</div>
+<div class="lt-tile-epg">Now: Edición Nocturna · 8:00 PM</div>
+<div class="lt-tile-next">Next: Special report</div>
+</div><div class="lt-tile" onclick="openChannel('BBC Mundo')" role="button" tabindex="0" title="BBC Mundo">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">BBC Mundo</div>
+</div>
+<div class="lt-tile-epg">Now: BBC News · 8:00 PM</div>
+<div class="lt-tile-next">Next: Impact</div>
+</div><div class="lt-tile" onclick="openChannel('Azteca Noticias')" role="button" tabindex="0" title="Azteca Noticias">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Azteca Noticias</div>
+</div>
+<div class="lt-tile-epg">Now: Hechos · 8:00 PM</div>
+<div class="lt-tile-next">Next: Hechos Noche</div>
+</div><div class="lt-tile" onclick="openChannel('Milenio TV')" role="button" tabindex="0" title="Milenio TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Milenio TV</div>
+</div>
+<div class="lt-tile-epg">Now: Milenio · 8:00 PM</div>
+<div class="lt-tile-next">Next: Live desk</div>
+</div><div class="lt-tile" onclick="openChannel('ADN40')" role="button" tabindex="0" title="ADN40">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">ADN40</div>
+</div>
+<div class="lt-tile-epg">Now: ADN en vivo · 8:00 PM</div>
+<div class="lt-tile-next">Next: Evening</div>
+</div><div class="lt-tile" onclick="openChannel('Excélsior TV')" role="button" tabindex="0" title="Excélsior TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Excélsior TV</div>
+</div>
+<div class="lt-tile-epg">Now: Reporte · 8:00 PM</div>
+<div class="lt-tile-next">Next: Nightline</div>
+</div><div class="lt-tile" onclick="openChannel('Televisa News')" role="button" tabindex="0" title="Televisa News">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Televisa News</div>
+</div>
+<div class="lt-tile-epg">Now: Breaking · 8:00 PM</div>
+<div class="lt-tile-next">Next: Analysis</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-pel-culas" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-pel-culas">Películas</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile lt-locked" onclick="openChannel('Cinemax')" role="button" tabindex="0" title="Cinemax">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Cinemax 🔒</div>
+</div>
+<div class="lt-tile-epg">Now: Cine Tonight · 8:00 PM</div>
+<div class="lt-tile-next">Next: Thriller Zone</div>
+</div><div class="lt-tile lt-locked" onclick="openChannel('FX LA')" role="button" tabindex="0" title="FX LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">FX LA 🔒</div>
+</div>
+<div class="lt-tile-epg">Now: American Horror Story · 8:00 PM</div>
+<div class="lt-tile-next">Next: Atlanta</div>
+</div><div class="lt-tile lt-locked" onclick="openChannel('AXN')" role="button" tabindex="0" title="AXN">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">AXN 🔒</div>
+</div>
+<div class="lt-tile-epg">Now: Criminal Minds · 8:00 PM</div>
+<div class="lt-tile-next">Next: CSI</div>
+</div><div class="lt-tile" onclick="openChannel('TNT LA')" role="button" tabindex="0" title="TNT LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">TNT LA</div>
+</div>
+<div class="lt-tile-epg">Now: Action movie · 8:00 PM</div>
+<div class="lt-tile-next">Next: Drama block</div>
+</div><div class="lt-tile" onclick="openChannel('Studio Universal')" role="button" tabindex="0" title="Studio Universal">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Studio Universal</div>
+</div>
+<div class="lt-tile-epg">Now: Premiere · 8:00 PM</div>
+<div class="lt-tile-next">Next: Late movie</div>
+</div><div class="lt-tile" onclick="openChannel('AMC LA')" role="button" tabindex="0" title="AMC LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">AMC LA</div>
+</div>
+<div class="lt-tile-epg">Now: The Walking Dead · 8:00 PM</div>
+<div class="lt-tile-next">Next: Fear</div>
+</div><div class="lt-tile" onclick="openChannel('Sony Channel')" role="button" tabindex="0" title="Sony Channel">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Sony Channel</div>
+</div>
+<div class="lt-tile-epg">Now: Comedy night · 8:00 PM</div>
+<div class="lt-tile-next">Next: Romance</div>
+</div><div class="lt-tile" onclick="openChannel('Golden Plus')" role="button" tabindex="0" title="Golden Plus">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Golden Plus</div>
+</div>
+<div class="lt-tile-epg">Now: Mexican cinema · 8:00 PM</div>
+<div class="lt-tile-next">Next: Classics</div>
+</div><div class="lt-tile" onclick="openChannel('HBO 2 LA')" role="button" tabindex="0" title="HBO 2 LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">HBO 2 LA</div>
+</div>
+<div class="lt-tile-epg">Now: Feature film · 8:00 PM</div>
+<div class="lt-tile-next">Next: Director's cut</div>
+</div><div class="lt-tile" onclick="openChannel('DHE')" role="button" tabindex="0" title="DHE">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">DHE</div>
+</div>
+<div class="lt-tile-epg">Now: Hollywood hits · 8:00 PM</div>
+<div class="lt-tile-next">Next: Premiere</div>
+</div><div class="lt-tile" onclick="openChannel('Space')" role="button" tabindex="0" title="Space">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Space</div>
+</div>
+<div class="lt-tile-epg">Now: Sci-fi night · 8:00 PM</div>
+<div class="lt-tile-next">Next: Alien saga</div>
+</div><div class="lt-tile lt-locked" onclick="openChannel('Paramount Channel')" role="button" tabindex="0" title="Paramount Channel">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Paramount Channel 🔒</div>
+</div>
+<div class="lt-tile-epg">Now: Blockbuster · 8:00 PM</div>
+<div class="lt-tile-next">Next: After dark</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-m-sica" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-m-sica">Música</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile" onclick="openChannel('Telehit')" role="button" tabindex="0" title="Telehit">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Telehit</div>
+</div>
+<div class="lt-tile-epg">Now: Telehit Music · 8:00 PM</div>
+<div class="lt-tile-next">Next: Hits en vivo</div>
+</div><div class="lt-tile" onclick="openChannel('MTV LA')" role="button" tabindex="0" title="MTV LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">MTV LA</div>
+</div>
+<div class="lt-tile-epg">Now: Top 20 · 8:00 PM</div>
+<div class="lt-tile-next">Next: VMA repeats</div>
+</div><div class="lt-tile" onclick="openChannel('HTV')" role="button" tabindex="0" title="HTV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">HTV</div>
+</div>
+<div class="lt-tile-epg">Now: Urban hits · 8:00 PM</div>
+<div class="lt-tile-next">Next: Reggaeton hour</div>
+</div><div class="lt-tile" onclick="openChannel('Ritmoson')" role="button" tabindex="0" title="Ritmoson">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Ritmoson</div>
+</div>
+<div class="lt-tile-epg">Now: Regional mexicano · 8:00 PM</div>
+<div class="lt-tile-next">Next: Banda night</div>
+</div><div class="lt-tile" onclick="openChannel('MTV Hits')" role="button" tabindex="0" title="MTV Hits">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">MTV Hits</div>
+</div>
+<div class="lt-tile-epg">Now: Countdown · 8:00 PM</div>
+<div class="lt-tile-next">Next: Live sessions</div>
+</div><div class="lt-tile" onclick="openChannel('VH1 Classic')" role="button" tabindex="0" title="VH1 Classic">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">VH1 Classic</div>
+</div>
+<div class="lt-tile-epg">Now: Rock vault · 8:00 PM</div>
+<div class="lt-tile-next">Next: Power ballads</div>
+</div><div class="lt-tile" onclick="openChannel('Bandamax')" role="button" tabindex="0" title="Bandamax">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Bandamax</div>
+</div>
+<div class="lt-tile-epg">Now: Grupos · 8:00 PM</div>
+<div class="lt-tile-next">Next: En vivo</div>
+</div><div class="lt-tile" onclick="openChannel('Exa TV')" role="button" tabindex="0" title="Exa TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Exa TV</div>
+</div>
+<div class="lt-tile-epg">Now: Pop charts · 8:00 PM</div>
+<div class="lt-tile-next">Next: Dance mix</div>
+</div><div class="lt-tile" onclick="openChannel('Televisa Music')" role="button" tabindex="0" title="Televisa Music">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Televisa Music</div>
+</div>
+<div class="lt-tile-epg">Now: Covers · 8:00 PM</div>
+<div class="lt-tile-next">Next: Unplugged</div>
+</div><div class="lt-tile" onclick="openChannel('Trece Music')" role="button" tabindex="0" title="Trece Music">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Trece Music</div>
+</div>
+<div class="lt-tile-epg">Now: Latin mix · 8:00 PM</div>
+<div class="lt-tile-next">Next: DJ set</div>
+</div><div class="lt-tile" onclick="openChannel('LOS40')" role="button" tabindex="0" title="LOS40">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">LOS40</div>
+</div>
+<div class="lt-tile-epg">Now: Radio visión · 8:00 PM</div>
+<div class="lt-tile-next">Next: Charts</div>
+</div><div class="lt-tile" onclick="openChannel('Ubeats')" role="button" tabindex="0" title="Ubeats">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Ubeats</div>
+</div>
+<div class="lt-tile-epg">Now: Urbano · 8:00 PM</div>
+<div class="lt-tile-next">Next: Cypher</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-ni-os" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-ni-os">Niños</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile" onclick="openChannel('Discovery Kids')" role="button" tabindex="0" title="Discovery Kids">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Discovery Kids</div>
+</div>
+<div class="lt-tile-epg">Now: Peppa Pig · 8:00 PM</div>
+<div class="lt-tile-next">Next: The Loud House</div>
+</div><div class="lt-tile" onclick="openChannel('Cartoon Network LA')" role="button" tabindex="0" title="Cartoon Network LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Cartoon Network LA</div>
+</div>
+<div class="lt-tile-epg">Now: Ben 10 · 8:00 PM</div>
+<div class="lt-tile-next">Next: Hora de aventura</div>
+</div><div class="lt-tile" onclick="openChannel('Disney Channel LA')" role="button" tabindex="0" title="Disney Channel LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Disney Channel LA</div>
+</div>
+<div class="lt-tile-epg">Now: Bluey · 8:00 PM</div>
+<div class="lt-tile-next">Next: Zombies</div>
+</div><div class="lt-tile" onclick="openChannel('Nick Jr.')" role="button" tabindex="0" title="Nick Jr.">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Nick Jr.</div>
+</div>
+<div class="lt-tile-epg">Now: PAW Patrol · 8:00 PM</div>
+<div class="lt-tile-next">Next: Blues Clues</div>
+</div><div class="lt-tile" onclick="openChannel('Disney Junior')" role="button" tabindex="0" title="Disney Junior">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Disney Junior</div>
+</div>
+<div class="lt-tile-epg">Now: Mickey Mouse · 8:00 PM</div>
+<div class="lt-tile-next">Next: Doc McStuffins</div>
+</div><div class="lt-tile" onclick="openChannel('Boomerang LA')" role="button" tabindex="0" title="Boomerang LA">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Boomerang LA</div>
+</div>
+<div class="lt-tile-epg">Now: Tom &amp; Jerry · 8:00 PM</div>
+<div class="lt-tile-next">Next: Looney Tunes</div>
+</div><div class="lt-tile" onclick="openChannel('BitMe')" role="button" tabindex="0" title="BitMe">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">BitMe</div>
+</div>
+<div class="lt-tile-epg">Now: Animation block · 8:00 PM</div>
+<div class="lt-tile-next">Next: Shorts</div>
+</div><div class="lt-tile" onclick="openChannel('ZAZ')" role="button" tabindex="0" title="ZAZ">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">ZAZ</div>
+</div>
+<div class="lt-tile-epg">Now: Kids variety · 8:00 PM</div>
+<div class="lt-tile-next">Next: Gameshow</div>
+</div><div class="lt-tile" onclick="openChannel('Once Niños')" role="button" tabindex="0" title="Once Niños">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Once Niños</div>
+</div>
+<div class="lt-tile-epg">Now: Educación · 8:00 PM</div>
+<div class="lt-tile-next">Next: Cuentos</div>
+</div><div class="lt-tile" onclick="openChannel('Plim Plim')" role="button" tabindex="0" title="Plim Plim">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Plim Plim</div>
+</div>
+<div class="lt-tile-epg">Now: Preschool · 8:00 PM</div>
+<div class="lt-tile-next">Next: Music</div>
+</div><div class="lt-tile" onclick="openChannel('BabyTV')" role="button" tabindex="0" title="BabyTV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">BabyTV</div>
+</div>
+<div class="lt-tile-epg">Now: Baby sensory · 8:00 PM</div>
+<div class="lt-tile-next">Next: Sleep music</div>
+</div><div class="lt-tile" onclick="openChannel('Kids Street')" role="button" tabindex="0" title="Kids Street">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Kids Street</div>
+</div>
+<div class="lt-tile-epg">Now: Crafts · 8:00 PM</div>
+<div class="lt-tile-next">Next: Science</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-regionales-mx" class="lt-lane">
+<div class="lt-lane-head"><h3 id="lt-regionales-mx">Regionales MX</h3><span style="color:var(--dim);font-size:12px;">Tap logo · quick-zap</span></div>
+<div class="lt-lane-grid"><div class="lt-tile" onclick="openChannel('Canal 5')" role="button" tabindex="0" title="Canal 5">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Canal 5</div>
+</div>
+<div class="lt-tile-epg">Now: MasterChef México · 8:00 PM</div>
+<div class="lt-tile-next">Next: La CQ</div>
+</div><div class="lt-tile" onclick="openChannel('Azteca Uno')" role="button" tabindex="0" title="Azteca Uno">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Azteca Uno</div>
+</div>
+<div class="lt-tile-epg">Now: Hechos Noche · 8:00 PM</div>
+<div class="lt-tile-next">Next: Vencer</div>
+</div><div class="lt-tile" onclick="openChannel('Las Estrellas')" role="button" tabindex="0" title="Las Estrellas">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Las Estrellas</div>
+</div>
+<div class="lt-tile-epg">Now: Noticiero · 8:00 PM</div>
+<div class="lt-tile-next">Next: La Rosa</div>
+</div><div class="lt-tile" onclick="openChannel('Gala TV')" role="button" tabindex="0" title="Gala TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Gala TV</div>
+</div>
+<div class="lt-tile-epg">Now: Cine de Gala · 8:00 PM</div>
+<div class="lt-tile-next">Next: Telenovelas</div>
+</div><div class="lt-tile" onclick="openChannel('Telehit')" role="button" tabindex="0" title="Telehit">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Telehit</div>
+</div>
+<div class="lt-tile-epg">Now: Telehit Music · 8:00 PM</div>
+<div class="lt-tile-next">Next: Hits</div>
+</div><div class="lt-tile" onclick="openChannel('Imagen TV')" role="button" tabindex="0" title="Imagen TV">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">Imagen TV</div>
+</div>
+<div class="lt-tile-epg">Now: Imagen Noticias · 8:00 PM</div>
+<div class="lt-tile-next">Next: Debate</div>
+</div><div class="lt-tile" onclick="openChannel('Canal 6')" role="button" tabindex="0" title="Canal 6">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0066702/img" width="40"/>
+<div class="lt-tile-name">Canal 6</div>
+</div>
+<div class="lt-tile-epg">Now: Local news · 8:00 PM</div>
+<div class="lt-tile-next">Next: Movie night</div>
+</div><div class="lt-tile" onclick="openChannel('Canal 10 Chiapas')" role="button" tabindex="0" title="Canal 10 Chiapas">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt12842804/img" width="40"/>
+<div class="lt-tile-name">Canal 10 Chiapas</div>
+</div>
+<div class="lt-tile-epg">Now: Regional · 8:00 PM</div>
+<div class="lt-tile-next">Next: Documentary</div>
+</div><div class="lt-tile" onclick="openChannel('Canal 12')" role="button" tabindex="0" title="Canal 12">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0103466/img" width="40"/>
+<div class="lt-tile-name">Canal 12</div>
+</div>
+<div class="lt-tile-epg">Now: Estatal · 8:00 PM</div>
+<div class="lt-tile-next">Next: Cultural hour</div>
+</div><div class="lt-tile" onclick="openChannel('Multimedios')" role="button" tabindex="0" title="Multimedios">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0142051/img" width="40"/>
+<div class="lt-tile-name">Multimedios</div>
+</div>
+<div class="lt-tile-epg">Now: Monterrey live · 8:00 PM</div>
+<div class="lt-tile-next">Next: Sports</div>
+</div><div class="lt-tile" onclick="openChannel('Canal 4 Guanajuato')" role="button" tabindex="0" title="Canal 4 Guanajuato">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0118273/img" width="40"/>
+<div class="lt-tile-name">Canal 4 Guanajuato</div>
+</div>
+<div class="lt-tile-epg">Now: Local · 8:00 PM</div>
+<div class="lt-tile-next">Next: News extra</div>
+</div><div class="lt-tile" onclick="openChannel('TV UNAM')" role="button" tabindex="0" title="TV UNAM">
+<div class="lt-tile-top">
+<img alt="" height="40" loading="lazy" onerror="this.parentElement.parentElement.style.background='linear-gradient(135deg,#2a1810,#1a1a24)'" src="https://images.metahub.space/logo/medium/tt0087084/img" width="40"/>
+<div class="lt-tile-name">TV UNAM</div>
+</div>
+<div class="lt-tile-epg">Now: University TV · 8:00 PM</div>
+<div class="lt-tile-next">Next: Lecture</div>
+</div></div>
+</section>
+<section aria-labelledby="lt-ppv-h" class="lt-ppv">
+<h3 id="lt-ppv-h">PPV / Events tonight</h3>
+<div class="lt-ppv-row">
+<div class="lt-ppv-card">
+<strong>Boxing: Canelo vs Bivol</strong>
+<div class="lt-countdown">Saturday 22:00 CDT · Doors 20:30</div>
+<p style="margin:10px 0 0;font-size:13px;color:var(--dim);">Gold card · parental advisory · purchase in Settings.</p>
+<button class="btn-primary" onclick="openChannel('PPV Boxing Main')" style="margin-top:12px" type="button">▶ Pre-order stream</button>
+</div>
+<div class="lt-ppv-card">
+<strong>Liga MX · Clásico tapatío (replay block)</strong>
+<div class="lt-countdown">Tonight 23:15 CDT · 180 min</div>
+<p style="margin:10px 0 0;font-size:13px;color:var(--dim);">Event window · TUDN simulcast · family safe.</p>
+<button class="btn-primary" onclick="openChannel('TUDN Event')" style="margin-top:12px" type="button">▶ Set reminder</button>
+</div>
+<div class="lt-ppv-card">
+<strong>Concierto · Regional Mexicano Live</strong>
+<div class="lt-countdown">Sunday 19:00 CDT · Estadio</div>
+<p style="margin:10px 0 0;font-size:13px;color:var(--dim);">Multi-cam · Español · optional subtitles EN.</p>
+<button class="btn-primary" onclick="openChannel('Music PPV')" style="margin-top:12px" type="button">▶ View details</button>
+</div>
+</div>
+</section>
+<footer class="lt-footer">
+<h4>Settings rail</h4>
+<div class="lt-settings-rail">
+<button class="lt-set-btn" onclick="__lt1Toast('Parental controls: ON (kids profile)')" type="button">Parental controls</button>
+<button class="lt-set-btn" onclick="__lt1Toast('Region: México + US Hispanic')" type="button">Region defaults</button>
+<button class="lt-set-btn" onclick="__lt1Toast('Favorites: 28 channels')" type="button">Manage favorites</button>
+<button class="lt-set-btn" onclick="__lt1Toast('Blocked: news + 18+ hidden for Jr profile')" type="button">Blocked channels</button>
+</div>
+<p style="margin:16px 0 0;font-size:12px;color:var(--dim);">RomanTV lt1 — Classic cable EPG · 5,002 live sources (Nigma) · quick-zap first · EN primary.</p>
+</footer>
+</div>
+<script>
+(function(){
+  function slugify(v){
+    return String(v || "").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  function showToast(msg){
+    var host = document.getElementById("lt1-toast-host");
+    if(!host) return;
+    var el = host.querySelector(".lt-toast");
+    if(!el){ el = document.createElement("div"); el.className="lt-toast"; host.appendChild(el); }
+    el.textContent = msg;
+    el.classList.add("lt-show");
+    clearTimeout(el._t);
+    el._t = setTimeout(function(){ el.classList.remove("lt-show"); }, 2600);
+  }
+  window.__lt1Toast = showToast;
+  var _oc = window.openChannel;
+  window.openChannel = function(idOrName, fallbackName){
+    var channel = String(fallbackName || idOrName || "").trim();
+    var rawId = String(idOrName || fallbackName || "").trim();
+    showToast("Opening details → " + channel);
+    if(typeof _oc === "function"){ try{ _oc(rawId, channel); return; }catch(e){} }
+    if (!rawId) rawId = slugify(channel);
+    window.location.href = "/detail/channel/" + encodeURIComponent(rawId);
+  };
+  var _oe = window.openEpgDetail;
+  window.openEpgDetail = function(ch, prog){
+    var channel = String(ch || "").trim();
+    var program = String(prog || "").trim();
+    showToast("Program details → " + channel + " — " + program);
+    if(typeof _oe === "function"){ try{ _oe(channel, program); return; }catch(e){} }
+    var q = channel || slugify(program);
+    var url = "/detail/channel/" + encodeURIComponent(q || "live");
+    if (program) url += "?program=" + encodeURIComponent(program);
+    window.location.href = url;
+  };
+})();
+</script>
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "livetv",
+  endpoints: ["/api/rows?filter=live_tv", "/api/livetv/now"],
+  selectors: [".lt-spotlight-row", ".lt-rail", ".lt-lane-grid"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=22"></script>
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_livetv.js?v=4" defer></script>
+<script src="/static/rtv_epg.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_catalog_badge.js?v=2" defer></script>
+<script src="/static/rtv_group_picker.js?v=2" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

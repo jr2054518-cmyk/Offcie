@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script>window.__rtvKeepHero = true; /* RTV_FIX_v1.61 keep dynamic hero alive */</script>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · SERIES · h1</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; overflow-x:hidden; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="series" class="">
+
+<section class="design romantv-series-h1" data-variant="h1-hybrid-resume-primary" id="h1">
+<style>
+/* h1 — Hybrid: resume-primary, new-secondary. Scoped to .romantv-series-h1 */
+.romantv-series-h1 { --h1-radius: 10px; --h1-radius-lg: 14px; font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; box-sizing: border-box; }
+.romantv-series-h1 *, .romantv-series-h1 *::before, .romantv-series-h1 *::after { box-sizing: border-box; }
+.romantv-series-h1 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.romantv-series-h1 a { color: inherit; text-decoration: none; }
+.romantv-series-h1 .h1-logo { font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.35rem; }
+.romantv-series-h1 .h1-logo span { color: var(--accent); }
+.romantv-series-h1 .h1-pill {     font-size: 0.78rem; font-weight: 600;  cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; }
+.romantv-series-h1 .h1-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--panel2), var(--line)); border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: var(--text); flex-shrink: 0; }
+.romantv-series-h1 .h1-spacer { margin-left: auto; display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
+.romantv-series-h1 .h1-hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; padding: 2rem 1.5rem 2.5rem; overflow: hidden; }
+.romantv-series-h1 .h1-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center top; }
+.romantv-series-h1 .h1-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,12,16,0.97) 0%, rgba(11,12,16,0.75) 45%, rgba(11,12,16,0.35) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 55%); }
+.romantv-series-h1 .h1-hero-inner { position: relative; z-index: 2; max-width: 720px; }
+.romantv-series-h1 .h1-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.romantv-series-h1 .h1-hero-meta { font-size: 0.95rem; color: var(--dim); margin-bottom: 1.25rem; line-height: 1.5; }
+.romantv-series-h1 .h1-hero-meta strong { color: var(--text); font-weight: 600; }
+.romantv-series-h1 .h1-hero-ctas { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; }
+.romantv-series-h1 .h1-btn-resume { padding: 0.85rem 2rem; font-size: 1.05rem; font-weight: 800; border: none; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 24px rgba(229,9,20,0.45); transition: transform 0.15s, box-shadow 0.15s; }
+.romantv-series-h1 .h1-btn-resume:hover { transform: scale(1.02); box-shadow: 0 6px 32px rgba(229,9,20,0.55); }
+.romantv-series-h1 .h1-btn-ghost { padding: 0.75rem 1.15rem; font-size: 0.88rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--line); background: rgba(19,21,26,0.6); color: var(--text); cursor: pointer; backdrop-filter: blur(8px); }
+.romantv-series-h1 .h1-btn-ghost:hover { border-color: var(--dim); }
+.romantv-series-h1 .h1-section { padding: 1.75rem 1.5rem 0; }
+.romantv-series-h1 .h1-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.romantv-series-h1 .h1-section-title { font-size: 1.15rem; font-weight: 700; margin: 0; }
+.romantv-series-h1 .h1-section-title.sm { font-size: 0.95rem; font-weight: 600; color: var(--dim); }
+.romantv-series-h1 .h1-section-sub { font-size: 0.8rem; color: var(--dim); margin: 0.25rem 0 0; }
+.romantv-series-h1 .h1-row-scroll { display: flex; gap: 0.85rem; overflow-x: auto; padding-bottom: 0.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.romantv-series-h1 .h1-row-scroll::-webkit-scrollbar { height: 6px; }
+.romantv-series-h1 .h1-tile { flex: 0 0 auto; scroll-snap-align: start;  cursor: pointer;  }
+.romantv-series-h1 .h1-tile-poster {   overflow: hidden;   position: relative; }
+.romantv-series-h1 .h1-tile-poster img {   object-fit: cover; display: block; }
+.romantv-series-h1 .h1-tile-badge { position: absolute; top: 0.4rem; left: 0.4rem; font-size: 0.62rem; font-weight: 700;      }
+.romantv-series-h1 .h1-tile-title { font-size: 0.78rem; font-weight: 600; margin-top: 0.45rem; line- display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.romantv-series-h1 .h1-tile-meta { font-size: 0.68rem;  margin-top: 0.2rem; }
+.romantv-series-h1 .h1-cw-tile {     overflow: hidden; display: flex; flex-direction: column; }
+.romantv-series-h1 .h1-cw-top { display: flex; gap: 0.75rem; padding: 0.75rem; }
+.romantv-series-h1 .h1-cw-thumb {  flex-shrink: 0;  overflow: hidden;   }
+.romantv-series-h1 .h1-cw-thumb img {   object-fit: cover; }
+.romantv-series-h1 .h1-cw-body { flex: 1; min-width: 0; }
+.romantv-series-h1 .h1-cw-name { font-size: 0.88rem; font-weight: 700; margin: 0 0 0.35rem; line-height: 1.2; }
+.romantv-series-h1 .h1-cw-progress { font-size: 0.72rem; color: var(--dim); line-height: 1.45; margin-bottom: 0.5rem; }
+.romantv-series-h1 .h1-cw-progress strong { color: var(--gold); }
+.romantv-series-h1 .h1-bar { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; margin-bottom: 0.5rem; }
+.romantv-series-h1 .h1-bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ff4d5c); border-radius: 2px; }
+.romantv-series-h1 .h1-cw-actions { display: flex; gap: 0.4rem; padding: 0 0.75rem 0.75rem; }
+.romantv-series-h1 .h1-cw-actions button { flex: 1; padding: 0.45rem; font-size: 0.72rem; font-weight: 700; border-radius: 4px; border: none; cursor: pointer; }
+.romantv-series-h1 .h1-cw-actions .resume { background: var(--accent); color: #fff; }
+.romantv-series-h1 .h1-cw-actions .info { background: var(--panel2); color: var(--text); border: 1px solid var(--line); }
+.romantv-series-h1 .h1-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.5rem; }
+.romantv-series-h1 .h1-chip {   font-size: 0.75rem; font-weight: 600;    cursor: pointer;  }
+.romantv-series-h1 .h1-provider-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.65rem; }
+.romantv-series-h1 .h1-provider-tile {     display: flex; flex-direction: column; align-items: center; gap: 0.5rem; cursor: pointer;   }
+.romantv-series-h1 .h1-provider-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.romantv-series-h1 .h1-provider-icon img { width: 28px; height: 28px; object-fit: contain; }
+.romantv-series-h1 .h1-provider-label { font-size: 0.72rem; font-weight: 700; text-align: center; color: var(--text); }
+.romantv-series-h1 .h1-country-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.romantv-series-h1 .h1-country-pill {     font-size: 0.78rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;  }
+.romantv-series-h1 .h1-list-num { counter-reset: rank; }
+.romantv-series-h1 .h1-rank-tile { position: relative; counter-increment: rank;  }
+.romantv-series-h1 .h1-rank-tile::before { content: counter(rank); position: absolute; left: -4px; bottom: 8px; font-size: 3.5rem; font-weight: 900;  text-shadow: 0 2px 8px rgba(0,0,0,0.5); z-index: 1; line- pointer-events: none; }
+.romantv-series-h1 .h1-detail-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.82); backdrop-filter: blur(12px); display: none; align-items: flex-start; justify-content: center; padding: 2rem 1rem; overflow-y: auto; }
+.romantv-series-h1 .h1-detail-overlay.is-open { display: flex; }
+.romantv-series-h1 .h1-detail-panel { width: 100%; max-width: 920px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--h1-radius-lg); overflow: hidden; margin: auto; box-shadow: 0 24px 80px rgba(0,0,0,0.6); }
+.romantv-series-h1 .h1-detail-hero { position: relative; min-height: 220px; }
+.romantv-series-h1 .h1-detail-backdrop { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.romantv-series-h1 .h1-detail-backdrop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, var(--panel) 0%, transparent 70%), linear-gradient(90deg, var(--panel) 25%, transparent 100%); }
+.romantv-series-h1 .h1-detail-close { position: absolute; top: 0.75rem; right: 0.75rem; z-index: 5; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(0,0,0,0.5); color: #fff; font-size: 1.25rem; cursor: pointer; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.romantv-series-h1 .h1-detail-main { position: relative; padding: 0 1.25rem 1.25rem; margin-top: -80px; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.romantv-series-h1 .h1-detail-poster {  flex-shrink: 0;  overflow: hidden;   }
+.romantv-series-h1 .h1-detail-poster img {  display: block;  object-fit: cover; }
+.romantv-series-h1 .h1-detail-info { flex: 1; min-width: 200px; padding-top: 2.5rem; }
+.romantv-series-h1 .h1-detail-title { font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem; }
+.romantv-series-h1 .h1-detail-synopsis { font-size: 0.88rem; color: var(--dim); line-height: 1.55; margin: 0 0 1rem; }
+.romantv-series-h1 .h1-continue-box { border: 1px solid var(--line); border-radius: var(--h1-radius); background: var(--panel2); padding: 1rem; margin-bottom: 1rem; }
+.romantv-series-h1 .h1-continue-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+.romantv-series-h1 .h1-continue-line { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.35rem; }
+.romantv-series-h1 .h1-continue-sub { font-size: 0.8rem; color: var(--dim); margin-bottom: 0.75rem; }
+.romantv-series-h1 .h1-continue-play { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.9rem; }
+.romantv-series-h1 .h1-ep-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+.romantv-series-h1 .h1-select-wrap label { font-size: 0.72rem; color: var(--dim); display: block; margin-bottom: 0.25rem; }
+.romantv-series-h1 .h1-select-wrap select { padding: 0.45rem 2rem 0.45rem 0.65rem; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-weight: 600; font-size: 0.85rem; }
+.romantv-series-h1 .h1-ep-list { border-top: 1px solid var(--line); }
+.romantv-series-h1 .h1-ep-row { display: grid; grid-template-columns: 120px 1fr auto; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); align-items: center; }
+.romantv-series-h1 .h1-ep-thumb {  overflow: hidden;    }
+.romantv-series-h1 .h1-ep-thumb img {   object-fit: cover; }
+.romantv-series-h1 .h1-ep-info h4 { margin: 0 0 0.25rem; font-size: 0.85rem; font-weight: 700; }
+.romantv-series-h1 .h1-ep-meta { font-size: 0.72rem; color: var(--dim); margin-bottom: 0.25rem; }
+.romantv-series-h1 .h1-ep-plot { font-size: 0.75rem; color: var(--dim); line-height: 1.4; margin: 0; }
+.romantv-series-h1 .h1-ep-play { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel2); color: var(--text); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+.romantv-series-h1 .h1-ep-play:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.romantv-series-h1 .h1-up-next { margin: 1rem 0; padding: 1rem; border-radius: var(--h1-radius); border: 1px dashed var(--line); background: rgba(229,9,20,0.06); }
+.romantv-series-h1 .h1-up-next h3 { margin: 0 0 0.5rem; font-size: 0.8rem; font-weight: 700; color: var(--gold); }
+.romantv-series-h1 .h1-up-next p { margin: 0; font-size: 0.8rem; color: var(--dim); }
+.romantv-series-h1 .h1-similar-head { font-size: 0.85rem; font-weight: 700; margin: 1rem 0 0.65rem; }
+.romantv-series-h1 .h1-marathon-pill { display: inline-block; font-size: 0.7rem;     margin-top: 0.35rem; }
+@media (max-width: 640px) {
+  .romantv-series-h1 .h1-ep-row { grid-template-columns: 1fr; }
+  .romantv-series-h1 .h1-ep-play { justify-self: start; }
+}
+</style>
+<header class="h1-topbar" role="banner">
+<div aria-hidden="true" class="h1-logo">Roman<span>TV</span></div>
+<div class="h1-search-wrap">
+<span class="visually-hidden"><label for="h1-search-input">Search</label></span>
+<input autocomplete="off" class="h1-search" id="h1-search-input" placeholder="Search series..." type="search"/>
+</div>
+<nav aria-label="Main" class="h1-mainnav">
+<a class="h1-navtab" href="/">Home</a>
+<a class="h1-navtab" href="/movies">Movies</a>
+<a aria-current="page" class="h1-navtab is-active" href="/series">Series</a>
+<a class="h1-navtab" href="/anime">Anime</a>
+<a class="h1-navtab" href="/livetv">Live TV</a>
+<a class="h1-navtab" href="/sports">Sports</a>
+<a class="h1-navtab" href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a class="h1-navtab" href="/premium-tv">18+</a>
+</nav>
+<div class="h1-spacer">
+<button aria-label="Region" class="h1-pill is-active" type="button">🇲🇽 Mexico ▾</button>
+<span aria-label="Language" class="h1-pill">EN</span>
+<div aria-hidden="true" class="h1-avatar" title="Profile">R</div>
+</div>
+</header>
+<section aria-labelledby="h1-hero-heading" class="h1-hero">
+<div aria-label="Breaking Bad backdrop" class="h1-hero-bg" role="img" style='background-image:url("https://images.metahub.space/background/medium/tt0903747/img");'></div>
+<div class="h1-hero-inner">
+<p class="hero-kicker">PICK UP WHERE YOU LEFT OFF</p>
+<h1 class="hero-title" id="h1-hero-heading">Breaking Bad</h1>
+<p class="hero-desc">
+<strong>Pick up at S5 E3</strong> · 4 episodes remaining this season · <strong>6h 12m</strong> to finish the series run from here.
+      <br/>Total: <strong>47h</strong> · You are <strong>23%</strong> through — <em>Done in a weekend</em> if you clear the rest of this season.
+    </p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openSeriesDetail('Breaking Bad')" type="button">▶ Resume</button>
+<button class="btn-secondary" onclick="openSeriesDetail('Breaking Bad')" type="button">From Start</button>
+<button class="btn-secondary" onclick="openSeriesDetail('Breaking Bad')" type="button">Episode Guide</button>
+</div>
+</div>
+</section>
+<section aria-labelledby="h1-cw-heading" class="h1-section"><div class="h1-section-head"><div><h2 class="h1-section-title" id="h1-cw-heading">Continue Your Binges</h2><p class="h1-section-sub">Depth-first progress, marathon copy on every card</p></div></div><div class="h1-row-scroll" role="list"><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('Breaking Bad')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">Breaking Bad</h3>
+<p class="h1-cw-progress"><strong>S5 E3</strong> · S5 of 6 · 4 episodes left this season<br/><span class="h1-marathon-pill">6h 12m left · Total 47h · 23% done</span></p>
+<div class="h1-bar"><i style="width:67%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('Breaking Bad')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('Breaking Bad')" type="button">Details</button>
+</div></article><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('The Boys')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">The Boys</h3>
+<p class="h1-cw-progress"><strong>S4 E2</strong> · S4 in progress · 6 left<br/><span class="h1-marathon-pill">8h 40m left · marathon: ~2 evenings</span></p>
+<div class="h1-bar"><i style="width:41%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('The Boys')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('The Boys')" type="button">Details</button>
+</div></article><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('Dark')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">Dark</h3>
+<p class="h1-cw-progress"><strong>S2 E5</strong> · S2 of 3 · 3 episodes left<br/><span class="h1-marathon-pill">4h 10m · Est. finish: Saturday night</span></p>
+<div class="h1-bar"><i style="width:58%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('Dark')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('Dark')" type="button">Details</button>
+</div></article><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('Echo Valley')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">Echo Valley</h3>
+<p class="h1-cw-progress"><strong>S1 E7</strong> · S1 of 1 · 2 left<br/><span class="h1-marathon-pill">1h 45m · Almost done</span></p>
+<div class="h1-bar"><i style="width:78%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('Echo Valley')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('Echo Valley')" type="button">Details</button>
+</div></article><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('Nordic Noir')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">Nordic Noir</h3>
+<p class="h1-cw-progress"><strong>S3 E1</strong> · S3 of 4 · 7 left<br/><span class="h1-marathon-pill">Total: 31h · you are 12%</span></p>
+<div class="h1-bar"><i style="width:12%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('Nordic Noir')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('Nordic Noir')" type="button">Details</button>
+</div></article><article tabindex="0" role="button" class="h1-cw-tile" onclick="openSeriesDetail('Pacific Line')">
+<div class="h1-cw-top"><div class="h1-cw-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="h1-cw-body"><h3 class="h1-cw-name">Pacific Line</h3>
+<p class="h1-cw-progress"><strong>S2 E8</strong> · S2 of 3 · 5 left<br/><span class="h1-marathon-pill">Done in a weekend if you push</span></p>
+<div class="h1-bar"><i style="width:55%;"></i></div></div></div>
+<div class="h1-cw-actions">
+<button class="resume" onclick="event.stopPropagation();openSeriesDetail('Pacific Line')" type="button">▶ Resume</button>
+<button class="info" onclick="event.stopPropagation();openSeriesDetail('Pacific Line')" type="button">Details</button>
+</div></article></div></section>
+<section aria-labelledby="h1-ntw-heading" class="h1-section">
+<div class="h1-section-head"><div>
+<h2 class="h1-section-title sm" id="h1-ntw-heading">🔴 New This Week</h2>
+<p class="h1-section-sub">Premieres and returning runs — one scroll down from your resume lane</p>
+</div></div>
+<div class="h1-row-scroll">
+<div class="h1-tile" onclick="openSeriesDetail('Crown of Ash')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/><span class="h1-tile-badge countdown">Premieres in 3d 14h</span></div><div class="h1-tile-title">Crown of Ash</div><div class="h1-tile-meta">S1 event</div></div><div class="h1-tile" onclick="openSeriesDetail('Harborlight')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/><span class="h1-tile-badge tonight">Tonight at 9PM ET</span></div><div class="h1-tile-title">Harborlight</div><div class="h1-tile-meta">S3 returns</div></div><div class="h1-tile" onclick="openSeriesDetail('Static Prime')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/><span class="h1-tile-badge">Premieres in 1d 2h</span></div><div class="h1-tile-title">Static Prime</div><div class="h1-tile-meta">US Premium</div></div><div class="h1-tile" onclick="openSeriesDetail('The Line')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/><span class="h1-tile-badge">New season Friday</span></div><div class="h1-tile-title">The Line</div><div class="h1-tile-meta">Fan momentum</div></div><div class="h1-tile" onclick="openSeriesDetail('Nebula 9')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/><span class="h1-tile-badge">Premieres in 5d</span></div><div class="h1-tile-title">Nebula 9</div><div class="h1-tile-meta">Sci-fi window</div></div><div class="h1-tile" onclick="openSeriesDetail('Rio Ghosts')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/><span class="h1-tile-badge">Limited drop</span></div><div class="h1-tile-title">Rio Ghosts</div><div class="h1-tile-meta">Awards trail</div></div></div></section>
+<section aria-labelledby="h1-jdt-heading" class="h1-section">
+<div class="h1-section-head"><h2 class="h1-section-title" id="h1-jdt-heading">🆕 Just Dropped Today</h2></div>
+<div class="h1-row-scroll">
+<div class="h1-tile" onclick="openSeriesDetail('Glass District')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/><span class="h1-tile-badge dropped">S2 E5 · just dropped</span></div><div class="h1-tile-title">Glass District</div></div><div class="h1-tile" onclick="openSeriesDetail('Orbit Keys')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/><span class="h1-tile-badge dropped">S1 E3 · just dropped</span></div><div class="h1-tile-title">Orbit Keys</div></div><div class="h1-tile" onclick="openSeriesDetail('Velvet Halls')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/><span class="h1-tile-badge dropped">S4 E1 · just dropped</span></div><div class="h1-tile-title">Velvet Halls</div></div><div class="h1-tile" onclick="openSeriesDetail('Nocturne LP')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/><span class="h1-tile-badge dropped">S2 E8 · just dropped</span></div><div class="h1-tile-title">Nocturne LP</div></div><div class="h1-tile" onclick="openSeriesDetail('K-Town Files')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/><span class="h1-tile-badge dropped">S1 E12 · just dropped</span></div><div class="h1-tile-title">K-Town Files</div></div><div class="h1-tile" onclick="openSeriesDetail('Bosphorus')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/><span class="h1-tile-badge dropped">S3 E4 · just dropped</span></div><div class="h1-tile-title">Bosphorus</div></div></div></section><section aria-label="Series filters" class="h1-section"><div aria-label="Filter series" class="h1-chips" role="group"><button class="h1-chip is-on" type="button">All Series</button><button class="h1-chip" type="button">4K Top</button><button class="h1-chip" type="button">Netflix (US)</button><button class="h1-chip" type="button">Netflix España</button><button class="h1-chip" type="button">HBO Max</button><button class="h1-chip" type="button">Amazon Prime</button><button class="h1-chip" type="button">Disney+</button><button class="h1-chip" type="button">Apple TV+</button><button class="h1-chip" type="button">Paramount+</button><button class="h1-chip" type="button">English Series</button><button class="h1-chip" type="button">Korean K-Drama</button><button class="h1-chip" type="button">Turkish Series</button></div></section><section aria-labelledby="h1-prov-head" class="h1-section"><div class="h1-section-head"><h2 class="h1-section-title" id="h1-prov-head">Browse by Provider</h2></div><div class="h1-provider-grid"><div class="h1-provider-tile" onclick="openSeriesDetail('Netflix Catalog')" style="border-color:#E5091433">
+<div class="h1-provider-icon" style="background:#E50914"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/netflix/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#E50914">Netflix</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('HBO Picks')" style="border-color:#002BE733">
+<div class="h1-provider-icon" style="background:#002BE7"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/hbo/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#002BE7">HBO Max</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Disney Picks')" style="border-color:#113CCF33">
+<div class="h1-provider-icon" style="background:#113CCF"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/disneyplus/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#113CCF">Disney+</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Prime Picks')" style="border-color:#00A8E133">
+<div class="h1-provider-icon" style="background:#00A8E1"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/primevideo/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#00A8E1">Amazon Prime</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Apple Picks')" style="border-color:#A8A8A833">
+<div class="h1-provider-icon" style="background:#A8A8A8"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/appletv/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#A8A8A8">Apple TV+</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Paramount Picks')" style="border-color:#0064FF33">
+<div class="h1-provider-icon" style="background:#0064FF"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/paramountplus/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#0064FF">Paramount+</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Peacock Picks')" style="border-color:#FACC2E33">
+<div class="h1-provider-icon" style="background:#FACC2E"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/peacock/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#FACC2E">Peacock</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Hulu Picks')" style="border-color:#1CE78333">
+<div class="h1-provider-icon" style="background:#1CE783"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/hulu/000000" width="28"/></div>
+<span class="h1-provider-label" style="color:#1CE783">Hulu</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Crunchyroll Picks')" style="border-color:#F4752133">
+<div class="h1-provider-icon" style="background:#F47521"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/crunchyroll/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#F47521">Crunchyroll</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('4K Top')" style="border-color:#FCC41933">
+<div class="h1-provider-icon" style="background:#FCC419"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/4k/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#FCC419">4K Top</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Netflix España')" style="border-color:#C5202F33">
+<div class="h1-provider-icon" style="background:#C5202F"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/netflix/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#C5202F">ESPAÑA Netflix</span>
+</div><div class="h1-provider-tile" onclick="openSeriesDetail('Awards Picks')" style="border-color:#FFD66B33">
+<div class="h1-provider-icon" style="background:#FFD66B"><img alt="" height="28" loading="lazy" src="https://cdn.simpleicons.org/award/ffffff" width="28"/></div>
+<span class="h1-provider-label" style="color:#FFD66B">Awards</span>
+</div></div></section><section aria-labelledby="h1-country-h" class="h1-section"><div class="h1-section-head"><h2 class="h1-section-title" id="h1-country-h">Browse by Country</h2></div><div class="h1-country-row"><button class="h1-country-pill" onclick="openSeriesDetail('Korean K-Drama Hub')" type="button">🇰🇷 Korean K-Drama</button><button class="h1-country-pill" onclick="openSeriesDetail('UK Series')" type="button">🇬🇧 UK Series</button><button class="h1-country-pill" onclick="openSeriesDetail('ESPAÑA Originals')" type="button">🇪🇸 ESPAÑA Originals</button><button class="h1-country-pill" onclick="openSeriesDetail('US Premium')" type="button">🇺🇸 US Premium</button><button class="h1-country-pill" onclick="openSeriesDetail('Mexico Picks')" type="button">🇲🇽 Mexico</button><button class="h1-country-pill" onclick="openSeriesDetail('Turkish Series')" type="button">🇹🇷 Turkish</button><button class="h1-country-pill" onclick="openSeriesDetail('Japanese Series')" type="button">🇯🇵 Japanese</button><button class="h1-country-pill" onclick="openSeriesDetail('Indian Series')" type="button">🇮🇳 Indian</button><button class="h1-country-pill" onclick="openSeriesDetail('French Series')" type="button">🇫🇷 French</button><button class="h1-country-pill" onclick="openSeriesDetail('German Series')" type="button">🇩🇪 German</button></div></section><section aria-labelledby="h1-jf-h" class="h1-section"><div class="h1-section-head"><div><h2 class="h1-section-title" id="h1-jf-h">Just Finished a Show? Start Here</h2><p class="h1-section-sub">Completion-focused recs for the in-between show moment</p></div></div><div class="h1-row-scroll h1-list-num"><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Atlas Falls')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Atlas Falls</div><div class="h1-tile-meta">6h to clear · one weekend</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Cold Meridian')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Cold Meridian</div><div class="h1-tile-meta">8 episodes · fast burn</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Neon Pact')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Neon Pact</div><div class="h1-tile-meta">Crew-favorite</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Severed Ties')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Severed Ties</div><div class="h1-tile-meta">Pacing match</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Winter Archive')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Winter Archive</div><div class="h1-tile-meta">Mystery chain</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Signal Bloom')"><div class="h1-tile-poster"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Signal Bloom</div><div class="h1-tile-meta">Binge in 2 nights</div></div></div></section><section aria-labelledby="h1-ls-h" class="h1-section"><div class="h1-section-head"><div><h2 class="h1-section-title" id="h1-ls-h">Limited Series · Binge in 1 Weekend</h2><p class="h1-section-sub">Under 10 episodes — marathon-friendly pacing</p></div></div><div class="h1-row-scroll"><div class="h1-tile" onclick="openSeriesDetail('Six Rooms')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Six Rooms</div><div class="h1-tile-meta">6 eps · ~5h 30m</div></div><div class="h1-tile" onclick="openSeriesDetail('Narrow Sea')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Narrow Sea</div><div class="h1-tile-meta">7 eps total</div></div><div class="h1-tile" onclick="openSeriesDetail('Blank Signal')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Blank Signal</div><div class="h1-tile-meta">5 eps</div></div><div class="h1-tile" onclick="openSeriesDetail('Oxide')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Oxide</div><div class="h1-tile-meta">8 eps cap</div></div><div class="h1-tile" onclick="openSeriesDetail('Paper Saints')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Paper Saints</div><div class="h1-tile-meta">4-ep miniseries</div></div><div class="h1-tile" onclick="openSeriesDetail('Last Exit')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Last Exit</div><div class="h1-tile-meta">9 eps ceiling</div></div></div></section><!-- h1 design rationale block 0: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 1: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 2: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 3: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 4: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 5: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 6: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 7: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 8: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 9: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 10: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 11: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 12: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 13: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 14: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 15: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 16: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 17: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 18: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 19: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 20: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 21: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 22: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><!-- h1 design rationale block 23: time-aware (premiere countdown, tonight, just-dropped badges) pairs with completion copy (total hours, % complete, weekend estimate). Returning user: hero resume first; discovery follows. 43,367 series index assumed backend. --><section aria-labelledby="h1-tr-h" class="h1-section"><div class="h1-section-head"><h2 class="h1-section-title" id="h1-tr-h">Trending This Week</h2></div><div class="h1-row-scroll"><div class="h1-tile" onclick="openSeriesDetail('Trend Alpha')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Trend Alpha</div><div class="h1-tile-meta">+240% watch velocity</div></div><div class="h1-tile" onclick="openSeriesDetail('Trend Beta')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Trend Beta</div><div class="h1-tile-meta">Viral cold open</div></div><div class="h1-tile" onclick="openSeriesDetail('Trend Gamma')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Trend Gamma</div><div class="h1-tile-meta">Thread favorite</div></div><div class="h1-tile" onclick="openSeriesDetail('Trend Delta')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Trend Delta</div><div class="h1-tile-meta">Clips flywheel</div></div><div class="h1-tile" onclick="openSeriesDetail('Trend Epsilon')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Trend Epsilon</div><div class="h1-tile-meta">Finale theory bait</div></div><div class="h1-tile" onclick="openSeriesDetail('Trend Zeta')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Trend Zeta</div><div class="h1-tile-meta">Soundtrack climb</div></div></div></section><section aria-labelledby="h1-t10-h" class="h1-section"><div class="h1-section-head"><h2 class="h1-section-title" id="h1-t10-h">Top 10 Series</h2></div><div class="h1-row-scroll h1-list-num"><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top One')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Top One</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Two')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Top Two</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Three')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Top Three</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Four')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Top Four</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Five')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Top Five</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Six')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Top Six</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Seven')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Top Seven</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Eight')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Top Eight</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Nine')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Top Nine</div></div><div class="h1-tile h1-rank-tile" onclick="openSeriesDetail('Top Ten')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Top Ten</div></div></div></section><section aria-labelledby="h1-aw-h" class="h1-section" style="padding-bottom:2.5rem"><div class="h1-section-head"><h2 class="h1-section-title" id="h1-aw-h">Award Winners</h2></div><div class="h1-row-scroll"><div class="h1-tile" onclick="openSeriesDetail('Emmy Showcase')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></div><div class="h1-tile-title">Emmy Showcase</div><div class="h1-tile-meta">Drama — gold lane</div></div><div class="h1-tile" onclick="openSeriesDetail('Globe Set')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">Globe Set</div><div class="h1-tile-meta">Acting depth</div></div><div class="h1-tile" onclick="openSeriesDetail('Critic Circle')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Critic Circle</div><div class="h1-tile-meta">Writing room pick</div></div><div class="h1-tile" onclick="openSeriesDetail('Guild Honor')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Guild Honor</div><div class="h1-tile-meta">Craft standouts</div></div><div class="h1-tile" onclick="openSeriesDetail('Festival Path')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Festival Path</div><div class="h1-tile-meta">Limited heat</div></div><div class="h1-tile" onclick="openSeriesDetail('Icon Vault')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Icon Vault</div><div class="h1-tile-meta">Hall-of-fame run</div></div></div></section>
+<div aria-labelledby="h1-d-title" aria-modal="true" class="h1-detail-overlay" hidden="" id="h1-series-detail" role="dialog">
+<div class="h1-detail-panel" id="h1-series-detail-panel">
+<div class="h1-detail-hero">
+<div class="h1-detail-backdrop" id="h1-d-backdrop" style="background-image:url('https://images.metahub.space/background/medium/tt0903747/img');"></div>
+<button aria-label="Close" class="h1-detail-close" onclick="closeSeriesDetail()" type="button">×</button>
+</div>
+<div class="h1-detail-main">
+<div class="h1-detail-poster"><img alt="" id="h1-d-poster" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="h1-detail-info">
+<h2 class="h1-detail-title" id="h1-d-title">Breaking Bad</h2>
+<p class="h1-detail-synopsis" id="h1-d-syn">A meek high-school teacher turns to the drug trade, pulling his family and partner into a moral freefall. RomanTV mock copy — the UI shows synopsis, season navigation, and episode list for a single signed-in viewer (avatar R).</p>
+<div class="h1-continue-box" id="h1-d-continue">
+<div class="h1-continue-label">Continue Watching</div>
+<div class="h1-continue-line">S3 E7 · "Crystal Clear" · 28 min left</div>
+<div class="h1-continue-sub">Resume from the last frame. Progress syncs to this room.</div>
+<button class="h1-continue-play" onclick="closeSeriesDetail()" type="button">▶ Resume</button>
+</div>
+<div class="h1-ep-controls"><div class="h1-select-wrap"><label for="h1-season-sel">Season</label>
+<select aria-label="Select season" id="h1-season-sel">
+<option value="1">S1</option><option value="2">S2</option><option selected="" value="3">S3</option><option value="4">S4</option>
+</select></div></div>
+</div></div>
+<div style="padding:0 1.25rem 1rem">
+<div class="h1-ep-list" id="h1-ep-list">
+<div class="h1-ep-row">
+<div class="h1-ep-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/background/medium/tt0903747/img"/></div>
+<div class="h1-ep-info"><h4>E7 · Crystal Clear</h4><div class="h1-ep-meta">Aired 2010-05-16 · 48 min · In progress</div>
+<p class="h1-ep-plot">Walt navigates a delicate arrangement as pressure mounts at the lab and at home.</p></div>
+<button aria-label="Play episode" class="h1-ep-play" type="button">▶</button>
+</div>
+<div class="h1-ep-row">
+<div class="h1-ep-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/background/medium/tt0903747/img"/></div>
+<div class="h1-ep-info"><h4>E8 · I See You</h4><div class="h1-ep-meta">Aired 2010-05-23 · 48 min</div>
+<p class="h1-ep-plot">Tensions reach a public flashpoint; alliances begin to realign under scrutiny.</p></div>
+<button aria-label="Play episode" class="h1-ep-play" type="button">▶</button>
+</div>
+<div class="h1-ep-row">
+<div class="h1-ep-thumb"><img alt="" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="h1-ep-info"><h4>E9 · Kafkaesque</h4><div class="h1-ep-meta">Aired 2010-05-30 · 48 min</div>
+<p class="h1-ep-plot">An offer reframes the game; Jesse weighs escape routes and consequences.</p></div>
+<button aria-label="Play episode" class="h1-ep-play" type="button">▶</button>
+</div>
+</div>
+<div class="h1-up-next"><h3>Up Next — auto-play preview</h3>
+<p>Next: <strong id="h1-up-next-txt">S3 E8 — "I See You"</strong> — autostart in <strong>12s</strong> unless you cancel. Preview audio respects late-night hours.</p></div>
+<h3 class="h1-similar-head">Similar Series</h3>
+<div class="h1-row-scroll">
+<div class="h1-tile" onclick="openSeriesDetail('The Boys')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"/></div><div class="h1-tile-title">The Boys</div></div>
+<div class="h1-tile" onclick="openSeriesDetail('Dark')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"/></div><div class="h1-tile-title">Dark</div></div>
+<div class="h1-tile" onclick="openSeriesDetail('Echo Valley')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></div><div class="h1-tile-title">Echo Valley</div></div>
+<div class="h1-tile" onclick="openSeriesDetail('Nordic Noir')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></div><div class="h1-tile-title">Nordic Noir</div></div>
+<div class="h1-tile" onclick="openSeriesDetail('Pacific Line')"><div class="h1-tile-poster"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></div><div class="h1-tile-title">Pacific Line</div></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function(){
+if(window.__h1SeriesBound) return; window.__h1SeriesBound=true;
+var MOCK = {
+"Breaking Bad":{poster:"tt0903747",syn:"A chemistry teacher turned cook walks a razor line between family and the cartel.",cw:'S3 E7 · "Crystal Clear" · 28 min left',next:'S3 E8 — "I See You"'},
+"The Boys":{poster:"tt1190634",syn:"Corporate-backed supes meet the humans willing to punch up.",cw:"S4 E2 · 38 min left",next:"S4 E3 — next file"},
+"Dark":{poster:"tt9243946",syn:"A small town folds in on its own past and future.",cw:"S2 E5 · 22 min left",next:"S2 E6 — dual timelines"},
+"Echo Valley":{poster:"tt27911000",syn:"Sun-bleach noir where every witness vanishes with the morning wind.",cw:"S1 E7 · 14 min left",next:"S1 E8 — finale push"},
+"Nordic Noir":{poster:"tt32612507",syn:"Long nights, short alibis, and one case that will not stay cold.",cw:"S3 E1 · 5 min left",next:"S3 E2 — new thread"},
+"Pacific Line":{poster:"tt32430579",syn:"A coastal freight corridor fuels rival crews and a political knife fight.",cw:"S2 E8 · 41 min left",next:"S2 E9 — storm run"}
+};
+function byId(i){ return document.getElementById(i); }
+window.openSeriesDetail = function(idOrName, fallbackName){
+  var raw = String(idOrName || fallbackName || "").trim();
+  if (!raw) return;
+  window.location.href = "/detail/series/" + encodeURIComponent(raw);
+};
+window.closeSeriesDetail = function(){
+  var el = byId("h1-series-detail"); if(!el) return;
+  el.classList.remove("is-open"); el.hidden = true; el.setAttribute("hidden","");
+  document.body.style.overflow = "";
+};
+byId("h1-series-detail").addEventListener("click", function(e){ if(e.target === this) closeSeriesDetail(); });
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeSeriesDetail(); });
+})();
+</script>
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "series",
+  endpoints: ["/api/rows?filter=series"],
+  selectors: [".h1-row-scroll"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=22"></script>
+
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.38 (2026-04-29): remove hardcoded mockup hero + Continue Your Binges row.
+// Owner has no real watch history — these are placeholder mock cards from the design template.
+(function(){
+  function killMock() {
+      if (window.__rtvKeepHero) return; // RTV_FIX_v1.61 dynamic hero will overwrite, do not kill
+    try {
+      // Hero with "PICK UP WHERE YOU LEFT OFF" / Breaking Bad
+      var hero = document.querySelector(".h1-hero, .romantv-series-h1 .h1-hero, section.h1-hero");
+      if (hero) hero.remove();
+      // First .h1-section is "Continue Your Binges" — fake CW row
+      var firstSection = document.querySelector(".romantv-series-h1 .h1-section, .h1-section");
+      if (firstSection && /continue your binges|continue watching/i.test(firstSection.textContent || "")) {
+        firstSection.remove();
+      }
+    } catch (_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", killMock, { once: true });
+  } else {
+    killMock();
+  }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_catalog_badge.js?v=2" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

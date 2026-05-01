@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · KIDS · k4</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+</head>
+<body data-rtv-tab="kids" class="">
+
+<section class="design" data-active-age="elementary" data-family-mode="active" id="k4">
+<style>
+    #k4 {
+      --kid-peach:#ff9f43;
+      --kid-teal:#4ecdc4;
+      --kid-blue:#5b8def;
+      --kid-pink:#ff6b9d;
+      --kid-yellow:#ffd93d;
+      --kid-green:#6bcf7f;
+      min-height:100vh;
+      background: radial-gradient(circle at 20% 0%, #1a1d2c 0%, var(--bg) 45%, #08090c 100%);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 18px clamp(14px, 2.2vw, 34px) 40px;
+      line-height: 1.35;
+    }
+    #k4 * { box-sizing:border-box; }
+    #k4 .k4-brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.02em; }
+    #k4 .k4-brand-bubble {
+      width:40px; height:40px; border-radius:12px;
+      display:grid; place-items:center; background:linear-gradient(135deg,var(--kid-pink),var(--kid-yellow)); color:#221;
+      font-size:20px;
+    }
+    #k4 .k4-meta { display:flex; gap:10px; align-items:center; justify-content:flex-end; }
+    #k4 .pill {     font-size:.85rem; }
+    #k4 .family-pill {    font-weight:700; }
+
+    #k4 .k4-home-btn {
+      height:64px; min-width:170px; border-radius:14px; border:2px solid rgba(255,214,107,.45); background:rgba(255,214,107,.08);
+      color:var(--text); font-weight:800; font-size:1rem; padding:0 18px;
+    }
+
+    #k4 .k4-hero-wrap {
+      position:relative;
+      display:grid; grid-template-columns:minmax(0,1fr); gap:16px; align-items:stretch;
+    }
+    #k4 .k4-controls-toggle {
+      position:absolute; top:14px; right:14px; z-index:5; min-height:56px; min-width:56px;
+      border-radius:14px; border:1px solid var(--line); background:rgba(19,21,26,.92); color:var(--text); font-weight:800;
+      padding:0 14px;
+    }
+    #k4 .k4-controls-toggle .k4-controls-label{display:none;}
+    #k4 .k4-controls-toggle[aria-expanded="true"] .k4-controls-label{display:inline;}
+    #k4 .k4-controls-toggle[aria-expanded="true"] .k4-controls-icon{margin-right:8px;}
+    #k4 .k4-hero {
+      background:linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.18)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=60') center/cover;
+      border:1px solid var(--line); border-radius:22px; padding:18px;
+      display:flex; flex-direction:column; min-height:420px;
+    }
+    #k4 .k4-chipbar { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    #k4 .k4-chip {
+      font-weight:800; font-size:1rem;
+    }
+    #k4 .k4-chip[data-age="preschool"].is-active { background:var(--kid-peach); border-color:transparent; color:#201406; }
+    #k4 .k4-chip[data-age="elementary"].is-active { background:var(--kid-teal); border-color:transparent; color:#06201e; }
+    #k4 .k4-chip[data-age="tween"].is-active { background:var(--kid-blue); border-color:transparent; color:#ffffff; }
+
+    #k4 .k4-kicker { color:var(--gold); font-weight:700; letter-spacing:.03em; text-transform:uppercase; font-size:.78rem; }
+    #k4 .k4-hero h1 { margin:.35rem 0 .45rem; }
+    #k4 .k4-hero p { max-width:62ch; color:#f5f5f8; margin:0 0 14px; }
+    #k4 .k4-hero-ctas { display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; }
+    #k4 .k4-hero-ctas button {
+      min-height:68px; padding:0 24px; border-radius:16px; border:0; font-size:1.06rem; font-weight:800;
+    }
+    #k4 .k4-watch { background:var(--accent); color:#fff; }
+    #k4 .k4-calendar { background:#242835; color:#fff; border:1px solid var(--line) !important; }
+    #k4 .k4-reco { margin-top:14px; background:rgba(78,205,196,.12); border:1px solid rgba(78,205,196,.55); border-radius:14px; padding:12px 14px; }
+
+    #k4 .k4-controls {
+      background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:16px;
+      display:flex; flex-direction:column; gap:12px;
+      max-height:0; opacity:0; overflow:hidden; transform:translateY(-8px); transition:max-height .25s ease, opacity .2s ease, transform .2s ease;
+    }
+    #k4 .k4-controls.is-open{max-height:900px;opacity:1;transform:translateY(0);margin-top:8px;}
+    #k4 .k4-controls h2 { margin:0; font-size:1rem; }
+    #k4 .k4-ctrl { background:var(--panel2); border:1px solid var(--line); border-radius:14px; padding:12px; }
+    #k4 .k4-ctrl button, #k4 .k4-ctrl select, #k4 .k4-ctrl input { min-height:56px; width:100%; border-radius:12px; border:1px solid var(--line); background:#0f1218; color:#fff; padding:0 12px; }
+
+    #k4 .k4-section-label { margin:18px 0 10px; font-size:1.1rem; color:var(--gold); }
+    #k4 .k4-row { margin:0 0 20px; }
+    #k4 .k4-row-head { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:end; justify-content:space-between; margin-bottom:10px; }
+    #k4 .k4-row-head h3 { margin:0; font-size:1.2rem; }
+    #k4 .k4-row-head p { margin:0; color:var(--dim); font-size:.92rem; }
+    #k4 .k4-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+    #k4 .k4-tile {
+      display:flex; flex-direction:column; gap:9px; cursor:pointer;
+    }
+    #k4 .k4-art { border-radius:14px; min-height:170px; padding:10px; display:flex; flex-direction:column; justify-content:space-between; }
+    #k4 .k4-badge {
+      width:max-content; padding:7px 10px; border-radius:999px; background:rgba(0,0,0,.42); color:#fff; font-size:.78rem; border:1px solid rgba(255,255,255,.25);
+    }
+    #k4 .k4-play { min-height:56px; border-radius:12px; border:0; background:rgba(11,12,16,.85); color:#fff; font-weight:800; }
+    #k4 .k4-tile h4 { margin:0; font-size:1rem; }
+    #k4 .k4-tile p { margin:0;  font-size:.86rem; }
+    #k4 .k4-tile:focus-visible, #k4 .k4-chip:focus-visible, #k4 .k4-home-btn:focus-visible,
+    #k4 button:focus-visible, #k4 a:focus-visible, #k4 input:focus-visible, #k4 select:focus-visible {
+      outline:none;
+    }
+
+    #k4 .k4-universal-note { margin:4px 0 16px; color:var(--dim); font-size:.9rem; }
+
+    @media (max-width: 1280px) {
+      #k4 .k4-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      #k4 .k4-hero-wrap { grid-template-columns:1fr; }
+    }
+    @media (max-width: 900px) {
+      #k4 .k4-topbar { grid-template-columns:1fr; }
+      #k4 .k4-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #k4 .k4-hero-ctas button { min-height:56px; }
+      #k4 .k4-play { min-height:56px; }
+    }
+    @media (max-width: 560px) {
+      #k4 .k4-grid { grid-template-columns:1fr; }
+      #k4 .k4-home-btn { width:100%; }
+    }
+    @media (min-width: 1281px) {
+      #k4 .k4-play { min-height:60px; }
+      #k4 .k4-controls button, #k4 .k4-controls select, #k4 .k4-controls input { min-height:60px; }
+    }
+  </style>
+<div aria-label="RomanTV Kids top navigation" class="k4-topbar" role="banner">
+<div class="k4-brand">
+<span class="k4-brand-bubble">🧸</span>
+<div>
+<div>RomanTV KIDS</div>
+<small style="color:var(--dim);font-weight:600;">Family Mode active</small>
+</div>
+</div>
+<label aria-label="Kids search" class="k4-search">
+<input aria-label="Buscar dibujos, películas" placeholder="Buscar dibujos, películas..." type="search"/>
+</label>
+<nav aria-label="Primary navigation" class="k4-nav">
+<a href="/">Home</a><a href="/movies">Movies</a><a href="/series">Series</a><a href="/anime">Anime</a><a class="is-active" href="#k4">Kids</a><a href="/livetv">Live TV</a><a href="/sports">Sports</a><a href="/esports">Esports</a><a href="/premium-tv">Premium TV</a>
+</nav>
+<div class="k4-meta">
+<span class="pill">🇲🇽 México</span>
+<span class="pill">EN</span>
+<span class="pill">👦 Kid avatar</span>
+<span class="pill family-pill">Family Mode</span>
+</div>
+</div>
+<button class="k4-home-btn" onclick="openKidsContent('Kids Home')" type="button">⬅ Quick Back to Home</button>
+<div class="k4-hero-wrap">
+<button aria-controls="k4-controls-panel" aria-expanded="false" class="k4-controls-toggle" onclick="toggleK4Controls(this)" type="button"><span class="k4-controls-icon">🛡</span><span class="k4-controls-label">Parental controls</span></button>
+<section aria-label="Tonight family movie hero" class="k4-hero">
+<div aria-label="Age group filter chips" class="k4-chipbar">
+<button class="k4-chip" data-age="preschool" type="button">🐤 Preschool 2-5</button>
+<button class="k4-chip is-active" data-age="elementary" type="button">🦊 Elementary 6-9</button>
+<button class="k4-chip" data-age="tween" type="button">🦊🦊 Tween 10-12</button>
+</div>
+<span class="hero-kicker">Tonight's Family Movie</span>
+<h1 class="hero-title">Coco · Watch Together Tonight</h1>
+<p>Single curated hero pick keeps decisions easy for kids and smooth for adults. Hero rotates between Coco, Encanto, and Moana, with one clear primary action and one calendar helper for the evening plan.</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openKidsContent('Coco')" type="button">▶ Watch Together</button>
+<button class="btn-secondary" onclick="openKidsContent('Add Coco to Tonight calendar')" type="button">📅 Add to Tonight calendar</button>
+</div>
+<div aria-live="polite" class="k4-reco"><strong>Recommended now:</strong> Pokemon Journeys ES-LAT for ages 6-9, matched to recent family watch history.</div>
+</section>
+<aside aria-label="Parental controls panel" class="k4-controls" id="k4-controls-panel">
+<h2>Parental Controls</h2>
+<div class="k4-ctrl">
+<label for="k4movienight">Movie Night Mode</label>
+<button id="k4movienight" onclick="openKidsContent('Movie Night Mode')" type="button">Family Movie Night Mode: ON</button>
+</div>
+<div class="k4-ctrl">
+<label for="k4limit">Time Limit</label>
+<select aria-label="Select time limit" id="k4limit">
+<option>30 minutes</option>
+<option selected="">60 minutes</option>
+<option>90 minutes</option>
+</select>
+</div>
+<div class="k4-ctrl">
+<label for="k4pin">PIN exit lock</label>
+<input aria-label="PIN exit lock" id="k4pin" type="password" value="1234"/>
+</div>
+<div class="k4-ctrl">
+<label for="k4ageswitch">Change age (PIN required)</label>
+<button id="k4ageswitch" onclick="openKidsContent('Age switch settings')" type="button">Parent Settings: Change Active Age</button>
+</div>
+</aside>
+</div>
+<h2 class="k4-section-label">🎬 Movie Night · Curated for the family</h2>
+<section aria-label="Movie Night Picks" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>Movie Night Picks</h3>
+<p>Curated big posters, max six choices, one-tap play.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Coco" class="k4-tile" data-age-group="all" data-title="Coco" onclick="openKidsContent('Coco')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Coco')" type="button">▶ Play</button>
+</div>
+<h4>Coco</h4>
+<p>Picture-led family card for Coco. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Encanto" class="k4-tile" data-age-group="all" data-title="Encanto" onclick="openKidsContent('Encanto')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Encanto')" type="button">▶ Play</button>
+</div>
+<h4>Encanto</h4>
+<p>Picture-led family card for Encanto. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Moana" class="k4-tile" data-age-group="all" data-title="Moana" onclick="openKidsContent('Moana')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Moana')" type="button">▶ Play</button>
+</div>
+<h4>Moana</h4>
+<p>Picture-led family card for Moana. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Frozen" class="k4-tile" data-age-group="all" data-title="Frozen" onclick="openKidsContent('Frozen')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Frozen')" type="button">▶ Play</button>
+</div>
+<h4>Frozen</h4>
+<p>Picture-led family card for Frozen. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Toy Story" class="k4-tile" data-age-group="all" data-title="Toy Story" onclick="openKidsContent('Toy Story')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Toy Story')" type="button">▶ Play</button>
+</div>
+<h4>Toy Story</h4>
+<p>Picture-led family card for Toy Story. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Finding Nemo" class="k4-tile" data-age-group="all" data-title="Finding Nemo" onclick="openKidsContent('Finding Nemo')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Finding Nemo')" type="button">▶ Play</button>
+</div>
+<h4>Finding Nemo</h4>
+<p>Picture-led family card for Finding Nemo. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">🎌 Studio Ghibli · Family classics</h2>
+<p class="k4-universal-note">Universal row: visible regardless of selected age chip.</p>
+<section aria-label="Studio Ghibli Favorites" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>Studio Ghibli Favorites</h3>
+<p>Family-safe classics always available for shared viewing.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Spirited Away" class="k4-tile" data-age-group="all" data-title="Spirited Away" onclick="openKidsContent('Spirited Away')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Spirited Away')" type="button">▶ Play</button>
+</div>
+<h4>Spirited Away</h4>
+<p>Picture-led family card for Spirited Away. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play My Neighbor Totoro" class="k4-tile" data-age-group="all" data-title="My Neighbor Totoro" onclick="openKidsContent('My Neighbor Totoro')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('My Neighbor Totoro')" type="button">▶ Play</button>
+</div>
+<h4>My Neighbor Totoro</h4>
+<p>Picture-led family card for My Neighbor Totoro. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Kiki's Delivery Service" class="k4-tile" data-age-group="all" data-title="Kiki's Delivery Service" onclick="openKidsContent('Kiki\'s Delivery Service')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Kiki\'s Delivery Service')" type="button">▶ Play</button>
+</div>
+<h4>Kiki's Delivery Service</h4>
+<p>Picture-led family card for Kiki's Delivery Service. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Ponyo" class="k4-tile" data-age-group="all" data-title="Ponyo" onclick="openKidsContent('Ponyo')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Ponyo')" type="button">▶ Play</button>
+</div>
+<h4>Ponyo</h4>
+<p>Picture-led family card for Ponyo. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Arrietty" class="k4-tile" data-age-group="all" data-title="Arrietty" onclick="openKidsContent('Arrietty')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Arrietty')" type="button">▶ Play</button>
+</div>
+<h4>Arrietty</h4>
+<p>Picture-led family card for Arrietty. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Castle in the Sky" class="k4-tile" data-age-group="all" data-title="Castle in the Sky" onclick="openKidsContent('Castle in the Sky')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Castle in the Sky')" type="button">▶ Play</button>
+</div>
+<h4>Castle in the Sky</h4>
+<p>Picture-led family card for Castle in the Sky. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">🦄 Pixar · For everyone</h2>
+<p class="k4-universal-note">Universal row: visible regardless of selected age chip.</p>
+<section aria-label="Pixar for Everyone" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>Pixar for Everyone</h3>
+<p>High-recognition artwork and short labels for easy navigation.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Toy Story" class="k4-tile" data-age-group="all" data-title="Toy Story" onclick="openKidsContent('Toy Story')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Toy Story')" type="button">▶ Play</button>
+</div>
+<h4>Toy Story</h4>
+<p>Picture-led family card for Toy Story. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Finding Nemo" class="k4-tile" data-age-group="all" data-title="Finding Nemo" onclick="openKidsContent('Finding Nemo')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Finding Nemo')" type="button">▶ Play</button>
+</div>
+<h4>Finding Nemo</h4>
+<p>Picture-led family card for Finding Nemo. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Up" class="k4-tile" data-age-group="all" data-title="Up" onclick="openKidsContent('Up')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Up')" type="button">▶ Play</button>
+</div>
+<h4>Up</h4>
+<p>Picture-led family card for Up. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Inside Out" class="k4-tile" data-age-group="all" data-title="Inside Out" onclick="openKidsContent('Inside Out')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Inside Out')" type="button">▶ Play</button>
+</div>
+<h4>Inside Out</h4>
+<p>Picture-led family card for Inside Out. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Coco" class="k4-tile" data-age-group="all" data-title="Coco" onclick="openKidsContent('Coco')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Coco')" type="button">▶ Play</button>
+</div>
+<h4>Coco</h4>
+<p>Picture-led family card for Coco. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Monsters, Inc." class="k4-tile" data-age-group="all" data-title="Monsters, Inc." onclick="openKidsContent('Monsters, Inc.')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Monsters, Inc.')" type="button">▶ Play</button>
+</div>
+<h4>Monsters, Inc.</h4>
+<p>Picture-led family card for Monsters, Inc.. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">📺 Family series</h2>
+<section aria-label="Preschool Series 2-5" class="k4-row" data-row-age="preschool">
+<div class="k4-row-head">
+<h3>Preschool Series 2-5</h3>
+<p>Simple rhythms and playful visuals for early viewers.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Bluey" class="k4-tile" data-age-group="preschool" data-title="Bluey" onclick="openKidsContent('Bluey')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Bluey')" type="button">▶ Play</button>
+</div>
+<h4>Bluey</h4>
+<p>Picture-led family card for Bluey. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Hey Duggee" class="k4-tile" data-age-group="preschool" data-title="Hey Duggee" onclick="openKidsContent('Hey Duggee')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Hey Duggee')" type="button">▶ Play</button>
+</div>
+<h4>Hey Duggee</h4>
+<p>Picture-led family card for Hey Duggee. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Peppa Pig" class="k4-tile" data-age-group="preschool" data-title="Peppa Pig" onclick="openKidsContent('Peppa Pig')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Peppa Pig')" type="button">▶ Play</button>
+</div>
+<h4>Peppa Pig</h4>
+<p>Picture-led family card for Peppa Pig. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Sesame Street" class="k4-tile" data-age-group="preschool" data-title="Sesame Street" onclick="openKidsContent('Sesame Street')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Sesame Street')" type="button">▶ Play</button>
+</div>
+<h4>Sesame Street</h4>
+<p>Picture-led family card for Sesame Street. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Mickey Mouse Clubhouse" class="k4-tile" data-age-group="preschool" data-title="Mickey Mouse Clubhouse" onclick="openKidsContent('Mickey Mouse Clubhouse')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Mickey Mouse Clubhouse')" type="button">▶ Play</button>
+</div>
+<h4>Mickey Mouse Clubhouse</h4>
+<p>Picture-led family card for Mickey Mouse Clubhouse. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Puffin Rock" class="k4-tile" data-age-group="preschool" data-title="Puffin Rock" onclick="openKidsContent('Puffin Rock')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">preschool</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Puffin Rock')" type="button">▶ Play</button>
+</div>
+<h4>Puffin Rock</h4>
+<p>Picture-led family card for Puffin Rock. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<section aria-label="Elementary Series 6-9" class="k4-row" data-row-age="elementary">
+<div class="k4-row-head">
+<h3>Elementary Series 6-9</h3>
+<p>Adventure-comedy picks with LATAM dub options.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Pokemon" class="k4-tile" data-age-group="elementary" data-title="Pokemon" onclick="openKidsContent('Pokemon')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Pokemon')" type="button">▶ Play</button>
+</div>
+<h4>Pokemon</h4>
+<p>Picture-led family card for Pokemon. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Doraemon" class="k4-tile" data-age-group="elementary" data-title="Doraemon" onclick="openKidsContent('Doraemon')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Doraemon')" type="button">▶ Play</button>
+</div>
+<h4>Doraemon</h4>
+<p>Picture-led family card for Doraemon. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Avatar TLA" class="k4-tile" data-age-group="elementary" data-title="Avatar TLA" onclick="openKidsContent('Avatar TLA')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Avatar TLA')" type="button">▶ Play</button>
+</div>
+<h4>Avatar TLA</h4>
+<p>Picture-led family card for Avatar TLA. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Phineas and Ferb" class="k4-tile" data-age-group="elementary" data-title="Phineas and Ferb" onclick="openKidsContent('Phineas and Ferb')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Phineas and Ferb')" type="button">▶ Play</button>
+</div>
+<h4>Phineas and Ferb</h4>
+<p>Picture-led family card for Phineas and Ferb. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play The Owl House" class="k4-tile" data-age-group="elementary" data-title="The Owl House" onclick="openKidsContent('The Owl House')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('The Owl House')" type="button">▶ Play</button>
+</div>
+<h4>The Owl House</h4>
+<p>Picture-led family card for The Owl House. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Loud House" class="k4-tile" data-age-group="elementary" data-title="Loud House" onclick="openKidsContent('Loud House')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">elementary</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Loud House')" type="button">▶ Play</button>
+</div>
+<h4>Loud House</h4>
+<p>Picture-led family card for Loud House. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<section aria-label="Tween Series 10-12" class="k4-row" data-row-age="tween">
+<div class="k4-row-head">
+<h3>Tween Series 10-12</h3>
+<p>Older-kid stories with parent-approved curation.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Demon Slayer (PG cuts)" class="k4-tile" data-age-group="tween" data-title="Demon Slayer (PG cuts)" onclick="openKidsContent('Demon Slayer (PG cuts)')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Demon Slayer (PG cuts)')" type="button">▶ Play</button>
+</div>
+<h4>Demon Slayer (PG cuts)</h4>
+<p>Picture-led family card for Demon Slayer (PG cuts). Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Naruto" class="k4-tile" data-age-group="tween" data-title="Naruto" onclick="openKidsContent('Naruto')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Naruto')" type="button">▶ Play</button>
+</div>
+<h4>Naruto</h4>
+<p>Picture-led family card for Naruto. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Hilda" class="k4-tile" data-age-group="tween" data-title="Hilda" onclick="openKidsContent('Hilda')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Hilda')" type="button">▶ Play</button>
+</div>
+<h4>Hilda</h4>
+<p>Picture-led family card for Hilda. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Trollhunters" class="k4-tile" data-age-group="tween" data-title="Trollhunters" onclick="openKidsContent('Trollhunters')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Trollhunters')" type="button">▶ Play</button>
+</div>
+<h4>Trollhunters</h4>
+<p>Picture-led family card for Trollhunters. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Steven Universe" class="k4-tile" data-age-group="tween" data-title="Steven Universe" onclick="openKidsContent('Steven Universe')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Steven Universe')" type="button">▶ Play</button>
+</div>
+<h4>Steven Universe</h4>
+<p>Picture-led family card for Steven Universe. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Voltron" class="k4-tile" data-age-group="tween" data-title="Voltron" onclick="openKidsContent('Voltron')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">tween</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Voltron')" type="button">▶ Play</button>
+</div>
+<h4>Voltron</h4>
+<p>Picture-led family card for Voltron. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">👶 Kids alone (when grown-ups need 30 min)</h2>
+<section aria-label="Safe Solo 30-Min Packs" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>Safe Solo 30-Min Packs</h3>
+<p>Short bundles and familiar characters for calm independent viewing.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Bluey" class="k4-tile" data-age-group="all" data-title="Bluey" onclick="openKidsContent('Bluey')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Bluey')" type="button">▶ Play</button>
+</div>
+<h4>Bluey</h4>
+<p>Picture-led family card for Bluey. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Mickey Mouse Clubhouse" class="k4-tile" data-age-group="all" data-title="Mickey Mouse Clubhouse" onclick="openKidsContent('Mickey Mouse Clubhouse')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Mickey Mouse Clubhouse')" type="button">▶ Play</button>
+</div>
+<h4>Mickey Mouse Clubhouse</h4>
+<p>Picture-led family card for Mickey Mouse Clubhouse. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Pokemon" class="k4-tile" data-age-group="all" data-title="Pokemon" onclick="openKidsContent('Pokemon')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Pokemon')" type="button">▶ Play</button>
+</div>
+<h4>Pokemon</h4>
+<p>Picture-led family card for Pokemon. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Hilda" class="k4-tile" data-age-group="all" data-title="Hilda" onclick="openKidsContent('Hilda')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Hilda')" type="button">▶ Play</button>
+</div>
+<h4>Hilda</h4>
+<p>Picture-led family card for Hilda. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Peppa Pig" class="k4-tile" data-age-group="all" data-title="Peppa Pig" onclick="openKidsContent('Peppa Pig')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Peppa Pig')" type="button">▶ Play</button>
+</div>
+<h4>Peppa Pig</h4>
+<p>Picture-led family card for Peppa Pig. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Doraemon" class="k4-tile" data-age-group="all" data-title="Doraemon" onclick="openKidsContent('Doraemon')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Doraemon')" type="button">▶ Play</button>
+</div>
+<h4>Doraemon</h4>
+<p>Picture-led family card for Doraemon. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">🇲🇽 Doblaje latino</h2>
+<section aria-label="ES-LAT Family Favorites" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>ES-LAT Family Favorites</h3>
+<p>Spanish-dubbed favorites tuned for Mexico households.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Coco ES-LAT" class="k4-tile" data-age-group="all" data-title="Coco ES-LAT" onclick="openKidsContent('Coco ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Coco ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Coco ES-LAT</h4>
+<p>Picture-led family card for Coco ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Encanto ES-LAT" class="k4-tile" data-age-group="all" data-title="Encanto ES-LAT" onclick="openKidsContent('Encanto ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Encanto ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Encanto ES-LAT</h4>
+<p>Picture-led family card for Encanto ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Moana ES-LAT" class="k4-tile" data-age-group="all" data-title="Moana ES-LAT" onclick="openKidsContent('Moana ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Moana ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Moana ES-LAT</h4>
+<p>Picture-led family card for Moana ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Pokemon ES-LAT" class="k4-tile" data-age-group="all" data-title="Pokemon ES-LAT" onclick="openKidsContent('Pokemon ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Pokemon ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Pokemon ES-LAT</h4>
+<p>Picture-led family card for Pokemon ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Doraemon ES-LAT" class="k4-tile" data-age-group="all" data-title="Doraemon ES-LAT" onclick="openKidsContent('Doraemon ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Doraemon ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Doraemon ES-LAT</h4>
+<p>Picture-led family card for Doraemon ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Bluey ES-LAT" class="k4-tile" data-age-group="all" data-title="Bluey ES-LAT" onclick="openKidsContent('Bluey ES-LAT')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Bluey ES-LAT')" type="button">▶ Play</button>
+</div>
+<h4>Bluey ES-LAT</h4>
+<p>Picture-led family card for Bluey ES-LAT. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">📺 Live family channels</h2>
+<section aria-label="Live Family Channels" class="k4-row" data-row-age="all">
+<div class="k4-row-head">
+<h3>Live Family Channels</h3>
+<p>Always-on channels with big logos and quick launch.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Discovery Kids LA" class="k4-tile" data-age-group="all" data-title="Discovery Kids LA" onclick="openKidsContent('Discovery Kids LA')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#4e54c8 0%,#8f94fb 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Discovery Kids LA')" type="button">▶ Play</button>
+</div>
+<h4>Discovery Kids LA</h4>
+<p>Picture-led family card for Discovery Kids LA. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Disney Channel LA" class="k4-tile" data-age-group="all" data-title="Disney Channel LA" onclick="openKidsContent('Disney Channel LA')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Disney Channel LA')" type="button">▶ Play</button>
+</div>
+<h4>Disney Channel LA</h4>
+<p>Picture-led family card for Disney Channel LA. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Cartoon Network LA" class="k4-tile" data-age-group="all" data-title="Cartoon Network LA" onclick="openKidsContent('Cartoon Network LA')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#1d976c 0%,#93f9b9 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Cartoon Network LA')" type="button">▶ Play</button>
+</div>
+<h4>Cartoon Network LA</h4>
+<p>Picture-led family card for Cartoon Network LA. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Nick Jr" class="k4-tile" data-age-group="all" data-title="Nick Jr" onclick="openKidsContent('Nick Jr')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Nick Jr')" type="button">▶ Play</button>
+</div>
+<h4>Nick Jr</h4>
+<p>Picture-led family card for Nick Jr. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Boomerang LA" class="k4-tile" data-age-group="all" data-title="Boomerang LA" onclick="openKidsContent('Boomerang LA')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Boomerang LA')" type="button">▶ Play</button>
+</div>
+<h4>Boomerang LA</h4>
+<p>Picture-led family card for Boomerang LA. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+<article aria-label="Play Universal Kids" class="k4-tile" data-age-group="all" data-title="Universal Kids" onclick="openKidsContent('Universal Kids')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#ad5389 0%,#3c1053 100%);">
+<span class="k4-badge">all</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Universal Kids')" type="button">▶ Play</button>
+</div>
+<h4>Universal Kids</h4>
+<p>Picture-led family card for Universal Kids. Easy one-tap start, calm pacing, bright poster art, and bilingual-friendly metadata for quick recognition. This pick stays short on text and long on visuals so kids can decide fast while parents keep confidence in what plays next.</p>
+</article>
+</div>
+</section>
+<h2 class="k4-section-label">Family favorites wall</h2>
+<section aria-label="Extended favorites wall" class="k4-row">
+<div class="k4-row-head">
+<h3>Picture-Led Family Favorites (Large Card Wall)</h3>
+<p>Additional large cards maintain minimal text and one clear action per tile.</p>
+</div>
+<div class="k4-grid">
+<article aria-label="Play Family Favorite Mix Vol 1" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 1" onclick="openKidsContent('Family Favorite Mix Vol 1')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 1')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 1</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 2" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 2" onclick="openKidsContent('Family Favorite Mix Vol 2')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 2')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 2</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 3" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 3" onclick="openKidsContent('Family Favorite Mix Vol 3')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 3')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 3</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 4" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 4" onclick="openKidsContent('Family Favorite Mix Vol 4')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 4')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 4</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 5" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 5" onclick="openKidsContent('Family Favorite Mix Vol 5')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 5')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 5</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 6" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 6" onclick="openKidsContent('Family Favorite Mix Vol 6')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 6')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 6</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 7" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 7" onclick="openKidsContent('Family Favorite Mix Vol 7')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 7')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 7</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 8" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 8" onclick="openKidsContent('Family Favorite Mix Vol 8')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 8')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 8</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 9" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 9" onclick="openKidsContent('Family Favorite Mix Vol 9')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 9')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 9</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 10" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 10" onclick="openKidsContent('Family Favorite Mix Vol 10')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 10')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 10</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 11" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 11" onclick="openKidsContent('Family Favorite Mix Vol 11')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 11')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 11</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 12" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 12" onclick="openKidsContent('Family Favorite Mix Vol 12')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 12')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 12</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 13" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 13" onclick="openKidsContent('Family Favorite Mix Vol 13')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 13')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 13</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 14" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 14" onclick="openKidsContent('Family Favorite Mix Vol 14')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 14')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 14</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 15" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 15" onclick="openKidsContent('Family Favorite Mix Vol 15')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 15')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 15</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 16" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 16" onclick="openKidsContent('Family Favorite Mix Vol 16')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 16')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 16</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 17" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 17" onclick="openKidsContent('Family Favorite Mix Vol 17')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 17')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 17</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+<article aria-label="Play Family Favorite Mix Vol 18" class="k4-tile" data-age-group="all" data-title="Family Favorite Mix Vol 18" onclick="openKidsContent('Family Favorite Mix Vol 18')" role="button" tabindex="0">
+<div class="k4-art" style="background:linear-gradient(135deg,#2b5876 0%,#4e4376 100%);">
+<span class="k4-badge">Universal</span>
+<button class="k4-play" onclick="event.stopPropagation();openKidsContent('Family Favorite Mix Vol 18')" type="button">▶ Play</button>
+</div>
+<h4>Family Favorite Mix Vol 18</h4>
+<p>Extended carousel pack with large poster tiles, short labels, and safe family pacing. Designed for remote and touch with strong focus rings and minimum reading burden for younger viewers.</p>
+</article>
+</div>
+</section>
+<script>
+    (function() {
+      const root = document.getElementById('k4');
+      if (!root) return;
+      const chips = Array.from(root.querySelectorAll('.k4-chip'));
+      const reco = root.querySelector('.k4-reco');
+      const recommendations = {
+        preschool: 'Bluey ES-LAT mini marathon for ages 2-5, matched to recent play sessions.',
+        elementary: 'Pokemon Journeys ES-LAT for ages 6-9, matched to recent family watch history.',
+        tween: 'Naruto starter arc (family cut) for ages 10-12, based on last anime session.'
+      };
+
+      function setAge(age) {
+        root.dataset.activeAge = age;
+        chips.forEach(ch => ch.classList.toggle('is-active', ch.dataset.age === age));
+        root.querySelectorAll('.k4-row').forEach(row => {
+          row.querySelectorAll('.k4-tile').forEach(tile => {
+            const tAge = tile.dataset.ageGroup;
+            const universal = tAge === 'all';
+            const visible = universal || tAge === age;
+            tile.style.display = visible ? '' : 'none';
+          });
+        });
+        if (reco) reco.innerHTML = '<strong>Recommended now:</strong> ' + recommendations[age];
+      }
+
+      chips.forEach(ch => ch.addEventListener('click', () => setAge(ch.dataset.age)));
+      setAge(root.dataset.activeAge || 'elementary');
+    })();
+  </script>
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "kids",
+  endpoints: ["/api/rows?filter=kids&family_safe=1"],
+  selectors: [".k4-grid"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=24"></script>
+
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.46b (2026-04-29): kill the Movie Night Picks lorem mock row.
+(function(){
+  function killLorem() {
+    try {
+      Array.from(document.querySelectorAll("section[aria-label='Movie Night Picks'], .k4-row[data-row-age='all']")).forEach(function(s){
+        // verify lorem signature before killing
+        if (/Picture-led family card|calm pacing, bright poster art/i.test(s.textContent || "")) {
+          s.style.display = "none";
+        }
+      });
+      // Also kill any element whose textContent contains the exact lorem string
+      Array.from(document.querySelectorAll(".k4-mock-card, .k4-card, .k4-tile")).forEach(function(el){
+        var t = el.textContent || "";
+        if (/Picture-led family card|calm pacing, bright poster art/i.test(t)) {
+          var sec = el.closest("section, .k4-row, .k4-section");
+          if (sec) sec.style.display = "none";
+        }
+      });
+    } catch(_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", killLorem, { once: true });
+  } else { killLorem(); }
+})();
+</script>
+
+
+<script>
+// RTV_FIX_v1.47 (2026-04-29): real Nigma hydration for /kids.
+// Hides hardcoded mock rails (all carry lorem signature),
+// pulls 120 real kids movies from /api/rows?filter=movie&provider=kids.
+(function(){
+  function init() {
+    try {
+// RTV_FIX_v1.48 (2026-04-29): kids — hide hero too
+      // 1) Hide all hardcoded mock content (rows, labels, hero, controls)
+      Array.from(document.querySelectorAll("#k4 section.k4-row, #k4 .k4-section-label, #k4 .k4-hero, #k4 .k4-controls, #k4 .k4-mood-grid, #k4 .k4-quick-actions, #k4 aside.k4-controls")).forEach(function(s){
+        s.style.cssText += ";display:none !important;";
+      });
+      // Hide the "Picture-Led Family Favorites (Large Card Wall)" sub-section too
+      Array.from(document.querySelectorAll("#k4 h3, #k4 h4")).forEach(function(h){
+        var t = (h.textContent || "").trim();
+        if (/picture-led family|large card wall|family favorites wall/i.test(t)) {
+          var wrap = h.closest("section, div.k4-row, div.k4-block");
+          if (wrap) wrap.style.display = "none";
+        }
+      });
+
+      // 2) Inject ONE clean rail
+      var anchor = document.querySelector("#k4 .k4-controls, #k4 .k4-chipbar, #k4 .k4-hero, #k4 .k4-topbar") || document.querySelector("#k4");
+      var sec = document.createElement("section");
+      sec.className = "v1a-row";
+      sec.setAttribute("aria-label", "Kids · Real catalog");
+      sec.style.cssText = "padding:24px 28px 16px;";
+      sec.innerHTML =
+        '<div class="v1a-row-h" style="display:flex;align-items:baseline;gap:14px;margin-bottom:10px;">' +
+          '<h2 class="v1a-row-title" style="margin:0;font:800 1.3rem/1.1 sans-serif;color:#fff;">🧒 Kids · Real Catalog</h2>' +
+          '<span style="color:#a8a8b0;font:600 13px sans-serif;">Live from Nigma — 120 family titles</span>' +
+        '</div>' +
+        '<div class="v1a-scroller" style="display:flex;gap:14px;overflow-x:auto;padding:4px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;"></div>';
+      if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(sec, anchor.nextSibling);
+
+      // 3) Override CATALOG_PIPE to the working kids endpoint
+      window.__CATALOG_PIPE_CFG__ = {
+        tab: "movies",   // navigates to /detail/movie/<id>
+        endpoints: ["/api/rows?filter=movie&provider=kids"],
+        selectors: [".v1a-scroller"]
+      };
+    } catch(e) { console.error("[RTV v1.47] kids init err:", e); }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    setTimeout(init, 50);
+  }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

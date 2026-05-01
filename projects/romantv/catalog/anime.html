@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · ANIME · a1b</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="anime" class="">
+
+<section class="design rtv-anime-a1b" data-variant="a1b-cinematic-dub" id="a1b" lang="en">
+<style>
+/* RomanTV Anime variant a1b — cinematic dub hero — scoped #a1b — uses parent theme vars only */
+#a1b.rtv-anime-a1b, #a1b.design {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+#a1b.rtv-anime-a1b *, #a1b.rtv-anime-a1b *::before, #a1b.rtv-anime-a1b *::after { box-sizing: border-box; }
+
+#a1b .visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+#a1b .a1b-wrap {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 clamp(12px, 2vw, 28px) 56px;
+}
+#a1b .a1b-logo {
+  font-weight: 900;
+  font-size: clamp(1.08rem, 1.9vw, 1.42rem);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+#a1b .a1b-logo-roman { color: var(--text); }
+#a1b .a1b-logo-tv { color: var(--accent); margin-left: 2px; }
+#a1b .a1b-user-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+#a1b .a1b-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+#a1b .a1b-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #5a000a);
+  border: 2px solid var(--line);
+  cursor: default;
+}
+
+/* ----- Hero 70vh rotating spotlight ----- */
+#a1b .a1b-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  max-height: 900px;
+  margin-top: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.5);
+}
+#a1b .a1b-hero-slides {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+#a1b .a1b-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.75s ease, visibility 0.75s;
+  z-index: 0;
+}
+#a1b .a1b-hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+#a1b .a1b-hero-media {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center 22%;
+  transform: scale(1.04);
+}
+#a1b .a1b-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11,12,16,.93) 0%, rgba(11,12,16,.62) 48%, rgba(11,12,16,.35) 100%),
+    linear-gradient(180deg, rgba(11,12,16,.55) 0%, transparent 35%, rgba(11,12,16,.94) 100%);
+}
+#a1b .a1b-hero-scrim {
+  display: none;
+}
+#a1b .a1b-hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 4vw, 52px);
+  max-width: min(112ch, 94%);
+}
+#a1b .a1b-hero-kicker {
+  margin: 0 0 10px;
+  font-weight: 900;
+  font-size: clamp(0.82rem, 1.35vw, 0.96rem);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+#a1b .a1b-hero-kicker-en {
+  letter-spacing: 0.06em;
+  color: rgba(255,214,107,.92);
+}
+#a1b .a1b-hero-line {
+  margin: 0 0 14px;
+  font-size: clamp(1.5rem, 3.9vw, 2.95rem);
+  line-height: 1.06;
+  font-weight: 900;
+  max-width: 26ch;
+  text-shadow: 0 6px 32px rgba(0,0,0,.72);
+}
+#a1b .a1b-hero-sub {
+  margin: 0 0 22px;
+  font-size: clamp(1rem, 2vw, 1.26rem);
+  font-weight: 600;
+  color: #eaeaf2;
+  max-width: 52ch;
+  line-height: 1.4;
+}
+#a1b .a1b-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+#a1b .a1b-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  min-height: 48px;
+  padding: 0 22px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#a1b .a1b-btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(229,9,20,.38);
+}
+#a1b .a1b-btn-primary:hover { transform: translateY(-1px); }
+#a1b .a1b-btn-ghost {
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+#a1b .a1b-hero-credit {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(168,168,176,.96);
+  max-width: 48ch;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(19,21,26,.72);
+  border: 1px solid rgba(44,46,56,.95);
+}
+
+#a1b .a1b-hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(11,12,16,.52);
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .2s ease, background .15s ease;
+}
+#a1b .a1b-hero:hover .a1b-hero-nav { opacity: 1; }
+#a1b .a1b-hero-nav:hover {
+  background: rgba(229,9,20,.35);
+}
+#a1b .a1b-hero-prev { left: 18px; }
+#a1b .a1b-hero-next { right: 18px; }
+
+#a1b .a1b-hero-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  display: flex;
+  gap: 10px;
+}
+#a1b .a1b-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid rgba(255,255,255,.42);
+  background: transparent;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+#a1b .a1b-dot[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.15);
+}
+
+/* ----- Audio filter — 60px below hero, centered, not sticky ----- */
+#a1b .a1b-audio-zone {
+  margin-top: 60px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+#a1b .a1b-audio-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(8px, 1.8vw, 14px);
+}
+#a1b .a1b-ap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px clamp(14px, 2.2vw, 22px);
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  cursor: pointer;
+  min-height: 44px;
+  min-width: min(112px, 100%);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+#a1b .a1b-ap:hover { border-color: rgba(255,214,107,.42); background: var(--panel2); }
+#a1b .a1b-ap.is-on {
+  border-color: var(--accent);
+  background: rgba(229,9,20,.16);
+  box-shadow: 0 0 0 1px rgba(229,9,20,.45);
+}
+#a1b .a1b-ap-l {
+  font-weight: 900;
+  font-size: 0.86rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+#a1b .a1b-ap-c {
+  font-size: 0.72rem;
+  color: var(--dim);
+  font-weight: 700;
+}
+
+/* ----- Rows: 36px rhythm, 22/14 headers ----- */
+#a1b .a1b-row {
+  margin-top: 36px;
+}
+#a1b .a1b-row:first-of-type { margin-top: 8px; }
+#a1b .a1b-row-head { margin-bottom: 16px; }
+#a1b .a1b-row-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+#a1b .a1b-row-sub {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dim);
+  max-width: 70ch;
+  line-height: 1.5;
+}
+
+#a1b .a1b-row-inner {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(200px, 200px);
+  gap: clamp(14px, 2vw, 22px);
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+#a1b .a1b-row-inner::-webkit-scrollbar { height: 6px; }
+
+/* ----- Tiles 200×300 theatrical ----- */
+#a1b .a1b-tile {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+#a1b .a1b-tile-hit {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+}
+#a1b .a1b-poster {
+  object-fit: cover;
+  display: block;
+}
+#a1b .a1b-badge {
+  position: absolute;
+  z-index: 4;
+  top: 10px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+#a1b .a1b-badge-type {
+  left: 10px;
+  background: rgba(11,12,16,.92);
+  border: 1px solid var(--line);
+  color: #f6f6ff;
+}
+#a1b .a1b-badge-audio {
+  right: 10px;
+  background: rgba(19,21,26,.93);
+  border: 1px solid var(--line);
+  color: var(--gold);
+  max-width: calc(100% - 118px);
+  text-align: right;
+}
+#a1b .a1b-tile-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-
+  pointer-events: none;
+  z-index: 3;
+}
+#a1b .a1b-tile-continue .a1b-continue-bar {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 58px;
+  z-index: 4;
+}
+#a1b .a1b-tile-continue .a1b-continue-bar span {
+  display: block;
+}
+#a1b .a1b-next-ep {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 44px;
+  z-index: 4;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(255,246,228,.94);
+  text-shadow: 0 2px 8px rgba(0,0,0,.72);
+}
+
+/* Studios rail — larger tiles ----- */
+#a1b .a1b-studios-rail {
+  grid-auto-columns: minmax(200px, 1fr);
+  display: grid;
+  grid-auto-flow: column;
+  gap: clamp(14px, 2vw, 20px);
+  overflow-x: auto;
+}
+#a1b .a1b-studio-tile {
+  flex: 0 0 auto;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+}
+#a1b .a1b-studio-tile:focus-visible { outline: none;  }
+
+#a1b .a1b-studio-name {
+  position: relative;
+  z-index: 2;
+  font-weight: 900;
+  font-size: 1.02rem;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0,0,0,.65);
+}
+
+/* Fallback when color-mix unsupported */
+@supports not (background: color-mix(in srgb, #000 50%, transparent)) {
+}
+
+#a1b .a1b-tile-simul .a1b-simul-eta {
+  position: absolute;
+  top: auto;
+  left: 8px;
+  right: auto;
+  bottom: 104px;
+  z-index: 5;
+  font-size: 0.66rem;
+  font-weight: 900;
+}
+#a1b .a1b-tile-simul .a1b-simul-ep {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 78px;
+  z-index: 4;
+  font-size: 0.71rem;
+  font-weight: 800;
+}
+
+#a1b .a1b-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#a1b .a1b-chip {
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+#a1b .a1b-parent {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 76px;
+  z-index: 4;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgba(210,214,230,.95);
+}
+#a1b .a1b-tile-ova .a1b-tile-title { padding-bottom: 12px; }
+#a1b .a1b-tile-ranked .a1b-rank {
+  position: absolute;
+  top: 38px;
+  left: 8px;
+  z-index: 6;
+  font-size: 2.1rem;
+  font-weight: 900;
+  text-shadow: 0 2px 0 rgba(0,0,0,.5);
+  pointer-events: none;
+}
+
+/* ----- Laptop 1280–1920 ----- */
+@media (min-width: 1280px) and (max-width: 1920px) {
+  #a1b .a1b-wrap { padding-bottom: 72px; }
+  #a1b .a1b-row-inner { gap: 18px; }
+}
+
+/* ----- Mobile 360–414 ----- */
+@media (max-width: 600px) {
+  #a1b .a1b-user-cluster { margin-left: 0; width: 100%; justify-content: space-between; }
+  #a1b .a1b-hero { height: 58vh; min-height: 360px; border-radius: 14px; }
+  #a1b .a1b-hero-nav { opacity: 1; width: 44px; height: 44px; }
+}
+
+/* ----- TV ten-foot — 1920px scale ----- */
+@media (min-width: 1920px) {
+  #a1b .a1b-wrap { padding: 0 40px 88px; }
+  #a1b .a1b-pill {   font-size: .95rem; }
+  #a1b .a1b-avatar { width: 60px; height: 60px; font-size: 1.22rem; }
+  #a1b .a1b-chip {  font-size: 0.98rem;  }
+  #a1b .a1b-ap { min-height: 60px; }
+  #a1b .a1b-btn { min-height: 60px; font-size: 1.06rem; padding: 0 28px; }
+  #a1b .a1b-dot { width: 12px; height: 12px; }
+}
+
+/* D-pad / remote focus outlines */
+body.input-dpad #a1b button:focus-visible,
+body.input-dpad #a1b a:focus-visible,
+body.input-dpad #a1b [role="tab"]:focus-visible,
+body.input-dpad #a1b [role="img"]:focus-visible,
+body.input-dpad #a1b .a1b-tile-hit:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 3px;
+}
+/* breakpoint token lane 00 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 01 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 02 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 03 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 04 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 05 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 06 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 07 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 08 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 09 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 10 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 11 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 12 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 13 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 14 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 15 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 16 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 17 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 18 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 19 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 20 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 21 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 22 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 23 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 24 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 25 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 26 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 27 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 28 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 29 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 30 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 31 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 32 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 33 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 34 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 35 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 36 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 37 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 38 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 39 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 40 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 41 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 42 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 43 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 44 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 45 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 46 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 47 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 48 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 49 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 50 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 51 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 52 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 53 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 54 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 55 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 56 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 57 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 58 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 59 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 60 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 61 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 62 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 63 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 64 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 65 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 66 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 67 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 68 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 69 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 70 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 71 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 72 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 73 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 74 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 75 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 76 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 77 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 78 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 79 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 80 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 81 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 82 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 83 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 84 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 85 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 86 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 87 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 88 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 89 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 90 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 91 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 92 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 93 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 94 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 95 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 96 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 97 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 98 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 99 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 100 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 101 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 102 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 103 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 104 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 105 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 106 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 107 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 108 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 109 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 110 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 111 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 112 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 113 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 114 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 115 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 116 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 117 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 118 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 119 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 120 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 121 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 122 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 123 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 124 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 125 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 126 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 127 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 128 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 129 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 130 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 131 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 132 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 133 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 134 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 135 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 136 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 137 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 138 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 139 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 140 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 141 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 142 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 143 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 144 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 145 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 146 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 147 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 148 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 149 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 150 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 151 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 152 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 153 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 154 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 155 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 156 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 157 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 158 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 159 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 160 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 161 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 162 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 163 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 164 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 165 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 166 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 167 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 168 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 169 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 170 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 171 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 172 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 173 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 174 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 175 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 176 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 177 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 178 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+/* breakpoint token lane 179 cinematic hybrid roman tv anime a1b layer mix row rail poster metahub es-lat */
+
+</style>
+<div class="a1b-wrap">
+<header class="a1b-topbar" role="banner">
+<div aria-hidden="false" class="a1b-logo"><span class="a1b-logo-roman">Roman</span><span class="a1b-logo-tv">TV</span></div>
+<div class="a1b-search-wrap">
+<label class="visually-hidden" for="a1b-search">Search</label>
+<input autocomplete="off" class="a1b-search" data-focusable="" id="a1b-search" placeholder="Search anime, movie, OVA…" type="search"/>
+</div>
+<nav aria-label="Primary" class="a1b-nav">
+<a data-focusable="" href="/">Home</a>
+<a data-focusable="" href="/movies">Movies</a>
+<a data-focusable="" href="/series">Series</a>
+<a aria-current="page" class="active nav-anime" data-focusable="" href="/anime">Anime</a>
+<a data-focusable="" href="/livetv">Live TV</a>
+<a data-focusable="" href="/sports">Sports</a>
+<a data-focusable="" href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a data-focusable="" href="/premium-tv">18+</a>
+</nav>
+<div class="a1b-user-cluster">
+<button aria-label="Region México" class="a1b-pill is-active" data-focusable="" type="button">🇲🇽 México</button>
+<button aria-label="Interface English" class="a1b-pill" data-focusable="" type="button">EN</button>
+<span aria-label="Account R" class="a1b-avatar" data-focusable="" role="img" tabindex="0">R</span>
+</div>
+</header>
+<div aria-label="Dub spotlight" aria-roledescription="carousel" class="a1b-hero" id="a1b-hero-root" role="region">
+<div class="a1b-hero-slides" id="a1b-hero-track">
+<div class="a1b-hero-slide is-active" data-slide="0" style="--hero-bg:url(https://images.metahub.space/background/medium/tt0388629/img)">
+<div aria-hidden="true" class="a1b-hero-media"></div>
+<div class="a1b-hero-scrim"></div>
+<div class="a1b-hero-content">
+<p class="hero-kicker">FULL LATIN-AM DUB <span class="a1b-hero-kicker-en">· Dub-first showcase</span></p>
+<h1 class="hero-title">One Piece · Latin-Am dub · Saga 4</h1>
+<p class="hero-desc">1080+ episodes dubbed in Latin-American Spanish · live co-watch with thousands of fans</p>
+<div class="hero-ctas">
+<button class="btn-primary" data-focusable="" type="button">▶ Play</button>
+<button class="btn-secondary" data-focusable="" type="button">Episode list</button>
+</div>
+<p class="a1b-hero-credit">Dubbed in CDMX · Studio: DINT</p>
+</div>
+</div>
+<div class="a1b-hero-slide" data-slide="1" style="--hero-bg:url(https://images.metahub.space/background/medium/tt9335498/img)">
+<div aria-hidden="true" class="a1b-hero-media"></div>
+<div class="a1b-hero-scrim"></div>
+<div class="a1b-hero-content">
+<p class="hero-kicker">FULL LATIN-AM DUB <span class="a1b-hero-kicker-en">· Dub-first showcase</span></p>
+<h1 class="hero-title">Full Latin-Am dub · S1–S4 + Mugen Train · Movie</h1>
+<p class="hero-desc">Tanjiro Kamado arc — swords, flame, thunder</p>
+<div class="hero-ctas">
+<button class="btn-primary" data-focusable="" type="button">▶ Play</button>
+<button class="btn-secondary" data-focusable="" type="button">Episode list</button>
+</div>
+<p class="a1b-hero-credit">Featured license · MX-reviewed dub</p>
+</div>
+</div>
+<div class="a1b-hero-slide" data-slide="2" style="--hero-bg:url(https://images.metahub.space/background/medium/tt12343534/img)">
+<div aria-hidden="true" class="a1b-hero-media"></div>
+<div class="a1b-hero-scrim"></div>
+<div class="a1b-hero-content">
+<p class="hero-kicker">FULL LATIN-AM DUB <span class="a1b-hero-kicker-en">· Dub-first showcase</span></p>
+<h1 class="hero-title">Full Latin-Am dub · 47 episodes + JJK 0 · Movie</h1>
+<p class="hero-desc">Curses, Kyoto, Shibuya blocks — same stable cast</p>
+<div class="hero-ctas">
+<button class="btn-primary" data-focusable="" type="button">▶ Play</button>
+<button class="btn-secondary" data-focusable="" type="button">Episode list</button>
+</div>
+<p class="a1b-hero-credit">Mexico adaptation · Castilian options available</p>
+</div>
+</div>
+<div class="a1b-hero-slide" data-slide="3" style="--hero-bg:url(https://images.metahub.space/background/medium/tt0245429/img)">
+<div aria-hidden="true" class="a1b-hero-media"></div>
+<div class="a1b-hero-scrim"></div>
+<div class="a1b-hero-content">
+<p class="hero-kicker">FULL LATIN-AM DUB <span class="a1b-hero-kicker-en">· Dub-first showcase</span></p>
+<h1 class="hero-title">Latin-Am dub · Studio Ghibli classics in Spanish</h1>
+<p class="hero-desc">Spirited Away — coming-of-age journey with family heart</p>
+<div class="hero-ctas">
+<button class="btn-primary" data-focusable="" type="button">▶ Play</button>
+<button class="btn-secondary" data-focusable="" type="button">Movie · making-of</button>
+</div>
+<p class="a1b-hero-credit">Disney / Ghibli pact · masters HD</p>
+</div>
+</div>
+<div class="a1b-hero-slide" data-slide="4" style="--hero-bg:url(https://images.metahub.space/background/medium/tt5311514/img)">
+<div aria-hidden="true" class="a1b-hero-media"></div>
+<div class="a1b-hero-scrim"></div>
+<div class="a1b-hero-content">
+<p class="hero-kicker">FULL LATIN-AM DUB <span class="a1b-hero-kicker-en">· Dub-first showcase</span></p>
+<h1 class="hero-title">Latin-Am dub · Makoto Shinkai cinema</h1>
+<p class="hero-desc">Your Name — comet, swapped bodies, radiant rain</p>
+<div class="hero-ctas">
+<button class="btn-primary" data-focusable="" type="button">▶ Play</button>
+<button class="btn-secondary" data-focusable="" type="button">Soundtrack</button>
+</div>
+<p class="a1b-hero-credit">MX theatrical track · subs optional</p>
+</div>
+</div>
+</div>
+<button aria-label="Previous spotlight" class="a1b-hero-nav a1b-hero-prev" data-focusable="" id="a1b-hero-prev" type="button">❮</button>
+<button aria-label="Next spotlight" class="a1b-hero-nav a1b-hero-next" data-focusable="" id="a1b-hero-next" type="button">❯</button>
+<div class="a1b-hero-dots" id="a1b-hero-dots" role="tablist">
+<button aria-label="Slide 1" aria-selected="true" class="a1b-dot" data-focusable="" data-idx="0" role="tab" type="button"></button>
+<button aria-label="Slide 2" aria-selected="false" class="a1b-dot" data-focusable="" data-idx="1" role="tab" type="button"></button>
+<button aria-label="Slide 3" aria-selected="false" class="a1b-dot" data-focusable="" data-idx="2" role="tab" type="button"></button>
+<button aria-label="Slide 4" aria-selected="false" class="a1b-dot" data-focusable="" data-idx="3" role="tab" type="button"></button>
+<button aria-label="Slide 5" aria-selected="false" class="a1b-dot" data-focusable="" data-idx="4" role="tab" type="button"></button>
+</div>
+</div>
+<div class="a1b-audio-zone">
+<p class="a1b-audio-heading visually-hidden">Audio language filter</p>
+<div aria-label="Filter by audio" class="a1b-audio-pills" role="toolbar">
+<button class="a1b-ap is-on" data-filter="all" data-focusable="" type="button"><span class="a1b-ap-l">All</span><span class="a1b-ap-c">380 titles</span></button>
+<button class="a1b-ap" data-filter="es-lat" data-focusable="" type="button"><span class="a1b-ap-l">🇲🇽 ES-LAT</span><span class="a1b-ap-c">180 titles</span></button>
+<button class="a1b-ap" data-filter="es-cas" data-focusable="" type="button"><span class="a1b-ap-l">🇪🇸 ES-CAS</span><span class="a1b-ap-c">47 titles</span></button>
+<button class="a1b-ap" data-filter="sub" data-focusable="" type="button"><span class="a1b-ap-l">🇯🇵 SUB</span><span class="a1b-ap-c">92 titles</span></button>
+<button class="a1b-ap" data-filter="en" data-focusable="" type="button"><span class="a1b-ap-l">🇺🇸 EN</span><span class="a1b-ap-c">8 titles</span></button>
+</div>
+</div>
+<section aria-labelledby="a1b-r1" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Continue Watching</h2><p class="a1b-row-sub">Mixed library · Latin Spanish first in your queue</p></div>
+<div class="a1b-row-inner" id="a1b-r1">
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-continue" data-audio="ES-LAT">
+<button aria-label="Continue One Piece" class="a1b-tile-hit" onclick="openAnimeSeries('One Piece')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0388629/img" width="200"/>
+<span aria-valuemax="100" aria-valuemin="0" aria-valuenow="62" class="a1b-continue-bar" role="progressbar"><span style="width:62%"></span></span>
+<span class="a1b-next-ep">Next: Ep 1081 · 24m left</span>
+<span class="a1b-tile-title">One Piece</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-continue" data-audio="ES-LAT">
+<button aria-label="Continue Demon Slayer" class="a1b-tile-hit" onclick="openAnimeSeries('Demon Slayer')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt9335498/img" width="200"/>
+<span aria-valuemax="100" aria-valuemin="0" aria-valuenow="28" class="a1b-continue-bar" role="progressbar"><span style="width:28%"></span></span>
+<span class="a1b-next-ep">Next: Ep 11 · S4</span>
+<span class="a1b-tile-title">Demon Slayer</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-continue" data-audio="ES-LAT">
+<button aria-label="Continue Jujutsu Kaisen" class="a1b-tile-hit" onclick="openAnimeSeries('Jujutsu Kaisen')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt12343534/img" width="200"/>
+<span aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" class="a1b-continue-bar" role="progressbar"><span style="width:81%"></span></span>
+<span class="a1b-next-ep">Next: JJK 0 film</span>
+<span class="a1b-tile-title">Jujutsu Kaisen</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Spirited Away — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Spirited Away')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0245429/img" width="200"/>
+<span class="a1b-tile-title">Spirited Away</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Attack on Titan — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Attack on Titan')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt2560140/img" width="200"/>
+<span class="a1b-tile-title">Attack on Titan</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-CAS">
+<button aria-label="Dragon Ball Z — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Dragon Ball Z')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇪🇸 ES-CAS</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0214341/img" width="200"/>
+<span class="a1b-tile-title">Dragon Ball Z</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r2" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Full Spanish Dub Catalog</h2><p class="a1b-row-sub">Guaranteed full Latin / Castilian dubs — verified catalog</p></div>
+<div class="a1b-row-inner" id="a1b-r2">
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="My Hero Academia — Series" class="a1b-tile-hit" onclick="openAnimeSeries('My Hero Academia')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt4834260/img" width="200"/>
+<span class="a1b-tile-title">My Hero Academia</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Black Clover — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Black Clover')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt6524350/img" width="200"/>
+<span class="a1b-tile-title">Black Clover</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Hunter x Hunter — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Hunter x Hunter')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt2098220/img" width="200"/>
+<span class="a1b-tile-title">Hunter x Hunter</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Fullmetal Alchemist: Brotherhood — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Fullmetal Alchemist: Brotherhood')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt1355642/img" width="200"/>
+<span class="a1b-tile-title">Fullmetal Alchemist: Brotherhood</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Death Note — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Death Note')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0877057/img" width="200"/>
+<span class="a1b-tile-title">Death Note</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Mob Psycho 100 — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Mob Psycho 100')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt5897304/img" width="200"/>
+<span class="a1b-tile-title">Mob Psycho 100</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Tokyo Revengers — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Tokyo Revengers')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt12658028/img" width="200"/>
+<span class="a1b-tile-title">Tokyo Revengers</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Spy x Family — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Spy x Family')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt13706018/img" width="200"/>
+<span class="a1b-tile-title">Spy x Family</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r3" class="a1b-row a1b-row-studios">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Studios</h2><p class="a1b-row-sub">Brand rails — jump into each house’s highlight picks</p></div>
+<div class="a1b-row-inner a1b-studios-rail" id="a1b-r3">
+<a class="a1b-studio-tile" data-focusable="" href="#studio-ghibli" style="--st:#4f93b8">
+<span class="a1b-studio-name">Studio Ghibli</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-mappa" style="--st:#1d1d1b">
+<span class="a1b-studio-name">MAPPA</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-wit" style="--st:#c1272d">
+<span class="a1b-studio-name">WIT Studio</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-bones" style="--st:#f5b800">
+<span class="a1b-studio-name">Bones</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-kyoani" style="--st:#c9a55b">
+<span class="a1b-studio-name">Kyoto Animation</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-toei" style="--st:#d52127">
+<span class="a1b-studio-name">Toei Animation</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-ig" style="--st:#00a4e2">
+<span class="a1b-studio-name">Production I.G</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+<a class="a1b-studio-tile" data-focusable="" href="#studio-madhouse" style="--st:#e60012">
+<span class="a1b-studio-name">Madhouse</span>
+<span aria-hidden="true" class="a1b-studio-glow"></span>
+</a>
+</div></section>
+<section aria-labelledby="a1b-r4" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Anime Movies</h2><p class="a1b-row-sub">Standalone films — theater posters · Metahub masters</p></div>
+<div class="a1b-row-inner" id="a1b-r4">
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Spirited Away — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Spirited Away')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0245429/img" width="200"/>
+<span class="a1b-tile-title">Spirited Away</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Your Name — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Your Name')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt5311514/img" width="200"/>
+<span class="a1b-tile-title">Your Name</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Akira — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Akira')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0094625/img" width="200"/>
+<span class="a1b-tile-title">Akira</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Princess Mononoke — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Princess Mononoke')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0119698/img" width="200"/>
+<span class="a1b-tile-title">Princess Mononoke</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Weathering With You — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Weathering With You')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt9426210/img" width="200"/>
+<span class="a1b-tile-title">Weathering With You</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Suzume — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Suzume')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt16428256/img" width="200"/>
+<span class="a1b-tile-title">Suzume</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Howl's Moving Castle — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Howl\'s Moving Castle')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0347149/img" width="200"/>
+<span class="a1b-tile-title">Howl's Moving Castle</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="A Silent Voice — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('A Silent Voice')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt5323662/img" width="200"/>
+<span class="a1b-tile-title">A Silent Voice</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r5" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Currently airing simulcast</h2><p class="a1b-row-sub">Fresh counts · subtitles day-and-date simul</p></div>
+<div class="a1b-row-inner" id="a1b-r5">
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="SUB">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Chainsaw Man')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt13616990/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 1d 04h</span>
+<span class="a1b-simul-ep">Ep 12 · finale week</span>
+<span class="a1b-tile-title">Chainsaw Man</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="SUB">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Oshi no Ko')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt14999628/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 5h 20m</span>
+<span class="a1b-simul-ep">Ep 11 · new arc</span>
+<span class="a1b-tile-title">Oshi no Ko</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="SUB">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Frieren')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt22262434/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 2d 18h</span>
+<span class="a1b-simul-ep">Ep 24 · quiet week</span>
+<span class="a1b-tile-title">Frieren</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="SUB">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Solo Leveling')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt21234578/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 3h 12m</span>
+<span class="a1b-simul-ep">Ep 10 · raid</span>
+<span class="a1b-tile-title">Solo Leveling</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="ES-LAT">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('One Piece')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0388629/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 6d 11h</span>
+<span class="a1b-simul-ep">Ep 1081 · block</span>
+<span class="a1b-tile-title">One Piece (Wano)</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-simul" data-audio="ES-LAT">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Jujutsu Kaisen')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt12343534/img"/>
+<span class="a1b-simul-eta"><span class="a1b-simul-clock">⏰</span> in 1d 22h</span>
+<span class="a1b-simul-ep">Ep 23 · Shibuya</span>
+<span class="a1b-tile-title">Jujutsu Kaisen S2</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r6" class="a1b-row a1b-row-chips">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Genres</h2><p class="a1b-row-sub">Quick lane changes — explore tags without leaving couch mode</p></div>
+<div class="a1b-chips" id="a1b-r6" role="list">
+<button class="a1b-chip is-active" data-focusable="" role="listitem" type="button">Shōnen</button>
+<button class="a1b-chip is-active" data-focusable="" role="listitem" type="button">Isekai</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Romance</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Mecha</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Horror</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Slice of Life</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Sports</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Music</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Sci‑Fi</button>
+<button class="a1b-chip" data-focusable="" role="listitem" type="button">Fantasy</button>
+</div></section>
+<section aria-labelledby="a1b-r7" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">For the Kids</h2><p class="a1b-row-sub">Family lanes · bright pacing · Latin dub comfort</p></div>
+<div class="a1b-row-inner" id="a1b-r7">
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Pokémon — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Pokémon')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0168366/img" width="200"/>
+<span class="a1b-tile-title">Pokémon</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Doraemon — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Doraemon')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt12342522/img" width="200"/>
+<span class="a1b-tile-title">Doraemon</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Crayon Shin-chan — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Crayon Shin-chan')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt2186686/img" width="200"/>
+<span class="a1b-tile-title">Crayon Shin-chan</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="My Neighbor Totoro — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('My Neighbor Totoro')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0096283/img" width="200"/>
+<span class="a1b-tile-title">My Neighbor Totoro</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Ponyo — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Ponyo')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0875113/img" width="200"/>
+<span class="a1b-tile-title">Ponyo</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Kiki's Delivery Service — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Kiki\'s Delivery Service')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0097814/img" width="200"/>
+<span class="a1b-tile-title">Kiki's Delivery Service</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r8" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">OVAs &amp; Specials</h2><p class="a1b-row-sub">Side stories tied to parent runs · bonus arcs</p></div>
+<div class="a1b-row-inner" id="a1b-r8">
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('AOT: No Regrets')" type="button">
+<span class="a1b-badge a1b-badge-type">OVA</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt28000528/img"/>
+<span class="a1b-parent">From: Attack on Titan</span>
+<span class="a1b-tile-title">AOT: No Regrets</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('DBZ: Bardock')" type="button">
+<span class="a1b-badge a1b-badge-type">OVA</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0142230/img"/>
+<span class="a1b-parent">From: Dragon Ball Z</span>
+<span class="a1b-tile-title">DBZ: Bardock</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('Naruto: The Lost Tower')" type="button">
+<span class="a1b-badge a1b-badge-type">Special</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt1714853/img"/>
+<span class="a1b-parent">From: Naruto</span>
+<span class="a1b-tile-title">Naruto: The Lost Tower</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('One Piece: Strong World')" type="button">
+<span class="a1b-badge a1b-badge-type">Special</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt14857618/img"/>
+<span class="a1b-parent">From: One Piece</span>
+<span class="a1b-tile-title">One Piece: Strong World</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('JJK 0')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt14331144/img"/>
+<span class="a1b-parent">From: Jujutsu Kaisen</span>
+<span class="a1b-tile-title">JJK 0</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ova">
+<button class="a1b-tile-hit" onclick="openAnimeBonus('Demon Slayer: Mugen Train')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt11032374/img"/>
+<span class="a1b-parent">From: Demon Slayer</span>
+<span class="a1b-tile-title">Demon Slayer: Mugen Train</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r9" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Classics</h2><p class="a1b-row-sub">Foundational runs that shaped the fandom</p></div>
+<div class="a1b-row-inner" id="a1b-r9">
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Akira — Movie" class="a1b-tile-hit" onclick="openAnimeMovie('Akira')" type="button">
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0094625/img" width="200"/>
+<span class="a1b-tile-title">Akira</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Cowboy Bebop — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Cowboy Bebop')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0213338/img" width="200"/>
+<span class="a1b-tile-title">Cowboy Bebop</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Trigun — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Trigun')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0164989/img" width="200"/>
+<span class="a1b-tile-title">Trigun</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Neon Genesis Evangelion — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Neon Genesis Evangelion')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0112159/img" width="200"/>
+<span class="a1b-tile-title">Neon Genesis Evangelion</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Dragon Ball Z — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Dragon Ball Z')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0214341/img" width="200"/>
+<span class="a1b-tile-title">Dragon Ball Z</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="ES-LAT">
+<button aria-label="Naruto — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Naruto')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt0409591/img" width="200"/>
+<span class="a1b-tile-title">Naruto</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r10" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">Top 10 Anime</h2><p class="a1b-row-sub">Ranked tonight for MX · engagement + completion</p></div>
+<div class="a1b-row-inner a1b-top10" id="a1b-r10">
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('One Piece')" type="button">
+<span aria-hidden="true" class="a1b-rank">1</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0388629/img"/>
+<span class="a1b-tile-title">One Piece</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Demon Slayer')" type="button">
+<span aria-hidden="true" class="a1b-rank">2</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt9335498/img"/>
+<span class="a1b-tile-title">Demon Slayer</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Jujutsu Kaisen')" type="button">
+<span aria-hidden="true" class="a1b-rank">3</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt12343534/img"/>
+<span class="a1b-tile-title">Jujutsu Kaisen</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Attack on Titan')" type="button">
+<span aria-hidden="true" class="a1b-rank">4</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt2560140/img"/>
+<span class="a1b-tile-title">Attack on Titan</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('My Hero Academia')" type="button">
+<span aria-hidden="true" class="a1b-rank">5</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt4834260/img"/>
+<span class="a1b-tile-title">My Hero Academia</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Death Note')" type="button">
+<span aria-hidden="true" class="a1b-rank">6</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0877057/img"/>
+<span class="a1b-tile-title">Death Note</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Fullmetal Alchemist: Brotherhood')" type="button">
+<span aria-hidden="true" class="a1b-rank">7</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt1355642/img"/>
+<span class="a1b-tile-title">Fullmetal Alchemist: Brotherhood</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeMovie('Spirited Away')" type="button">
+<span aria-hidden="true" class="a1b-rank">8</span>
+<span class="a1b-badge a1b-badge-type">Movie</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0245429/img"/>
+<span class="a1b-tile-title">Spirited Away</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Naruto')" type="button">
+<span aria-hidden="true" class="a1b-rank">9</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0409591/img"/>
+<span class="a1b-tile-title">Naruto</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile a1b-tile-ranked">
+<button class="a1b-tile-hit" onclick="openAnimeSeries('Dragon Ball Z')" type="button">
+<span aria-hidden="true" class="a1b-rank">10</span>
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇲🇽 ES-LAT</span>
+<img alt="" class="a1b-poster" loading="lazy" src="https://images.metahub.space/poster/small/tt0214341/img"/>
+<span class="a1b-tile-title">Dragon Ball Z</span>
+</button>
+</article>
+</div></section>
+<section aria-labelledby="a1b-r11" class="a1b-row">
+<div class="a1b-row-head"><h2 class="a1b-row-title">K-Anime</h2><p class="a1b-row-sub">Korean webtoon adaptations · tower climbs &amp; system arcs</p></div>
+<div class="a1b-row-inner" id="a1b-r11">
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Solo Leveling — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Solo Leveling')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt21234578/img" width="200"/>
+<span class="a1b-tile-title">Solo Leveling</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Tower of God — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Tower of God')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt10881584/img" width="200"/>
+<span class="a1b-tile-title">Tower of God</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="The God of High School — Series" class="a1b-tile-hit" onclick="openAnimeSeries('The God of High School')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt12021190/img" width="200"/>
+<span class="a1b-tile-title">The God of High School</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Noblesse — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Noblesse')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt12758160/img" width="200"/>
+<span class="a1b-tile-title">Noblesse</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Lookism — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Lookism')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt22040702/img" width="200"/>
+<span class="a1b-tile-title">Lookism</span>
+</button>
+</article>
+<article tabindex="0" role="button" class="a1b-tile" data-audio="SUB">
+<button aria-label="Solo Leveling: Ragnarok — Series" class="a1b-tile-hit" onclick="openAnimeSeries('Solo Leveling: Ragnarok')" type="button">
+<span class="a1b-badge a1b-badge-type">Series</span>
+<span class="a1b-badge a1b-badge-audio">🇯🇵 SUB</span>
+<img alt="" class="a1b-poster" decoding="async" height="300" loading="lazy" src="https://images.metahub.space/poster/small/tt21234579/img" width="200"/>
+<span class="a1b-tile-title">Solo Leveling: Ragnarok</span>
+</button>
+</article>
+</div></section>
+</div>
+<script>
+    (function(){
+      var root=document.getElementById('a1b-hero-root');
+      if(!root) return;
+      var slides=[].slice.call(root.querySelectorAll('.a1b-hero-slide'));
+      var dots=[].slice.call(root.querySelectorAll('.a1b-dot'));
+      var i=0, t=8000, timer;
+      function show(n){
+        i=(n+slides.length)%slides.length;
+        slides.forEach(function(s,j){ s.classList.toggle('is-active', j===i); });
+        dots.forEach(function(d,j){ d.setAttribute('aria-selected', j===i?'true':'false'); });
+      }
+      function next(){ show(i+1); }
+      function prev(){ show(i-1); }
+      function arm(){ clearInterval(timer); timer=setInterval(next, t); }
+      document.getElementById('a1b-hero-next').addEventListener('click', function(){ next(); arm(); });
+      document.getElementById('a1b-hero-prev').addEventListener('click', function(){ prev(); arm(); });
+      dots.forEach(function(d,idx){ d.addEventListener('click', function(){ show(idx); arm(); }); });
+      arm();
+      /* filter pills visual toggle */
+      var pills=[].slice.call(document.querySelectorAll('.a1b-ap'));
+      pills.forEach(function(p){
+        p.addEventListener('click', function(){
+          pills.forEach(function(x){ x.classList.remove('is-on'); });
+          p.classList.add('is-on');
+        });
+      });
+    })();
+    </script>
+</section>
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+<!-- a1b layout tokens: hero 70vh; tile 200x300; row gap 36; header 22/14; dub spotlight 8s; audio strip 60px offset; metahub CDN; RomanTV hybrid lane -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+(function(){
+  function slugify(v){
+    return String(v || "").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  window.openAnimeSeries = window.openAnimeSeries || function(name){
+    var id = slugify(name);
+    if (!id) return;
+    window.location.href = "/detail/anime/" + encodeURIComponent(id);
+  };
+  window.openAnimeMovie = window.openAnimeMovie || function(name){
+    var id = slugify(name);
+    if (!id) return;
+    window.location.href = "/detail/anime/" + encodeURIComponent(id);
+  };
+  window.openAnimeBonus = window.openAnimeBonus || function(name){
+    var id = slugify(name);
+    if (!id) return;
+    window.location.href = "/detail/anime/" + encodeURIComponent(id);
+  };
+})();
+</script>
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "anime",
+  endpoints: ["/api/rows?filter=anime", "/api/anime/schedule"],
+  selectors: [".a1b-row-inner"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=22"></script>
+
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

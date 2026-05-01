@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · HOME · v1A</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; overflow-x:hidden; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} } setTimeout(top, 50); setTimeout(top, 250); setTimeout(top, 800);
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body class="">
+
+<section class="design" id="v1a">
+<style>
+.v1a-wrap { --hero-h:80vh; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg); overflow:hidden; }
+.v1a-brand { font-weight:800; letter-spacing:-.02em; font-size:1.15rem; display:flex; align-items:center; gap:.5rem; cursor:pointer; }
+.v1a-brand-mark { width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff6b6b); box-shadow:0 0 0 2px rgba(229,9,20,.35); }
+.v1a-tabs { display:flex; gap:.15rem; overflow-x:auto; scrollbar-width:none; padding:.15rem 0; max-width:52vw; }
+.v1a-tabs::-webkit-scrollbar { display:none; }
+.v1a-tab { flex:0 0 auto; padding:.42rem .65rem; border-radius:999px; border:1px solid transparent; background:transparent; color:var(--dim); font-size:.78rem; font-weight:600; cursor:pointer; white-space:nowrap; transition:background .15s,color .15s,border-color .15s; }
+.v1a-tab:hover { color:var(--text); background:rgba(255,255,255,.04); }
+.v1a-tab.is-on { color:var(--text); border-color:var(--line); background:var(--panel2); }
+.v1a-pill {      font-size:.72rem; font-weight:700; cursor:pointer; }
+.v1a-ava { width:34px;height:34px;border-radius:50%; display:grid; place-items:center; font-weight:800; font-size:.85rem; background:linear-gradient(145deg,#3b3f4d,var(--panel2)); border:1px solid var(--line); cursor:pointer; color:var(--text); }
+.v1a-hero-wrap { position:relative; height:var(--hero-h); min-height:520px; isolation:isolate; }
+.v1a-hero-slide { position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .9s cubic-bezier(.2,.8,.2,.95); }
+.v1a-hero-slide.is-active { opacity:1; pointer-events:auto; }
+.v1a-hero-bg { position:absolute; inset:0; background-size:cover; background-position:center 22%; filter:saturate(1.05) contrast(1.02); transform:scale(1.03); }
+.v1a-hero-bg::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(11,12,16,.84) 0%,rgba(11,12,16,.55) 38%,rgba(11,12,16,.22) 62%,rgba(11,12,16,.55) 100%),linear-gradient(180deg,rgba(11,12,16,.15) 0%,rgba(11,12,16,.35) 18%,rgba(11,12,16,.82) 68%,var(--bg) 100%); }
+.v1a-hero-vignette { position:absolute; inset:0; pointer-events:none; mix-blend-mode:multiply; opacity:.35; background:radial-gradient(120% 80% at 20% 35%,transparent 30%,#000 95%); }
+.v1a-hero-grid { position:relative; z-index:4; height:100%; display:grid; grid-template-columns:minmax(280px,1.1fr) minmax(200px,.9fr); gap:2rem; align-items:end; padding:0 4vw 4.5rem; padding-top:4.5rem; }
+.v1a-hero-left { max-width:640px; padding-bottom:1rem; }
+.v1a-kicker { display:flex; align-items:center; gap:.65rem; flex-wrap:wrap; margin-bottom:.85rem; }
+.v1a-kicker-tag { font-size:.68rem; font-weight:800; letter-spacing:.24em; color:var(--gold); text-shadow:0 0 22px rgba(255,214,107,.35); }
+.v1a-kicker-meta { font-size:.78rem; color:var(--dim); font-weight:600; white-space:nowrap; }
+.v1a-hero-title { font-size:clamp(2.4rem,4.4vw,3.85rem); line-height:1.02; font-weight:850; letter-spacing:-.03em; margin:0 0 .75rem; text-shadow:0 2px 38px rgba(0,0,0,.55); }
+.v1a-hero-desc { margin:0 0 1.25rem; font-size:clamp(.92rem,1.35vw,1.05rem); line-height:1.45; color:rgba(255,255,255,.82); max-width:52ch; }
+.v1a-hero-actions { display:flex; flex-wrap:wrap; gap:.65rem; align-items:center; margin-bottom:1.35rem; }
+.v1a-btn { display:inline-flex; align-items:center; gap:.5rem; padding:.72rem 1.35rem; border-radius:10px; border:1px solid transparent; font-weight:750; font-size:.92rem; cursor:pointer; transition:transform .12s ease,box-shadow .12s ease,background .15s; }
+.v1a-btn:active { transform:translateY(1px) scale(.99); }
+.v1a-btn-play { background:var(--text); color:#111; box-shadow:0 12px 34px rgba(0,0,0,.45); }
+.v1a-btn-play:hover { box-shadow:0 16px 46px rgba(0,0,0,.55); }
+.v1a-btn-sec { background:rgba(255,255,255,.09); color:var(--text); border-color:rgba(255,255,255,.14); backdrop-filter:blur(8px); }
+.v1a-btn-sec:hover { background:rgba(255,255,255,.14); }
+.v1a-chip-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.35rem; }
+.v1a-chip { font-size:.72rem; font-weight:700;      cursor:pointer;  }
+.v1a-upnext-wrap { display:flex; flex-direction:column; gap:.55rem; margin-top:.25rem; }
+.v1a-upnext-h { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.v1a-upnext-label { font-size:.72rem; font-weight:800; letter-spacing:.2em; color:var(--dim); }
+.v1a-upnext-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:.55rem; }
+.v1a-up-card { position:relative;  overflow:hidden;   cursor:pointer;   }
+.v1a-up-card img {   object-fit:cover; display:block; filter:saturate(1.05); }
+.v1a-up-badge { position:absolute; left:8px; top:8px; font-size:.6rem; font-weight:850; letter-spacing:.12em; padding:.2rem .45rem; border-radius:6px; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.18); color:var(--gold); }
+.v1a-hero-right { align-self:stretch; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:2rem; }
+.v1a-mini-poster {  overflow:hidden;  margin-left:auto;    cursor:pointer; }
+.v1a-mini-poster img {  display:block;  object-fit:cover; }
+.v1a-mini-cap { margin-top:.55rem; text-align:right; color:var(--dim); font-size:.72rem; font-weight:600; }
+.v1a-pause-fab { position:absolute; top:76px; right:18px; z-index:20; width:40px;height:40px;border-radius:11px; border:1px solid rgba(255,255,255,.18); background:rgba(11,12,16,.62); color:var(--text); display:grid; place-items:center; cursor:pointer; backdrop-filter:blur(10px); font-size:1rem; transition:background .15s,border-color .15s,transform .12s; }
+.v1a-pause-fab:hover { background:rgba(11,12,16,.78); border-color:rgba(255,214,107,.4); }
+.v1a-dots { position:absolute; left:0; right:0; bottom:22px; z-index:12; display:flex; justify-content:center; gap:9px; pointer-events:none; }
+.v1a-dots .v1a-dot { pointer-events:auto; }
+.v1a-dot { width:8px;height:8px;border-radius:999px; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.18); cursor:pointer; transition:transform .15s,background .15s,width .2s; }
+.v1a-dot.is-on { background:var(--accent); border-color:rgba(229,9,20,.55); width:22px; }
+.v1a-stage { padding:1.25rem 0 3.5rem; background:var(--bg); position:relative; z-index:5; margin-top:-2px; }
+.v1a-row { margin-bottom:1.6rem; }
+.v1a-row-h { display:flex; align-items:baseline; justify-content:space-between; padding:0 4vw .55rem; gap:1rem; }
+.v1a-row-title { margin:0; font-size:1.05rem; font-weight:800; letter-spacing:-.01em; }
+.v1a-row-more { font-size:.78rem; font-weight:700; color:var(--dim); cursor:pointer; white-space:nowrap; }
+.v1a-row-more:hover { color:var(--text); }
+.v1a-scroller { display:flex; gap:.65rem; overflow-x:auto; padding:.25rem 4vw 1rem; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--line) transparent; }
+.v1a-scroller::-webkit-scrollbar { height:7px; }
+.v1a-tile { flex:0 0 auto; scroll-snap-align:start; position:relative;  overflow:hidden;   cursor:pointer;  }
+.v1a-tile-img {  object-fit:cover; display:block; }
+.v1a-tile-meta {  display:flex; flex-direction:column; gap:.2rem;   }
+.v1a-tile-title { font-size:.78rem; font-weight:750; line- }
+.v1a-tile-sub { font-size:.65rem;  font-weight:600; }
+.v1a-live-frame { position:relative; width:240px; aspect-ratio:16/9; background:radial-gradient(120% 120% at 10% 20%,rgba(229,9,20,.22),transparent 55%),linear-gradient(135deg,#1a1d28,#0f1118); overflow:hidden; }
+.v1a-live-glow { position:absolute; inset:-40%; background:conic-gradient(from 210deg,rgba(255,214,107,.12),transparent 35%,rgba(229,9,20,.18),transparent 70%); animation:v1aSpin 14s linear infinite; opacity:.75; }
+@keyframes v1aSpin { to { transform:rotate(360deg); } }
+.v1a-live-ch { position:absolute; left:10px; bottom:10px; font-size:.58rem; font-weight:900; letter-spacing:.14em; padding:.18rem .38rem; border-radius:6px; background:rgba(229,9,20,.88); color:#fff; }
+.v1a-live-title { position:absolute; left:10px; top:10px; right:10px; font-size:.76rem; font-weight:800; text-shadow:0 2px 12px rgba(0,0,0,.55); }
+.v1a-top-num { position:absolute; left:6px; top:4px; z-index:3; font-size:clamp(3.2rem,5.5vw,4.6rem); font-weight:950; line-height:.85; color:rgba(255,255,255,.18); text-shadow:0 0 28px rgba(0,0,0,.5); pointer-events:none; letter-spacing:-.06em; }
+.v1a-badge-cw { position:absolute; right:8px; top:8px; z-index:2; font-size:.58rem; font-weight:900; padding:.2rem .38rem; border-radius:6px; background:rgba(0,0,0,.52); border:1px solid rgba(255,255,255,.15); color:var(--gold); letter-spacing:.08em; }
+.v1a-progress { position:absolute; left:8px; right:8px; bottom:36px; height:3px; border-radius:999px; background:rgba(255,255,255,.12); overflow:hidden; z-index:2; }
+.v1a-progress > span { display:block; height:100%; background:linear-gradient(90deg,var(--accent),#ff7b7b); width:var(--p,40%); box-shadow:0 0 16px rgba(229,9,20,.45); }
+@media (max-width:1000px){
+  .v1a-hero-grid { grid-template-columns:1fr; padding-bottom:2.75rem; padding-top:5.5rem; }
+  .v1a-hero-right { display:none; }
+}
+@media (prefers-reduced-motion:reduce){
+  .v1a-hero-slide { transition:none; }
+  .v1a-live-glow { animation:none; }
+}
+</style>
+<div class="v1a-wrap">
+<header class="v1a-topbar">
+<div class="v1a-brand" onclick="window.location.href='/'" role="button" tabindex="0"><span aria-hidden="true" class="v1a-brand-mark"></span><span>RomanTV</span></div>
+<div class="v1a-search v1a-search-ic"><input id="rtv-home-search" placeholder="Search movies, shows, anime..." data-i18n-placeholder="rtv_home_search_ph" type="search" onkeydown="if(event.key==='Enter'&&this.value.trim().length>=2){window.location.href='/search?q='+encodeURIComponent(this.value.trim());}"/></div>
+<nav aria-label="Primary" class="v1a-nav">
+<div class="v1a-tabs">
+<a class="v1a-tab is-on" href="/" data-i18n="rtv_home_tab_home">Home</a>
+<a class="v1a-tab" href="/movies" data-i18n="rtv_home_tab_movies">Movies</a>
+<a class="v1a-tab" href="/series" data-i18n="rtv_home_tab_series">Series</a>
+<a class="v1a-tab" href="/anime" data-i18n="rtv_home_tab_anime">Anime</a>
+<a class="v1a-tab" href="/livetv" data-i18n="rtv_home_tab_livetv">Live TV</a>
+<a class="v1a-tab" href="/sports" data-i18n="rtv_home_tab_sports">Sports</a>
+<a class="v1a-tab" href="/esports" data-i18n="rtv_home_tab_esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a class="v1a-tab" href="/premium-tv" data-i18n="rtv_home_tab_18plus">18+</a>
+</div>
+<button class="v1a-pill is-active" type="button">EN</button>
+<button class="v1a-ava" type="button">R</button>
+</nav>
+</header>
+<div class="v1a-hero-wrap">
+<div aria-label="Project Hail Mary" class="v1a-hero-slide is-active" data-slide="0" role="group">
+<div class="v1a-hero-bg" style="background-image:url('https://images.metahub.space/background/medium/tt12042730/img');"></div>
+<div class="v1a-hero-vignette"></div>
+</div>
+<div aria-label="Breaking Bad" class="v1a-hero-slide" data-slide="1" role="group">
+<div class="v1a-hero-bg" style="background-image:url('https://images.metahub.space/background/medium/tt0903747/img');"></div>
+<div class="v1a-hero-vignette"></div>
+</div>
+<div aria-label="Briarpatch" class="v1a-hero-slide" data-slide="2" role="group">
+<div class="v1a-hero-bg" style="background-image:url('https://images.metahub.space/background/medium/tt27911000/img');"></div>
+<div class="v1a-hero-vignette"></div>
+</div>
+<div aria-label="The Sympathizer" class="v1a-hero-slide" data-slide="3" role="group">
+<div class="v1a-hero-bg" style="background-image:url('https://images.metahub.space/background/medium/tt32612507/img');"></div>
+<div class="v1a-hero-vignette"></div>
+</div>
+<div aria-label="Ripley" class="v1a-hero-slide" data-slide="4" role="group">
+<div class="v1a-hero-bg" style="background-image:url('https://images.metahub.space/background/medium/tt32430579/img');"></div>
+<div class="v1a-hero-vignette"></div>
+</div>
+<button class="v1a-pause-fab" title="Pause rotation" type="button">⏸</button>
+<div aria-label="Featured carousel" class="v1a-dots" role="tablist">
+<button aria-label="Slide 1" class="v1a-dot is-on" data-dot="0" type="button"></button><button aria-label="Slide 2" class="v1a-dot" data-dot="1" type="button"></button><button aria-label="Slide 3" class="v1a-dot" data-dot="2" type="button"></button><button aria-label="Slide 4" class="v1a-dot" data-dot="3" type="button"></button><button aria-label="Slide 5" class="v1a-dot" data-dot="4" type="button"></button>
+</div>
+<div class="v1a-hero-grid">
+<div class="v1a-hero-left">
+<div class="v1a-kicker">
+<span class="hero-kicker" data-i18n="rtv_home_kicker_feat">FEATURED</span>
+<span class="v1a-kicker-meta">1 of 5 · auto-advances in 7s</span>
+</div>
+<h1 class="hero-title">Project Hail Mary</h1>
+<p class="hero-desc">Ryland Grace wakes alone on a ship bound for Tau Ceti — science, survival, and impossible friendship.</p>
+<div class="hero-ctas v1a-hero-actions">
+<button class="btn-primary" onclick="toast('Play: Project Hail Mary')" type="button"><span data-i18n="rtv_home_btn_play">Play</span></button>
+<button class="btn-secondary" data-i18n="rtv_home_btn_mylist" onclick="toast('Add: Project Hail Mary')" type="button">+ My List</button>
+<button class="btn-secondary" data-i18n="rtv_home_btn_trailer" onclick="toast('Trailer')" type="button">Trailer</button>
+</div>
+<div class="v1a-upnext-wrap">
+<div class="v1a-upnext-h">
+<span class="v1a-upnext-label" data-i18n="rtv_home_upnext">UP NEXT</span>
+</div>
+<div class="v1a-upnext-strip">
+<button class="v1a-up-card" onclick='toast("Queue: Breaking Bad")' type="button"><span class="v1a-up-badge">NEXT</span><img alt="" src="https://images.metahub.space/poster/small/tt0903747/img"/></button><button class="v1a-up-card" onclick='toast("Queue: Briarpatch")' type="button"><span class="v1a-up-badge">NEXT</span><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"/></button><button class="v1a-up-card" onclick='toast("Queue: The Sympathizer")' type="button"><span class="v1a-up-badge">NEXT</span><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"/></button><button class="v1a-up-card" onclick='toast("Queue: Ripley")' type="button"><span class="v1a-up-badge">NEXT</span><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"/></button>
+</div>
+<div class="v1a-chip-row">
+<button class="v1a-chip is-active" onclick="window.location.href='/movies?category=sci-fi'" type="button" data-i18n="rtv_home_chip_scifi">Sci‑Fi pack</button>
+<button class="v1a-chip" onclick="window.location.href='/movies?category=drama'" type="button" data-i18n="rtv_home_chip_drama">Drama night</button>
+<button class="v1a-chip" onclick="window.location.href='/movies?category=thriller'" type="button" data-i18n="rtv_home_chip_thrill">Late thrillers</button>
+<button class="v1a-chip" onclick="window.location.href='/movies?category=awards'" type="button" data-i18n="rtv_home_chip_awards">Award picks</button>
+</div>
+</div>
+</div>
+<aside class="v1a-hero-right">
+<div class="v1a-mini-poster" onclick="toast('Details: Project Hail Mary')">
+<img alt="" src="https://images.metahub.space/poster/small/tt12042730/img"/>
+</div>
+<div class="v1a-mini-cap">Now featuring · 4K HDR where available</div>
+</aside>
+</div>
+</div>
+<div class="v1a-queue-link-wrap">
+<button class="v1a-queue-link" data-i18n="rtv_home_view_queue" onclick="window.location.href='/account'" type="button">View queue</button>
+</div>
+<div class="v1a-stage">
+<section aria-label="Continue watching" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_continue">Continue Watching</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/account'">See all</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Continue 01")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:28%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Continue 01</span><span class="v1a-tile-sub">S1 · E4 left</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Neon Circuit")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:39%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Neon Circuit</span><span class="v1a-tile-sub">Resume 12m</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Midnight Atlas")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:50%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Midnight Atlas</span><span class="v1a-tile-sub">S2 · E1</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Glass Harbor")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:61%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Glass Harbor</span><span class="v1a-tile-sub">82% match</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Silent Frequency")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:72%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Silent Frequency</span><span class="v1a-tile-sub">Autoplay off</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Cinder Arch")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:28%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Cinder Arch</span><span class="v1a-tile-sub">4K HDR</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Orchid Run")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:39%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Orchid Run</span><span class="v1a-tile-sub">Drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Resume: Velvet Relay")'>
+<span class="v1a-badge-cw">CW</span>
+<div class="v1a-progress" style="--p:50%;"><span></span></div>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Velvet Relay</span><span class="v1a-tile-sub">Thriller</span></div>
+</article></div>
+</section>
+<section aria-label="Trending" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_trending">Trending Now</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/movies'">See all</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Vector Crown")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Vector Crown</span><span class="v1a-tile-sub">#1 today</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Salt &amp; Signal")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Salt &amp; Signal</span><span class="v1a-tile-sub">Rising fast</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Paper Saints")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Paper Saints</span><span class="v1a-tile-sub">New season</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Low Orbit")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Low Orbit</span><span class="v1a-tile-sub">Sci‑Fi hit</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Marble Choir")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Marble Choir</span><span class="v1a-tile-sub">Critics pick</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Wild Ledger")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Wild Ledger</span><span class="v1a-tile-sub">Trending</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Bronze Parade")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Bronze Parade</span><span class="v1a-tile-sub">Drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Quartz Vein")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Quartz Vein</span><span class="v1a-tile-sub">Mystery</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Pulse Archive")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Pulse Archive</span><span class="v1a-tile-sub">Deep cut</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Silver Thesis")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Silver Thesis</span><span class="v1a-tile-sub">Philosophy</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Copper Atlas")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Copper Atlas</span><span class="v1a-tile-sub">Travel</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Marigold Trap")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Marigold Trap</span><span class="v1a-tile-sub">Rom‑thrill</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Obsidian List")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Obsidian List</span><span class="v1a-tile-sub">Noir</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Granite Route")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Granite Route</span><span class="v1a-tile-sub">Adventure</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Opal Circuit")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Opal Circuit</span><span class="v1a-tile-sub">Mystery</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Jade Choir")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Jade Choir</span><span class="v1a-tile-sub">Musical</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Amber Vein")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Amber Vein</span><span class="v1a-tile-sub">Crime</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Pearl Chorus")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Pearl Chorus</span><span class="v1a-tile-sub">Period drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Onyx Signal")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Onyx Signal</span><span class="v1a-tile-sub">Sci‑Fi</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Topaz Harbor")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Topaz Harbor</span><span class="v1a-tile-sub">Mystery</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Sapphire Run")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Sapphire Run</span><span class="v1a-tile-sub">Action</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Ruby Ledger")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Ruby Ledger</span><span class="v1a-tile-sub">Heist</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Emerald Choir")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Emerald Choir</span><span class="v1a-tile-sub">Fantasy</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Diamond Runway")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Diamond Runway</span><span class="v1a-tile-sub">Fashion doc</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Carbon Night")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Carbon Night</span><span class="v1a-tile-sub">Thriller</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Nitrogen Sky")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Nitrogen Sky</span><span class="v1a-tile-sub">Space opera</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Helix Drift")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Helix Drift</span><span class="v1a-tile-sub">Biotech</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Tangent Road")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Tangent Road</span><span class="v1a-tile-sub">Road movie</span></div>
+</article></div>
+</section>
+<section aria-label="Just added" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_just">Just Added</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/movies'">See all</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop A")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop A</span><span class="v1a-tile-sub">Just added</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop B")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop B</span><span class="v1a-tile-sub">4K</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop C")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop C</span><span class="v1a-tile-sub">This week</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop D")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop D</span><span class="v1a-tile-sub">Award winner</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop E")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop E</span><span class="v1a-tile-sub">Limited series</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop F")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop F</span><span class="v1a-tile-sub">Docuseries</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop G")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop G</span><span class="v1a-tile-sub">Miniseries</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fresh Drop H")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fresh Drop H</span><span class="v1a-tile-sub">Exclusive</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Spotlight East")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Spotlight East</span><span class="v1a-tile-sub">International</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Spotlight West")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Spotlight West</span><span class="v1a-tile-sub">Premiere</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick="toast(&quot;Open: Collector's Cut&quot;)">
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Collector's Cut</span><span class="v1a-tile-sub">Restored</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Midnight Lab")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Midnight Lab</span><span class="v1a-tile-sub">Indie</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Sunrise anthology")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Sunrise anthology</span><span class="v1a-tile-sub">Shorts</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Rain anthology")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Rain anthology</span><span class="v1a-tile-sub">Romance pack</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Storm anthology")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Storm anthology</span><span class="v1a-tile-sub">Action pack</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Fog anthology")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Fog anthology</span><span class="v1a-tile-sub">Mystery pack</span></div>
+</article></div>
+</section>
+<section aria-label="Top 10 movies" class="v1a-row v1a-row--top10">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_top10">Top 10 in Movies</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/movies'">See all</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Signal Atlas")'>
+<span class="v1a-top-num">1</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Signal Atlas</span><span class="v1a-tile-sub">Thriller hit</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Velvet Runway")'>
+<span class="v1a-top-num">2</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Velvet Runway</span><span class="v1a-tile-sub">Drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Ghost Circuit")'>
+<span class="v1a-top-num">3</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Ghost Circuit</span><span class="v1a-tile-sub">Sci‑Fi</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Harbor Lights")'>
+<span class="v1a-top-num">4</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32430579/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Harbor Lights</span><span class="v1a-tile-sub">Mystery</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Noon Prophets")'>
+<span class="v1a-top-num">5</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Noon Prophets</span><span class="v1a-tile-sub">Limited</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Iron Season")'>
+<span class="v1a-top-num">6</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Iron Season</span><span class="v1a-tile-sub">Western tone</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Sable Choir")'>
+<span class="v1a-top-num">7</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Sable Choir</span><span class="v1a-tile-sub">Music drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Quicksand Plot")'>
+<span class="v1a-top-num">8</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Quicksand Plot</span><span class="v1a-tile-sub">Crime</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Neon Pilgrim")'>
+<span class="v1a-top-num">9</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Neon Pilgrim</span><span class="v1a-tile-sub">Cyberpunk</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Last Lantern")'>
+<span class="v1a-top-num">10</span>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Last Lantern</span><span class="v1a-tile-sub">Finale week</span></div>
+</article></div>
+</section>
+<section aria-label="Because you watched" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_because">Because You Watched Breaking Bad</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/movies'">More</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Desert Math")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Desert Math</span><span class="v1a-tile-sub">Because BB</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Blue Flame Lane")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Blue Flame Lane</span><span class="v1a-tile-sub">Similar tone</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Empire of Dust")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Empire of Dust</span><span class="v1a-tile-sub">Crime drama</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Laundry Day")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Laundry Day</span><span class="v1a-tile-sub">Moral maze</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Rust Prophet")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Rust Prophet</span><span class="v1a-tile-sub">Antihero saga</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Canyon Ledger")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Canyon Ledger</span><span class="v1a-tile-sub">Slow burn</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Neon Testament")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Neon Testament</span><span class="v1a-tile-sub">Gritty</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: Iron Choir")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">Iron Choir</span><span class="v1a-tile-sub">Prestige TV</span></div>
+</article></div>
+</section>
+<section aria-label="New episodes" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_newep">New Episodes</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/series'">See all</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Mon")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Mon</span><span class="v1a-tile-sub">S3E08 out</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Tue")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt32612507/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Tue</span><span class="v1a-tile-sub">S1E12</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Play: New Ep Wed")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" src="https://assets.fanart.tv/fanart/attack-on-titan-551eb271053e8.jpg"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Wed</span><span class="v1a-tile-sub">Finale week</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Thu")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt1190634/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Thu</span><span class="v1a-tile-sub">Mid-season</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Fri")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt9243946/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Fri</span><span class="v1a-tile-sub">Bonus ep</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Sat")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt12042730/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Sat</span><span class="v1a-tile-sub">Behind scenes</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep Sun")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt0903747/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep Sun</span><span class="v1a-tile-sub">Weekly drop</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-film" onclick='toast("Open: New Ep +1")'>
+<div class="v1a-tile-img-wrap"><img alt="" class="v1a-tile-img" loading="lazy" src="https://images.metahub.space/poster/small/tt27911000/img"/></div>
+<div class="v1a-tile-meta"><span class="v1a-tile-title">New Ep +1</span><span class="v1a-tile-sub">Extended cut</span></div>
+</article></div>
+</section>
+<section aria-label="Live now" class="v1a-row">
+<div class="v1a-row-h"><h2 class="v1a-row-title" data-i18n="rtv_home_row_live">Live Now</h2><span class="v1a-row-more" tabindex="0" role="button" data-i18n="rtv_home_see_all" onclick="window.location.href='/livetv'">Guide</span></div>
+<div class="v1a-scroller"><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: RomanTV Sports 1")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">RomanTV Sports 1</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Arena 4K")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Arena 4K</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: NewsWire HD")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">NewsWire HD</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Esports Central")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Esports Central</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Indie Movies")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Indie Movies</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Late Night Hits")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Late Night Hits</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: World Cup Zone")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">World Cup Zone</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Comedy Club Live")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Comedy Club Live</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: House Sessions")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">House Sessions</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Anime After Dark")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Anime After Dark</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Sci‑Fi Sundays")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Sci‑Fi Sundays</span></div>
+</article><article tabindex="0" role="button" class="v1a-tile v1a-tile-live" onclick='toast("Tune: Championship Sunday")'>
+<div class="v1a-live-frame"><div class="v1a-live-glow"></div><span class="v1a-live-ch">LIVE</span><span class="v1a-live-title">Championship Sunday</span></div>
+</article></div>
+</section>
+</div>
+</div>
+<script>
+(function(){
+  var root=document.currentScript&&document.currentScript.closest('section#v1a');
+  if(!root){root=document.getElementById('v1a');}
+  if(!root||root.dataset.v1aInit==='1') return;
+  root.dataset.v1aInit='1';
+  var slides=root.querySelectorAll('.v1a-hero-slide');
+  var dots=root.querySelectorAll('.v1a-dot');
+  var kMeta=root.querySelector('.v1a-kicker-meta');
+  var hTitle=root.querySelector('.hero-title');
+  var hDesc=root.querySelector('.hero-desc');
+  var upStrip=root.querySelector('.v1a-upnext-strip');
+  var pauseBtn=root.querySelector('.v1a-pause-fab');
+  var btnPlay=root.querySelector('.v1a-hero-actions .btn-primary, .hero-ctas .btn-primary');
+  var btnSecs=root.querySelectorAll('.v1a-hero-actions .btn-secondary, .hero-ctas .btn-secondary');
+  var miniPoster=root.querySelector('.v1a-mini-poster img');
+  var miniWrap=root.querySelector('.v1a-mini-poster');
+  var total=slides.length;
+  var idx=0;
+  var paused=false;
+  var remain=7;
+  var tickTimer=null;
+  var titles=["Project Hail Mary", "Breaking Bad", "Briarpatch", "The Sympathizer", "Ripley"];
+  var descs=["Ryland Grace wakes alone on a ship bound for Tau Ceti \u2014 science, survival, and impossible friendship.", "A high-school chemistry teacher turned kingpin \u2014 choices, consequences, and the desert that remembers.", "Corruption unravels beneath the sun-baked sprawl; one investigator refuses to look away.", "A spy caught between flags navigates exile, memory, and the shifting mask of loyalty.", "A con artist drifts through European shadows where charm sharpens into menace."];
+  var posters=["https://images.metahub.space/poster/small/tt12042730/img", "https://images.metahub.space/poster/small/tt0903747/img", "https://images.metahub.space/poster/small/tt27911000/img", "https://images.metahub.space/poster/small/tt32612507/img", "https://images.metahub.space/poster/small/tt32430579/img"];
+  function esc(s){ return String(s).replace(/'/g,"\\'"); }
+  function renderUpcoming(i){
+    if(!upStrip) return;
+    upStrip.innerHTML='';
+    for(var k=1;k<=4;k++){
+      var j=(i+k)%total;
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='v1a-up-card';
+      b.setAttribute('tabindex','0');
+      b.setAttribute('role','button');
+      b.setAttribute('onclick',"toast('Queue: "+esc(titles[j])+"')");
+      b.innerHTML='<span class="v1a-up-badge">NEXT</span><img src="'+posters[j]+'" alt=""/>';
+      upStrip.appendChild(b);
+    }
+  }
+  function setSlide(i){
+    idx=(i+total)%total;
+    slides.forEach(function(s,n){ s.classList.toggle('is-active',n===idx); });
+    dots.forEach(function(d,n){ d.classList.toggle('is-on',n===idx); });
+    if(hTitle) hTitle.textContent=titles[idx];
+    if(hDesc) hDesc.textContent=descs[idx];
+    if(btnPlay) btnPlay.setAttribute('onclick',"toast('Play: "+esc(titles[idx])+"')");
+    if(btnSecs[0]) btnSecs[0].setAttribute('onclick',"toast('Add: "+esc(titles[idx])+"')");
+    if(btnSecs[1]) btnSecs[1].setAttribute('onclick',"toast('Trailer: "+esc(titles[idx])+"')");
+    if(miniPoster) miniPoster.src=posters[idx];
+    if(miniWrap) miniWrap.setAttribute('onclick',"toast('Details: "+esc(titles[idx])+"')");
+    renderUpcoming(idx);
+    remain=7;
+    updateKicker();
+  }
+  function updateKicker(){
+    if(!kMeta) return;
+    var ps=paused?'paused':'auto-advances in '+remain+'s';
+    kMeta.textContent=(idx+1)+' of '+total+' · '+ps;
+  }
+  function startTicker(){
+    if(tickTimer) clearInterval(tickTimer);
+    tickTimer=setInterval(function(){
+      if(paused) return;
+      remain=Math.max(0,remain-1);
+      updateKicker();
+      if(remain<=0){ setSlide(idx+1); }
+    },1000);
+  }
+  dots.forEach(function(d,n){
+    d.addEventListener('click',function(){ setSlide(n); if(!paused) startTicker(); });
+  });
+  if(pauseBtn){
+    pauseBtn.addEventListener('click',function(){
+      paused=!paused;
+      pauseBtn.textContent=paused?'▶':'⏸';
+      pauseBtn.setAttribute('aria-label', paused?'Resume rotation':'Pause rotation');
+      if(!paused) remain=7;
+      updateKicker();
+    });
+    pauseBtn.setAttribute('aria-label','Pause rotation');
+  }
+  setSlide(0);
+  startTicker();
+
+  // RTV_FIX_v1.2 (2026-04-28): hydrate hero from /api/featured/picks?tab=home
+  // — replaces hardcoded titles/descs/posters with real Nigma trending items.
+  function _imgURL(u){ if(!u) return ''; return u.indexOf('/api/img')===0 ? u : ('/api/img?url='+encodeURIComponent(u)); }
+  fetch('/api/featured/picks?tab=home', {credentials:'include'})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if(!d || !Array.isArray(d.items) || !d.items.length) return;
+      var ids = [];
+      var kinds = [];
+      for (var k=0; k<Math.min(d.items.length, total); k++){
+        var it = d.items[k] || {};
+        if(it.name) titles[k] = it.name;
+        if(it.description) descs[k] = it.description;
+        else if(it.year) descs[k] = 'Released ' + it.year;
+        if(it.poster) posters[k] = _imgURL(it.poster);
+        // background on slide
+        var slide = slides[k];
+        if(slide && it.background){
+          var bg = slide.querySelector('.v1a-hero-bg');
+          if(bg) bg.style.backgroundImage = "url('" + _imgURL(it.background) + "')";
+        }
+        if(slide){
+          slide.dataset.itemId = it.id || '';
+          slide.dataset.itemKind = it.type || 'movie';
+          slide.setAttribute('aria-label', it.name || '');
+        }
+        ids[k] = it.id || '';
+        kinds[k] = it.type || 'movie';
+      }
+      // Wire Play button to navigate to detail page for current slide
+      function navToDetail(){
+        var id = ids[idx];
+        var kind = kinds[idx];
+        if(!id) return;
+        window.location.href = '/detail/' + encodeURIComponent(kind) + '/' + encodeURIComponent(id);
+      }
+      if(btnPlay){ btnPlay.removeAttribute('onclick'); btnPlay.addEventListener('click', navToDetail); }
+      if(miniWrap){ miniWrap.removeAttribute('onclick'); miniWrap.addEventListener('click', navToDetail); miniWrap.style.cursor='pointer'; }
+      // RTV_FIX_v1.32 (2026-04-29): wire + My List + Trailer (was onclick=toast)
+      if (btnSecs && btnSecs[0]) {
+        btnSecs[0].removeAttribute('onclick');
+        btnSecs[0].addEventListener('click', function(){
+          var id = ids[idx]; var nm = titles[idx];
+          if(!id) return;
+          try {
+            var ml = JSON.parse(localStorage.getItem('rtv_mylist') || '[]');
+            if (!ml.find(function(x){ return x.id === id; })) {
+              ml.unshift({ id: id, name: nm, kind: kinds[idx] || 'movie', added_at: Date.now() });
+              localStorage.setItem('rtv_mylist', JSON.stringify(ml.slice(0, 200)));
+            }
+            var orig = btnSecs[0].textContent;
+            btnSecs[0].textContent = '✓ Added';
+            setTimeout(function(){ btnSecs[0].textContent = orig; }, 1800);
+          } catch(_){}
+        });
+      }
+      if (btnSecs && btnSecs[1]) {
+        btnSecs[1].removeAttribute('onclick');
+        btnSecs[1].addEventListener('click', function(){
+          var id = ids[idx]; if(!id) return;
+          fetch('/api/detail/' + encodeURIComponent(kinds[idx] || 'movie') + '/' + encodeURIComponent(id), { credentials: 'include' })
+            .then(function(r){ return r.ok ? r.json() : null; })
+            .then(function(d){
+              var meta = d && d.meta || {};
+              var ytId = meta.trailer_yt_id;
+              if (!ytId && meta.trailerStreams && meta.trailerStreams.length) {
+                ytId = meta.trailerStreams[0].ytId || meta.trailerStreams[0].id;
+              }
+              if (ytId) window.open('https://www.youtube.com/watch?v=' + ytId, '_blank');
+              else navToDetail();
+            })
+            .catch(function(){ navToDetail(); });
+        });
+      }
+      // Re-render current slide with new data
+      setSlide(idx);
+    })
+    .catch(function(){});
+})();
+</script>
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+(function(){
+  function slugify(v){
+    return String(v || "").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+  }
+  function go(path){ window.location.href = path; }
+  window.toast = function(msg){
+    var m = String(msg || "");
+    if (!m) return;
+    if (m.indexOf("Play: ") === 0) return go("/detail/movie/" + encodeURIComponent(slugify(m.slice(6))));
+    if (m.indexOf("Add: ") === 0) return go("/account#my-list");
+    if (m.indexOf("Trailer") === 0) return go("/movies?trailers=1");
+    if (m.indexOf("Queue: ") === 0) return go("/account#queue");
+    if (m.indexOf("Details: ") === 0) return go("/detail/movie/" + encodeURIComponent(slugify(m.slice(9))));
+    if (m.indexOf("Tune: ") === 0) return go("/live?channel=" + encodeURIComponent(slugify(m.slice(6))));
+    if (m.indexOf("Open queue") === 0) return go("/account#queue");
+    if (m.indexOf("Language: ") === 0) return;
+    if (m.indexOf("Account") === 0) return go("/account");
+    if (m.indexOf("See all ") === 0 || m.indexOf("More like") === 0 || m.indexOf("More") === 0) {
+      return go("/movies");
+    }
+    return go("/movies");
+  };
+})();
+</script>
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "home",
+  endpoints: ["/api/rows?filter=all", "/api/featured/picks?tab=home"],
+  selectors: [".v1a-row .v1a-scroller", ".v1a-row .v1a-row-rail", ".v1a-row .v1a-rail", ".v1a-row .rail"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=22"></script>
+
+
+<script>
+/* RTV_FIX_v1.19 (2026-04-28): when filter=xxx, swap row title data-i18n keys to adult labels */
+(function(){
+  function isAdultMode(){
+    try { return new URL(window.location.href).searchParams.get("filter") === "xxx"; } catch(_) { return false; }
+  }
+  if (!isAdultMode()) return;
+  var KEY_MAP = {
+    "rtv_home_row_continue": "rtv_xxx_row_popular",
+    "rtv_home_row_trending": "rtv_xxx_row_new",
+    "rtv_home_row_just":     "rtv_xxx_row_categories",
+    "rtv_home_row_top10":    "rtv_xxx_row_hentai",
+    "rtv_home_row_because":  "rtv_xxx_row_onlyfans",
+    "rtv_home_row_newep":    "rtv_xxx_row_livemodels",
+    "rtv_home_row_live":     "rtv_xxx_row_all"
+  };
+  function swap(){
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if (KEY_MAP[k]) el.setAttribute("data-i18n", KEY_MAP[k]);
+    });
+    // Trigger i18n re-walk
+    if (window.RTVI18N && typeof window.RTVI18N.setLang === "function") {
+      window.RTVI18N.setLang(window.RTVI18N.getLang ? window.RTVI18N.getLang() : "es");
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", swap);
+  } else { swap(); }
+})();
+</script>
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.42 (2026-04-29): kill /home fake "Because You Watched Breaking Bad" row.
+(function(){
+  function killBB() {
+    try {
+      Array.from(document.querySelectorAll(".v1a-row-title, h2")).forEach(function(h){
+        var t = (h.textContent || "").trim();
+        if (/because you watched breaking bad/i.test(t)) {
+          var sect = h.closest("section, .v1a-row");
+          if (sect) sect.remove();
+        }
+      });
+    } catch(_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", killBB, { once: true });
+  } else { killBB(); }
+})();
+</script>
+
+
+<script>
+// RTV_FIX_v1.48 (2026-04-29): /home dynamic rotator from /api/featured/picks?tab=home.
+// Replaces 5 hardcoded metahub-backed slides (Project Hail Mary etc) with real Nigma picks.
+(function(){
+  function init(){
+    fetch("/api/featured/picks?tab=home", { credentials: "include" })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var items = (d && d.items) || [];
+        if (!items.length) return;
+        var slides = Array.from(document.querySelectorAll(".v1a-hero-slide"));
+        if (!slides.length) return;
+        items.slice(0, slides.length).forEach(function(item, i){
+          var slide = slides[i];
+          if (!slide) return;
+          // Update backdrop
+          var bg = slide.querySelector(".v1a-hero-bg");
+          var poster = item.background || item.poster;
+          if (bg && poster) {
+            var posterUrl = poster.indexOf("/api/img") === 0 ? poster : ("/api/img?url=" + encodeURIComponent(poster));
+            bg.style.backgroundImage = "url('" + posterUrl + "')";
+            bg.style.backgroundPosition = "center center";
+            bg.style.backgroundSize = "cover";
+          }
+          // Update title
+          var title = slide.querySelector(".v1a-hero-title, .hero-title");
+          if (title) title.textContent = (item.name || item.title || "");
+          // Update kicker (genre)
+          var kicker = slide.querySelector(".v1a-hero-kicker, .hero-kicker");
+          if (kicker) kicker.textContent = (item.genre || item.category || "FEATURED").toUpperCase().slice(0, 30);
+          // Update description
+          var desc = slide.querySelector(".v1a-hero-desc, .hero-desc");
+          if (desc) {
+            desc.textContent = item.description || (item.year ? (item.year + " · " + (item.genre || "")) : "");
+          }
+          // Update aria-label
+          slide.setAttribute("aria-label", item.name || item.title || "");
+          // Update Play button to navigate to detail
+          var playBtn = slide.querySelector(".btn-primary");
+          if (playBtn) {
+            playBtn.onclick = (function(id, type){
+              return function(){
+                var kind = (type === "series" || type === "anime") ? type : "movie";
+                window.location.href = "/detail/" + kind + "/" + encodeURIComponent(id);
+              };
+            })(item.id, item.type || "movie");
+          }
+        });
+      })
+      .catch(function(e){ console.warn("[v1.48 rotator] err:", e); });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else { init(); }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+
+<script>
+// RTV_FIX_v1.59c (2026-04-29): My List row on /home — hydrates from /api/mylist
+(function () {
+  function init() {
+    fetch("/api/mylist", { credentials: "include" })
+      .then(function (r) { return r.ok ? r.json() : { items: [] }; })
+      .then(function (d) {
+        var items = (d && d.items) || [];
+        if (!items.length) return; // hide if empty
+        var stage = document.querySelector(".v1a-stage") || document.querySelector(".v1a-wrap") || document.body;
+        if (!stage) return;
+        // Avoid double-render
+        if (document.getElementById("rtv-mylist-row")) return;
+        var sec = document.createElement("section");
+        sec.id = "rtv-mylist-row";
+        sec.className = "v1a-row";
+        sec.setAttribute("aria-label", "My List");
+        sec.style.cssText = "padding:24px 28px 12px;";
+        sec.innerHTML =
+          '<div class="v1a-row-h" style="display:flex;align-items:baseline;gap:14px;margin-bottom:10px;">' +
+            '<h2 class="v1a-row-title" data-i18n="rtv_mylist_header" style="margin:0;font:800 1.3rem/1.1 sans-serif;color:#fff;">' + ((window.RTVI18N && window.RTVI18N.t('rtv_mylist_header')) || '⭐ My List') + '</h2>' +
+            '<span style="color:#a8a8b0;font:600 13px sans-serif;">' + items.length + ' ' + ((window.RTVI18N && window.RTVI18N.t('rtv_mylist_saved_unit')) || 'saved') + '</span>' +
+            '<a href="/account" style="margin-left:auto;color:#ffd66b;font:700 13px sans-serif;text-decoration:none;">' + ((window.RTVI18N && window.RTVI18N.t('rtv_mylist_see_all')) || 'See all →') + '</a>' +
+          '</div>' +
+          '<div class="v1a-scroller" style="display:flex;gap:14px;overflow-x:auto;padding:4px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;"></div>';
+        // Insert as the first child of the stage (right after hero)
+        stage.insertBefore(sec, stage.firstChild);
+        var rail = sec.querySelector(".v1a-scroller");
+        items.forEach(function (item) {
+          var tile = document.createElement("article");
+          tile.className = "v1a-tile v1a-tile-film tile tile--poster rtv-mylist-tile";
+          tile.tabIndex = 0;
+          tile.style.cssText = "min-width:160px;max-width:180px;cursor:pointer;position:relative;flex:0 0 auto;";
+          var posterSrc = item.poster ? (item.poster.indexOf("/api/img") === 0 ? item.poster : ("/api/img?url=" + encodeURIComponent(item.poster))) : "";
+          var href = "/detail/" + encodeURIComponent(item.kind === "channel" ? "channel" : item.kind) + "/" + encodeURIComponent(item.id);
+          tile.innerHTML =
+            '<div class="v1a-tile-img-wrap" style="position:relative;">' +
+              '<img loading="lazy" alt="" class="v1a-tile-img" onerror="this.style.opacity=0.2" src="' + posterSrc + '" style="width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;background:#1a1c24;"/>' +
+              '<button class="rtv-mylist-remove" data-kind="' + item.kind + '" data-id="' + item.id + '" title="' + ((window.RTVI18N && window.RTVI18N.t('rtv_mylist_remove')) || 'Remove from My List') + '" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2;line-height:1;padding:0;">×</button>' +
+            '</div>' +
+            '<div class="v1a-tile-meta" style="padding:6px 4px;">' +
+              '<span class="v1a-tile-title" style="display:block;font:700 13px/1.2 sans-serif;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + (item.name || item.id) + '</span>' +
+              '<span class="v1a-tile-sub" style="display:block;font:500 11px sans-serif;color:#a8a8b0;text-transform:uppercase;">' + item.kind + '</span>' +
+            '</div>';
+          // Click → open detail page
+          tile.addEventListener("click", function (e) {
+            if (e.target.classList.contains("rtv-mylist-remove")) return;
+            window.location.href = href;
+          });
+          tile.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); window.location.href = href; }
+          });
+          // Remove button
+          var rm = tile.querySelector(".rtv-mylist-remove");
+          rm.addEventListener("click", function (e) {
+            e.preventDefault(); e.stopPropagation();
+            rm.disabled = true;
+            fetch("/api/mylist/toggle", {
+              method: "POST", credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ kind: item.kind, id: item.id }),
+            })
+              .then(function () { tile.style.transition = "opacity 0.2s"; tile.style.opacity = "0"; setTimeout(function () { tile.remove(); var counter = sec.querySelector(".v1a-row-h span"); if (counter) { var rest = sec.querySelectorAll(".rtv-mylist-tile").length; if (rest === 0) { sec.remove(); } else { counter.textContent = rest + ' ' + ((window.RTVI18N && window.RTVI18N.t('rtv_mylist_saved_unit')) || 'saved'); } } }, 200); });
+          });
+          rail.appendChild(tile);
+        });
+      })
+      .catch(function (e) { console.warn("[mylist row] err:", e); });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else { setTimeout(init, 100); }
+})();
+</script>
+
+
+<script>
+// RTV_FIX_v1.60 (2026-04-29): Continue Watching hydration on /home.
+// Replaces hardcoded mock tiles with real /api/continue-watching data.
+// Hides the entire section if user has no watch history (better than mocks).
+(function () {
+  function fmtTimeLeft(item) {
+    if (item.duration_sec > 0 && item.position_sec >= 0) {
+      var left = Math.max(0, item.duration_sec - item.position_sec);
+      if (left > 60) { var lang2 = (window.RTVI18N && window.RTVI18N.getLang && window.RTVI18N.getLang()) || 'es'; var m = Math.round(left / 60); if (m < 60) return m + (lang2 === 'es' ? 'm restan' : 'm left'); var h = Math.floor(m / 60), mm = m % 60; return h + 'h ' + (mm ? mm + 'm ' : '') + (lang2 === 'es' ? 'restan' : 'left'); }
+    }
+    if (item.progress_pct > 0) { var lang = (window.RTVI18N && window.RTVI18N.getLang && window.RTVI18N.getLang()) || 'es'; return item.progress_pct + '% ' + (lang === 'es' ? 'visto' : 'watched'); }
+    return ((window.RTVI18N && window.RTVI18N.t('rtv_cw_resume')) || 'Resume');
+  }
+  function init() {
+    fetch("/api/continue-watching", { credentials: "include" })
+      .then(function (r) { return r.ok ? r.json() : { items: [] }; })
+      .then(function (d) {
+        var items = (d && d.items) || [];
+        // Find the Continue Watching section
+        var sections = document.querySelectorAll(".v1a-stage .v1a-row");
+        var cwSec = null;
+        sections.forEach(function (s) {
+          if (cwSec) return;
+          var t = (s.getAttribute("aria-label") || "").toLowerCase();
+          var h = (s.querySelector(".v1a-row-title") || {}).textContent || "";
+          if (t === "continue watching" || /continue watching/i.test(h)) cwSec = s;
+        });
+        if (!cwSec) return; // no section to hydrate
+        if (!items.length) {
+          // Hide entire section — clean home, no fake data
+          cwSec.style.display = "none";
+          cwSec.dataset.rtvCwState = "hidden-empty";
+          return;
+        }
+        var rail = cwSec.querySelector(".v1a-scroller");
+        if (!rail) return;
+        rail.innerHTML = "";
+        cwSec.dataset.rtvCwState = "live";
+        items.forEach(function (item) {
+          var tile = document.createElement("article");
+          tile.className = "v1a-tile v1a-tile-film rtv-cw-tile";
+          tile.tabIndex = 0;
+          tile.setAttribute("role", "button");
+          tile.style.cssText = "position:relative;cursor:pointer;";
+          var posterSrc = item.poster ? (item.poster.indexOf("/api/img") === 0 ? item.poster : ("/api/img?url=" + encodeURIComponent(item.poster))) : "";
+          var href = "/detail/" + encodeURIComponent(item.kind === "channel" ? "channel" : item.kind) + "/" + encodeURIComponent(item.id);
+          var pct = Math.max(2, item.progress_pct || 2);  // min 2% so bar is visible on resume
+          var sub = fmtTimeLeft(item);
+          tile.innerHTML =
+            '<span class="v1a-badge-cw">CW</span>' +
+            '<div class="v1a-progress" style="--p:' + pct + '%;"><span></span></div>' +
+            '<button class="rtv-cw-dismiss" data-kind="' + item.kind + '" data-id="' + item.id + '" title="' + ((window.RTVI18N && window.RTVI18N.t('rtv_cw_remove')) || 'Remove from Continue Watching') + '" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:50%;width:24px;height:24px;font-size:13px;cursor:pointer;z-index:3;line-height:1;padding:0;">×</button>' +
+            '<div class="v1a-tile-img-wrap"><img loading="lazy" alt="" class="v1a-tile-img" onerror="this.style.opacity=0.2" src="' + posterSrc + '"/></div>' +
+            '<div class="v1a-tile-meta"><span class="v1a-tile-title">' + (item.name || item.id) + '</span><span class="v1a-tile-sub">' + sub + '</span></div>';
+          tile.addEventListener("click", function (e) {
+            if (e.target.classList.contains("rtv-cw-dismiss")) return;
+            window.location.href = href;
+          });
+          tile.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); window.location.href = href; }
+          });
+          var rm = tile.querySelector(".rtv-cw-dismiss");
+          rm.addEventListener("click", function (e) {
+            e.preventDefault(); e.stopPropagation();
+            rm.disabled = true;
+            fetch("/api/watch/dismiss", {
+              method: "POST", credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ kind: item.kind, id: item.id }),
+            })
+              .then(function () {
+                tile.style.transition = "opacity 0.2s";
+                tile.style.opacity = "0";
+                setTimeout(function () {
+                  tile.remove();
+                  if (rail.querySelectorAll(".rtv-cw-tile").length === 0) {
+                    cwSec.style.display = "none";
+                    cwSec.dataset.rtvCwState = "hidden-after-dismiss-all";
+                  }
+                }, 200);
+              })
+              .catch(function () { rm.disabled = false; });
+          });
+          rail.appendChild(tile);
+        });
+      })
+      .catch(function (e) { console.warn("[cw] err:", e); });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else { setTimeout(init, 60); }
+})();
+</script>
+
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_catalog_badge.js?v=2" defer></script>
+<script src="/static/rtv_browse_region.js?v=1" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

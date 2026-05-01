@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script>window.__rtvKeepHero = true; /* RTV_FIX_v1.61 keep dynamic hero alive */</script>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · MOVIES · v1</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; overflow-x:hidden; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="movies" class="">
+
+<section class="design" id="v1">
+<style>
+#v1.design{--rv-hero-h:40vh;--rv-tile-w:160px;--rv-tile-h:240px;--rv-gap:18px;--rv-row-pad:56px 48px 28px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;position:relative;overflow-x:hidden;box-sizing:border-box}
+#v1.design *,#v1.design *::before,#v1.design *::after{box-sizing:border-box}
+#v1.design a{color:inherit;text-decoration:none;cursor:pointer}
+#v1.design button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+#v1.design .rv-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:1.35rem}
+#v1.design .rv-brand-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--accent) 0%,#ff3b47 45%,#8b000c 100%);box-shadow:0 4px 18px rgba(229,9,20,.35);display:grid;place-items:center;font-size:.75rem;font-weight:900}
+#v1.design .rv-pill-lang{font-size:.78rem;font-weight:700;}
+#v1.design .rv-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#3a3f55,#1c1e26);border:2px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:.95rem;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+#v1.design .rv-hero{position:relative;min-height:var(--rv-hero-h);margin:0 32px;border-radius:20px;overflow:hidden;border:1px solid rgba(44,46,56,.6);box-shadow:0 24px 80px rgba(0,0,0,.55)}
+#v1.design .rv-hero-bg{position:absolute;inset:0;background:url("https://images.metahub.space/background/medium/tt12042730/img") center/cover no-repeat;transform:scale(1.02)}
+#v1.design .rv-hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,16,.94) 0%,rgba(11,12,16,.55) 42%,rgba(11,12,16,.2) 68%,rgba(11,12,16,.75) 100%)}
+#v1.design .rv-hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 100%,rgba(0,0,0,.75),transparent 55%)}
+#v1.design .rv-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,60%) minmax(0,40%);gap:36px;align-items:end;padding:32px 40px 36px}
+#v1.design .rv-hero-poster{justify-self:end;overflow:hidden;}
+#v1.design .rv-hero-poster img{object-fit:cover;display:block}
+#v1.design .rv-hero-copy{display:flex;flex-direction:column;gap:14px;padding-bottom:6px}
+#v1.design .rv-tag{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:6px 12px;border-radius:6px;background:rgba(229,9,20,.22);border:1px solid rgba(229,9,20,.45);font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ffc9cc}
+#v1.design .rv-hero-meta{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:.88rem;color:#d4d4dc}
+#v1.design .rv-dot{opacity:.45}
+#v1.design .rv-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+#v1.design .rv-btn-play{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:10px;background:var(--accent);color:#fff;font-weight:800;font-size:1rem;box-shadow:0 10px 32px rgba(229,9,20,.45);transition:transform .15s,filter .15s,box-shadow .2s}
+#v1.design .rv-btn-play:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 14px 40px rgba(229,9,20,.55)}
+#v1.design .rv-btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-weight:700;font-size:.95rem;transition:background .2s,border-color .2s}
+#v1.design .rv-btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24)}
+#v1.design .rv-filters-wrap{padding:20px 48px 8px}
+#v1.design .rv-chip-row{display:flex;flex-wrap:wrap;gap:10px}
+#v1.design .rv-chip{font-size:.82rem;font-weight:600;}
+#v1.design .rv-row{padding:var(--rv-row-pad);position:relative}
+#v1.design .rv-row-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px;padding-right:8px}
+#v1.design .rv-row-title{font-size:1.1rem;font-weight:800;margin:0;letter-spacing:-.02em}
+#v1.design .rv-row-sub{font-size:.8rem;color:var(--dim);font-weight:600}
+#v1.design .rv-row-more{font-size:.78rem;font-weight:700;color:var(--accent);padding:6px 10px;border-radius:8px;transition:background .2s}
+#v1.design .rv-row-more:hover{background:rgba(229,9,20,.12)}
+#v1.design .rv-rail{display:flex;gap:var(--rv-gap);overflow-x:auto;padding:4px 4px 16px;margin:0 -8px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+#v1.design .rv-rail::-webkit-scrollbar{height:6px}
+#v1.design .rv-tile{flex:0 0 var(--rv-tile-w);scroll-snap-align:start;position:relative;overflow:hidden;cursor:pointer;}
+#v1.design .rv-tile:hover{z-index:3}
+#v1.design .rv-tile-ratio{position:relative;overflow:hidden}
+#v1.design .rv-tile-ratio img{object-fit:cover;display:block;}
+#v1.design .rv-tile-title{font-size:.78rem;font-weight:700;line-margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+#v1.design .rv-badge-new{position:absolute;top:8px;left:8px;z-index:4;padding:4px 8px;border-radius:5px;background:var(--accent);font-size:.62rem;font-weight:900;letter-spacing:.06em;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+#v1.design .rv-badge-4k{position:absolute;top:8px;right:8px;z-index:4;padding:4px 7px;border-radius:5px;background:rgba(255,214,107,.95);color:#1a1205;font-size:.62rem;font-weight:900}
+#v1.design .rv-top-num{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;padding:8px 6px;pointer-events:none;z-index:2}
+#v1.design .rv-top-num span{font-size:4.2rem;font-weight:900;line-height:.85;letter-spacing:-.06em;color:rgba(255,255,255,.22);text-shadow:0 0 1px rgba(0,0,0,.8),0 12px 28px rgba(0,0,0,.6);-webkit-text-stroke:1px rgba(255,255,255,.12)}
+#v1.design .rv-progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.45);z-index:3}
+#v1.design .rv-progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff6b76);border-radius:0 2px 2px 0}
+#v1.design .rv-overlay{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s}
+#v1.design .rv-overlay.is-open{pointer-events:auto;opacity:1;visibility:visible}
+#v1.design .rv-overlay-back{position:absolute;inset:0;background:rgba(5,6,10,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#v1.design .rv-detail-panel{position:absolute;top:0;right:0;bottom:0;width:min(720px,100%);max-width:100%;background:var(--panel);border-left:1px solid var(--line);box-shadow:-24px 0 80px rgba(0,0,0,.65);transform:translateX(102%);transition:transform .45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow:hidden}
+#v1.design .rv-overlay.is-open .rv-detail-panel{transform:translateX(0)}
+#v1.design .rv-detail-hero{position:relative;height:280px;flex-shrink:0}
+#v1.design .rv-detail-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+#v1.design .rv-detail-hero-mask{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(19,21,26,.15) 45%,rgba(19,21,26,.92) 100%)}
+#v1.design .rv-detail-close{position:absolute;top:16px;right:16px;z-index:5;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:1.35rem;line-height:1;font-weight:300;transition:background .2s,transform .15s}
+#v1.design .rv-detail-close:hover{background:rgba(229,9,20,.75);transform:rotate(90deg)}
+#v1.design .rv-detail-body{flex:1;overflow-y:auto;padding:0 28px 48px;margin-top:-72px;position:relative;z-index:4}
+#v1.design .rv-detail-row-top{display:flex;gap:22px;align-items:flex-end}
+#v1.design .rv-detail-poster{flex-shrink:0;overflow:hidden;}
+#v1.design .rv-detail-poster img{object-fit:cover;display:block}
+#v1.design .rv-detail-meta-wrap{flex:1;padding-bottom:8px}
+#v1.design .rv-detail-h{font-size:1.65rem;font-weight:800;margin:0 0 8px;letter-spacing:-.03em;line-height:1.1}
+#v1.design .rv-detail-facts{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.85rem;color:#c8c8d0;margin-bottom:10px}
+#v1.design .rv-detail-rating{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;background:rgba(255,214,107,.12);border:1px solid rgba(255,214,107,.28);color:var(--gold);font-weight:800;font-size:.75rem}
+#v1.design .rv-detail-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 8px}
+#v1.design .rv-btn-xl{padding:16px 32px;font-size:1.05rem;border-radius:12px}
+#v1.design .rv-btn-icon{display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-weight:700;transition:background .2s,border-color .2s}
+#v1.design .rv-btn-icon:hover{background:rgba(48,50,62,.9);border-color:rgba(255,255,255,.16)}
+#v1.design .rv-detail-syn{font-size:.95rem;line-height:1.65;color:#cfd0d8;margin:18px 0 0;max-width:58ch}
+#v1.design .rv-audio-panel{margin-top:22px;padding:16px 18px;border-radius:14px;background:var(--panel2);border:1px solid var(--line)}
+#v1.design .rv-audio-panel-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+#v1.design .rv-audio-panel-h strong{font-size:.88rem}
+#v1.design .rv-audio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+#v1.design .rv-audio-opt{padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:.82rem;font-weight:600;color:var(--dim);transition:all .2s;text-align:left}
+#v1.design .rv-audio-opt.is-sel{border-color:var(--gold);color:var(--gold);background:rgba(255,214,107,.08)}
+#v1.design .rv-more{margin-top:28px}
+#v1.design .rv-more-h{font-size:1rem;font-weight:800;margin:0 0 14px}
+#v1.design .rv-more-rail{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px}
+#v1.design .rv-mini{flex:0 0 100px;width:100px;cursor:pointer;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);transition:transform .2s,border-color .2s}
+#v1.design .rv-mini:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
+#v1.design .rv-mini img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+#v1.design .rv-mini span{display:block;padding:6px 8px;font-size:.65rem;font-weight:700;line-height:1.2;color:#d6d6df}
+#v1.design .rv-foot-note{padding:8px 48px 40px;font-size:.75rem;color:var(--dim)}
+@media (max-width:1100px){}
+@media (max-width:900px){#v1.design .rv-hero-inner{grid-template-columns:1fr;text-align:center}#v1.design .rv-hero-poster{margin:0 auto}#v1.design .rv-tag{align-self:center}#v1.design .rv-hero-actions{justify-content:center}#v1.design .rv-row{padding:40px 20px 20px}#v1.design .rv-filters-wrap{padding:16px 20px}#v1.design .rv-detail-row-top{flex-direction:column;align-items:center;text-align:center}#v1.design .rv-detail-body{padding:0 18px 36px}}
+</style>
+<header class="rv-topbar">
+<div class="rv-brand"><span class="rv-brand-mark">RT</span><span>RomanTV</span></div>
+<label class="rv-search">
+<input autocomplete="off" placeholder="Search movies..." type="search"/>
+</label>
+<nav aria-label="Main" class="rv-nav">
+<a href="/">Home</a>
+<a class="is-active" href="/movies">Movies</a>
+<a href="/series">Series</a>
+<a href="/anime">Anime</a>
+<a href="/livetv">Live TV</a>
+<a href="/sports">Sports</a>
+<a href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a href="/premium-tv">18+</a>
+</nav>
+<button class="rv-pill-lang is-active" type="button">EN</button>
+<div class="rv-avatar" title="Account">R</div>
+</header>
+<div class="rv-hero">
+<div aria-label="Featured backdrop" class="rv-hero-bg" role="img"></div>
+<div class="rv-hero-scrim"></div>
+<div class="rv-hero-vignette"></div>
+<div class="rv-hero-inner">
+<div class="rv-hero-copy hero-content">
+<span class="hero-kicker">Movie of the day</span>
+<h1 class="hero-title">Project Hail Mary</h1>
+<div class="rv-hero-meta"><span>2026</span><span class="rv-dot">·</span><span>Sci-Fi</span><span class="rv-dot">·</span><span>2h 08m</span><span class="rv-dot">·</span><span>PG-13</span><span class="rv-dot">·</span><span>98% Match</span></div>
+<p class="hero-desc">A lone astronaut races to save Earth with an unlikely ally — precision science, dry wit, and stakes that feel uncomfortably real.</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openDetail('Project Hail Mary')" type="button"><span aria-hidden="true">▶</span> Play</button>
+<button class="btn-secondary" onclick="openDetail('Project Hail Mary')" type="button"><span aria-hidden="true">+</span> My List</button>
+<button class="btn-secondary" onclick="openDetail('Project Hail Mary')" type="button">Trailer</button>
+</div>
+</div>
+<div class="rv-hero-poster hero-poster"><img alt="Project Hail Mary poster" height="330" src="https://images.metahub.space/poster/small/tt12042730/img" width="220"/></div>
+</div>
+</div>
+</section>
+<div class="rv-filters-wrap">
+<div aria-label="Filters" class="rv-chip-row" role="toolbar">
+<button class="rv-chip is-on" type="button" tabindex="0">All</button>
+<button class="rv-chip" type="button" tabindex="0">Just Added</button>
+<button class="rv-chip" type="button" tabindex="0">Trending</button>
+<button class="rv-chip" type="button" tabindex="0">Top Rated</button>
+<button class="rv-chip" type="button" tabindex="0">Action</button>
+<button class="rv-chip" type="button" tabindex="0">Drama</button>
+<button class="rv-chip" type="button" tabindex="0">Comedy</button>
+<button class="rv-chip" type="button" tabindex="0">Horror</button>
+<button class="rv-chip" type="button" tabindex="0">Sci-Fi</button>
+<button class="rv-chip" type="button" tabindex="0">Animation</button>
+<button class="rv-chip" type="button" tabindex="0">Family</button>
+</div>
+</div>
+<section aria-labelledby="rw-continue" class="rv-row">
+<div class="rv-row-head">
+<!-- BRANDED PROVIDER ROW (injected) -->
+<div class="branded-providers-row" style="padding:18px 24px;">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+<h2 style="font:800 18px sans-serif;margin:0;color:#fff;">Browse by Provider</h2>
+<span style="color:#a8a8b0;font-size:11px;">click any logo to filter</span>
+<a href="/movies?providers=all" style="margin-left:auto;color:#e50914;text-decoration:none;font-weight:700;font-size:13px;">See all →</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;">
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=netflix'" style="background:linear-gradient(135deg, #E50914 0%, rgba(229,9,20,0.30) 60%, rgba(229,9,20,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Netflix" src="https://cdn.simpleicons.org/netflix/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">3,551 titles</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=disney-plus'" style="background:linear-gradient(135deg, #113CCF 0%, rgba(17,60,207,0.30) 60%, rgba(17,60,207,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Disney+" src="https://cdn.simpleicons.org/disneyplus/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">1,200+ titles</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=max'" style="background:linear-gradient(135deg, #002BE7 0%, rgba(0,43,231,0.30) 60%, rgba(0,43,231,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Max" src="https://cdn.simpleicons.org/max/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">HBO Originals</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=amazon-prime'" style="background:linear-gradient(135deg, #00A8E1 0%, rgba(0,168,225,0.30) 60%, rgba(0,168,225,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Amazon Prime" src="https://cdn.simpleicons.org/primevideo/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Amazon Originals</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=apple-tv-plus'" style="background:linear-gradient(135deg, #A8A8A8 0%, rgba(168,168,168,0.30) 60%, rgba(168,168,168,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Apple TV+" src="https://cdn.simpleicons.org/appletv/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Apple Originals</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=paramount-plus'" style="background:linear-gradient(135deg, #0064FF 0%, rgba(0,100,255,0.30) 60%, rgba(0,100,255,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Paramount+" src="https://cdn.simpleicons.org/paramountplus/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Paramount catalog</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=peacock'" style="background:linear-gradient(135deg, #FACC2E 0%, rgba(250,204,46,0.30) 60%, rgba(250,204,46,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Peacock" src="https://cdn.simpleicons.org/peacock/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">NBCUniversal</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=hulu'" style="background:linear-gradient(135deg, #1CE783 0%, rgba(28,231,131,0.30) 60%, rgba(28,231,131,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Hulu" src="https://cdn.simpleicons.org/hulu/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Hulu catalog</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=crunchyroll'" style="background:linear-gradient(135deg, #F47521 0%, rgba(244,117,33,0.30) 60%, rgba(244,117,33,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="Crunchyroll" src="https://cdn.simpleicons.org/crunchyroll/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Anime · 4K</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=4k-top'" style="background:linear-gradient(135deg, #FCC419 0%, rgba(252,196,25,0.30) 60%, rgba(252,196,25,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><div style="font:900 18px/1 -apple-system,Segoe UI,Roboto,sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.5);letter-spacing:-0.3px;">4K Top</div></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">1,428 · BluRay multi-sub</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=espana-netflix'" style="background:linear-gradient(135deg, #C5202F 0%, rgba(197,32,47,0.30) 60%, rgba(197,32,47,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><img alt="ESPAÑA Netflix" src="https://cdn.simpleicons.org/netflix/ffffff" style="height:32px;max-width:80%;object-fit:contain;filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"/></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">808 títulos · Spain</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+<div class="prv-tile" role="button" tabindex="0" onclick="window.location.href='/movies?provider=awards'" style="background:linear-gradient(135deg, #FFD66B 0%, rgba(255,214,107,0.30) 60%, rgba(255,214,107,0.05) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s;position:relative;overflow:hidden;">
+<div style="height:40px;display:flex;align-items:center;"><div style="font:900 18px/1 -apple-system,Segoe UI,Roboto,sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.5);letter-spacing:-0.3px;">Awards</div></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;">
+<span style="font:600 11px/1.2 sans-serif;color:rgba(255,255,255,0.85);">Oscar / Cannes / Emmy</span>
+<span style="font:700 16px/1 sans-serif;color:#fff;">→</span>
+</div>
+</div>
+</div>
+</div>
+<style>
+</style>
+<h2 class="rv-row-title" id="rw-continue">Continue Watching · Movies</h2>
+<span class="rv-row-sub">Pick up where you left off</span>
+<a class="rv-row-more" href="/movies">See all</a>
+</div>
+<div class="rv-rail">
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('Dune: Part Two')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt27911000/img"><div class="rv-progress"><i style="width:62%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">Dune: Part Two</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('The Ministry of Ungentlemanly Warfare')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt32612507/img"><div class="rv-progress"><i style="width:31%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">The Ministry of Ungentlemanly Warfare</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('The Fall Guy')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt32430579/img"><div class="rv-progress"><i style="width:88%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">The Fall Guy</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('The Batman')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt1190634/img"><div class="rv-progress"><i style="width:14%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">The Batman</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('El Camino: A Breaking Bad Movie')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt9243946/img"><div class="rv-progress"><i style="width:47%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">El Camino</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('Project Hail Mary')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt12042730/img"><div class="rv-progress"><i style="width:5%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">Project Hail Mary</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('Oppenheimer')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt15398776/img"><div class="rv-progress"><i style="width:72%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">Oppenheimer</h3></div></article>
+<article tabindex="0" role="button" class="rv-tile" onclick="openDetail('Top Gun: Maverick')"><div class="rv-tile-ratio"><img alt="" src="https://images.metahub.space/poster/small/tt1745960/img"><div class="rv-progress"><i style="width:19%"></i></div></img></div><div class="rv-tile-cap"><h3 class="rv-tile-title">Top Gun: Maverick</h3></div></article>
+</div>
+</section>
+
+<div class="rv-filters-wrap">
+<script>
+(function () {
+  function slugify(v) {
+    return String(v || "")
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+  window.toast = window.toast || function (msg) {
+    var m = String(msg || "");
+    var pfx = "Filter by:";
+    if (m.indexOf(pfx) === 0) {
+      var provider = slugify(m.slice(pfx.length));
+      window.location.href = "/movies" + (provider ? ("?provider=" + encodeURIComponent(provider)) : "");
+      return;
+    }
+    if (m.toLowerCase().indexOf("see all providers") !== -1) {
+      window.location.href = "/movies?providers=all";
+    }
+  };
+  window.openDetail = window.openDetail || function (idOrName, fallbackName) {
+    var raw = String(idOrName || fallbackName || "");
+    var safe = raw.trim();
+    if (!safe) return;
+    window.location.href = "/detail/movie/" + encodeURIComponent(safe);
+  };
+})();
+</script>
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "movies",
+  endpoints: ["/api/rows?filter=movie"],
+  selectors: [".rv-rail"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=23"></script>
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.38 (2026-04-29): remove hardcoded mockup "Project Hail Mary" hero.
+// This was a design-template placeholder — owner expects Nigma-sourced featured pick or nothing.
+(function(){
+  function killMock() {
+      if (window.__rtvKeepHero) return; // RTV_FIX_v1.61 dynamic hero will overwrite, do not kill
+    try {
+      // .rv-hero contains the static "Project Hail Mary" hero with metahub poster
+      var hero = document.querySelector("#v1.design .rv-hero, .rv-hero");
+      if (!hero) return;
+      // Sanity: only kill if it's the mock (contains "Project Hail Mary")
+      if (/project hail mary/i.test(hero.textContent || "")) {
+        hero.remove();
+      }
+    } catch (_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", killMock, { once: true });
+  } else {
+    killMock();
+  }
+})();
+</script>
+
+
+<script>
+// RTV_FIX_v1.42/43b (2026-04-29): clean /movies mock — but DON'T remove the .rv-rail
+// because phase4 hydrator paints Nigma tiles there. Instead clear its
+// mock cards and relabel the heading to "Resultados".
+(function(){
+  function cleanMocks() {
+    try {
+      // Find the Continue Watching section heading
+      Array.from(document.querySelectorAll("h2, h3, .rv-row-title")).forEach(function(h){
+        var t = (h.textContent || "").trim().toLowerCase();
+        if (t === "continue watching · movies" || t === "continue watching" || t === "continue your binges") {
+          var sect = h.closest("section, .rv-row, .h1-section");
+          if (!sect) return;
+          // Empty out the rail (removes the 8 hardcoded mock tiles)
+          var rail = sect.querySelector(".rv-rail");
+          if (rail) rail.innerHTML = "";
+          // Hide the "Pick up where you left off" sub-line
+          var sub = sect.querySelector(".rv-row-sub");
+          if (sub) sub.style.display = "none";
+          // Relabel the heading so it doesn't say "Continue Watching" anymore
+          var sp = new URLSearchParams(window.location.search);
+          var prov = sp.get("provider") || "";
+          var newTitle = prov ? "Resultados" : "Catálogo";
+          h.textContent = newTitle;
+          // Hide the "See all" row-more link (it linked to /movies which is current page)
+          var more = sect.querySelector(".rv-row-more");
+          if (more) more.style.display = "none";
+        }
+      });
+      // Drop ESPAÑA Netflix duplicate tile
+      Array.from(document.querySelectorAll(".prv-tile")).forEach(function(t){
+        var on = t.getAttribute("onclick") || "";
+        if (on.indexOf("provider=espana-netflix") !== -1) t.remove();
+      });
+    } catch(_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", cleanMocks, { once: true });
+  } else { cleanMocks(); }
+})();
+</script>
+
+
+<script>
+// RTV_FIX_v1.43 (2026-04-29): in-place provider landing on /movies?provider=<slug>.
+// Hides the providers grid + Continue Watching mock, shows a region-pills row,
+// and lets the phase4 hydrator paint Nigma rows below filtered by ?provider+?region.
+(function(){
+  function init() {
+    try {
+      var sp = new URLSearchParams(window.location.search);
+      var prov = (sp.get("provider") || "").trim().toLowerCase();
+      if (!prov) return;
+      // Hide the static provider grid + filter chips while in drill mode
+      Array.from(document.querySelectorAll(".branded-providers-row, .rv-filters-wrap")).forEach(function(el){ el.style.display = "none"; });
+      // Hide any "Continue Watching" sections that might still be in DOM
+      Array.from(document.querySelectorAll("section, .rv-row, .h1-section")).forEach(function(s){
+        var t = (s.textContent || "").toLowerCase();
+        if (false /* RTV_FIX_v1.43c: do NOT hide CW section — v1.43b reuses it as Resultados container */) s.style.display = "none";
+      });
+
+      // Build the in-place landing
+      var labelMap = {"netflix":"Netflix","disney-plus":"Disney+","max":"HBO Max","prime":"Prime Video","amazon-prime":"Amazon Prime","apple-tv-plus":"Apple TV+","paramount-plus":"Paramount+","paramount":"Paramount","peacock":"Peacock","hulu":"Hulu","crunchyroll":"Crunchyroll","4k-top":"4K Top","hbo":"HBO"};
+      var providerLabel = labelMap[prov] || prov.replace(/-/g," ").replace(/\b\w/g, function(c){ return c.toUpperCase(); });
+      var activeRegion = (sp.get("region") || "").trim().toLowerCase();
+
+      var landing = document.createElement("div");
+      landing.className = "rv-provider-landing";
+      landing.style.cssText = "padding:24px 28px 14px;display:flex;flex-direction:column;gap:14px;";
+      landing.innerHTML =
+        '<div style="display:flex;align-items:center;gap:18px;">' +
+          '<a href="/movies" style="color:#e50914;text-decoration:none;font:700 14px sans-serif;padding:10px 16px;border:1px solid rgba(229,9,20,0.5);border-radius:10px;" tabindex="0">← Back</a>' +
+          '<h1 style="margin:0;font:900 26px/1.1 sans-serif;color:#fff;">' + providerLabel + '</h1>' +
+          (activeRegion ? '<span style="color:#ffd66b;font:700 14px sans-serif;">· ' + activeRegion.toUpperCase() + '</span>' : '') +
+        '</div>' +
+        '<div class="rv-region-pills" style="display:flex;flex-wrap:wrap;gap:10px;">' +
+          '<span style="color:#a8a8b0;font:600 12px sans-serif;align-self:center;">REGION:</span>' +
+          '<span class="rv-region-pills-loading" style="color:#a8a8b0;font:500 13px sans-serif;">Loading regions…</span>' +
+        '</div>';
+      // Insert at top of <section id="v1.design">  /  before any existing rv-row
+      var anchor = document.querySelector(".rv-content, #v1, section.design") || document.body.firstElementChild;
+      if (anchor && anchor.parentNode) {
+        anchor.parentNode.insertBefore(landing, anchor);
+      }
+
+      // Fetch region list
+      fetch("/api/provider/regions?provider=" + encodeURIComponent(prov), { credentials: "include" })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          var pills = landing.querySelector(".rv-region-pills");
+          var loadingEl = pills.querySelector(".rv-region-pills-loading");
+          if (loadingEl) loadingEl.remove();
+          var regions = (d && d.regions) || [];
+          // Always offer "All" first
+          var allBtn = document.createElement("a");
+          allBtn.href = "/movies?provider=" + encodeURIComponent(prov);
+          allBtn.tabIndex = 0;
+          allBtn.style.cssText = "padding:10px 18px;border-radius:999px;border:2px solid " + (activeRegion ? "rgba(255,255,255,0.15)" : "#ffd66b") + ";background:" + (activeRegion ? "rgba(255,255,255,0.05)" : "rgba(255,214,107,0.12)") + ";color:" + (activeRegion ? "#fff" : "#ffd66b") + ";font:700 13px sans-serif;text-decoration:none;";
+          allBtn.textContent = "All";
+          pills.appendChild(allBtn);
+          regions.forEach(function(r){
+            var pill = document.createElement("a");
+            var isActive = (activeRegion === r.code);
+            pill.href = "/movies?provider=" + encodeURIComponent(prov) + "&region=" + encodeURIComponent(r.code);
+            pill.tabIndex = 0;
+            pill.style.cssText = "padding:10px 18px;border-radius:999px;border:2px solid " + (isActive ? "#ffd66b" : "rgba(255,255,255,0.15)") + ";background:" + (isActive ? "rgba(255,214,107,0.12)" : "rgba(255,255,255,0.05)") + ";color:" + (isActive ? "#ffd66b" : "#fff") + ";font:700 13px sans-serif;text-decoration:none;";
+            pill.textContent = r.label + " (" + r.count + ")";
+            pills.appendChild(pill);
+          });
+          if (!regions.length) {
+            var msg = document.createElement("span");
+            msg.style.cssText = "color:#a8a8b0;font:500 13px sans-serif;";
+            msg.textContent = "(only generic catalog available)";
+            pills.appendChild(msg);
+          }
+        })
+        .catch(function(){
+          var pills = landing.querySelector(".rv-region-pills");
+          if (pills) pills.querySelector(".rv-region-pills-loading").textContent = "(could not load regions)";
+        });
+    } catch(_) {}
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else { init(); }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_catalog_badge.js?v=2" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>

@@ -1,0 +1,2305 @@
+/* ═══════════════════════════════════════════════════════════════════
+   RomanTV u4 UNIFIED — applied across all 9 catalog tabs
+   Wave 1 v2 — top bar + nav, FIXED selector distribution
+   3 device classes: laptop · mobile · TV box · D-pad focus
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --u4-red: #ff0a14;
+  --u4-tb-h: 72px;
+  --u4-tb-h-mob: 56px;
+  --u4-tb-h-tv: 88px;
+}
+
+/* ─── TOP BAR container ─── */
+.v1a-topbar, .rv-topbar, .h1-topbar, .a1b-topbar, .k4-topbar, .lt-top, .sp1-topbar, .es1-top, .lang-wrap .design > .topbar {
+  min-height: var(--u4-tb-h) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 12px 24px !important;
+  background: var(--panel) !important;
+  border-bottom: 1px solid var(--line) !important;
+  position: relative !important;
+  z-index: 100 !important;
+  flex-wrap: wrap !important;
+}
+
+/* ─── Search input universal ─── */
+.v1a-topbar input[type=search], .rv-topbar input[type=search], .h1-topbar input[type=search], .a1b-topbar input[type=search], .k4-topbar input[type=search], .lt-top input[type=search], .sp1-topbar input[type=search], .es1-top input[type=search], .lang-wrap .design > .topbar input[type=search],
+.v1a-topbar input[type=text], .rv-topbar input[type=text], .h1-topbar input[type=text], .a1b-topbar input[type=text], .k4-topbar input[type=text], .lt-top input[type=text], .sp1-topbar input[type=text], .es1-top input[type=text], .lang-wrap .design > .topbar input[type=text],
+.v1a-topbar input[placeholder], .rv-topbar input[placeholder], .h1-topbar input[placeholder], .a1b-topbar input[placeholder], .k4-topbar input[placeholder], .lt-top input[placeholder], .sp1-topbar input[placeholder], .es1-top input[placeholder], .lang-wrap .design > .topbar input[placeholder] {
+  flex: 1 !important;
+  max-width: 520px !important;
+  height: 44px !important;
+  padding: 0 18px 0 44px !important;
+  border-radius: 22px !important;
+  border: 1px solid var(--line) !important;
+  background: var(--panel2) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23a8a8b0" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>') no-repeat 14px center !important;
+  color: var(--text) !important;
+  font: 500 14px/1 -apple-system, sans-serif !important;
+  outline: none !important;
+  transition: border-color .15s, background-color .15s !important;
+}
+.v1a-topbar input[type=search]:focus, .rv-topbar input[type=search]:focus, .h1-topbar input[type=search]:focus, .a1b-topbar input[type=search]:focus, .k4-topbar input[type=search]:focus, .lt-top input[type=search]:focus, .sp1-topbar input[type=search]:focus, .es1-top input[type=search]:focus, .lang-wrap .design > .topbar input[type=search]:focus,
+.v1a-topbar input[type=text]:focus, .rv-topbar input[type=text]:focus, .h1-topbar input[type=text]:focus, .a1b-topbar input[type=text]:focus, .k4-topbar input[type=text]:focus, .lt-top input[type=text]:focus, .sp1-topbar input[type=text]:focus, .es1-top input[type=text]:focus, .lang-wrap .design > .topbar input[type=text]:focus {
+  border-color: var(--gold) !important;
+  background-color: var(--panel) !important;
+  box-shadow: 0 0 0 3px rgba(255, 214, 107, 0.18) !important;
+}
+
+/* ─── Suppress legacy sibling magnifier icons (movies + livetv shipped with their own) ─── */
+.rv-topbar .rv-search-icon,
+.lt-top .lt-search-icon,
+.rv-search > .rv-search-icon,
+.lt-search-wrap > .lt-search-icon {
+  display: none !important;
+}
+
+/* ─── NAV bar ─── */
+.v1a-nav, .rv-nav, .h1-mainnav, .a1b-nav, .k4-nav, .lt-nav, .sp1-nav, .es1-nav, .lang-wrap .nav-pills {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+.v1a-nav a, .rv-nav a, .h1-mainnav a, .a1b-nav a, .k4-nav a, .lt-nav a, .sp1-nav a, .es1-nav a, .lang-wrap .nav-pills a, .v1a-nav button, .rv-nav button, .h1-mainnav button, .a1b-nav button, .k4-nav button, .lt-nav button, .sp1-nav button, .es1-nav button, .lang-wrap .nav-pills button {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 40px !important;
+  padding: 0 14px !important;
+  border-radius: 10px !important;
+  font: 600 14px/1 -apple-system, sans-serif !important;
+  color: var(--dim) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: color .15s, background .15s !important;
+  position: relative !important;
+}
+.v1a-nav a:hover, .rv-nav a:hover, .h1-mainnav a:hover, .a1b-nav a:hover, .k4-nav a:hover, .lt-nav a:hover, .sp1-nav a:hover, .es1-nav a:hover, .lang-wrap .nav-pills a:hover, .v1a-nav button:hover, .rv-nav button:hover, .h1-mainnav button:hover, .a1b-nav button:hover, .k4-nav button:hover, .lt-nav button:hover, .sp1-nav button:hover, .es1-nav button:hover, .lang-wrap .nav-pills button:hover {
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Active tab indicator */
+.v1a-nav a.is-active, .rv-nav a.is-active, .h1-mainnav a.is-active, .a1b-nav a.is-active, .k4-nav a.is-active, .lt-nav a.is-active, .sp1-nav a.is-active, .es1-nav a.is-active, .lang-wrap .nav-pills a.is-active,
+  .v1a-nav a.active, .rv-nav a.active, .h1-mainnav a.active, .a1b-nav a.active, .k4-nav a.active, .lt-nav a.active, .sp1-nav a.active, .es1-nav a.active, .lang-wrap .nav-pills a.active,
+  .v1a-nav a.is-on, .rv-nav a.is-on, .h1-mainnav a.is-on, .a1b-nav a.is-on, .k4-nav a.is-on, .lt-nav a.is-on, .sp1-nav a.is-on, .es1-nav a.is-on, .lang-wrap .nav-pills a.is-on,
+  .v1a-nav a.on, .rv-nav a.on, .h1-mainnav a.on, .a1b-nav a.on, .k4-nav a.on, .lt-nav a.on, .sp1-nav a.on, .es1-nav a.on, .lang-wrap .nav-pills a.on,
+  .v1a-nav a.v1a-active, .rv-nav a.v1a-active, .h1-mainnav a.v1a-active, .a1b-nav a.v1a-active, .k4-nav a.v1a-active, .lt-nav a.v1a-active, .sp1-nav a.v1a-active, .es1-nav a.v1a-active, .lang-wrap .nav-pills a.v1a-active,
+  .v1a-nav a.rv-active, .rv-nav a.rv-active, .h1-mainnav a.rv-active, .a1b-nav a.rv-active, .k4-nav a.rv-active, .lt-nav a.rv-active, .sp1-nav a.rv-active, .es1-nav a.rv-active, .lang-wrap .nav-pills a.rv-active,
+  .v1a-nav a.h1-active, .rv-nav a.h1-active, .h1-mainnav a.h1-active, .a1b-nav a.h1-active, .k4-nav a.h1-active, .lt-nav a.h1-active, .sp1-nav a.h1-active, .es1-nav a.h1-active, .lang-wrap .nav-pills a.h1-active,
+  .v1a-nav a.a1b-active, .rv-nav a.a1b-active, .h1-mainnav a.a1b-active, .a1b-nav a.a1b-active, .k4-nav a.a1b-active, .lt-nav a.a1b-active, .sp1-nav a.a1b-active, .es1-nav a.a1b-active, .lang-wrap .nav-pills a.a1b-active,
+  .v1a-nav a.k4-active, .rv-nav a.k4-active, .h1-mainnav a.k4-active, .a1b-nav a.k4-active, .k4-nav a.k4-active, .lt-nav a.k4-active, .sp1-nav a.k4-active, .es1-nav a.k4-active, .lang-wrap .nav-pills a.k4-active,
+  .v1a-nav a.lt-active, .rv-nav a.lt-active, .h1-mainnav a.lt-active, .a1b-nav a.lt-active, .k4-nav a.lt-active, .lt-nav a.lt-active, .sp1-nav a.lt-active, .es1-nav a.lt-active, .lang-wrap .nav-pills a.lt-active,
+  .v1a-nav a.sp1-active, .rv-nav a.sp1-active, .h1-mainnav a.sp1-active, .a1b-nav a.sp1-active, .k4-nav a.sp1-active, .lt-nav a.sp1-active, .sp1-nav a.sp1-active, .es1-nav a.sp1-active, .lang-wrap .nav-pills a.sp1-active,
+  .v1a-nav a.es1-active, .rv-nav a.es1-active, .h1-mainnav a.es1-active, .a1b-nav a.es1-active, .k4-nav a.es1-active, .lt-nav a.es1-active, .sp1-nav a.es1-active, .es1-nav a.es1-active, .lang-wrap .nav-pills a.es1-active,
+  .v1a-nav a.nav-link--active, .rv-nav a.nav-link--active, .h1-mainnav a.nav-link--active, .a1b-nav a.nav-link--active, .k4-nav a.nav-link--active, .lt-nav a.nav-link--active, .sp1-nav a.nav-link--active, .es1-nav a.nav-link--active, .lang-wrap .nav-pills a.nav-link--active,
+  .v1a-nav a[aria-current=page], .rv-nav a[aria-current=page], .h1-mainnav a[aria-current=page], .a1b-nav a[aria-current=page], .k4-nav a[aria-current=page], .lt-nav a[aria-current=page], .sp1-nav a[aria-current=page], .es1-nav a[aria-current=page], .lang-wrap .nav-pills a[aria-current=page],
+  .v1a-nav button.is-active, .rv-nav button.is-active, .h1-mainnav button.is-active, .a1b-nav button.is-active, .k4-nav button.is-active, .lt-nav button.is-active, .sp1-nav button.is-active, .es1-nav button.is-active, .lang-wrap .nav-pills button.is-active,
+  .v1a-nav button.active, .rv-nav button.active, .h1-mainnav button.active, .a1b-nav button.active, .k4-nav button.active, .lt-nav button.active, .sp1-nav button.active, .es1-nav button.active, .lang-wrap .nav-pills button.active,
+  .v1a-nav button.is-on, .rv-nav button.is-on, .h1-mainnav button.is-on, .a1b-nav button.is-on, .k4-nav button.is-on, .lt-nav button.is-on, .sp1-nav button.is-on, .es1-nav button.is-on, .lang-wrap .nav-pills button.is-on,
+  .v1a-nav button.on, .rv-nav button.on, .h1-mainnav button.on, .a1b-nav button.on, .k4-nav button.on, .lt-nav button.on, .sp1-nav button.on, .es1-nav button.on, .lang-wrap .nav-pills button.on,
+  .v1a-nav button.v1a-active, .rv-nav button.v1a-active, .h1-mainnav button.v1a-active, .a1b-nav button.v1a-active, .k4-nav button.v1a-active, .lt-nav button.v1a-active, .sp1-nav button.v1a-active, .es1-nav button.v1a-active, .lang-wrap .nav-pills button.v1a-active,
+  .v1a-nav button.rv-active, .rv-nav button.rv-active, .h1-mainnav button.rv-active, .a1b-nav button.rv-active, .k4-nav button.rv-active, .lt-nav button.rv-active, .sp1-nav button.rv-active, .es1-nav button.rv-active, .lang-wrap .nav-pills button.rv-active,
+  .v1a-nav button.h1-active, .rv-nav button.h1-active, .h1-mainnav button.h1-active, .a1b-nav button.h1-active, .k4-nav button.h1-active, .lt-nav button.h1-active, .sp1-nav button.h1-active, .es1-nav button.h1-active, .lang-wrap .nav-pills button.h1-active,
+  .v1a-nav button.a1b-active, .rv-nav button.a1b-active, .h1-mainnav button.a1b-active, .a1b-nav button.a1b-active, .k4-nav button.a1b-active, .lt-nav button.a1b-active, .sp1-nav button.a1b-active, .es1-nav button.a1b-active, .lang-wrap .nav-pills button.a1b-active,
+  .v1a-nav button.k4-active, .rv-nav button.k4-active, .h1-mainnav button.k4-active, .a1b-nav button.k4-active, .k4-nav button.k4-active, .lt-nav button.k4-active, .sp1-nav button.k4-active, .es1-nav button.k4-active, .lang-wrap .nav-pills button.k4-active,
+  .v1a-nav button.lt-active, .rv-nav button.lt-active, .h1-mainnav button.lt-active, .a1b-nav button.lt-active, .k4-nav button.lt-active, .lt-nav button.lt-active, .sp1-nav button.lt-active, .es1-nav button.lt-active, .lang-wrap .nav-pills button.lt-active,
+  .v1a-nav button.sp1-active, .rv-nav button.sp1-active, .h1-mainnav button.sp1-active, .a1b-nav button.sp1-active, .k4-nav button.sp1-active, .lt-nav button.sp1-active, .sp1-nav button.sp1-active, .es1-nav button.sp1-active, .lang-wrap .nav-pills button.sp1-active,
+  .v1a-nav button.es1-active, .rv-nav button.es1-active, .h1-mainnav button.es1-active, .a1b-nav button.es1-active, .k4-nav button.es1-active, .lt-nav button.es1-active, .sp1-nav button.es1-active, .es1-nav button.es1-active, .lang-wrap .nav-pills button.es1-active,
+  .v1a-nav button.nav-link--active, .rv-nav button.nav-link--active, .h1-mainnav button.nav-link--active, .a1b-nav button.nav-link--active, .k4-nav button.nav-link--active, .lt-nav button.nav-link--active, .sp1-nav button.nav-link--active, .es1-nav button.nav-link--active, .lang-wrap .nav-pills button.nav-link--active,
+  .v1a-nav button[aria-current=page], .rv-nav button[aria-current=page], .h1-mainnav button[aria-current=page], .a1b-nav button[aria-current=page], .k4-nav button[aria-current=page], .lt-nav button[aria-current=page], .sp1-nav button[aria-current=page], .es1-nav button[aria-current=page], .lang-wrap .nav-pills button[aria-current=page] {
+  color: var(--text) !important;
+  background: rgba(255, 214, 107, 0.10) !important;
+}
+.v1a-nav a.is-active::after, .rv-nav a.is-active::after, .h1-mainnav a.is-active::after, .a1b-nav a.is-active::after, .k4-nav a.is-active::after, .lt-nav a.is-active::after, .sp1-nav a.is-active::after, .es1-nav a.is-active::after, .lang-wrap .nav-pills a.is-active::after,
+  .v1a-nav a.active::after, .rv-nav a.active::after, .h1-mainnav a.active::after, .a1b-nav a.active::after, .k4-nav a.active::after, .lt-nav a.active::after, .sp1-nav a.active::after, .es1-nav a.active::after, .lang-wrap .nav-pills a.active::after,
+  .v1a-nav a.is-on::after, .rv-nav a.is-on::after, .h1-mainnav a.is-on::after, .a1b-nav a.is-on::after, .k4-nav a.is-on::after, .lt-nav a.is-on::after, .sp1-nav a.is-on::after, .es1-nav a.is-on::after, .lang-wrap .nav-pills a.is-on::after,
+  .v1a-nav a.on::after, .rv-nav a.on::after, .h1-mainnav a.on::after, .a1b-nav a.on::after, .k4-nav a.on::after, .lt-nav a.on::after, .sp1-nav a.on::after, .es1-nav a.on::after, .lang-wrap .nav-pills a.on::after,
+  .v1a-nav a.v1a-active::after, .rv-nav a.v1a-active::after, .h1-mainnav a.v1a-active::after, .a1b-nav a.v1a-active::after, .k4-nav a.v1a-active::after, .lt-nav a.v1a-active::after, .sp1-nav a.v1a-active::after, .es1-nav a.v1a-active::after, .lang-wrap .nav-pills a.v1a-active::after,
+  .v1a-nav a.rv-active::after, .rv-nav a.rv-active::after, .h1-mainnav a.rv-active::after, .a1b-nav a.rv-active::after, .k4-nav a.rv-active::after, .lt-nav a.rv-active::after, .sp1-nav a.rv-active::after, .es1-nav a.rv-active::after, .lang-wrap .nav-pills a.rv-active::after,
+  .v1a-nav a.h1-active::after, .rv-nav a.h1-active::after, .h1-mainnav a.h1-active::after, .a1b-nav a.h1-active::after, .k4-nav a.h1-active::after, .lt-nav a.h1-active::after, .sp1-nav a.h1-active::after, .es1-nav a.h1-active::after, .lang-wrap .nav-pills a.h1-active::after,
+  .v1a-nav a.a1b-active::after, .rv-nav a.a1b-active::after, .h1-mainnav a.a1b-active::after, .a1b-nav a.a1b-active::after, .k4-nav a.a1b-active::after, .lt-nav a.a1b-active::after, .sp1-nav a.a1b-active::after, .es1-nav a.a1b-active::after, .lang-wrap .nav-pills a.a1b-active::after,
+  .v1a-nav a.k4-active::after, .rv-nav a.k4-active::after, .h1-mainnav a.k4-active::after, .a1b-nav a.k4-active::after, .k4-nav a.k4-active::after, .lt-nav a.k4-active::after, .sp1-nav a.k4-active::after, .es1-nav a.k4-active::after, .lang-wrap .nav-pills a.k4-active::after,
+  .v1a-nav a.lt-active::after, .rv-nav a.lt-active::after, .h1-mainnav a.lt-active::after, .a1b-nav a.lt-active::after, .k4-nav a.lt-active::after, .lt-nav a.lt-active::after, .sp1-nav a.lt-active::after, .es1-nav a.lt-active::after, .lang-wrap .nav-pills a.lt-active::after,
+  .v1a-nav a.sp1-active::after, .rv-nav a.sp1-active::after, .h1-mainnav a.sp1-active::after, .a1b-nav a.sp1-active::after, .k4-nav a.sp1-active::after, .lt-nav a.sp1-active::after, .sp1-nav a.sp1-active::after, .es1-nav a.sp1-active::after, .lang-wrap .nav-pills a.sp1-active::after,
+  .v1a-nav a.es1-active::after, .rv-nav a.es1-active::after, .h1-mainnav a.es1-active::after, .a1b-nav a.es1-active::after, .k4-nav a.es1-active::after, .lt-nav a.es1-active::after, .sp1-nav a.es1-active::after, .es1-nav a.es1-active::after, .lang-wrap .nav-pills a.es1-active::after,
+  .v1a-nav a.nav-link--active::after, .rv-nav a.nav-link--active::after, .h1-mainnav a.nav-link--active::after, .a1b-nav a.nav-link--active::after, .k4-nav a.nav-link--active::after, .lt-nav a.nav-link--active::after, .sp1-nav a.nav-link--active::after, .es1-nav a.nav-link--active::after, .lang-wrap .nav-pills a.nav-link--active::after,
+  .v1a-nav a[aria-current=page]::after, .rv-nav a[aria-current=page]::after, .h1-mainnav a[aria-current=page]::after, .a1b-nav a[aria-current=page]::after, .k4-nav a[aria-current=page]::after, .lt-nav a[aria-current=page]::after, .sp1-nav a[aria-current=page]::after, .es1-nav a[aria-current=page]::after, .lang-wrap .nav-pills a[aria-current=page]::after,
+  .v1a-nav button.is-active::after, .rv-nav button.is-active::after, .h1-mainnav button.is-active::after, .a1b-nav button.is-active::after, .k4-nav button.is-active::after, .lt-nav button.is-active::after, .sp1-nav button.is-active::after, .es1-nav button.is-active::after, .lang-wrap .nav-pills button.is-active::after,
+  .v1a-nav button.active::after, .rv-nav button.active::after, .h1-mainnav button.active::after, .a1b-nav button.active::after, .k4-nav button.active::after, .lt-nav button.active::after, .sp1-nav button.active::after, .es1-nav button.active::after, .lang-wrap .nav-pills button.active::after,
+  .v1a-nav button.is-on::after, .rv-nav button.is-on::after, .h1-mainnav button.is-on::after, .a1b-nav button.is-on::after, .k4-nav button.is-on::after, .lt-nav button.is-on::after, .sp1-nav button.is-on::after, .es1-nav button.is-on::after, .lang-wrap .nav-pills button.is-on::after,
+  .v1a-nav button.on::after, .rv-nav button.on::after, .h1-mainnav button.on::after, .a1b-nav button.on::after, .k4-nav button.on::after, .lt-nav button.on::after, .sp1-nav button.on::after, .es1-nav button.on::after, .lang-wrap .nav-pills button.on::after,
+  .v1a-nav button.v1a-active::after, .rv-nav button.v1a-active::after, .h1-mainnav button.v1a-active::after, .a1b-nav button.v1a-active::after, .k4-nav button.v1a-active::after, .lt-nav button.v1a-active::after, .sp1-nav button.v1a-active::after, .es1-nav button.v1a-active::after, .lang-wrap .nav-pills button.v1a-active::after,
+  .v1a-nav button.rv-active::after, .rv-nav button.rv-active::after, .h1-mainnav button.rv-active::after, .a1b-nav button.rv-active::after, .k4-nav button.rv-active::after, .lt-nav button.rv-active::after, .sp1-nav button.rv-active::after, .es1-nav button.rv-active::after, .lang-wrap .nav-pills button.rv-active::after,
+  .v1a-nav button.h1-active::after, .rv-nav button.h1-active::after, .h1-mainnav button.h1-active::after, .a1b-nav button.h1-active::after, .k4-nav button.h1-active::after, .lt-nav button.h1-active::after, .sp1-nav button.h1-active::after, .es1-nav button.h1-active::after, .lang-wrap .nav-pills button.h1-active::after,
+  .v1a-nav button.a1b-active::after, .rv-nav button.a1b-active::after, .h1-mainnav button.a1b-active::after, .a1b-nav button.a1b-active::after, .k4-nav button.a1b-active::after, .lt-nav button.a1b-active::after, .sp1-nav button.a1b-active::after, .es1-nav button.a1b-active::after, .lang-wrap .nav-pills button.a1b-active::after,
+  .v1a-nav button.k4-active::after, .rv-nav button.k4-active::after, .h1-mainnav button.k4-active::after, .a1b-nav button.k4-active::after, .k4-nav button.k4-active::after, .lt-nav button.k4-active::after, .sp1-nav button.k4-active::after, .es1-nav button.k4-active::after, .lang-wrap .nav-pills button.k4-active::after,
+  .v1a-nav button.lt-active::after, .rv-nav button.lt-active::after, .h1-mainnav button.lt-active::after, .a1b-nav button.lt-active::after, .k4-nav button.lt-active::after, .lt-nav button.lt-active::after, .sp1-nav button.lt-active::after, .es1-nav button.lt-active::after, .lang-wrap .nav-pills button.lt-active::after,
+  .v1a-nav button.sp1-active::after, .rv-nav button.sp1-active::after, .h1-mainnav button.sp1-active::after, .a1b-nav button.sp1-active::after, .k4-nav button.sp1-active::after, .lt-nav button.sp1-active::after, .sp1-nav button.sp1-active::after, .es1-nav button.sp1-active::after, .lang-wrap .nav-pills button.sp1-active::after,
+  .v1a-nav button.es1-active::after, .rv-nav button.es1-active::after, .h1-mainnav button.es1-active::after, .a1b-nav button.es1-active::after, .k4-nav button.es1-active::after, .lt-nav button.es1-active::after, .sp1-nav button.es1-active::after, .es1-nav button.es1-active::after, .lang-wrap .nav-pills button.es1-active::after,
+  .v1a-nav button.nav-link--active::after, .rv-nav button.nav-link--active::after, .h1-mainnav button.nav-link--active::after, .a1b-nav button.nav-link--active::after, .k4-nav button.nav-link--active::after, .lt-nav button.nav-link--active::after, .sp1-nav button.nav-link--active::after, .es1-nav button.nav-link--active::after, .lang-wrap .nav-pills button.nav-link--active::after,
+  .v1a-nav button[aria-current=page]::after, .rv-nav button[aria-current=page]::after, .h1-mainnav button[aria-current=page]::after, .a1b-nav button[aria-current=page]::after, .k4-nav button[aria-current=page]::after, .lt-nav button[aria-current=page]::after, .sp1-nav button[aria-current=page]::after, .es1-nav button[aria-current=page]::after, .lang-wrap .nav-pills button[aria-current=page]::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 6px !important;
+  height: 2px !important;
+  background: var(--gold) !important;
+  border-radius: 2px !important;
+}
+
+/* ─── D-pad focus rings ─── */
+body.input-dpad .v1a-nav a:focus, body.input-dpad .rv-nav a:focus, body.input-dpad .h1-mainnav a:focus, body.input-dpad .a1b-nav a:focus, body.input-dpad .k4-nav a:focus, body.input-dpad .lt-nav a:focus, body.input-dpad .sp1-nav a:focus, body.input-dpad .es1-nav a:focus, body.input-dpad .lang-wrap .nav-pills a:focus, body.input-dpad .v1a-nav button:focus, body.input-dpad .rv-nav button:focus, body.input-dpad .h1-mainnav button:focus, body.input-dpad .a1b-nav button:focus, body.input-dpad .k4-nav button:focus, body.input-dpad .lt-nav button:focus, body.input-dpad .sp1-nav button:focus, body.input-dpad .es1-nav button:focus, body.input-dpad .lang-wrap .nav-pills button:focus,
+body.input-dpad .v1a-topbar button:focus, body.input-dpad .rv-topbar button:focus, body.input-dpad .h1-topbar button:focus, body.input-dpad .a1b-topbar button:focus, body.input-dpad .k4-topbar button:focus, body.input-dpad .lt-top button:focus, body.input-dpad .sp1-topbar button:focus, body.input-dpad .es1-top button:focus, body.input-dpad .lang-wrap .design > .topbar button:focus {
+  outline: 4px solid var(--gold) !important;
+  outline-offset: 4px !important;
+}
+
+/* ─── Mobile · 360-480px ─── */
+@media (max-width: 480px) {
+  .v1a-topbar, .rv-topbar, .h1-topbar, .a1b-topbar, .k4-topbar, .lt-top, .sp1-topbar, .es1-top, .lang-wrap .design > .topbar {
+    height: auto !important;
+    min-height: var(--u4-tb-h-mob) !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+  }
+  .v1a-topbar input[type=search], .rv-topbar input[type=search], .h1-topbar input[type=search], .a1b-topbar input[type=search], .k4-topbar input[type=search], .lt-top input[type=search], .sp1-topbar input[type=search], .es1-top input[type=search], .lang-wrap .design > .topbar input[type=search],
+  .v1a-topbar input[type=text], .rv-topbar input[type=text], .h1-topbar input[type=text], .a1b-topbar input[type=text], .k4-topbar input[type=text], .lt-top input[type=text], .sp1-topbar input[type=text], .es1-top input[type=text], .lang-wrap .design > .topbar input[type=text] {
+    height: 40px !important;
+    flex-basis: 100% !important;
+    order: 2 !important;
+  }
+  .v1a-nav, .rv-nav, .h1-mainnav, .a1b-nav, .k4-nav, .lt-nav, .sp1-nav, .es1-nav, .lang-wrap .nav-pills {
+    gap: 2px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    order: 3 !important;
+    flex-basis: 100% !important;
+    padding-bottom: 8px !important;
+  }
+  .v1a-nav a, .rv-nav a, .h1-mainnav a, .a1b-nav a, .k4-nav a, .lt-nav a, .sp1-nav a, .es1-nav a, .lang-wrap .nav-pills a, .v1a-nav button, .rv-nav button, .h1-mainnav button, .a1b-nav button, .k4-nav button, .lt-nav button, .sp1-nav button, .es1-nav button, .lang-wrap .nav-pills button {
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ─── TV box · 1920px+ @ 10ft ─── */
+@media (min-width: 1920px) {
+  .v1a-topbar, .rv-topbar, .h1-topbar, .a1b-topbar, .k4-topbar, .lt-top, .sp1-topbar, .es1-top, .lang-wrap .design > .topbar {
+    height: var(--u4-tb-h-tv) !important;
+    padding: 0 32px !important;
+    gap: 20px !important;
+  }
+  .v1a-topbar input[type=search], .rv-topbar input[type=search], .h1-topbar input[type=search], .a1b-topbar input[type=search], .k4-topbar input[type=search], .lt-top input[type=search], .sp1-topbar input[type=search], .es1-top input[type=search], .lang-wrap .design > .topbar input[type=search],
+  .v1a-topbar input[type=text], .rv-topbar input[type=text], .h1-topbar input[type=text], .a1b-topbar input[type=text], .k4-topbar input[type=text], .lt-top input[type=text], .sp1-topbar input[type=text], .es1-top input[type=text], .lang-wrap .design > .topbar input[type=text] {
+    height: 56px !important;
+    max-width: 600px !important;
+    border-radius: 28px !important;
+    font-size: 16px !important;
+  }
+  .v1a-nav a, .rv-nav a, .h1-mainnav a, .a1b-nav a, .k4-nav a, .lt-nav a, .sp1-nav a, .es1-nav a, .lang-wrap .nav-pills a, .v1a-nav button, .rv-nav button, .h1-mainnav button, .a1b-nav button, .k4-nav button, .lt-nav button, .sp1-nav button, .es1-nav button, .lang-wrap .nav-pills button {
+    height: 56px !important;
+    padding: 0 18px !important;
+    font-size: 18px !important;
+    border-radius: 12px !important;
+  }
+  body.input-dpad .v1a-nav a:focus, body.input-dpad .rv-nav a:focus, body.input-dpad .h1-mainnav a:focus, body.input-dpad .a1b-nav a:focus, body.input-dpad .k4-nav a:focus, body.input-dpad .lt-nav a:focus, body.input-dpad .sp1-nav a:focus, body.input-dpad .es1-nav a:focus, body.input-dpad .lang-wrap .nav-pills a:focus, body.input-dpad .v1a-nav button:focus, body.input-dpad .rv-nav button:focus, body.input-dpad .h1-mainnav button:focus, body.input-dpad .a1b-nav button:focus, body.input-dpad .k4-nav button:focus, body.input-dpad .lt-nav button:focus, body.input-dpad .sp1-nav button:focus, body.input-dpad .es1-nav button:focus, body.input-dpad .lang-wrap .nav-pills button:focus,
+  body.input-dpad .v1a-topbar button:focus, body.input-dpad .rv-topbar button:focus, body.input-dpad .h1-topbar button:focus, body.input-dpad .a1b-topbar button:focus, body.input-dpad .k4-topbar button:focus, body.input-dpad .lt-top button:focus, body.input-dpad .sp1-topbar button:focus, body.input-dpad .es1-top button:focus, body.input-dpad .lang-wrap .design > .topbar button:focus {
+    outline: 6px solid var(--gold) !important;
+    outline-offset: 6px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Wave 1 v2 END — Wave 2: hero · Wave 3: tiles+chips · Wave 4: cards
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Wave 2 — Unified Hero Treatment (all 9 catalog tabs)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero {
+  position: relative !important;
+  min-height: 60vh !important;
+  max-height: 70vh !important;
+  height: 60vh !important;
+  overflow: hidden !important;
+}
+.v1a-hero-wrap img, .rv-hero img, .h1-hero img, .a1b-hero img, .k4-hero img, .lt-hero img, .hero50 img, .es1-hero img, #eg1v2 .hero img {
+  max-height: 100% !important;
+  width: auto !important;
+  object-fit: cover !important;
+}
+.v1a-hero-wrap::before, .rv-hero::before, .h1-hero::before, .a1b-hero::before, .k4-hero::before, .lt-hero::before, .hero50::before, .es1-hero::before, #eg1v2 .hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(11,12,16,0.95) 0%, rgba(11,12,16,0.5) 50%, transparent 100%) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+.v1a-hero-grid, .rv-hero-inner, .h1-hero-inner, .a1b-hero-content, .k4-hero, .lt-hero-head, .hero-inner, .es1-slide-inner, #eg1v2 .hero__inner {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(60%, 920px) !important;
+  padding-left: clamp(20px, 3vw, 52px) !important;
+}
+.hero-kicker {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  font-size: clamp(14px, 1.1vw, 16px) !important;
+  margin: 0 0 12px !important;
+}
+.hero-title {
+  color: var(--text) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
+  font-size: clamp(48px, 5vw, 84px) !important;
+  margin: 0 0 12px !important;
+}
+.hero-desc {
+  color: var(--dim) !important;
+  font-size: clamp(15px, 1.1vw, 17px) !important;
+  line-height: 1.5 !important;
+  max-width: 90ch !important;
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin: 0 0 22px !important;
+}
+.hero-ctas { display: flex !important; gap: 12px !important; flex-wrap: wrap !important; align-items: center !important; }
+.btn-primary, .btn-secondary {
+  min-height: 64px !important;
+  padding: 0 26px !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.btn-primary {
+  background: var(--u4-red) !important;
+  color: #fff !important;
+  border: none !important;
+  border-left: 4px solid var(--gold) !important;
+}
+.btn-secondary {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 2px solid var(--gold) !important;
+}
+@media (max-width: 768px) {
+  .v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero { min-height: 50vh !important; }
+  .v1a-hero-grid, .rv-hero-inner, .h1-hero-inner, .a1b-hero-content, .k4-hero, .lt-hero-head, .hero-inner, .es1-slide-inner, #eg1v2 .hero__inner { width: min(92%, 920px) !important; }
+  .hero-title { font-size: clamp(40px, 8vw, 60px) !important; }
+}
+@media (min-width: 1920px) {
+  .v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero { min-height: 85vh !important; }
+  .hero-title { font-size: clamp(96px, 6vw, 120px) !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Wave 3 — Unified Tiles + Chips
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* TILE base */
+.tile, .v1a-tile, .rv-poster, .h1-poster, .a1b-tile, .k4-thumb,
+.lt-channel-card, .sp1-fixture, .es1-match-card, .creator-tile,
+.movie-card, .show-card, .program-card, .channel-card, .match-card, .rv-tile, .h1-tile, .k4-tile, .lt-spot-card, .lt-spot, .card, .es1-card {
+  position: relative; display: block; border-radius: 16px !important;
+  background: var(--panel2); border: 1px solid var(--line);
+  overflow: hidden; cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  text-decoration: none; color: inherit;
+}
+.tile:hover, .tile:focus-visible,
+.v1a-tile:hover, .v1a-tile:focus-visible, .rv-poster:hover, .rv-poster:focus-visible,
+.h1-poster:hover, .h1-poster:focus-visible, .a1b-tile:hover, .a1b-tile:focus-visible,
+.k4-thumb:hover, .k4-thumb:focus-visible, .lt-channel-card:hover, .lt-channel-card:focus-visible,
+.sp1-fixture:hover, .sp1-fixture:focus-visible, .es1-match-card:hover, .es1-match-card:focus-visible,
+.creator-tile:hover, .creator-tile:focus-visible, .movie-card:hover, .movie-card:focus-visible,
+.show-card:hover, .show-card:focus-visible, .program-card:hover, .program-card:focus-visible,
+.channel-card:hover, .channel-card:focus-visible, .match-card:hover, .match-card:focus-visible, .rv-tile:hover, .rv-tile:focus-visible, .h1-tile:hover, .h1-tile:focus-visible, .k4-tile:hover, .k4-tile:focus-visible, .lt-spot-card:hover, .lt-spot-card:focus-visible, .lt-spot:hover, .lt-spot:focus-visible, .card:hover, .card:focus-visible, .es1-card:hover, .es1-card:focus-visible {
+  transform: translateY(-6px) !important;
+  border-color: rgba(255, 214, 107, 0.6) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 4px rgba(255, 214, 107, 0.4) !important;
+  outline: none !important;
+}
+.tile__media { position: relative; width: 100%; background: var(--panel); }
+.tile__media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.tile__body { padding: 12px 14px; }
+.tile-title {
+  font: 600 14px/1.3 -apple-system, sans-serif !important;
+  color: var(--text) !important;
+  margin: 0 0 4px !important;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tile-meta {
+  font: 500 12px/1.2 -apple-system, sans-serif !important;
+  color: var(--dim) !important;
+  margin: 0 !important;
+}
+
+/* TILE variants */
+.tile--poster      { aspect-ratio: 2/3 / auto; width: 160px; }
+.tile--poster .tile__media { aspect-ratio: 2/3; }
+.tile--landscape   { width: 320px; }
+.tile--landscape .tile__media { aspect-ratio: 16/9; }
+.tile--square      { width: 200px; }
+.tile--square .tile__media   { aspect-ratio: 1/1; }
+
+/* CHIP */
+.chip, .v1a-chip, .rv-chip, .h1-chip, .a1b-chip, .k4-chip, .lt-pill, .lt-chip,
+.sp1-chip, .es1-chip, .filter-pill, .audio-chip, .age-chip, .region-pill,
+.lang-toggle, .genre-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  height: 52px !important;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--line) !important;
+  background: transparent !important;
+  color: var(--text) !important;
+  font: 600 14px/1 -apple-system, sans-serif !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: background .15s, border-color .15s, color .15s !important;
+  text-decoration: none !important;
+}
+.chip:hover, .v1a-chip:hover, .rv-chip:hover, .h1-chip:hover, .a1b-chip:hover, .k4-chip:hover,
+.lt-pill:hover, .lt-chip:hover, .sp1-chip:hover, .es1-chip:hover, .filter-pill:hover,
+.audio-chip:hover, .age-chip:hover, .region-pill:hover, .lang-toggle:hover, .genre-pill:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--dim) !important;
+}
+.chip.is-active, .chip.active, .chip[aria-pressed="true"], .chip.is-on, .chip.on,
+.v1a-chip.is-active, .v1a-chip.active, .v1a-chip[aria-pressed="true"], .v1a-chip.is-on, .v1a-chip.on,
+.rv-chip.is-active, .rv-chip.active, .rv-chip[aria-pressed="true"], .rv-chip.is-on, .rv-chip.on,
+.h1-chip.is-active, .h1-chip.active, .h1-chip[aria-pressed="true"], .h1-chip.is-on, .h1-chip.on,
+.a1b-chip.is-active, .a1b-chip.active, .a1b-chip[aria-pressed="true"], .a1b-chip.is-on, .a1b-chip.on,
+.k4-chip.is-active, .k4-chip.active, .k4-chip[aria-pressed="true"], .k4-chip.is-on, .k4-chip.on,
+.lt-pill.is-active, .lt-pill.active, .lt-pill[aria-pressed="true"], .lt-pill.is-on, .lt-pill.on,
+.lt-chip.is-active, .lt-chip.active, .lt-chip[aria-pressed="true"], .lt-chip.is-on, .lt-chip.on,
+.sp1-chip.is-active, .sp1-chip.active, .sp1-chip[aria-pressed="true"], .sp1-chip.is-on, .sp1-chip.on,
+.es1-chip.is-active, .es1-chip.active, .es1-chip[aria-pressed="true"], .es1-chip.is-on, .es1-chip.on,
+.filter-pill.is-active, .filter-pill.active, .filter-pill[aria-pressed="true"], .filter-pill.is-on, .filter-pill.on,
+.audio-chip.is-active, .audio-chip.active, .audio-chip[aria-pressed="true"], .audio-chip.is-on, .audio-chip.on,
+.age-chip.is-active, .age-chip.active, .age-chip[aria-pressed="true"], .age-chip.is-on, .age-chip.on,
+.region-pill.is-active, .region-pill.active, .region-pill[aria-pressed="true"], .region-pill.is-on, .region-pill.on,
+.lang-toggle.is-active, .lang-toggle.active, .lang-toggle[aria-pressed="true"], .lang-toggle.is-on, .lang-toggle.on,
+.genre-pill.is-active, .genre-pill.active, .genre-pill[aria-pressed="true"], .genre-pill.is-on, .genre-pill.on {
+  background: rgba(255, 214, 107, 0.15) !important;
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+.chip__icon { font-size: 16px; line-height: 1; }
+.chip__count { font-size: 11px; color: var(--dim); margin-left: 4px; padding: 2px 6px; background: rgba(255,255,255,0.08); border-radius: 999px; }
+
+/* MOBILE @max-width 480 */
+@media (max-width: 480px) {
+  .tile--poster    { width: 120px; }
+  .tile--landscape { width: 240px; }
+  .tile--square    { width: 140px; }
+  .chip, .v1a-chip, .rv-chip, .h1-chip, .a1b-chip, .k4-chip, .lt-pill, .lt-chip,
+  .sp1-chip, .es1-chip, .filter-pill, .audio-chip, .age-chip, .region-pill,
+  .lang-toggle, .genre-pill { height: 44px !important; padding: 0 14px !important; font-size: 13px !important; }
+}
+/* TV @min-width 1920 */
+@media (min-width: 1920px) {
+  .tile--poster    { width: 220px; }
+  .tile--landscape { width: 420px; }
+  .tile--square    { width: 280px; }
+  .chip, .v1a-chip, .rv-chip, .h1-chip, .a1b-chip, .k4-chip, .lt-pill, .lt-chip,
+  .sp1-chip, .es1-chip, .filter-pill, .audio-chip, .age-chip, .region-pill,
+  .lang-toggle, .genre-pill { height: 60px !important; padding: 0 22px !important; font-size: 16px !important; }
+}
+
+/* ─── Wave 3 fix: kill .design min-height that creates dead space below hero ─── */
+.lang-wrap > .design,
+.lang-wrap .design {
+  min-height: auto !important;
+}
+
+/* ─── Wave 3 fix: rail containers (parent of pipe-injected tiles) get horizontal scroll ─── */
+.rv-rail, .v1a-rail, .h1-rail, .a1b-rail, .k4-rail, .lt-rail,
+.lt-now-rail, .sp1-feed, .es1-bracket, .of-rail,
+[data-pipe-status] {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 14px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x proximity !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 8px 4px 16px !important;
+  scrollbar-width: thin !important;
+}
+.rv-rail .tile, .v1a-rail .tile, .h1-rail .tile, .a1b-rail .tile,
+.k4-rail .tile, .lt-rail .tile, .lt-now-rail .tile, .sp1-feed .tile,
+.es1-bracket .tile, .of-rail .tile, [data-pipe-status] .tile {
+  flex-shrink: 0 !important;
+  scroll-snap-align: start !important;
+}
+
+/* ─── Wave 3+4 fix: kill .design min-height on production pages (lang-wrap is stripped) ─── */
+section.design,
+.design {
+  min-height: auto !important;
+}
+
+/* ─── Wave 4 polish: breathing room between hero and content ─── */
+.v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero {
+  margin-bottom: 32px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Wave 4 polish — hero
+   Editorial hero rebalance for all 9 catalog tabs
+   ═══════════════════════════════════════════════════════════════════ */
+
+.v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero {
+  position: relative !important;
+  min-height: 60vh !important;
+  max-height: 70vh !important;
+  height: 60vh !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+  margin: 0 32px 32px !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55) !important;
+}
+
+.v1a-hero-grid, .rv-hero-inner, .lt-hero-head, .hero-inner, .es1-slide-inner, #eg1v2 .hero__inner, .hero-main-live, .k4-hero-wrap {
+  display: grid !important;
+  grid-template-columns: minmax(0, 60%) minmax(0, 40%) !important;
+  gap: 36px !important;
+  align-items: end !important;
+  padding: 32px 40px 36px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.hero-content, .rv-hero-copy, .v1a-hero-left, .h1-hero-inner, .a1b-hero-content, .k4-hero, .hero-inner > :first-child, .hero-main-live > :first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.hero-kicker {
+  margin: 0 !important;
+}
+
+.hero-title {
+  margin: 0 !important;
+}
+
+.hero-desc {
+  margin: 0 !important;
+}
+
+.hero-ctas {
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.rv-hero-poster, .hero-poster, .v1a-mini-poster, [class*="hero-poster"] {
+  justify-self: end !important;
+  max-width: none !important;
+  max-height: 100% !important;
+  align-self: end !important;
+}
+
+.rv-hero-poster img, .hero-poster img, .v1a-mini-poster img, [class*="hero-poster"] img {
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: cover !important;
+}
+
+/* Home-only polish: hide non-active spotlight slides and keep queue action tidy */
+.v1a-hero-slide {
+  z-index: 1 !important;
+}
+
+.v1a-hero-slide.is-active {
+  z-index: 2 !important;
+}
+
+.v1a-hero-slide:not(.is-active) {
+  display: none !important;
+}
+
+.v1a-upnext-h {
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.v1a-upnext-h .v1a-chip {
+  margin-left: 8px !important;
+}
+
+.v1a-queue-link-wrap {
+  margin: -20px 32px 20px !important;
+}
+
+.v1a-queue-link {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--gold) !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  padding: 0 !important;
+  text-decoration: underline !important;
+}
+
+.v1a-upnext-h .v1a-chip {
+  margin-left: 0 !important;
+  margin-top: 2px !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--gold) !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  text-decoration: underline !important;
+}
+
+.v1a-upnext-strip {
+  align-items: stretch !important;
+}
+
+.v1a-up-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 900px) {
+  .v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 16px 24px !important;
+  }
+
+  .v1a-hero-grid, .rv-hero-inner, .lt-hero-head, .hero-inner, .es1-slide-inner, #eg1v2 .hero__inner, .hero-main-live, .k4-hero-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 18px 16px 24px !important;
+    align-items: start !important;
+  }
+
+  .v1a-queue-link-wrap {
+    margin: -14px 16px 16px !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .v1a-hero-wrap, .rv-hero, .h1-hero, .a1b-hero, .k4-hero, .lt-hero, .hero50, .es1-hero, #eg1v2 .hero {
+    min-height: 62vh !important;
+    height: 62vh !important;
+  }
+}
+
+/* RTV_FIX_v1 (2026-04-28) — picture-fit + aspect-ratio with TV-box fallback */
+/* MARK: RTV_FIX_v1_picfit */
+.v1a-tile-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%; /* 2:3 fallback for browsers without aspect-ratio */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1a1c24;
+}
+@supports (aspect-ratio: 1 / 1) {
+  .v1a-tile-img-wrap { padding-bottom: 0; aspect-ratio: 2 / 3; }
+}
+.v1a-tile-img-wrap > .v1a-tile-img,
+.v1a-tile-img-wrap > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* RTV_FIX_v1.3 (2026-04-28): scoped fixes - mini-poster no longer overflows hero */
+.v1a-mini-poster {
+  width: 200px !important;
+  max-width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.v1a-mini-poster img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+.v1a-hero-right { align-self: end; }
+/* hero title overflow guard */
+.hero-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+.hero-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.v1a-tile-meta {
+  padding: 6px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 36px;
+}
+/* MARK: RTV_FIX_v1_picfit_end */
+
+/* RTV_FIX_v1.4 (2026-04-28): hide mini-poster - redundant with hero bg, was overflowing card */
+/* MARK: RTV_FIX_v1.4_hide_minipost */
+.v1a-mini-poster, .v1a-mini-cap { display: none !important; }
+.v1a-hero-right { display: none !important; }
+.v1a-hero-grid { grid-template-columns: 1fr !important; }
+.v1a-hero-wrap { overflow: hidden; }
+/* Keep hero card borders strict - clip overflowing children */
+.v1a-hero-slide, .v1a-hero-bg { border-radius: inherit; overflow: hidden; }
+.hero-title { font-size: clamp(2rem, 4vw, 3.4rem) !important; max-width: 60%; }
+.hero-desc { max-width: 55%; }
+.v1a-upnext-strip { max-width: 60%; }
+/* MARK: RTV_FIX_v1.4_hide_minipost_end */
+
+/* RTV_FIX_v1.5 (2026-04-28): hide pause button + auto-advances kicker per owner request */
+/* MARK: RTV_FIX_v1.5_hide_carousel_chrome */
+.v1a-pause-fab { display: none !important; }
+.v1a-kicker-meta { display: none !important; }
+/* MARK: RTV_FIX_v1.5_hide_carousel_chrome_end */
+
+/* RTV_FIX_v1.26 (2026-04-29): Live channel tile logos must not stretch.
+   Channel logos are typically ~96x96 — clamp aspect, contain (not cover),
+   and shrink the tile container so they read as logos not posters. */
+/* MARK: RTV_FIX_v1.26_channel_tile */
+.tile.tile--poster[data-kind="channel"],
+.tile.tile--poster[data-row-id*="live"],
+.tile.tile--poster[onclick*="openChannel"],
+.tile.tile--poster[onclick*="/detail/channel/"] {
+  aspect-ratio: 16 / 11 !important;
+}
+.tile.tile--poster[data-kind="channel"] img,
+.tile.tile--poster[data-row-id*="live"] img,
+.tile.tile--poster[onclick*="openChannel"] img,
+.tile.tile--poster[onclick*="/detail/channel/"] img {
+  object-fit: contain !important;
+  background: #1a1c24;
+  padding: 14% 18%;
+}
+/* Generic safety: any tile whose poster URL looks like a logo path */
+.tile--poster img[src*="/logos/"],
+.tile--poster img[src*="logo"],
+.tile--poster img[src*="stalker_portal"] {
+  object-fit: contain !important;
+  background: #1a1c24;
+  padding: 12%;
+}
+/* MARK: RTV_FIX_v1.26_channel_tile_end */
+
+/* RTV_FIX_v1.28 (2026-04-29): TV-class layout rules for 10ft viewing on KM9 box.
+   Triggers when viewport >= 1280px AND device hints suggest TV (no fine pointer). */
+/* MARK: RTV_FIX_v1.28_tv_class_start */
+@media (min-width: 1280px) {
+  /* Larger top nav for 10ft readability */
+  .v1a-nav .v1a-tab,
+  .rv-topbar .rv-nav a,
+  header nav a {
+    font-size: 18px !important;
+    padding: 12px 18px !important;
+    line-height: 1.2 !important;
+  }
+  .v1a-search input,
+  .rv-search input,
+  header input[type="search"] {
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    min-height: 44px;
+  }
+  .v1a-pill, .rv-pill-lang, .h1-pill, .lt-pill {
+    min-width: 56px !important;
+    min-height: 44px !important;
+    font-size: 16px !important;
+  }
+  .v1a-ava, .rv-avatar {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* Hero card sizing for TV */
+  .hero-title { font-size: clamp(2.4rem, 3.6vw, 4.6rem) !important; }
+  .hero-desc { font-size: 1.05rem !important; max-width: 60% !important; }
+  .v1a-hero-actions .btn-primary,
+  .v1a-hero-actions .btn-secondary,
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    min-height: 60px !important;
+    padding: 16px 28px !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+  }
+  .v1a-up-card {
+    min-width: 130px !important;
+  }
+
+  /* Row titles bigger */
+  .v1a-row-title, .rv-row-h h2, h2.row-title {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+  }
+
+  /* Tile sizing — bigger for 10ft */
+  .v1a-tile, .rv-tile, .tile.tile--poster {
+    min-width: 200px !important;
+  }
+  .v1a-tile-title, .rv-tile-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Focus ring — applies regardless of viewport but most useful on TV with D-pad */
+@media (any-hover: none), (any-pointer: coarse) {
+  *:focus-visible {
+    outline: 4px solid var(--gold, #ffd66b) !important;
+    outline-offset: 2px !important;
+    border-radius: 6px;
+  }
+}
+
+/* Tab / D-pad focus — outline only (no scale: avoids clipped glow + TV jank) */
+[data-sn-section] *:focus, [data-sn-tile]:focus, .v1a-tile:focus, .rv-tile:focus,
+.tile.tile--poster:focus, .lt-spot:focus {
+  outline: 4px solid #ffd66b !important;
+  outline-offset: 3px !important;
+  transform: none !important;
+  z-index: 5;
+  position: relative;
+}
+/* MARK: RTV_FIX_v1.28_tv_class_end */
+
+/* RTV_FIX_v1.28b (2026-04-29): respect borders on TV — carry v1.4 clamps */
+/* MARK: RTV_FIX_v1.28b_borders_start */
+@media (min-width: 1280px) {
+  body.input-dpad .hero-title,
+  body.input-dpad h1.hero-title {
+    font-size: clamp(1.75rem, 2.6vw, 3rem) !important;
+    max-width: 100% !important;
+    width: 100%;
+    line-height: 1.08 !important;
+    -webkit-line-clamp: 2 !important;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  body.input-dpad .hero-desc {
+    max-width: 100% !important;
+    width: 100%;
+    font-size: 1rem !important;
+    -webkit-line-clamp: 2 !important;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  body.input-dpad .v1a-upnext-strip,
+  body.input-dpad .v1a-chip-row {
+    max-width: 100% !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  body.input-dpad .v1a-hero-actions .btn-primary,
+  body.input-dpad .v1a-hero-actions .btn-secondary,
+  body.input-dpad .hero-ctas .btn-primary,
+  body.input-dpad .hero-ctas .btn-secondary {
+    min-height: 60px !important;
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  body.input-dpad .hero-ctas {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+  body.input-dpad .v1a-hero-left {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 0;
+  }
+  /* Strict overflow on hero card and slides */
+  body.input-dpad .v1a-hero-wrap,
+  body.input-dpad .v1a-hero-slide,
+  body.input-dpad .v1a-hero-bg,
+  body.input-dpad section.hero {
+    overflow: hidden !important;
+    border-radius: 14px;
+  }
+  body.input-dpad .v1a-mini-poster,
+  body.input-dpad .v1a-mini-cap,
+  body.input-dpad .v1a-hero-right { display: none !important; }
+  body.input-dpad .v1a-hero-grid { grid-template-columns: 1fr !important; }
+  body.input-dpad .v1a-tile,
+  body.input-dpad .rv-tile,
+  body.input-dpad .tile.tile--poster {
+    min-width: 160px !important;
+    max-width: 200px !important;
+  }
+  body.input-dpad .v1a-stage,
+  body.input-dpad .rv-stage,
+  body.input-dpad [class*="row-rail"],
+  body.input-dpad [class*="scroller"] {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    box-sizing: border-box !important;
+  }
+  /* Movies (#v1) hero — keep copy inside card on 10ft */
+  body.input-dpad #v1.design .rv-hero-inner {
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(34vw, 280px)) !important;
+  }
+  body.input-dpad #v1.design .rv-hero-copy {
+    min-width: 0;
+    max-width: 100%;
+  }
+  body.input-dpad #v1.design .hero-ctas {
+    max-width: 100%;
+  }
+}
+/* MARK: RTV_FIX_v1.28b_borders_end */
+
+/* RTV_FIX_v1.29 (2026-04-29): TV tap targets + D-pad focus ring + pill hit areas */
+/* MARK: RTV_FIX_v1.29_tv_tap_start */
+@media (min-width: 1280px) {
+  body.input-dpad .btn,
+  body.input-dpad .btn-primary,
+  body.input-dpad .btn-secondary,
+  body.input-dpad .v1a-tile,
+  body.input-dpad .rv-tile,
+  body.input-dpad .tile.tile--poster,
+  body.input-dpad .v1a-pill,
+  body.input-dpad .rv-pill-lang,
+  body.input-dpad .lt-pill {
+    min-height: 56px !important;
+    box-sizing: border-box;
+  }
+  body.input-dpad .v1a-pill,
+  body.input-dpad .rv-pill-lang,
+  body.input-dpad .lt-pill,
+  body.input-dpad .h1-pill {
+    min-width: 56px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  body.input-dpad .v1a-chip,
+  body.input-dpad .rv-chip,
+  body.input-dpad .lt-chip {
+    min-height: 48px !important;
+    padding: 10px 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+body.input-dpad *:focus-visible,
+body.input-dpad .v1a-tile:focus,
+body.input-dpad .rv-tile:focus,
+body.input-dpad .tile.tile--poster:focus {
+  outline: 4px solid var(--gold, #ffd66b) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+/* MARK: RTV_FIX_v1.29_tv_tap_end */
+
+/* RTV_FIX_v1.30b (2026-04-29): hero sizing only — keep existing layout, just bigger */
+/* MARK: RTV_FIX_v1.30b_hero_only_start */
+.v1a-hero-wrap {
+  min-height: 60vh !important;
+  position: relative !important;
+}
+.v1a-hero-grid {
+  min-height: 56vh !important;
+  align-items: end !important;
+  padding: 32px 36px !important;
+}
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 4rem) !important;
+  font-weight: 850 !important;
+  line-height: 1.05 !important;
+  margin: 0 0 14px !important;
+  max-width: 60% !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 2px 24px rgba(0,0,0,.6);
+}
+.hero-desc {
+  font-size: 1.05rem !important;
+  line-height: 1.55 !important;
+  max-width: 55% !important;
+  margin-bottom: 18px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 12px rgba(0,0,0,.5);
+}
+.hero-ctas .btn-primary, .v1a-hero-actions .btn-primary {
+  min-height: 52px !important;
+  padding: 14px 28px !important;
+  font-size: 16px !important;
+}
+.hero-ctas .btn-secondary, .v1a-hero-actions .btn-secondary {
+  min-height: 52px !important;
+  padding: 14px 22px !important;
+  font-size: 15px !important;
+}
+.v1a-mini-poster, .v1a-mini-cap, .v1a-hero-right { display: none !important; }
+.v1a-hero-grid { grid-template-columns: 1fr !important; }
+.v1a-upnext-strip { max-width: 60% !important; }
+.v1a-chip-row { max-width: 60% !important; margin-top: 10px !important; }
+/* MARK: RTV_FIX_v1.30b_hero_only_end */
+
+/* RTV_FIX_v1.30 (2026-04-29): D-pad focus rings on TV box.
+   :focus-visible isnt reliably emitted by Chrome on Android TV when input
+   comes from D-pad keys. Use plain :focus for interactive tiles + buttons. */
+/* MARK: RTV_FIX_v1.30_dpad_focus */
+.v1a-tile:focus,
+.rv-tile:focus,
+.tile.tile--poster:focus,
+.tile:focus,
+[tabindex="0"]:focus,
+button:focus,
+.v1a-pill:focus,
+.rv-pill-lang:focus,
+.btn:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+a:focus {
+  outline: 4px solid #ffd66b !important;
+  outline-offset: 3px !important;
+  transform: scale(1.04);
+  transition: transform 0.15s ease, outline-color 0.15s ease;
+  z-index: 5;
+  position: relative;
+  box-shadow: 0 0 24px rgba(255, 214, 107, 0.4) !important;
+}
+.v1a-tab:focus,
+.rv-nav a:focus,
+header nav a:focus {
+  outline: 3px solid #ffd66b !important;
+  outline-offset: 2px !important;
+  background: rgba(255, 214, 107, 0.1);
+  border-radius: 8px;
+}
+/* Hide outline on mouse-only contexts (laptop) */
+@media (hover: hover) and (pointer: fine) {
+  .v1a-tile:focus:not(:focus-visible),
+  .rv-tile:focus:not(:focus-visible),
+  .tile:focus:not(:focus-visible),
+  [tabindex="0"]:focus:not(:focus-visible) {
+    outline: none !important;
+    transform: none;
+    box-shadow: none !important;
+  }
+}
+/* MARK: RTV_FIX_v1.30_dpad_focus_end */
+
+
+/* RTV_FIX_v1.34 (2026-04-29): hero size clamp + tab bar safe area on TV */
+/* MARK: RTV_FIX_v1.34_hero_tv */
+@media (min-width: 1280px) {
+  /* Ensure tab bar always visible on top — no negative margin / overflow */
+  body { padding-top: 0 !important; overflow-x: hidden !important; }
+  header.v1a-topbar, .v1a-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 12, 16, 0.95);
+    backdrop-filter: blur(8px);
+  }
+  /* Hero clamp — owner reported "too big for box" */
+  .v1a-hero-wrap {
+    min-height: 0 !important;
+    max-height: 56vh !important;
+    height: 48vh !important;
+    overflow: hidden !important;
+  }
+  .v1a-hero-slide, .v1a-hero-bg { height: 100% !important; }
+  /* Hero title smaller on TV (was clamp(2.4rem,3.6vw,4.6rem) -> too big) */
+  .hero-title { font-size: clamp(1.8rem, 2.6vw, 3.4rem) !important; max-width: 50% !important; }
+  .hero-desc { font-size: 0.95rem !important; max-width: 45% !important; }
+  /* Hero CTAs more compact on TV */
+  .hero-ctas .btn-primary, .hero-ctas .btn-secondary,
+  .v1a-hero-actions .btn-primary, .v1a-hero-actions .btn-secondary {
+    min-height: 48px !important;
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+  }
+  /* UP NEXT thumbs smaller */
+  .v1a-up-card { min-width: 110px !important; max-width: 130px !important; }
+  .v1a-up-card img { aspect-ratio: 2/3; object-fit: cover; }
+}
+/* MARK: RTV_FIX_v1.34_hero_tv_end */
+
+
+
+
+
+
+
+/* RTV_FIX_v1.41 (2026-04-29): /home (.v1a-) hero — content respects the box.
+   v1.34 was targeting .hero-title/.hero-desc but home uses .v1a-hero-title/desc.
+   Per-tab — only /home prefix. */
+/* MARK: RTV_FIX_v1.41_v1a_hero_box_start */
+@media (min-width: 1280px) {
+  .v1a-hero-grid {
+    padding: 4rem 4vw 2.5rem !important;
+    align-items: end !important;
+  }
+  .v1a-hero-left {
+    max-width: 55% !important;
+    padding-bottom: 0 !important;
+  }
+  .v1a-hero-title {
+    font-size: clamp(1.6rem, 2.4vw, 3.0rem) !important;
+    line-height: 1.05 !important;
+    margin: 0 0 0.5rem !important;
+    /* allow up to 2 lines, ellipsis on overflow */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .v1a-hero-desc {
+    font-size: 0.95rem !important;
+    margin: 0 0 0.85rem !important;
+    line-height: 1.45 !important;
+    max-width: 100% !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .v1a-hero-actions {
+    margin-bottom: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  .v1a-hero-actions .btn-primary,
+  .v1a-hero-actions .btn-secondary,
+  .v1a-hero-actions .btn {
+    min-height: 44px !important;
+    padding: 10px 18px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+  /* Meta strip (kicker / DOCUMENTALES / year / runtime) */
+  .v1a-hero-kicker, .v1a-hero-meta {
+    font-size: 0.75rem !important;
+    margin: 0 0 0.4rem !important;
+  }
+  /* Right column up-next list — keep visible but tighter */
+  .v1a-hero-right {
+    padding-bottom: 0.5rem !important;
+  }
+  /* Hero box itself: explicit overflow + flex-end ensures content stacks
+     against the bottom inside the box, not spilling */
+  .v1a-hero-wrap {
+    contain: layout paint !important;
+  }
+}
+/* MARK: RTV_FIX_v1.41_v1a_hero_box_end */
+
+
+/* RTV_FIX_v1.42 (2026-04-29): hero bg over-zoom — Juan said "zoomed in too much,
+   can't see top/left/bottom edges". Was scale(1.03) + center 22%. Use full
+   contain-respecting cover with center 50% so backdrop shows whole image
+   on TV widescreen, not chopped off. */
+@media (min-width: 1280px) {
+  .v1a-hero-bg {
+    background-position: center center !important;
+    background-size: cover !important;
+    transform: none !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+
+/* RTV_FIX_v1.59b (2026-04-29): My List active state */
+.rtv-mylist-on,
+button.rtv-mylist-on,
+[data-in-list="1"] {
+  background: rgba(255, 214, 107, 0.14) !important;
+  border-color: #ffd66b !important;
+  color: #ffd66b !important;
+}
+
+
+/* RTV_FIX_v1.70 (2026-04-29): hide hardcoded fake match cards on /sports + /esports.
+   Sports body had 12 .card-border-* fake cards (DAL vs NYG, AME vs PUM, etc.) and
+   esports had .es1-match-row blocks (T1 vs G2 etc). They are pure mock with no
+   API backing. Hide them until real scoreboard ingest exists.
+*/
+body[data-rtv-tab="sports"] article.card[onclick*="openGame"],
+body[data-rtv-tab="sports"] article.card[class*="card-border-"],
+body[data-rtv-tab="esports"] .es1-match-row,
+body[data-rtv-tab="esports"] .es1-bracket {
+  display: none !important;
+}
+
+/* Hide the section-block that held "12 GAMES LIVE" header above the fake grid */
+body[data-rtv-tab="sports"] .section-block:has(strong:not([data-rtv-hydrated])) {
+  display: none !important;
+}
+
+
+/* RTV_FIX_v1.78 (2026-04-29): polish region tiles + catalog badge */
+.rtv-region-tile {
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.rtv-region-tile:hover,
+.rtv-region-tile:focus {
+  transform: translateY(-3px);
+  border-color: rgba(255, 214, 107, 0.5) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+body.input-dpad .rtv-region-tile:focus {
+  border-color: #ffd66b !important;
+  box-shadow: 0 0 0 3px rgba(255, 214, 107, 0.6);
+}
+
+/* Catalog badge - more elegant */
+#rtv-catalog-badge {
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  transition: opacity .25s, transform .25s;
+}
+#rtv-catalog-badge:hover {
+  opacity: 0.92;
+}
+
+/* My List + CW tile hover */
+.rtv-mylist-tile,
+.rtv-cw-tile,
+.rtv-livetv-tile {
+  transition: transform .18s;
+}
+.rtv-mylist-tile:hover,
+.rtv-cw-tile:hover,
+.rtv-livetv-tile:hover,
+body.input-dpad .rtv-mylist-tile:focus,
+body.input-dpad .rtv-cw-tile:focus,
+body.input-dpad .rtv-livetv-tile:focus {
+  transform: translateY(-3px);
+}
+body.input-dpad .rtv-mylist-tile:focus img,
+body.input-dpad .rtv-cw-tile:focus img,
+body.input-dpad .rtv-livetv-tile:focus {
+  box-shadow: 0 0 0 3px #ffd66b;
+}
+
+/* Group picker chips on /livetv */
+.lt-filters-groups .lt-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #e9e9f0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font: 700 12px sans-serif;
+  transition: all .18s;
+}
+.lt-filters-groups .lt-chip.is-active {
+  background: rgba(255, 214, 107, 0.16) !important;
+  border-color: #ffd66b !important;
+  color: #ffd66b !important;
+}
+.lt-filters-groups .lt-chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 214, 107, 0.4);
+}
+
+/* Profile switcher popover - tighten */
+#rtv-profile-pop {
+  animation: rtv-pop-in .18s ease-out;
+}
+@keyframes rtv-pop-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* RTV_FIX_v1.80 (2026-04-29): global tile + rail-arrow polish */
+
+/* Make every tile feel snappy */
+.v1a-tile, .rv-tile, .h1-tile, .a1b-tile, .lt-tile, .sp1-tile, .es1-tile, .k4-tile, .lt-recent-tile {
+  transition: transform .18s ease-out, box-shadow .18s ease-out;
+}
+.v1a-tile:hover, .rv-tile:hover, .h1-tile:hover, .a1b-tile:hover,
+.lt-tile:hover, .sp1-tile:hover, .es1-tile:hover, .k4-tile:hover,
+.lt-recent-tile:hover {
+  transform: translateY(-4px);
+  z-index: 2;
+}
+.v1a-tile:hover img, .rv-tile:hover img, .h1-tile:hover img,
+.a1b-tile:hover img, .lt-tile:hover img, .sp1-tile:hover img,
+.es1-tile:hover img, .k4-tile:hover img, .lt-recent-tile:hover img {
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
+}
+
+/* D-pad focus rings — cleaner gold outline */
+body.input-dpad .v1a-tile:focus,
+body.input-dpad .rv-tile:focus,
+body.input-dpad .h1-tile:focus,
+body.input-dpad .a1b-tile:focus,
+body.input-dpad .lt-tile:focus,
+body.input-dpad .sp1-tile:focus,
+body.input-dpad .es1-tile:focus,
+body.input-dpad .k4-tile:focus,
+body.input-dpad .lt-recent-tile:focus,
+body.input-dpad .v1a-tab:focus,
+body.input-dpad .v1a-pill:focus,
+body.input-dpad .v1a-ava:focus,
+body.input-dpad .v1a-chip:focus,
+body.input-dpad .lt-chip:focus,
+body.input-dpad .es1-chip:focus,
+body.input-dpad .a1b-chip:focus,
+body.input-dpad .a1b-ap:focus,
+body.input-dpad .rv-chip:focus,
+body.input-dpad .h1-chip:focus,
+body.input-dpad .chip:focus {
+  outline: 3px solid #ffd66b;
+  outline-offset: 3px;
+  transform: translateY(-3px);
+  z-index: 3;
+}
+
+/* Rail arrow polish */
+.rtv-rail-arrow:focus {
+  outline: 2px solid #ffd66b;
+  outline-offset: 2px;
+}
+@media (max-width: 760px) {
+  .rtv-rail-arrow { display: none !important; }
+}
+
+/* Smoother scroll behavior on every rail */
+.v1a-scroller, .h1-row-scroll, .a1b-rail, .lt-row, .sp1-rail, .es1-rail, .k4-rail, .more-rail .scroller {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars but keep functionality on horizontal rails */
+.v1a-scroller, .h1-row-scroll, .a1b-rail, .lt-row, .sp1-rail, .es1-rail, .k4-rail {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
+}
+.v1a-scroller::-webkit-scrollbar, .h1-row-scroll::-webkit-scrollbar,
+.a1b-rail::-webkit-scrollbar, .lt-row::-webkit-scrollbar,
+.sp1-rail::-webkit-scrollbar, .es1-rail::-webkit-scrollbar,
+.k4-rail::-webkit-scrollbar { height: 6px; }
+.v1a-scroller::-webkit-scrollbar-thumb, .h1-row-scroll::-webkit-scrollbar-thumb,
+.a1b-rail::-webkit-scrollbar-thumb, .lt-row::-webkit-scrollbar-thumb,
+.sp1-rail::-webkit-scrollbar-thumb, .es1-rail::-webkit-scrollbar-thumb,
+.k4-rail::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 3px; }
+
+
+/* RTV_FIX_v1.81 (2026-04-29): unified sticky + blurred header across every tab */
+.v1a-topbar, .rv-topbar, .h1-topbar, .a1b-topbar, .lt-top, .sp1-topbar, .es1-top, .k4-topbar {
+  position: sticky !important;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(11, 12, 16, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Make tabs look snappy with smooth underline transition */
+.v1a-tab, .h1-tab, .rv-tab, .a1b-tab, .lt-tab, .sp1-tab, .es1-tab, .k4-tab {
+  position: relative;
+  transition: color .18s ease;
+}
+.v1a-tab::after, .h1-tab::after, .rv-tab::after, .a1b-tab::after,
+.lt-tab::after, .sp1-tab::after, .es1-tab::after, .k4-tab::after {
+  content: ;
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: #ffd66b;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width .25s ease;
+}
+.v1a-tab.is-active::after, .h1-tab.is-active::after, .rv-tab.is-active::after,
+.a1b-tab.is-active::after, .lt-tab.is-active::after, .sp1-tab.is-active::after,
+.es1-tab.is-active::after, .k4-tab.is-active::after,
+.v1a-tab[aria-current="page"]::after, .h1-tab[aria-current="page"]::after,
+.rv-tab[aria-current="page"]::after, .a1b-tab[aria-current="page"]::after,
+.lt-tab[aria-current="page"]::after, .sp1-tab[aria-current="page"]::after,
+.es1-tab[aria-current="page"]::after, .k4-tab[aria-current="page"]::after {
+  width: 60%;
+}
+.v1a-tab:hover::after, .h1-tab:hover::after, .rv-tab:hover::after,
+.a1b-tab:hover::after, .lt-tab:hover::after, .sp1-tab:hover::after,
+.es1-tab:hover::after, .k4-tab:hover::after {
+  width: 40%;
+}
+
+/* Header text shadow so it stays readable over hero backdrop */
+.v1a-topbar, .rv-topbar, .h1-topbar, .a1b-topbar, .lt-top, .sp1-topbar, .es1-top, .k4-topbar {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* RTV_FIX_v1.82 (2026-04-29): perf — CSS containment + content-visibility */
+
+/* Each row section is a render-isolation boundary. Browsers can skip layout/paint
+   work for offscreen rows. Massive win on /home with 13+ rows × 20 tiles each. */
+.v1a-row, .rv-row, .h1-section, .a1b-row, .lt-row, .sp1-row, .es1-row, .k4-row,
+.lt-spotlight-row, .lt-lane-grid {
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 380px;
+}
+
+/* Tiles use transform on hover — promote to GPU layer */
+.v1a-tile, .rv-tile, .h1-tile, .a1b-tile, .lt-tile, .sp1-tile, .es1-tile,
+.k4-tile, .lt-recent-tile, .rtv-mylist-tile, .rtv-cw-tile, .rtv-livetv-tile,
+.rtv-region-tile, .more-rail article {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Backdrops use transform too */
+.v1a-hero-bg, .rv-hero-bg, .h1-hero-bg, .a1b-hero-media, .lt-hero .hero-bg {
+  transform: translateZ(0);
+  will-change: opacity, background-image;
+}
+
+/* Lazy-decode images so the browser doesn't block on hundreds of img tags */
+.v1a-tile img, .rv-tile img, .h1-tile img, .a1b-tile img, .lt-tile img,
+.sp1-tile img, .es1-tile img, .k4-tile img, .lt-recent-tile img,
+.rtv-mylist-tile img, .rtv-cw-tile img, .rtv-livetv-tile img,
+.more-rail article img {
+  content-visibility: auto;
+  contain-intrinsic-size: 180px 270px;
+}
+
+
+/* ============================================================
+   RTV_FIX_v1.83 (2026-04-29): Apple-mode color/type shift
+   Activated by body.apple-mode (toggled by rtv_apple_mode.js below).
+   ============================================================ */
+
+body.apple-mode {
+  /* Apple-tier palette */
+  --bg: #000000;
+  --panel: rgba(20, 22, 28, 0.65);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --dim: #a8a8b0;
+  --accent: #0071e3;            /* Apple blue */
+  --accent-hover: #0077ed;
+  --gold: #ffd66b;              /* Keep for focus rings */
+  /* Type system */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+  background: #000;
+}
+
+body.apple-mode h1, body.apple-mode h2, body.apple-mode h3 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+body.apple-mode .v1a-row-title,
+body.apple-mode .rv-row-title,
+body.apple-mode .h1-section-title,
+body.apple-mode .a1b-row-title,
+body.apple-mode .lt-section-label h2,
+body.apple-mode .es1-row-title,
+body.apple-mode .sp1-row-title,
+body.apple-mode .k4-row-title {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-size: 1.35rem;
+}
+
+/* Glass headers */
+body.apple-mode .v1a-topbar,
+body.apple-mode .rv-topbar,
+body.apple-mode .h1-topbar,
+body.apple-mode .a1b-topbar,
+body.apple-mode .lt-top,
+body.apple-mode .sp1-topbar,
+body.apple-mode .es1-top,
+body.apple-mode .k4-topbar {
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: none !important;
+}
+
+/* Glass play / primary buttons */
+body.apple-mode .btn-primary,
+body.apple-mode .v1a-cta-primary,
+body.apple-mode .rv-cta-primary,
+body.apple-mode .h1-cta-primary,
+body.apple-mode .a1b-cta-primary,
+body.apple-mode .lt-cta-primary,
+body.apple-mode .sp1-cta-primary,
+body.apple-mode .es1-cta-primary,
+body.apple-mode .k4-cta-primary {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 12px 26px !important;
+  font-weight: 700 !important;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease !important;
+}
+body.apple-mode .btn-primary:hover,
+body.apple-mode .btn-primary:focus-visible {
+  background: #fff !important;
+  transform: scale(1.04) !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18) !important;
+  outline: none !important;
+}
+body.apple-mode .btn-secondary {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.apple-mode .btn-secondary:hover,
+body.apple-mode .btn-secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.28) !important;
+  outline: none !important;
+}
+
+/* Glass cards / chips / pills */
+body.apple-mode .v1a-pill,
+body.apple-mode .h1-pill,
+body.apple-mode .rv-pill-lang,
+body.apple-mode .lt-pill,
+body.apple-mode .es1-pill,
+body.apple-mode .a1b-pill,
+body.apple-mode .v1a-chip,
+body.apple-mode .rv-chip,
+body.apple-mode .h1-chip,
+body.apple-mode .a1b-chip,
+body.apple-mode .a1b-ap,
+body.apple-mode .lt-chip,
+body.apple-mode .sp1-chip,
+body.apple-mode .es1-chip,
+body.apple-mode .chip,
+body.apple-mode .k4-chip {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all .18s ease;
+}
+body.apple-mode .v1a-chip.is-active,
+body.apple-mode .rv-chip.is-on,
+body.apple-mode .h1-chip.is-on,
+body.apple-mode .a1b-chip.is-active,
+body.apple-mode .a1b-ap.is-on,
+body.apple-mode .lt-chip.is-active,
+body.apple-mode .es1-chip.is-active,
+body.apple-mode .chip.is-active {
+  background: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Tiles — subtle glass shadow on hover, sharper rounded corners */
+body.apple-mode .v1a-tile,
+body.apple-mode .rv-tile,
+body.apple-mode .h1-tile,
+body.apple-mode .a1b-tile,
+body.apple-mode .lt-tile,
+body.apple-mode .sp1-tile,
+body.apple-mode .es1-tile,
+body.apple-mode .k4-tile,
+body.apple-mode .lt-recent-tile,
+body.apple-mode .rtv-mylist-tile,
+body.apple-mode .rtv-cw-tile,
+body.apple-mode .rtv-livetv-tile,
+body.apple-mode .more-rail article {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+}
+body.apple-mode .v1a-tile img,
+body.apple-mode .rv-tile img,
+body.apple-mode .h1-tile img,
+body.apple-mode .a1b-tile img,
+body.apple-mode .lt-tile img,
+body.apple-mode .lt-recent-tile img,
+body.apple-mode .rtv-mylist-tile img,
+body.apple-mode .rtv-cw-tile img,
+body.apple-mode .more-rail article img {
+  border-radius: 12px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+body.apple-mode .v1a-tile:hover,
+body.apple-mode .rv-tile:hover,
+body.apple-mode .h1-tile:hover,
+body.apple-mode .a1b-tile:hover,
+body.apple-mode .lt-tile:hover,
+body.apple-mode .more-rail article:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Apple "magic focus" — D-pad */
+body.input-dpad.apple-mode .v1a-tile:focus,
+body.input-dpad.apple-mode .rv-tile:focus,
+body.input-dpad.apple-mode .h1-tile:focus,
+body.input-dpad.apple-mode .a1b-tile:focus,
+body.input-dpad.apple-mode .lt-tile:focus,
+body.input-dpad.apple-mode .more-rail article:focus,
+body.input-dpad.apple-mode .rtv-mylist-tile:focus,
+body.input-dpad.apple-mode .rtv-region-tile:focus {
+  outline: none !important;
+  transform: scale(1.08) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.7), 0 0 0 3px rgba(255,255,255,0.95) !important;
+  z-index: 10;
+}
+
+/* Region tiles glassed up */
+body.apple-mode .rtv-region-tile {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Catalog badge — Apple-style pill */
+body.apple-mode #rtv-catalog-badge {
+  background: rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Profile switcher popover — full glass */
+body.apple-mode #rtv-profile-pop {
+  background: rgba(20, 22, 28, 0.85) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-radius: 16px !important;
+}
+
+/* Detail page in apple-mode — bigger hero, sharper type */
+body.apple-mode .hero {
+  min-height: 720px !important;
+}
+body.apple-mode .hero::before {
+  opacity: 0.7 !important;
+  filter: none !important;
+}
+body.apple-mode .hero::after {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.85) 70%, #000 100%),
+    linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.30) 50%, transparent 100%) !important;
+}
+body.apple-mode .meta h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Auto-active tab underline — match Apple (white-not-gold) */
+body.apple-mode .v1a-tab.is-active::after,
+body.apple-mode .h1-tab.is-active::after,
+body.apple-mode .rv-tab.is-active::after,
+body.apple-mode .a1b-tab.is-active::after,
+body.apple-mode .lt-tab.is-active::after,
+body.apple-mode .sp1-tab.is-active::after,
+body.apple-mode .es1-tab.is-active::after,
+body.apple-mode .k4-tab.is-active::after {
+  background: #fff !important;
+}
+
+
+/* ============================================================
+   RTV_FIX_v1.84 (2026-04-29): Apple-style full-bleed hero
+   Activated by body.apple-mode on /home (.v1a-hero-wrap).
+   ============================================================ */
+
+body.apple-mode .v1a-hero-wrap {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 600px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+body.apple-mode .v1a-hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.apple-mode .v1a-hero-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.apple-mode .v1a-hero-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  background-size: cover !important;
+  background-position: center 18% !important;
+  background-repeat: no-repeat !important;
+  z-index: 0;
+  transform: scale(1.04);
+  will-change: transform;
+}
+body.apple-mode .v1a-hero-slide.is-active .v1a-hero-bg {
+  animation: rtv-ken-burns 18s ease-in-out infinite alternate;
+}
+@keyframes rtv-ken-burns {
+  0%   { transform: scale(1.02) translate(0, 0); }
+  100% { transform: scale(1.10) translate(-1.5%, -1.2%); }
+}
+
+/* Vignette — 2-axis gradient (left fade for text legibility, bottom fade to bg) */
+body.apple-mode .v1a-hero-vignette,
+body.apple-mode .v1a-hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 60%, #000 100%),
+    linear-gradient(77deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.50) 35%, rgba(0,0,0,0.10) 60%, transparent 75%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero content positioning */
+body.apple-mode .v1a-hero-content,
+body.apple-mode .v1a-hero-text {
+  position: absolute;
+  bottom: 14vh;
+  left: 5%;
+  right: auto;
+  max-width: 640px;
+  z-index: 2;
+}
+
+body.apple-mode .v1a-hero-title,
+body.apple-mode .hero-title,
+body.apple-mode .v1a-hero h1 {
+  font-size: clamp(2.4rem, 4.6vw, 4rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.05 !important;
+  color: #fff;
+  text-shadow: 0 4px 22px rgba(0,0,0,0.55);
+  margin: 0 0 12px;
+}
+
+body.apple-mode .v1a-hero-kicker,
+body.apple-mode .hero-kicker {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 12px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.apple-mode .v1a-hero-desc,
+body.apple-mode .hero-desc {
+  font-size: 1.08rem !important;
+  line-height: 1.55 !important;
+  color: rgba(255,255,255,0.92) !important;
+  max-width: 560px !important;
+  margin: 0 0 24px !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+body.apple-mode .v1a-hero-actions,
+body.apple-mode .hero-ctas {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Dots — hide in apple-mode (we use bottom progress bar instead) */
+body.apple-mode .v1a-dots {
+  display: none !important;
+}
+
+/* Bottom progress bar */
+body.apple-mode .v1a-hero-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.10);
+  z-index: 5;
+}
+.rtv-hero-progress-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #ffd66b, #fff);
+  z-index: 6;
+  transition: width 60ms linear;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 12px rgba(255, 214, 107, 0.5);
+}
+
+/* Hero buttons in apple-mode — match Apple TV+ styling */
+body.apple-mode .v1a-hero-actions .btn-primary,
+body.apple-mode .hero-ctas .btn-primary {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #000 !important;
+  border: none !important;
+  padding: 14px 28px !important;
+  font: 700 1rem -apple-system, sans-serif !important;
+  border-radius: 999px !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+body.apple-mode .v1a-hero-actions .btn-primary:hover,
+body.apple-mode .v1a-hero-actions .btn-primary:focus-visible,
+body.apple-mode .hero-ctas .btn-primary:focus-visible {
+  background: #fff !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 12px 36px rgba(255,255,255,0.22) !important;
+  outline: none !important;
+}
+
+body.apple-mode .v1a-hero-actions .btn-secondary,
+body.apple-mode .hero-ctas .btn-secondary {
+  background: rgba(80, 80, 92, 0.55) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  padding: 14px 24px !important;
+  font: 600 1rem -apple-system, sans-serif !important;
+  border-radius: 999px !important;
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.18s, background 0.18s;
+}
+body.apple-mode .v1a-hero-actions .btn-secondary:hover,
+body.apple-mode .v1a-hero-actions .btn-secondary:focus-visible {
+  background: rgba(120, 120, 128, 0.70) !important;
+  transform: scale(1.04) !important;
+  outline: none !important;
+}
+
+/* Stage padding tighter on apple-mode for bigger row breathing room */
+body.apple-mode .v1a-stage {
+  padding: 32px 0 80px !important;
+}
+
+body.apple-mode .v1a-row {
+  padding: 12px 5% 8px !important;
+  margin-bottom: 12px;
+}
+
+body.apple-mode .v1a-row-h {
+  margin-bottom: 14px !important;
+}
+
+body.apple-mode .v1a-scroller {
+  gap: 18px !important;
+  padding: 8px 0 !important;
+}
+
+/* Mobile fallback */
+@media (max-width: 760px) {
+  body.apple-mode .v1a-hero-wrap { height: 56vh; min-height: 420px; }
+  body.apple-mode .v1a-hero-content { left: 5%; right: 5%; max-width: 90%; bottom: 10vh; }
+}
+
+
+/* ============================================================
+   RTV_FIX_v1.86 (2026-04-29): Deeper Apple TV polish
+   Bigger spacing, bigger tiles, round logos, editorial cards,
+   smoother focus.
+   ============================================================ */
+
+/* Stage tightens horizontally but breathes vertically */
+body.apple-mode .v1a-stage {
+  padding: 24px 0 96px !important;
+  background: #000 !important;
+}
+
+/* Way more breathing between rows */
+body.apple-mode .v1a-row {
+  padding: 18px 4.5% 28px !important;
+  margin-bottom: 18px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+body.apple-mode .v1a-row:last-child {
+  border-bottom: none;
+}
+
+/* Bigger, lighter row titles with more space below */
+body.apple-mode .v1a-row-title,
+body.apple-mode .rv-row-title,
+body.apple-mode .h1-section-title,
+body.apple-mode .a1b-row-title,
+body.apple-mode .es1-row-title,
+body.apple-mode .sp1-row-title {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  color: #fff !important;
+}
+body.apple-mode .v1a-row-h {
+  margin-bottom: 18px !important;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+body.apple-mode .v1a-row-more {
+  color: rgba(255,255,255,0.55) !important;
+  font: 600 13px sans-serif !important;
+  letter-spacing: 0.02em;
+  transition: color .18s ease;
+}
+body.apple-mode .v1a-row-more:hover,
+body.apple-mode .v1a-row-more:focus-visible {
+  color: #fff !important;
+  outline: none;
+}
+
+/* Bigger tiles, wider gap, smooth tvOS easing */
+body.apple-mode .v1a-scroller {
+  gap: 20px !important;
+  padding: 6px 0 24px !important;
+}
+body.apple-mode .v1a-tile,
+body.apple-mode .v1a-tile-film,
+body.apple-mode .lt-recent-tile {
+  min-width: 200px !important;
+  max-width: 220px !important;
+  flex: 0 0 auto !important;
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.32s ease,
+              box-shadow 0.32s ease !important;
+}
+body.apple-mode .v1a-tile img,
+body.apple-mode .v1a-tile-film img,
+body.apple-mode .lt-recent-tile img {
+  border-radius: 12px !important;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* tvOS-style smooth focus zoom */
+body.apple-mode .v1a-tile:hover,
+body.apple-mode .v1a-tile-film:hover,
+body.apple-mode .v1a-tile:focus-within,
+body.input-dpad.apple-mode .v1a-tile:focus,
+body.input-dpad.apple-mode .v1a-tile-film:focus {
+  transform: scale(1.08) translateY(-4px) !important;
+  filter: brightness(1.12) contrast(1.04) !important;
+  z-index: 10;
+}
+body.apple-mode .v1a-tile:hover img,
+body.input-dpad.apple-mode .v1a-tile:focus img {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.65);
+}
+
+/* My List row + Continue Watching tiles match tile sizing */
+body.apple-mode .rtv-mylist-tile,
+body.apple-mode .rtv-cw-tile {
+  min-width: 200px !important;
+  max-width: 220px !important;
+}
+body.apple-mode .rtv-mylist-tile img,
+body.apple-mode .rtv-cw-tile .v1a-tile-img-wrap img {
+  border-radius: 12px !important;
+}
+
+/* Round channel logos for Live Now rails — Apple TV style */
+body.apple-mode .lt-tile,
+body.apple-mode .lt-recent-tile,
+body.apple-mode .rtv-livetv-tile {
+  background: transparent !important;
+}
+body.apple-mode .rtv-livetv-tile .v1a-tile-img-wrap {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)) !important;
+  border: 1px solid rgba(255,255,255,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s ease;
+}
+body.apple-mode .rtv-livetv-tile .v1a-tile-img-wrap img {
+  width: 75% !important;
+  height: 75% !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+body.apple-mode .rtv-livetv-tile:hover .v1a-tile-img-wrap,
+body.input-dpad.apple-mode .rtv-livetv-tile:focus .v1a-tile-img-wrap {
+  transform: scale(1.10);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 18px 36px rgba(0,0,0,0.6);
+}
+body.apple-mode .rtv-livetv-tile .v1a-tile-meta {
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Region tiles — bigger, more glass */
+body.apple-mode .rtv-region-tile {
+  min-width: 170px !important;
+  max-width: 190px !important;
+  padding: 22px 16px !important;
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+body.apple-mode .rtv-region-tile span:first-child {
+  font-size: 56px !important;
+}
+
+/* Hero kicker upgrade — Apple-style genre tag chips */
+body.apple-mode .v1a-kicker {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px !important;
+}
+body.apple-mode .v1a-kicker .hero-kicker {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  font: 700 11px sans-serif !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  color: #fff !important;
+  text-shadow: none !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+body.apple-mode .v1a-kicker-meta {
+  display: none !important;  /* hide '1 of 5 · auto-advances' clutter */
+}
+
+/* Hero title weight + tighter tracking + slightly larger */
+body.apple-mode .v1a-hero h1.hero-title,
+body.apple-mode .hero-title {
+  font-size: clamp(2.6rem, 5vw, 4.4rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.0 !important;
+  margin: 0 0 18px !important;
+}
+
+/* Even deeper bottom-fade so text crisp + page transitions seamless */
+body.apple-mode .v1a-hero-bg::after,
+body.apple-mode .v1a-hero-slide::after {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.95) 88%, #000 100%),
+    linear-gradient(77deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.10) 60%, transparent 80%) !important;
+}
+
+/* Hide the hardcoded pause-fab in apple-mode (cleaner look) */
+body.apple-mode .v1a-pause-fab {
+  display: none !important;
+}
+
+/* Top-num (the giant numeral on Top 10 row) — Apple doesn't do this; subdue */
+body.apple-mode .v1a-top-num {
+  display: none !important;
+}
+
+/* Catalog badge in apple-mode — bottom-right elegant pill */
+body.apple-mode #rtv-catalog-badge {
+  bottom: 18px !important;
+  right: 18px !important;
+  padding: 10px 18px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.02em !important;
+  border-radius: 999px !important;
+}
+
+/* Profile + lang pill in header — round + glass */
+body.apple-mode .v1a-pill,
+body.apple-mode .v1a-ava {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform .18s ease, background .18s ease;
+}
+body.apple-mode .v1a-pill:hover,
+body.apple-mode .v1a-ava:hover,
+body.apple-mode .v1a-pill:focus-visible,
+body.apple-mode .v1a-ava:focus-visible {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.18) !important;
+  outline: none !important;
+}
+
+/* Tabs in header — Apple TV uses larger, looser-tracked tabs */
+body.apple-mode .v1a-tab,
+body.apple-mode .h1-tab,
+body.apple-mode .rv-tab,
+body.apple-mode .a1b-tab,
+body.apple-mode .lt-tab,
+body.apple-mode .sp1-tab,
+body.apple-mode .es1-tab,
+body.apple-mode .k4-tab {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.005em;
+  padding: 10px 16px !important;
+  color: rgba(255,255,255,0.75) !important;
+  transition: color .18s ease;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+  pointer-events: auto !important;
+}
+body.apple-mode .v1a-tab.is-active,
+body.apple-mode .h1-tab.is-active,
+body.apple-mode .rv-tab.is-active,
+body.apple-mode .a1b-tab.is-active,
+body.apple-mode .lt-tab.is-active,
+body.apple-mode .sp1-tab.is-active,
+body.apple-mode .es1-tab.is-active,
+body.apple-mode .k4-tab.is-active {
+  color: #fff !important;
+}
+body.apple-mode .v1a-tab:hover,
+body.apple-mode .h1-tab:hover,
+body.apple-mode .rv-tab:hover {
+  color: #fff !important;
+}
+
+/* Header itself: lighter, taller, more breathing */
+body.apple-mode .v1a-topbar,
+body.apple-mode .rv-topbar,
+body.apple-mode .h1-topbar,
+body.apple-mode .a1b-topbar,
+body.apple-mode .lt-top,
+body.apple-mode .sp1-topbar,
+body.apple-mode .es1-top,
+body.apple-mode .k4-topbar {
+  padding: 18px 4.5% !important;
+}
+
+/* Search input in header — pill + glass */
+body.apple-mode header input[type="search"],
+body.apple-mode .v1a-search input,
+body.apple-mode .rv-search input {
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  color: #fff !important;
+  padding: 8px 16px !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background .18s, border-color .18s;
+}
+body.apple-mode header input[type="search"]::placeholder {
+  color: rgba(255,255,255,0.55) !important;
+}
+body.apple-mode header input[type="search"]:focus {
+  background: rgba(255,255,255,0.16) !important;
+  border-color: rgba(255,255,255,0.30) !important;
+  outline: none !important;
+}
+
+/* Drop scrollbars on rails completely (Apple TV doesn't show them) */
+body.apple-mode .v1a-scroller::-webkit-scrollbar,
+body.apple-mode .h1-row-scroll::-webkit-scrollbar,
+body.apple-mode .a1b-rail::-webkit-scrollbar,
+body.apple-mode .lt-row::-webkit-scrollbar,
+body.apple-mode .more-rail .scroller::-webkit-scrollbar {
+  display: none !important;
+  height: 0 !important;
+}
+body.apple-mode .v1a-scroller,
+body.apple-mode .h1-row-scroll,
+body.apple-mode .a1b-rail,
+body.apple-mode .lt-row,
+body.apple-mode .more-rail .scroller {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Rail arrows — match Apple's circular glass buttons */
+body.apple-mode .rtv-rail-arrow {
+  background: rgba(255,255,255,0.16) !important;
+  border: 1px solid rgba(255,255,255,0.20) !important;
+  color: #fff !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 14px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.55) !important;
+}
+body.apple-mode .rtv-rail-arrow:hover {
+  background: rgba(255,255,255,0.95) !important;
+  color: #000 !important;
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+/* Toast — match Apple notification style */
+body.apple-mode .toast,
+body.apple-mode #rtv-toast {
+  background: rgba(20,22,28,0.92) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  color: #fff !important;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-radius: 14px !important;
+  padding: 12px 22px !important;
+  font: 600 13px -apple-system, sans-serif !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6) !important;
+}
+
+
+/* RTV_FIX_v1.86b (2026-04-29): tab nav layout safety */
+body.apple-mode .v1a-tabs,
+body.apple-mode .h1-tabs,
+body.apple-mode .rv-tabs,
+body.apple-mode .a1b-tabs,
+body.apple-mode .lt-tabs,
+body.apple-mode .sp1-tabs,
+body.apple-mode .es1-tabs,
+body.apple-mode .k4-tabs,
+body.apple-mode .v1a-nav,
+body.apple-mode header nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto !important;
+}
+
+/* Make sure header itself doesn't accidentally block clicks */
+body.apple-mode header,
+body.apple-mode .v1a-topbar,
+body.apple-mode .rv-topbar,
+body.apple-mode .h1-topbar,
+body.apple-mode .a1b-topbar,
+body.apple-mode .lt-top,
+body.apple-mode .sp1-topbar,
+body.apple-mode .es1-top,
+body.apple-mode .k4-topbar {
+  pointer-events: auto !important;
+}
+
+/* Hero overlays must NEVER block header */
+body.apple-mode .v1a-hero-wrap,
+body.apple-mode .v1a-hero-slide,
+body.apple-mode .v1a-hero-bg {
+  z-index: 1 !important;
+}
+body.apple-mode .v1a-topbar {
+  z-index: 50 !important;
+}

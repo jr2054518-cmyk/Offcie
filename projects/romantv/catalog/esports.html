@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>RomanTV · APPROVED · ESPORTS · es1</title>
+<link href="/static/u4_unified.css?v=78" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+:root { --bg:#0b0c10; --panel:#13151a; --panel2:#1c1e26; --line:#2c2e38; --text:#fff; --dim:#a8a8b0; --accent:#e50914; --gold:#ffd66b; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 14px/1.45 -apple-system, Segoe UI, Roboto, sans-serif; }
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#0b0c10; color:#fff; border:1px solid var(--accent); padding:14px 24px; border-radius:30px; font-weight:600; z-index:200; transition:transform 0.25s; pointer-events:none; }
+</style>
+
+<script>
+/* RTV_FIX_v1.31 (2026-04-29): force scroll-to-top on every load (TV box + browsers
+   preserved scroll position made hero invisible on subsequent visits) */
+(function(){
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function top(){ try { window.scrollTo(0, 0); } catch(_){} }
+  window.addEventListener("pageshow", top);
+  window.addEventListener("load", top);
+  document.addEventListener("DOMContentLoaded", top);
+})();
+</script>
+</head>
+<body data-rtv-tab="esports" class="">
+
+<section class="design" id="es1">
+<style scoped="">
+
+  #es1.design {
+    --es-lol:#005a82;
+    --es-cs:#ff8c00;
+    --es-dota:#a32d2d;
+    --es-val:#fa4454;
+    --es-r6:#6cabd9;
+    --es-apex:#ff6b00;
+    --es-cod:#5b8def;
+    --es-rl:#0066cc;
+    box-sizing:border-box;
+    color:var(--text,#fff);
+    background:var(--bg,#0b0c10);
+    min-height:100vh;
+    width:100%;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.35;
+    overflow-x:hidden;
+  }
+  #es1.design *, #es1.design *::before, #es1.design *::after { box-sizing:border-box; }
+  #es1 .es1-wrap { max-width:1920px; margin:0 auto; padding:0 clamp(12px,2vw,28px) 48px; }
+  #es1 a { color:inherit; text-decoration:none; }
+  #es1 .es1-brand { font-weight:800; letter-spacing:-0.02em; font-size:1.35rem; }
+  #es1 .es1-pill { display:inline-flex; align-items:center; gap:6px;     font-size:0.85rem; cursor:pointer; }
+  #es1 .es1-avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--accent,#e50914),#7a1520); display:grid; place-items:center; font-weight:700; font-size:0.95rem; }
+  #es1 .es1-region { display:flex; gap:8px; align-items:center; margin-left:auto; }
+  #es1 .es1-toggle { display:inline-flex; border-radius:10px; overflow:hidden; border:1px solid var(--line,#2c2e38); }
+  #es1 .es1-toggle button {
+    appearance:none; border:0; background:var(--panel,#13151a); color:var(--dim,#a8a8b0);
+    padding:10px 18px; font-size:0.88rem; cursor:pointer; min-height:44px;
+  }
+  #es1 .es1-toggle button[aria-pressed="true"] { background:var(--panel2,#1c1e26); color:var(--text,#fff); box-shadow:inset 0 -3px 0 var(--accent,#e50914); }
+  #es1 .es1-lang-note { font-size:0.75rem; color:var(--dim,#a8a8b0); max-width:380px; }
+  #es1 .es1-hero {
+    position:relative; min-height:60vh; height:60vh;
+    border-radius:16px; overflow:hidden; margin:18px 0 14px;
+    border:1px solid var(--line,#2c2e38);
+  }
+  #es1 .es1-slides {
+    display:flex; width:500%; height:100%;
+    animation:es1HeroCycle 40s infinite;
+  }
+  @keyframes es1HeroCycle {
+    0%,19%{transform:translateX(0);}
+    20%,39%{transform:translateX(-20%);}
+    40%,59%{transform:translateX(-40%);}
+    60%,79%{transform:translateX(-60%);}
+    80%,99%{transform:translateX(-80%);}
+    100%{transform:translateX(0);}
+  }
+  #es1 .es1-slide {
+    width:20%; flex:0 0 20%; height:100%; position:relative;
+    display:grid; align-content:end; padding:clamp(18px,3vw,40px);
+    background-size:cover; background-position:center;
+  }
+  #es1 .es1-slide::after {
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,transparent 0%,rgba(11,12,16,0.35) 40%,rgba(11,12,16,0.92) 100%);
+    pointer-events:none;
+  }
+  #es1 .es1-slide-inner { position:relative; z-index:1; max-width:900px; }
+    #es1 .es1-slide .es1-tagline { font-size:clamp(0.95rem,1.4vw,1.15rem); color:var(--dim,#a8a8b0); margin-bottom:16px; max-width:52ch; }
+  #es1 .es1-slide .es1-hero-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  #es1 .es1-slide .hero-content .hero-title {
+    margin:0 0 10px; color:#fff; font-size:clamp(56px,4.8vw,84px); line-height:1.05; font-weight:900; letter-spacing:-0.02em;
+  }
+  #es1 .es1-slide .hero-content .hero-kicker {
+    margin:0 0 8px; color:#fff; opacity:0.92; font-size:clamp(15px,1.1vw,20px); font-weight:800; text-transform:uppercase; letter-spacing:0.06em;
+  }
+  #es1 .es1-slide .hero-content .hero-desc {
+    color:var(--dim,#a8a8b0); margin-bottom:16px;
+  }
+  #es1 .es1-slide .hero-content .hero-ctas .btn-primary {
+    min-height:56px; background:rgb(255, 10, 20); color:#fff; border:0;
+  }
+  #es1 .es1-btn {
+    display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:10px;
+    font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid transparent;
+  }
+  #es1 .es1-btn-primary { background:var(--accent,#e50914); color:#fff; }
+  #es1 .es1-btn-primary:hover { filter:brightness(1.08); }
+  #es1 .es1-btn-ghost { background:rgba(255,255,255,0.08); border-color:var(--line,#2c2e38); color:var(--text,#fff); }
+  #es1 .es1-btn-link { background:transparent; color:var(--gold,#ffd66b); border-color:transparent; text-decoration:underline; text-underline-offset:3px; }
+  #es1 .es1-tlogo {
+    width:56px; height:56px; border-radius:12px; background:var(--panel,#13151a);
+    border:1px solid var(--line,#2c2e38); display:grid; place-items:center; font-size:1.4rem; margin-bottom:12px;
+  }
+  #es1 .es1-livebar {
+    background:var(--panel,#13151a); border:1px solid var(--line,#2c2e38);
+    border-radius:12px; padding:14px 18px; margin-bottom:18px;
+    display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; justify-content:space-between;
+  }
+  #es1 .es1-livebar strong { color:#ff4d4d; font-weight:700; letter-spacing:0.02em; }
+  #es1 .es1-livebar .es1-split { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:0.88rem; color:var(--dim,#a8a8b0); }
+  #es1 .es1-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  #es1 .es1-chip {
+     font-size:0.85rem; cursor:pointer; 
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  #es1 .es1-chip:hover, #es1 .es1-chip:focus-visible { outline:2px solid var(--accent,#e50914); outline-offset:2px; }
+  #es1 .es1-sec-title { font-size:1.15rem; font-weight:800; margin:28px 0 14px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  #es1 .es1-sub { font-size:0.85rem; font-weight:500; color:var(--dim,#a8a8b0); }
+  #es1 .es1-lane {
+    margin-bottom:28px; border-radius:16px; overflow:hidden;
+    background:var(--panel,#13151a); border:1px solid var(--line,#2c2e38);
+  }
+  #es1 .es1-lane-head {
+    display:grid; grid-template-columns:1fr auto; gap:16px; align-items:start;
+    padding:16px 18px 12px;
+    border-top:6px solid var(--lane-accent, var(--accent,#e50914));
+  }
+  #es1 .es1-lane-title { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; }
+  #es1 .es1-lane-title h3 { margin:0; font-size:1.05rem; font-weight:800; }
+  #es1 .es1-lane-links { display:flex; gap:12px; flex-wrap:wrap; font-size:0.88rem; }
+  #es1 .es1-lane-links a { color:var(--gold,#ffd66b); text-decoration:underline; text-underline-offset:3px; }
+  #es1 .es1-lane-body { display:grid; grid-template-columns:1fr minmax(220px,320px); gap:16px; padding:0 18px 18px; }
+  @media (max-width:1100px) {
+    #es1 .es1-lane-body { grid-template-columns:1fr; }
+  }
+  #es1 .es1-mini-bracket {
+    background:var(--panel2,#1c1e26); border:1px solid var(--line,#2c2e38);
+    border-radius:12px; padding:12px; font-size:0.78rem;
+  }
+  #es1 .es1-mini-bracket table { width:100%; border-collapse:collapse; }
+  #es1 .es1-mini-bracket th, #es1 .es1-mini-bracket td { padding:6px 8px; text-align:left; border-bottom:1px solid var(--line,#2c2e38); }
+  #es1 .es1-mini-bracket tr:last-child td { border-bottom:0; }
+  #es1 .es1-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr)); gap:14px; }
+  #es1 .es1-card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:10px; }
+  #es1 .es1-badge { font-size:0.7rem; font-weight:700; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.08); border:1px solid var(--line,#2c2e38); }
+  #es1 .es1-badge-live { background:rgba(255,77,77,0.15); border-color:#ff4d4d; color:#ff9999; }
+  #es1 .es1-badge-pre { border-color:var(--gold,#ffd66b); color:var(--gold,#ffd66b); }
+  #es1 .es1-badge-post { border-color:var(--dim,#a8a8b0); }
+  #es1 .es1-match-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:10px 0; }
+  #es1 .es1-team { display:flex; align-items:center; gap:10px; min-width:0; flex:1; }
+  #es1 .es1-logo {
+    width:44px; height:44px; border-radius:10px; background:var(--panel,#13151a);
+    border:1px solid var(--line,#2c2e38); flex-shrink:0; display:grid; place-items:center; font-size:0.65rem; font-weight:800; overflow:hidden;
+  }
+  @media (min-width:1920px) {
+    #es1 .es1-logo { width:60px; height:60px; border-radius:12px; font-size:0.72rem; }
+  }
+  body.input-dpad #es1 .es1-card:focus-within,
+  body.input-dpad #es1 .es1-chip:focus-visible,
+  body.input-dpad #es1 .es1-btn:focus-visible {
+    outline:4px solid var(--accent,#e50914); outline-offset:3px;
+  }
+  #es1 .es1-team-meta { min-width:0; }
+  #es1 .es1-team-name { font-weight:700; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #es1 .es1-elo { font-size:0.78rem; color:var(--dim,#a8a8b0); }
+  #es1 .es1-vs { font-weight:800; color:var(--dim,#a8a8b0); padding:0 4px; font-size:0.85rem; }
+  #es1 .es1-live-line { font-size:0.82rem; color:#ffb3b3; margin-top:6px; min-height:2.5em; }
+  #es1 .es1-pre-line { font-size:0.82rem; color:var(--gold,#ffd66b); }
+  #es1 .es1-post-line { font-size:0.82rem; color:var(--dim,#a8a8b0); }
+  #es1 .es1-streams { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  #es1 .es1-stream {
+    font-size:0.72rem; padding:8px 10px; border-radius:999px; background:rgba(255,255,255,0.06);
+    border:1px solid var(--line,#2c2e38); cursor:pointer; min-height:44px; display:inline-flex; align-items:center; gap:4px;
+  }
+  @media (min-width:1920px) {
+    #es1 .es1-stream { min-height:60px; padding:12px 16px; font-size:0.78rem; }
+  }
+  #es1 .es1-stream:hover { border-color:var(--accent,#e50914); }
+  #es1 .es1-wall { margin-bottom:8px; }
+  #es1 .es1-cal { display:grid; gap:10px; }
+  #es1 .es1-cal-row {
+    display:grid; grid-template-columns:100px 1fr 120px; gap:12px; align-items:center;
+    padding:12px 14px; border-radius:10px; background:var(--panel,#13151a); border:1px solid var(--line,#2c2e38);
+    font-size:0.88rem;
+  }
+  @media (max-width:640px) {
+    #es1 .es1-cal-row { grid-template-columns:1fr; }
+  }
+  #es1 .es1-fav-row { display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory; }
+  #es1 .es1-fav-card { flex:0 0 260px; scroll-snap-align:start; }
+  @media (max-width:480px) {
+    #es1 .es1-match-row { flex-direction:column; align-items:stretch; }
+    #es1 .es1-vs { text-align:center; }
+  }
+
+</style>
+<script>
+function openMatch(name) {
+  try {
+    if (window.parent !== window && window.parent.postMessage) {
+      window.parent.postMessage({ type: 'romantv-open-match', detail: String(name) }, '*');
+    }
+  } catch (e) {}
+  var raw = String(name || "").trim();
+  if (!raw) return;
+  var slug = raw.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "esports";
+  window.location.href =
+    "/detail/channel/" + encodeURIComponent(slug) + "?program=" + encodeURIComponent(raw);
+}
+</script>
+<div class="es1-wrap">
+<header class="es1-top" role="banner">
+<div class="es1-brand">RomanTV</div>
+<form aria-label="Search teams, players, tournaments" class="es1-search" onsubmit="event.preventDefault(); openSearch(this.q.value);" role="search"><input autocomplete="off" enterkeyhint="search" id="es1-q-en" name="q" placeholder="Search teams, players, tournaments…" type="search"/></form>
+<nav aria-label="Primary" class="es1-nav">
+<a href="/">Home</a>
+<a href="/movies">Movies</a>
+<a href="/series">Series</a>
+<a href="/anime">Anime</a>
+<a href="/livetv">Live TV</a>
+<a href="/sports">Sports</a>
+<a class="es1-active" href="/esports">Esports</a>
+<a class="v1a-tab" href="/kids" data-i18n="rtv_home_tab_kids">Kids 👶</a>
+<a href="/premium-tv">18+</a>
+</nav>
+<div class="es1-pill es1-accent is-active" title="Region">🇲🇽 México</div>
+<div class="es1-pill" title="Language">EN</div>
+<div aria-label="User R" class="es1-avatar" role="img" title="Profile">R</div>
+</header>
+<div class="es1-region" style="width:100%;margin-top:8px;flex-wrap:wrap">
+<span class="es1-sub">Default feed by region:</span>
+<div aria-label="Region toggle" class="es1-toggle" role="group">
+<button aria-pressed="true" id="es1-reg-en" onclick="document.getElementById('es1-reg-en').setAttribute('aria-pressed','true');document.getElementById('es1-reg-es').setAttribute('aria-pressed','false')" type="button">EN · Americas/EU circuit</button>
+<button aria-pressed="false" id="es1-reg-es" onclick="document.getElementById('es1-reg-es').setAttribute('aria-pressed','true');document.getElementById('es1-reg-en').setAttribute('aria-pressed','false')" type="button">ES · LATAM focus</button>
+</div>
+<p class="es1-lang-note">EN default highlights LCS · LEC · ESL One · VCT Americas · CDL · ALGS · IEM. ES default elevates LLA · CBLOL · BLAST Premier (broader LATAM) · VCT LATAM · Mexican CS · Smash MX · LATAM Apex.</p>
+</div>
+<div aria-label="Tournament spotlight carousel" class="es1-hero" id="es1-hero-spotlight" role="region">
+<div class="es1-slides">
+<div class="es1-slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(11,12,16,0.85)),linear-gradient(135deg,#003a59 0%,#001a28 100%)">
+<div class="es1-slide-inner">
+<div class="hero-content">
+<div class="es1-tlogo" style="border-color:rgba(255,255,255,0.15)">🎮</div>
+<h2 class="hero-title">Worlds 2026</h2>
+<p class="hero-desc es1-tagline">LoL · Riot Games — T1 vs G2 · Quarterfinal Game 5 LIVE · Bracket reset on the line</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openMatch('watch:riot:twitch')" type="button">▶ Watch on Twitch</button>
+<button class="btn-secondary" onclick="openMatch('watch:riot:youtube')" type="button">YouTube mirror</button>
+<a class="es1-btn es1-btn-link" href="#es1-bracket-riot">Bracket open →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="es1-slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(11,12,16,0.85)),linear-gradient(135deg,#4a2800 0%,#1a0d00 100%)">
+<div class="es1-slide-inner">
+<div class="hero-content">
+<div class="es1-tlogo" style="border-color:rgba(255,255,255,0.15)">🎮</div>
+<h2 class="hero-title">IEM Katowice · CS2</h2>
+<p class="hero-desc es1-tagline">ESL Pro Tour — FaZe vs NaVi · Grand Final · Map 4 · MR12 35-22</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openMatch('watch:esl:twitch')" type="button">▶ Watch on Twitch</button>
+<button class="btn-secondary" onclick="openMatch('watch:esl:youtube')" type="button">YouTube mirror</button>
+<a class="es1-btn es1-btn-link" href="#es1-bracket-esl">Bracket open →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="es1-slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(11,12,16,0.85)),linear-gradient(135deg,#5a1520 0%,#200808 100%)">
+<div class="es1-slide-inner">
+<div class="hero-content">
+<div class="es1-tlogo" style="border-color:rgba(255,255,255,0.15)">🎮</div>
+<h2 class="hero-title">VCT Champions</h2>
+<p class="hero-desc es1-tagline">Valorant Champions Tour — Sentinels vs Paper Rex · Decider Map · Lotus 12-12</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openMatch('watch:vct:twitch')" type="button">▶ Watch on Twitch</button>
+<button class="btn-secondary" onclick="openMatch('watch:vct:youtube')" type="button">YouTube mirror</button>
+<a class="es1-btn es1-btn-link" href="#es1-bracket-vct">Bracket open →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="es1-slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(11,12,16,0.85)),linear-gradient(135deg,#4a1515 0%,#1a0808 100%)">
+<div class="es1-slide-inner">
+<div class="hero-content">
+<div class="es1-tlogo" style="border-color:rgba(255,255,255,0.15)">🎮</div>
+<h2 class="hero-title">The International 2026</h2>
+<p class="hero-desc es1-tagline">Dota 2 · Valve — Team Liquid vs PSG.LGD · Aegis on the line</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openMatch('watch:ti:twitch')" type="button">▶ Watch on Twitch</button>
+<button class="btn-secondary" onclick="openMatch('watch:ti:youtube')" type="button">YouTube mirror</button>
+<a class="es1-btn es1-btn-link" href="#es1-bracket-ti">Bracket open →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="es1-slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(11,12,16,0.85)),linear-gradient(135deg,#5a3010 0%,#1a0f05 100%)">
+<div class="es1-slide-inner">
+<div class="hero-content">
+<div class="es1-tlogo" style="border-color:rgba(255,255,255,0.15)">🎮</div>
+<h2 class="hero-title">ESL ALGS Split 2</h2>
+<p class="hero-desc es1-tagline">Apex Legends Global Series — DarkZero vs TSM · Match point · Storm Point circle three</p>
+<div class="hero-ctas">
+<button class="btn-primary" onclick="openMatch('watch:algs:twitch')" type="button">▶ Watch on Twitch</button>
+<button class="btn-secondary" onclick="openMatch('watch:algs:youtube')" type="button">YouTube mirror</button>
+<a class="es1-btn es1-btn-link" href="#es1-bracket-algs">Bracket open →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-live="polite" class="es1-livebar" role="status">
+<div><strong>● 47 MATCHES LIVE</strong></div>
+<div class="es1-split">
+<span>LoL 12</span><span>CS2 18</span><span>VCT 8</span><span>Dota 5</span><span>R6 2</span><span>Apex 2</span>
+</div>
+</div>
+<div aria-label="Game filters" class="es1-chips" role="toolbar">
+<button class="es1-chip is-active" type="button">🎮 LoL</button>
+<button class="es1-chip is-active" type="button">CS2</button>
+<button class="es1-chip" type="button">⚔️ Dota 2</button>
+<button class="es1-chip" type="button">🔫 Valorant</button>
+<button class="es1-chip" type="button">🍥 R6</button>
+<button class="es1-chip" type="button">🎯 Apex</button>
+<button class="es1-chip" type="button">🎯 CDL</button>
+<button class="es1-chip" type="button">🚗 Rocket League</button>
+</div>
+<section aria-labelledby="es1-live-now-title" class="es1-wall">
+<h2 class="es1-sec-title" id="es1-live-now-title">🔴 LIVE NOW · Across all tournaments</h2>
+<p class="es1-sub" style="margin:-8px 0 16px">Stream-first layout: map counts, timers, co-stream mirrors; backend adapters GRID.gg · bo3.gg · PandaScore · OpenDota · LoL Esports · R6 Liquipedia · hourly esports-data-refresh.timer.</p>
+<div class="es1-cards">
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LEC</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">G2 </div>
+<div class="es1-team-meta">
+<div class="es1-team-name">G2 Esports</div>
+<div class="es1-elo">ELO 1795</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Fnatic</div>
+<div class="es1-elo">ELO 1770</div>
+</div>
+<div aria-hidden="true" class="es1-logo">FNA</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 1-0 · Game 2 in 9 min · Herald trade top</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('lec:g2:fnc')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('lec:yt')" type="button">YouTube</button><button class="es1-stream" onclick="openMatch('lec:riot')" type="button">Riot direct</button></div>
+</article>
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 ESL</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">NAV</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">NAVI</div>
+<div class="es1-elo">ELO 1912</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">FaZe</div>
+<div class="es1-elo">ELO 1918</div>
+</div>
+<div aria-hidden="true" class="es1-logo">FAZ</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 · Map 2 · Mid-round defaults · MR12 narrative</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('esl:nav:faze')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('esl:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="dota" style="--card-glow:var(--es-dota)">
+<div class="es1-card-head">
+<span class="es1-badge">⚔️ DPC</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">OG</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">OG</div>
+<div class="es1-elo">ELO 2060</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Tundra Esports</div>
+<div class="es1-elo">ELO 2052</div>
+</div>
+<div aria-hidden="true" class="es1-logo">TUN</div>
+</div>
+</div>
+<div class="es1-live-line">Game 2 · Tier4 items online · Vision war</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('dpc:og:tun')" type="button">Twitch</button></div>
+</article>
+<article class="es1-card" data-game="val" style="--card-glow:var(--es-val)">
+<div class="es1-card-head">
+<span class="es1-badge">🔫 VCT</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">DRX</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">DRX</div>
+<div class="es1-elo">ELO 1822</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Gen.G</div>
+<div class="es1-elo">ELO 1815</div>
+</div>
+<div aria-hidden="true" class="es1-logo">GEN</div>
+</div>
+</div>
+<div class="es1-live-line">Lotus · 11-11 · Spike down A default</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('vct:drx:geng')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('vct:tarik')" type="button">co: Tarik</button></div>
+</article>
+<article class="es1-card" data-game="r6" style="--card-glow:var(--es-r6)">
+<div class="es1-card-head">
+<span class="es1-badge">🍥 Pro League</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">SPA</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Spacestation</div>
+<div class="es1-elo">ELO 1665</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Wolves</div>
+<div class="es1-elo">ELO 1658</div>
+</div>
+<div aria-hidden="true" class="es1-logo">WOL</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 · Map pick · Coach timeout · Execute cadence</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('r6:ssg:wolves')" type="button">Twitch</button></div>
+</article>
+<article class="es1-card" data-game="apex" style="--card-glow:var(--es-apex)">
+<div class="es1-card-head">
+<span class="es1-badge">🎯 ALGS</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">COM</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Complexity</div>
+<div class="es1-elo">ELO 1733</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">NRG</div>
+<div class="es1-elo">ELO 1728</div>
+</div>
+<div aria-hidden="true" class="es1-logo">NRG</div>
+</div>
+</div>
+<div class="es1-live-line">Storm Point · Teams 14 · Early zone read</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('algs:col:nrg')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('algs:yt')" type="button">YouTube</button></div>
+</article>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-lol)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 Worlds 2026 · LoL World Championship</h3>
+<p class="es1-sub">Riot blue lane — story: East vs West collide in draft mind-games.</p>
+<p class="es1-sub" style="margin-top:6px">Bracket reset tension, elder soul timings, elder drake tempo windows.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LoL Worlds</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">T1</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">T1</div>
+<div class="es1-elo">ELO 1842</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">G2 Esports</div>
+<div class="es1-elo">ELO 1798</div>
+</div>
+<div aria-hidden="true" class="es1-logo">G2 </div>
+</div>
+</div>
+<div class="es1-live-line">BO5 2-2 · Game 5 · Elder drake spawning</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('lol:t1g2:twitch')" type="button">Twitch (main)</button><button class="es1-stream" onclick="openMatch('lol:t1g2:yt')" type="button">YouTube</button><button class="es1-stream" onclick="openMatch('lol:riot')" type="button">Riot direct</button><button class="es1-stream" onclick="openMatch('lol:lolesports')" type="button">League official</button><button class="es1-stream" onclick="openMatch('lol:caedrel')" type="button">co: Caedrel</button></div>
+</article>
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LoL Worlds</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">BIL</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Bilibili Gaming</div>
+<div class="es1-elo">ELO 1820</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Hanwha Life Esports</div>
+<div class="es1-elo">ELO 1805</div>
+</div>
+<div aria-hidden="true" class="es1-logo">HAN</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 47m · Bracket Quarterfinal · Best-of-5</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('lol:blg:hle:twitch')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('lol:blg:hle:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LoL Worlds</span>
+<span class="es1-badge es1-badge-post">FIN</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">GEN</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Gen.G</div>
+<div class="es1-elo">ELO 1810</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Fnatic</div>
+<div class="es1-elo">ELO 1762</div>
+</div>
+<div aria-hidden="true" class="es1-logo">FNA</div>
+</div>
+</div>
+<div class="es1-post-line">Gen.G def. Fnatic 3-1 · VOD on YouTube</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('vod:genfnc')" type="button">YouTube VOD</button></div>
+</article>
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LoL Worlds</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">JD </div>
+<div class="es1-team-meta">
+<div class="es1-team-name">JD Gaming</div>
+<div class="es1-elo">ELO 1788</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Top Esports</div>
+<div class="es1-elo">ELO 1775</div>
+</div>
+<div aria-hidden="true" class="es1-logo">TOP</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 1-0 · Game 2 in 15 min · Rift herald trade</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('lol:jdg:tes')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('lol:riot2')" type="button">Riot direct</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>QF</th><th>Matchup</th><th>Score</th></tr>
+<tr><td>QF1</td><td>T1 vs G2</td><td>2-2 LIVE</td></tr>
+<tr><td>QF2</td><td>BLG vs HLE</td><td>—</td></tr>
+<tr><td>QF3</td><td>GEN vs FNC</td><td>3-1</td></tr>
+<tr><td>QF4</td><td>JDG vs TES</td><td>1-0 LIVE</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-cs)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 IEM Katowice 2026 · CS2</h3>
+<p class="es1-sub">Orange lane — veto drama, comeback economy, clutch overtime.</p>
+<p class="es1-sub" style="margin-top:6px">Seven-map veto pool: anchors, lurk trades, pistol conversion snowballs.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 IEM Katowice</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">FAZ</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">FaZe Clan</div>
+<div class="es1-elo">ELO 1920</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Natus Vincere</div>
+<div class="es1-elo">ELO 1910</div>
+</div>
+<div aria-hidden="true" class="es1-logo">NAT</div>
+</div>
+</div>
+<div class="es1-live-line">BO5 Map 4 · Inferno · 8-7 side swap</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('cs2:faze:navi:twitch')" type="button">Twitch (main)</button><button class="es1-stream" onclick="openMatch('cs2:faze:navi:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 IEM Katowice</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">TEA</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Team Vitality</div>
+<div class="es1-elo">ELO 1895</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">G2 Esports</div>
+<div class="es1-elo">ELO 1888</div>
+</div>
+<div aria-hidden="true" class="es1-logo">G2 </div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 2h 10m · Lower final · BO3</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('cs2:vit:g2')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('cs2:spunj')" type="button">co: SPUNJ</button></div>
+</article>
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 IEM Katowice</span>
+<span class="es1-badge es1-badge-post">FIN</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">MOU</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">MOUZ</div>
+<div class="es1-elo">ELO 1870</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Spirit</div>
+<div class="es1-elo">ELO 1862</div>
+</div>
+<div aria-hidden="true" class="es1-logo">SPI</div>
+</div>
+</div>
+<div class="es1-post-line">MOUZ def. Spirit 2-1 · Nuke decider · VOD</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('vod:mouz:spi')" type="button">YouTube VOD</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>GF</th><th>Teams</th><th>Map</th></tr>
+<tr><td>Upper</td><td>FaZe vs NaVi</td><td>Map 4 LIVE</td></tr>
+<tr><td>Lower</td><td>VIT vs G2</td><td>Scheduled</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-val)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 VCT Champions Tour</h3>
+<p class="es1-sub">Valorant red lane — executes vs late-round heroics.</p>
+<p class="es1-sub" style="margin-top:6px">Lotus splits, Pearl defaults, site retake math on decider maps.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="val" style="--card-glow:var(--es-val)">
+<div class="es1-card-head">
+<span class="es1-badge">🔫 VCT Champions</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">SEN</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Sentinels</div>
+<div class="es1-elo">ELO 1850</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Paper Rex</div>
+<div class="es1-elo">ELO 1838</div>
+</div>
+<div aria-hidden="true" class="es1-logo">PAP</div>
+</div>
+</div>
+<div class="es1-live-line">Decider · Lotus · Overtime round 12-12 · Clutch or reset</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('val:sentinels:prx')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('val:sentinels:prx:yt')" type="button">YouTube</button><button class="es1-stream" onclick="openMatch('val:tarik')" type="button">co: Tarik</button></div>
+</article>
+<article class="es1-card" data-game="val" style="--card-glow:var(--es-val)">
+<div class="es1-card-head">
+<span class="es1-badge">🔫 VCT Americas</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">EVI</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Evil Geniuses</div>
+<div class="es1-elo">ELO 1801</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">LOUD</div>
+<div class="es1-elo">ELO 1792</div>
+</div>
+<div aria-hidden="true" class="es1-logo">LOU</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 33m · Upper bracket · BO3</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('val:eg:loud')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('val:vct')" type="button">League official</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>UB</th><td>Sentinels vs PRX</td><td>Lotus LIVE</td></tr>
+<tr><th>UB</th><td>EG vs LOUD</td><td>Upcoming</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-dota)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 The International 2026 · Dota 2</h3>
+<p class="es1-sub">Dota red lane — Aegis paths and buyback traps.</p>
+<p class="es1-sub" style="margin-top:6px">Rosh timing, high-ground siege, vision trade routes into rax.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="dota" style="--card-glow:var(--es-dota)">
+<div class="es1-card-head">
+<span class="es1-badge">⚔️ The International</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">TEA</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Team Liquid</div>
+<div class="es1-elo">ELO 2100</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">PSG.LGD</div>
+<div class="es1-elo">ELO 2095</div>
+</div>
+<div aria-hidden="true" class="es1-logo">PSG</div>
+</div>
+</div>
+<div class="es1-live-line">Game 3 · Roshan pit setup · Buyback chess</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('dota:tl:psg:twitch')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('dota:tl:psg:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="dota" style="--card-glow:var(--es-dota)">
+<div class="es1-card-head">
+<span class="es1-badge">⚔️ The International</span>
+<span class="es1-badge es1-badge-post">FIN</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">TEA</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Team Falcons</div>
+<div class="es1-elo">ELO 2070</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">BetBoom Team</div>
+<div class="es1-elo">ELO 2055</div>
+</div>
+<div aria-hidden="true" class="es1-logo">BET</div>
+</div>
+</div>
+<div class="es1-post-line">Falcons def. BetBoom 2-0 · Mid-lane tempo · VOD</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('dota:bb:vod')" type="button">YouTube VOD</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>WB</th><td>TL vs LGD</td><td>G3 LIVE</td></tr>
+<tr><th>LB</th><td>Falcons vs BB</td><td>2-0 FIN</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-apex)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 ALGS Year 5 Split 2 · Apex Legends</h3>
+<p class="es1-sub">Apex orange lane — match point gravity and storm reads.</p>
+<p class="es1-sub" style="margin-top:6px">Height control, beacon economy, bubble timing across pro lobbies.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="apex" style="--card-glow:var(--es-apex)">
+<div class="es1-card-head">
+<span class="es1-badge">🎯 ALGS Split 2</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">DAR</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">DarkZero Esports</div>
+<div class="es1-elo">ELO 1750</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">TSM</div>
+<div class="es1-elo">ELO 1742</div>
+</div>
+<div aria-hidden="true" class="es1-logo">TSM</div>
+</div>
+</div>
+<div class="es1-live-line">Match point · Storm Point · Ring 5 closing · Teams 8 alive</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('apex:dz:tsm')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('apex:dz:tsm:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="apex" style="--card-glow:var(--es-apex)">
+<div class="es1-card-head">
+<span class="es1-badge">🎯 ALGS Split 2</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">FAZ</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">FaZe Clan</div>
+<div class="es1-elo">ELO 1720</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Alliance</div>
+<div class="es1-elo">ELO 1715</div>
+</div>
+<div aria-hidden="true" class="es1-logo">ALL</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 55m · Winners bracket · BO6 series points</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('apex:faze:alliance')" type="button">Twitch</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>MP</th><td>DZ vs TSM</td><td>LIVE</td></tr>
+<tr><th>BR</th><td>Faze vs ALL</td><td>Upcoming</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-cs)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 BLAST Premier · World Final</h3>
+<p class="es1-sub">CS showcase — explosive entry duels and mid reads.</p>
+<p class="es1-sub" style="margin-top:6px">Ancient control, banana pressure, clutch or trade culture late round.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 BLAST Premier</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">VIT</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Vitality</div>
+<div class="es1-elo">ELO 1905</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">FaZe Clan</div>
+<div class="es1-elo">ELO 1908</div>
+</div>
+<div aria-hidden="true" class="es1-logo">FAZ</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 1-1 · Map 3 pick · Ancient pistol eco conversion</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('blast:vit:faze')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('blast:vit:faze:yt')" type="button">YouTube</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>SF1</th><td>VIT vs FAZE</td><td>Map 3 LIVE</td></tr>
+<tr><th>SF2</th><td>MOUZ vs SPI</td><td>FIN 2-1</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" style="--lane-accent:var(--es-r6)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🏆</span>
+<div>
+<h3>🏆 Six Invitational · Rainbow Six Siege</h3>
+<p class="es1-sub">R6 light blue — vertical play and plant fakes.</p>
+<p class="es1-sub" style="margin-top:6px">Drone economy, execution windows, round-to-round adaptation on bank-style sites.</p>
+</div>
+</div>
+<div class="es1-lane-links">
+<a href="#es1-bracket">Bracket</a>
+<a href="#es1-standings">Standings</a>
+</div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="r6" style="--card-glow:var(--es-r6)">
+<div class="es1-card-head">
+<span class="es1-badge">🍥 Six Invitational</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">W7M</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">w7m esports</div>
+<div class="es1-elo">ELO 1680</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">G2 Esports</div>
+<div class="es1-elo">ELO 1675</div>
+</div>
+<div aria-hidden="true" class="es1-logo">G2 </div>
+</div>
+</div>
+<div class="es1-live-line">BO3 1-0 · Map 2 · Bank · Q1 dragon control pivot to vertical</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('r6:w7m:g2')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('r6:w7m:g2:yt')" type="button">YouTube</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>QF</th><td>w7m vs G2</td><td>1-0 LIVE</td></tr>
+<tr><th>QF</th><td>SSG vs WOL</td><td>Scheduled</td></tr>
+</table></div>
+</div>
+</section>
+<section class="es1-lane" id="es1-latam" style="--lane-accent:var(--es-lol)">
+<header class="es1-lane-head">
+<div class="es1-lane-title">
+<span aria-hidden="true" class="es1-tlogo">🌎</span>
+<div>
+<h3>🌎 LATAM Esports</h3>
+<p class="es1-sub">LLA · CBLOL · VCT LATAM · Mexican CS · Smash MX — southern circuit storylines in one lane.</p>
+</div>
+</div>
+<div class="es1-lane-links"><a href="#es1-bracket">Bracket</a><a href="#es1-standings">Standings</a></div>
+</header>
+<div class="es1-lane-body">
+<div class="es1-cards">
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 LLA</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">ISU</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Isurus</div>
+<div class="es1-elo">ELO 1640</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Movistar R7</div>
+<div class="es1-elo">ELO 1635</div>
+</div>
+<div aria-hidden="true" class="es1-logo">MOV</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 19m · Regular season · BO1</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('lla:isu:r7')" type="button">Twitch LLA</button><button class="es1-stream" onclick="openMatch('lla:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="lol" style="--card-glow:var(--es-lol)">
+<div class="es1-card-head">
+<span class="es1-badge">🎮 CBLOL</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">PAI</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">paiN Gaming</div>
+<div class="es1-elo">ELO 1660</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">LOUD</div>
+<div class="es1-elo">ELO 1655</div>
+</div>
+<div aria-hidden="true" class="es1-logo">LOU</div>
+</div>
+</div>
+<div class="es1-live-line">BO1 · Baron dance · Soul point control</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('cblol:pain:loud')" type="button">Twitch CBLOL</button><button class="es1-stream" onclick="openMatch('cblol:costream')" type="button">co-stream</button></div>
+</article>
+<article class="es1-card" data-game="val" style="--card-glow:var(--es-val)">
+<div class="es1-card-head">
+<span class="es1-badge">🔫 VCT LATAM</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">LEV</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Leviatán</div>
+<div class="es1-elo">ELO 1620</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">KRÜ Esports</div>
+<div class="es1-elo">ELO 1610</div>
+</div>
+<div aria-hidden="true" class="es1-logo">KRÜ</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 1h 40m · Group stage · BO3</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('vctlat:lev:kru')" type="button">Twitch</button></div>
+</article>
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">CS2 Mexican CS scene</span>
+<span class="es1-badge es1-badge-post">FIN</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">TEA</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Team Cruelty</div>
+<div class="es1-elo">ELO 1580</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Replika</div>
+<div class="es1-elo">ELO 1560</div>
+</div>
+<div aria-hidden="true" class="es1-logo">REP</div>
+</div>
+</div>
+<div class="es1-post-line">Cruelty def. Replika 2-0 · Mirage anchor · VOD</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('mxcs:mirage')" type="button">YouTube VOD</button></div>
+</article>
+<article class="es1-card" data-game="smash" style="--card-glow:var(--es-apex)">
+<div class="es1-card-head">
+<span class="es1-badge">🎯 Smash MX</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">MAI</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Maister</div>
+<div class="es1-elo">ELO —</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">MkLeo</div>
+<div class="es1-elo">ELO —</div>
+</div>
+<div aria-hidden="true" class="es1-logo">MKL</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 3h · Top 8 · Best-of-5</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('smashmx:main')" type="button">Twitch</button></div>
+</article></div>
+<div class="es1-mini-bracket"><table>
+<tr><th>LLA</th><td>ISU vs R7</td><td>BO1 PRE</td></tr>
+<tr><th>CBLOL</th><td>paiN vs LOUD</td><td>LIVE</td></tr>
+<tr><th>VCT</th><td>LEV vs KRÜ</td><td>PRE</td></tr>
+</table></div>
+</div>
+</section>
+<section aria-labelledby="es1-cal-title" id="es1-tournament-calendar">
+<h2 class="es1-sec-title" id="es1-cal-title">📅 Tournament Calendar</h2>
+<p class="es1-sub" style="margin:-8px 0 14px">Next 14-day horizon of major tournament starts (display respects profile TZ; pipelines run UTC).</p>
+<div class="es1-cal">
+<div class="es1-cal-row">
+<div><strong>Tue Apr 28</strong></div>
+<div>IEM Dallas · CS2 — <span class="es1-sub">Group stage opens</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:0')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Wed Apr 29</strong></div>
+<div>VCT Masters · EMEA — <span class="es1-sub">Play-in</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:1')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Thu Apr 30</strong></div>
+<div>LoL MSI — <span class="es1-sub">Bracket stage</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:2')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Fri May 01</strong></div>
+<div>TI2026 Closed Qualifiers — <span class="es1-sub">SEA/OQ</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:3')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Sat May 02</strong></div>
+<div>ALGS LCQ — <span class="es1-sub">Last chance</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:4')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Sun May 03</strong></div>
+<div>CDL Major — <span class="es1-sub">Qualifier</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:5')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Mon May 04</strong></div>
+<div>Rocket League Worlds — <span class="es1-sub">Swiss</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:6')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Tue May 05</strong></div>
+<div>LLA Finals — <span class="es1-sub">Best-of-5</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:7')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Wed May 06</strong></div>
+<div>CBLOL Split playoffs — <span class="es1-sub">Upper final</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:8')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Thu May 07</strong></div>
+<div>BLAST Spring Final — <span class="es1-sub">CS2</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:9')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Fri May 08</strong></div>
+<div>Six Invitational — <span class="es1-sub">Playoffs day 3</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:10')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Sat May 09</strong></div>
+<div>VCT LATAM Finals — <span class="es1-sub">Grand final</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:11')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Sun May 10</strong></div>
+<div>Smash World Tour — <span class="es1-sub">Top 16</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:12')" type="button">Remind</button></div>
+</div>
+<div class="es1-cal-row">
+<div><strong>Mon May 11</strong></div>
+<div>Valorant Game Changers — <span class="es1-sub">Championship</span></div>
+<div style="text-align:right"><button class="es1-stream" onclick="openMatch('cal:13')" type="button">Remind</button></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="es1-fav-title" id="es1-favorites">
+<h2 class="es1-sec-title" id="es1-fav-title">⭐ Your Favorite Teams playing</h2>
+<p class="es1-sub" style="margin:-8px 0 14px">Visible when favorites are configured — sample row.</p>
+<div class="es1-fav-row">
+<article class="es1-card" data-game="lol" style="--card-glow:var(--gold,#ffd66b)">
+<div class="es1-card-head">
+<span class="es1-badge">⭐ Followed</span>
+<span class="es1-badge es1-badge-pre">PRE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">CLO</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Cloud9</div>
+<div class="es1-elo">ELO 1780</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">Team Liquid</div>
+<div class="es1-elo">ELO 1772</div>
+</div>
+<div aria-hidden="true" class="es1-logo">TEA</div>
+</div>
+</div>
+<div class="es1-pre-line">Starts in 12m · Your calendar synced · Bracket semifinal</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('fav:c9:tl')" type="button">Twitch</button><button class="es1-stream" onclick="openMatch('fav:yt')" type="button">YouTube</button></div>
+</article>
+<article class="es1-card" data-game="cs2" style="--card-glow:var(--es-cs)">
+<div class="es1-card-head">
+<span class="es1-badge">⭐ Followed</span>
+<span class="es1-badge es1-badge-live">LIVE</span>
+</div>
+<div class="es1-match-row">
+<div class="es1-team">
+<div aria-hidden="true" class="es1-logo">COM</div>
+<div class="es1-team-meta">
+<div class="es1-team-name">Complexity</div>
+<div class="es1-elo">ELO 1866</div>
+</div>
+</div>
+<span class="es1-vs">vs</span>
+<div class="es1-team" style="justify-content:flex-end;text-align:right">
+<div class="es1-team-meta" style="text-align:right">
+<div class="es1-team-name">BIG</div>
+<div class="es1-elo">ELO 1855</div>
+</div>
+<div aria-hidden="true" class="es1-logo">BIG</div>
+</div>
+</div>
+<div class="es1-live-line">BO3 · Vertigo · Economy snowball attempt</div>
+<div class="es1-streams"><button class="es1-stream" onclick="openMatch('fav:col:big')" type="button">Twitch</button></div>
+</article>
+</div>
+</section>
+<footer class="es1-sub" style="margin-top:32px;padding-top:20px;border-top:1px solid var(--line,#2c2e38);font-size:0.8rem">
+    RomanTV Esports · Tournament-centric playbook · Catalog: 9 LoL pro leagues + 102 teams, 225 CS2 teams + 7-map veto pools, Dota / Valorant / R6 coverage. Anchors <code id="es1-bracket">bracket</code> · <code id="es1-standings">standings</code>. Responsive: laptop 1280–1920, mobile 360–414 portrait stacks, TV 1920 with D-pad via <code>body.input-dpad</code>.
+  </footer>
+</div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+window.__CATALOG_PIPE_CFG__ = {
+  tab: "esports",
+  endpoints: ["/api/esports/now", "/api/esports/upcoming", "/api/esports/schedule"],
+  selectors: [".es1-cards"]
+};
+// phase4 bootstrap includes /api endpoints for verification
+</script>
+<script src="/static/i18n.js?v=17"></script>
+<script src="/static/tab_i18n_inject.js?v=3"></script>
+<script src="/static/ui_shell_wiring.js?v=5"></script>
+<script src="/static/phase4_catalog_pipes.js?v=23"></script>
+
+<script src="/static/input_profile.js?v=4"></script>
+<script src="/static/dpad_nav.js?v=6"></script>
+
+<script>
+// RTV_FIX_v1.46 (2026-04-29): unify esports to the rail-of-tiles pattern.
+// Hides legacy mock sections, injects v1a-row containers that the phase4
+// hydrator paints with real Nigma data from /api/rows?filter=esports.
+(function(){
+  function init() {
+    try {
+      // 1) Hide legacy mock content
+      var hideSels = ["#es1 > .es1-hero, #es1 > .es1-fav-row, #es1 > .es1-cards, #es1 > .es1-tour-cal"];
+      hideSels.forEach(function(sel){
+        document.querySelectorAll(sel).forEach(function(el){ el.style.display = "none"; });
+      });
+
+      // 2) Inject 6 v1a-row containers below the page header
+      var anchor = document.querySelector("#es1 > header, #es1 > .topbar, #es1 > nav") || document.querySelector("#es1");
+      if (!anchor) return;
+      var injectAfter = anchor;
+      // Find a non-hidden chip row to anchor below if it exists
+      var chipRow = document.querySelector("#es1 .esports-pills, #es1 .esports-chips, #es1 .es1-pill-row, #es1 .sp1-pill-row, #es1 .k4-chip-row");
+      if (chipRow && chipRow.offsetParent) injectAfter = chipRow;
+
+      var n_rows = 6;
+      for (var i = 0; i < n_rows; i++){
+        var sec = document.createElement("section");
+        sec.className = "v1a-row";
+        sec.setAttribute("aria-label", "Row " + (i+1));
+        sec.style.cssText = "padding:24px 28px 8px;display:none;";
+        sec.innerHTML =
+          '<div class="v1a-row-h" style="display:flex;align-items:baseline;gap:14px;margin-bottom:10px;">' +
+            '<h2 class="v1a-row-title" style="margin:0;font:800 1.15rem/1.1 sans-serif;color:#fff;">Loading…</h2>' +
+          '</div>' +
+          '<div class="v1a-scroller" style="display:flex;gap:14px;overflow-x:auto;padding:4px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;"></div>';
+        injectAfter.parentNode.insertBefore(sec, injectAfter.nextSibling);
+        injectAfter = sec;
+      }
+
+      // 3) Override the page's __CATALOG_PIPE_CFG__ to use our endpoint + selectors
+      window.__CATALOG_PIPE_CFG__ = {
+        tab: "esports",
+        endpoints: ["/api/rows?filter=esports"],
+        selectors: [".v1a-scroller"]
+      };
+      // Reveal injected rows after a tick (let hydrator populate)
+      setTimeout(function(){
+        document.querySelectorAll("#es1 > section.v1a-row").forEach(function(s){ s.style.display = ""; });
+      }, 200);
+    } catch(e) {
+      console.error("[RTV v1.46] esports injection err:", e);
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    // run after a short delay so the page's own scripts can finish
+    setTimeout(init, 50);
+  }
+})();
+</script>
+
+<script src="/static/rtv_mylist.js?v=4"></script>
+<script src="/static/rtv_hero_dyn.js?v=4" defer></script>
+<script src="/static/rtv_chips.js?v=3" defer></script>
+<script src="/static/rtv_profile_switcher.js?v=2" defer></script>
+<script src="/static/rtv_stats.js?v=3" defer></script>
+<script src="/static/rtv_search_universal.js?v=2" defer></script>
+<script src="/static/rtv_rail_arrows.js?v=2" defer></script>
+<script src="/static/rtv_active_tab.js?v=1" defer></script>
+</body>
+</html>
